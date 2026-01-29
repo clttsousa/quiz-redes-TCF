@@ -1,0 +1,1175 @@
+<!doctype html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quiz • Redes de Computadores</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <meta name="color-scheme" content="dark" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          boxShadow: {
+            glow: '0 0 0 1px rgba(255,255,255,.10), 0 18px 60px rgba(0,0,0,.55)'
+          },
+          colors: {
+            base: { 950:'#070a14', 900:'#0b1020', 850:'#0f1630', 800:'#121b3a' }
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    :root{
+      color-scheme: dark;
+      --brand-1: #0B4A8B; /* TCF azul */
+      --brand-2: #ff4081; /* azul profundo */
+      --brand-3: #46B0FF; /* azul suave (highlight) */
+      --surface: rgba(255,255,255,.06);
+      --surface-2: rgba(255,255,255,.04);
+      --stroke: rgba(255,255,255,.10);
+      --muted: rgba(255,255,255,.62);
+    }
+
+    /* Selects no dark (dropdown legível) */
+    select, option{
+      background-color: #0f1630;
+      color: rgba(255,255,255,.92);
+    }
+
+    /* Pattern sutil de “rede” (pontos + linhas) */
+    .tech-pattern{
+      background-color: rgba(7,10,20,0.35);
+
+      background-image:
+        url("data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%221200%22%20height=%22800%22%20viewBox=%220%200%201200%20800%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id=%22g%22%20x1=%220%22%20y1=%220%22%20x2=%221%22%20y2=%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset=%220%22%20stop-color=%22#46B0FF%22%20stop-opacity=%220.22%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset=%221%22%20stop-color=%22#0B4A8B%22%20stop-opacity=%220.18%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3Cfilter%20id=%22b%22%20x=%22-20%%22%20y=%22-20%%22%20width=%22140%%22%20height=%22140%%22%3E%0A%20%20%20%20%20%20%3CfeGaussianBlur%20stdDeviation=%220.6%22/%3E%0A%20%20%20%20%3C/filter%3E%0A%20%20%3C/defs%3E%0A%20%20%3Cg%20fill=%22none%22%20stroke=%22url(#g)%22%20stroke-width=%221%22%20opacity=%220.55%22%20filter=%22url(#b)%22%3E%0A%20%20%20%20%3Cpath%20d=%22M80%20120%20L280%2070%20L420%20150%20L610%2090%20L760%20160%20L980%20110%22/%3E%0A%20%20%20%20%3Cpath%20d=%22M140%20260%20L320%20210%20L500%20300%20L700%20240%20L880%20330%20L1060%20250%22/%3E%0A%20%20%20%20%3Cpath%20d=%22M90%20420%20L260%20500%20L420%20430%20L600%20520%20L780%20460%20L980%20540%22/%3E%0A%20%20%20%20%3Cpath%20d=%22M170%20650%20L360%20600%20L520%20690%20L710%20620%20L910%20700%22/%3E%0A%20%20%20%20%3Cpath%20d=%22M280%2070%20L320%20210%20L260%20500%20L360%20600%22/%3E%0A%20%20%20%20%3Cpath%20d=%22M420%20150%20L500%20300%20L420%20430%20L520%20690%22/%3E%0A%20%20%20%20%3Cpath%20d=%22M610%2090%20L700%20240%20L600%20520%20L710%20620%22/%3E%0A%20%20%20%20%3Cpath%20d=%22M760%20160%20L880%20330%20L780%20460%20L910%20700%22/%3E%0A%20%20%20%20%3Cpath%20d=%22M980%20110%20L1060%20250%20L980%20540%22/%3E%0A%20%20%3C/g%3E%0A%20%20%3Cg%20fill=%22#46B0FF%22%20opacity=%220.55%22%3E%0A%20%20%20%20%3Ccircle%20cx=%2280%22%20cy=%22120%22%20r=%223%22/%3E%3Ccircle%20cx=%22280%22%20cy=%2270%22%20r=%223%22/%3E%3Ccircle%20cx=%22420%22%20cy=%22150%22%20r=%223%22/%3E%0A%20%20%20%20%3Ccircle%20cx=%22610%22%20cy=%2290%22%20r=%223%22/%3E%3Ccircle%20cx=%22760%22%20cy=%22160%22%20r=%223%22/%3E%3Ccircle%20cx=%22980%22%20cy=%22110%22%20r=%223%22/%3E%0A%20%20%20%20%3Ccircle%20cx=%22140%22%20cy=%22260%22%20r=%223%22/%3E%3Ccircle%20cx=%22320%22%20cy=%22210%22%20r=%223%22/%3E%3Ccircle%20cx=%22500%22%20cy=%22300%22%20r=%223%22/%3E%0A%20%20%20%20%3Ccircle%20cx=%22700%22%20cy=%22240%22%20r=%223%22/%3E%3Ccircle%20cx=%22880%22%20cy=%22330%22%20r=%223%22/%3E%3Ccircle%20cx=%221060%22%20cy=%22250%22%20r=%223%22/%3E%0A%20%20%20%20%3Ccircle%20cx=%2290%22%20cy=%22420%22%20r=%223%22/%3E%3Ccircle%20cx=%22260%22%20cy=%22500%22%20r=%223%22/%3E%3Ccircle%20cx=%22420%22%20cy=%22430%22%20r=%223%22/%3E%0A%20%20%20%20%3Ccircle%20cx=%22600%22%20cy=%22520%22%20r=%223%22/%3E%3Ccircle%20cx=%22780%22%20cy=%22460%22%20r=%223%22/%3E%3Ccircle%20cx=%22980%22%20cy=%22540%22%20r=%223%22/%3E%0A%20%20%20%20%3Ccircle%20cx=%22170%22%20cy=%22650%22%20r=%223%22/%3E%3Ccircle%20cx=%22360%22%20cy=%22600%22%20r=%223%22/%3E%3Ccircle%20cx=%22520%22%20cy=%22690%22%20r=%223%22/%3E%0A%20%20%20%20%3Ccircle%20cx=%22710%22%20cy=%22620%22%20r=%223%22/%3E%3Ccircle%20cx=%22910%22%20cy=%22700%22%20r=%223%22/%3E%0A%20%20%3C/g%3E%0A%3C/svg%3E"),
+        radial-gradient(circle at 15% 20%, rgba(70,176,255,.10), transparent 55%),
+        radial-gradient(circle at 85% 18%, rgba(11,74,139,.08), transparent 55%),
+        radial-gradient(circle at 60% 92%, rgba(70,176,255,.06), transparent 55%),
+        linear-gradient(to bottom, rgba(255,255,255,.035), transparent 40%);
+      background-size: cover, auto, auto, auto, auto;
+      background-position: center, center, center, center, center;
+      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+      background-blend-mode: screen, screen, screen, screen, normal;
+    }
+
+    /* Linhas tipo cabo/onda (bem leve) */
+    .wave-overlay{
+      position:absolute; inset:-1px;
+      background:
+        radial-gradient(1200px 420px at 50% 0%, rgba(11,74,139,.12), transparent 60%),
+        radial-gradient(700px 220px at 20% 0%, rgba(70,176,255,.10), transparent 60%),
+        radial-gradient(700px 220px at 80% 0%, rgba(70,176,255,.08), transparent 60%),
+        repeating-linear-gradient( 130deg, rgba(255,255,255,.05) 0 1px, transparent 1px 140px);
+      opacity:.85;
+      mask-image: linear-gradient(to bottom, black, transparent 70%);
+      pointer-events:none;
+    }
+
+    ::-webkit-scrollbar{ height:10px; width:10px; }
+    ::-webkit-scrollbar-thumb{ background: rgba(255,255,255,.14); border-radius: 999px; }
+    ::-webkit-scrollbar-track{ background: rgba(255,255,255,.05); }
+
+    @media (prefers-reduced-motion: reduce){
+      *{ animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    }
+  
+    /* AAA tech touches */
+    .scanlines::before{
+      content:"";
+      position:absolute; inset:0;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,.035) 0px,
+        rgba(255,255,255,.035) 1px,
+        transparent 2px,
+        transparent 6px
+      );
+      opacity:.10;
+      pointer-events:none;
+      mix-blend-mode: overlay;
+      mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+    }
+    .neon-border card-float{
+      position:relative;
+    }
+    .neon-border card-float::after{
+      content:"";
+      position:absolute; inset:-1px;
+      border-radius: 24px;
+      padding:1px;
+      background: linear-gradient(135deg, rgba(70,176,255,.55), rgba(11,74,139,.15), rgba(70,176,255,.35));
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events:none;
+      opacity:.55;
+      filter: drop-shadow(0 0 16px rgba(70,176,255,.10));
+    }
+
+  
+  <style>
+  .card-float{ transition: transform .25s ease, box-shadow .25s ease; }
+  .card-float:hover{ transform: translateY(-2px); }
+  
+    /* Answer buttons AAA */
+    .answer-btn{
+      position: relative;
+      transform: translateZ(0);
+      transition: transform .18s ease, background-color .18s ease, border-color .18s ease, box-shadow .18s ease;
+      overflow: hidden;
+    }
+    .answer-btn::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: linear-gradient(135deg, rgba(70,176,255,.35), rgba(11,74,139,.05), rgba(70,176,255,.25));
+      opacity:0;
+      transition: opacity .18s ease;
+      pointer-events:none;
+    }
+    .answer-btn:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 14px 40px rgba(0,0,0,.35), 0 0 0 1px rgba(255,255,255,.08);
+    }
+    .answer-btn:hover::before{ opacity:.55; }
+    .answer-btn:active{ transform: translateY(0px) scale(.995); }
+    .answer-selected{
+      border-color: rgba(70,176,255,.55) !important;
+      background-color: rgba(255,255,255,.10) !important;
+      box-shadow: 0 18px 55px rgba(0,0,0,.45), 0 0 0 1px rgba(70,176,255,.22), 0 0 26px rgba(70,176,255,.10);
+    }
+    .answer-selected::before{ opacity:.75; }
+
+  
+    /* animated gradient overlay for tech feel */
+    @keyframes drift {
+      0% { transform: translate3d(-2%, -1%, 0) scale(1.02); opacity: .55; }
+      50%{ transform: translate3d(2%, 1%, 0) scale(1.04); opacity: .75; }
+      100%{ transform: translate3d(-2%, -1%, 0) scale(1.02); opacity: .55; }
+    }
+    .bg-drift{
+      position:absolute; inset:-40px;
+      background: radial-gradient(900px 380px at 15% 10%, rgba(70,176,255,.10), transparent 60%),
+                  radial-gradient(700px 320px at 85% 15%, rgba(11,74,139,.12), transparent 60%),
+                  radial-gradient(900px 420px at 50% 95%, rgba(70,176,255,.08), transparent 60%);
+      animation: drift 10s ease-in-out infinite;
+      pointer-events:none;
+      mix-blend-mode: screen;
+      filter: blur(0.8px);
+    }
+
+  
+    /* Cyberpunk glow borders + scan pulse */
+    .answer-btn::after{
+      content:"";
+      position:absolute; inset:-1px;
+      border-radius: 18px;
+      padding:1px;
+      background: linear-gradient(90deg,
+        rgba(70,176,255,.55),
+        rgba(255,64,129,.45),
+        rgba(70,176,255,.55)
+      );
+      opacity:.18;
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events:none;
+      filter: drop-shadow(0 0 18px rgba(70,176,255,.10));
+      transition: opacity .18s ease, filter .18s ease;
+    }
+    .answer-btn:hover::after{
+      opacity:.35;
+      filter: drop-shadow(0 0 22px rgba(70,176,255,.14));
+    }
+    .answer-selected::after{
+      opacity:.60;
+      filter: drop-shadow(0 0 30px rgba(70,176,255,.18));
+    }
+
+    @keyframes scanPulse {
+      0%{ transform: translateX(-120%); opacity: 0; }
+      10%{ opacity: .55; }
+      50%{ opacity: .85; }
+      90%{ opacity: .55; }
+      100%{ transform: translateX(120%); opacity: 0; }
+    }
+    .scan-pulse{
+      position: relative;
+      overflow: hidden;
+    }
+    .scan-pulse::before{
+      content:"";
+      position:absolute; top:-20%; left:-40%;
+      width: 60%;
+      height: 160%;
+      background: linear-gradient(90deg,
+        transparent,
+        rgba(70,176,255,.25),
+        rgba(255,64,129,.18),
+        rgba(70,176,255,.25),
+        transparent
+      );
+      transform: skewX(-18deg);
+      animation: scanPulse .55s ease-out 1;
+      pointer-events:none;
+      mix-blend-mode: screen;
+      filter: blur(0.8px);
+    }
+
+    /* HUD particles layer */
+    #hudParticles{ mix-blend-mode: screen; filter: drop-shadow(0 0 10px rgba(70,176,255,.08)); }
+
+  
+    /* Typography upgrade */
+    .font-display{ font-family: "Sora", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif; letter-spacing: -0.01em; }
+    h1,h2,h3,.headline{ font-family: "Sora", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif; }
+
+    /* HUD status bar */
+    .hudbar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px;
+      padding:10px 14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    .hudstat{
+      display:flex; align-items:center; gap:8px;
+      padding:6px 10px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+      border-radius: 999px;
+      font-size: 12px;
+      color: rgba(255,255,255,.78);
+      white-space: nowrap;
+    }
+    .dot-ok{ width:8px; height:8px; border-radius:999px; background: rgba(34,197,94,.9); box-shadow: 0 0 18px rgba(34,197,94,.25); }
+    .dot-warn{ width:8px; height:8px; border-radius:999px; background: rgba(250,204,21,.9); box-shadow: 0 0 18px rgba(250,204,21,.20); }
+
+    /* Softer global glow: focus on selections only */
+    .neon-border::after{ opacity:.38; }
+    .answer-selected{ box-shadow: 0 18px 55px rgba(0,0,0,.45), 0 0 0 1px rgba(70,176,255,.20), 0 0 24px rgba(255,64,129,.10), 0 0 26px rgba(70,176,255,.10); }
+    #btnConfirm:not([disabled]){ box-shadow: 0 18px 55px rgba(0,0,0,.35), 0 0 0 1px rgba(70,176,255,.16), 0 0 28px rgba(70,176,255,.12); }
+
+    /* Telecom-ish RF waves overlay */
+    .rf-waves{
+      position:absolute; inset:0;
+      background:
+        radial-gradient(900px 320px at 12% 30%, rgba(70,176,255,.10), transparent 60%),
+        radial-gradient(900px 320px at 88% 20%, rgba(255,64,129,.08), transparent 60%),
+        repeating-radial-gradient(circle at 18% 35%,
+          rgba(70,176,255,.06) 0px,
+          rgba(70,176,255,.06) 1px,
+          transparent 10px,
+          transparent 18px
+        );
+      opacity:.55;
+      mix-blend-mode: screen;
+      pointer-events:none;
+      mask-image: radial-gradient(circle at 50% 30%, black, transparent 70%);
+    }
+
+    /* Big modal */
+    .modal-overlay{
+      position:fixed; inset:0;
+      background: rgba(0,0,0,.55);
+      backdrop-filter: blur(10px);
+      display:none;
+      z-index: 50;
+      padding: 26px;
+    }
+    .modal-overlay.open{ display:block; }
+    .modal{
+      max-width: 1100px;
+      margin: 0 auto;
+      height: calc(100vh - 52px);
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(10,14,28,.78), rgba(10,14,28,.62));
+      box-shadow: 0 30px 90px rgba(0,0,0,.55);
+      overflow: hidden;
+      position: relative;
+    }
+    .modal header{
+      display:flex; align-items:center; justify-content:space-between;
+      gap: 12px;
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+    }
+    .modal .body{
+      height: calc(100% - 64px);
+      overflow:auto;
+      padding: 16px;
+    }
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      color: rgba(255,255,255,.75);
+    }
+    .btn-ghost{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      padding: 10px 12px;
+      border-radius: 14px;
+      font-weight: 800;
+      font-size: 13px;
+      color: rgba(255,255,255,.82);
+      transition: background .18s ease, transform .18s ease;
+    }
+    .btn-ghost:hover{ background: rgba(255,255,255,.10); transform: translateY(-1px); }
+    .btn-primary{
+      background: linear-gradient(135deg, rgba(70,176,255,.95), rgba(255,64,129,.70));
+      padding: 10px 12px;
+      border-radius: 14px;
+      font-weight: 900;
+      font-size: 13px;
+      color: #061021;
+      box-shadow: 0 18px 55px rgba(0,0,0,.35), 0 0 30px rgba(70,176,255,.14);
+      transition: transform .18s ease, opacity .18s ease;
+    }
+    .btn-primary:hover{ transform: translateY(-1px); opacity:.98; }
+    .card{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      border-radius: 22px;
+      padding: 14px;
+    }
+    .miniq button{
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      border-radius: 16px;
+      padding: 12px;
+      text-align:left;
+      transition: transform .16s ease, background .16s ease, border-color .16s ease;
+      font-weight: 800;
+      color: rgba(255,255,255,.85);
+    }
+    .miniq button:hover{ transform: translateY(-2px); background: rgba(255,255,255,.08); }
+    .miniq .ok{ border-color: rgba(34,197,94,.45); background: rgba(34,197,94,.10); }
+    .miniq .bad{ border-color: rgba(244,63,94,.45); background: rgba(244,63,94,.10); }
+
+  
+    /* Cyberpunk animated gradient shift */
+    @keyframes borderShift {
+      0% { filter: hue-rotate(0deg); }
+      50%{ filter: hue-rotate(18deg); }
+      100%{ filter: hue-rotate(0deg); }
+    }
+    .answer-btn::after{ animation: borderShift 3.6s ease-in-out infinite; }
+
+    /* Ripple interaction */
+    .ripple{
+      position: relative;
+      overflow: hidden;
+    }
+    .ripple::before{
+      content:"";
+      position:absolute;
+      left: var(--rx, 50%);
+      top: var(--ry, 50%);
+      width: 0px;
+      height: 0px;
+      transform: translate(-50%, -50%);
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(255,255,255,.28), rgba(70,176,255,.18), transparent 65%);
+      opacity: 0;
+      pointer-events:none;
+    }
+    .ripple.rippling::before{
+      opacity: 1;
+      animation: rippleAnim .55s ease-out 1;
+    }
+    @keyframes rippleAnim{
+      0%{ width:0px; height:0px; opacity:.95; }
+      100%{ width: 520px; height: 520px; opacity:0; }
+    }
+
+  
+    /* Data stream on hover for AAA telecom feel */
+    @keyframes dataStream {
+      0% { transform: translateX(-120%); opacity: 0; }
+      20%{ opacity: .55; }
+      80%{ opacity: .55; }
+      100%{ transform: translateX(120%); opacity: 0; }
+    }
+    .answer-btn:hover .stream,
+    .btn-primary:hover .stream,
+    .btn-ghost:hover .stream{
+      animation: dataStream .65s ease-out 1;
+    }
+    .stream{
+      position:absolute;
+      top:-30%;
+      left:-40%;
+      width:50%;
+      height:160%;
+      background: linear-gradient(90deg,
+        transparent,
+        rgba(70,176,255,.18),
+        rgba(255,64,129,.14),
+        rgba(70,176,255,.18),
+        transparent
+      );
+      transform: skewX(-18deg);
+      opacity: 0;
+      pointer-events:none;
+      mix-blend-mode: screen;
+    }
+    .answer-btn{ position: relative; }
+    .answer-btn .stream{ border-radius: 16px; }
+    .btn-primary, .btn-ghost{ position: relative; overflow: hidden; }
+
+  
+    /* High-tech telecom overlays */
+    .holo-grid{
+      position:absolute; inset:0;
+      background:
+        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+      opacity: .07;
+      mix-blend-mode: overlay;
+      pointer-events:none;
+      mask-image: radial-gradient(circle at 50% 40%, black 0%, transparent 72%);
+    }
+
+    @keyframes fiberMove {
+      0% { transform: translate3d(-6%, -2%, 0) rotate(-6deg); opacity: .45; }
+      50%{ transform: translate3d(6%, 2%, 0) rotate(-6deg); opacity: .70; }
+      100%{ transform: translate3d(-6%, -2%, 0) rotate(-6deg); opacity: .45; }
+    }
+    .fiber-strands{
+      position:absolute; inset:-120px;
+      background:
+        repeating-linear-gradient(115deg,
+          rgba(70,176,255,.00) 0px,
+          rgba(70,176,255,.00) 18px,
+          rgba(70,176,255,.08) 19px,
+          rgba(70,176,255,.00) 22px
+        ),
+        repeating-linear-gradient(65deg,
+          rgba(255,64,129,.00) 0px,
+          rgba(255,64,129,.00) 26px,
+          rgba(255,64,129,.06) 27px,
+          rgba(255,64,129,.00) 30px
+        );
+      animation: fiberMove 14s ease-in-out infinite;
+      opacity: .28;
+      mix-blend-mode: screen;
+      pointer-events:none;
+      filter: blur(0.8px);
+      mask-image: radial-gradient(circle at 50% 45%, black 0%, transparent 70%);
+    }
+
+    /* Corner brackets for neon-border elements */
+    .neon-brackets{
+      position:absolute; inset:0; pointer-events:none;
+      opacity:.75;
+    }
+    .neon-brackets:before,
+    .neon-brackets:after{
+      content:"";
+      position:absolute;
+      width:18px; height:18px;
+      border:2px solid rgba(70,176,255,.35);
+      filter: drop-shadow(0 0 16px rgba(70,176,255,.12));
+    }
+    .neon-brackets:before{ top:14px; left:14px; border-right:none; border-bottom:none; border-radius: 10px 0 0 0; }
+    .neon-brackets:after{ bottom:14px; right:14px; border-left:none; border-top:none; border-radius: 0 0 10px 0; }
+
+  
+    /* Glow inteligente: menos brilho global, mais foco no selecionado/confirmar */
+    .neon-border::after{ opacity:.22 !important; filter: drop-shadow(0 0 18px rgba(70,176,255,.08)); }
+    .answer-btn::after{ opacity:.16; filter: drop-shadow(0 0 16px rgba(70,176,255,.07)); }
+    .answer-btn:hover::after{ opacity:.26; }
+    .answer-selected::after{ opacity:.62; filter: drop-shadow(0 0 28px rgba(70,176,255,.14)) drop-shadow(0 0 22px rgba(255,64,129,.10)); }
+    #btnConfirm:not([disabled]){ box-shadow: 0 18px 55px rgba(0,0,0,.35), 0 0 0 1px rgba(70,176,255,.18), 0 0 34px rgba(70,176,255,.14); }
+
+  
+    /* Micro animações premium */
+    @keyframes breathe {
+      0%,100%{ transform: scaleX(1); filter: brightness(1); opacity: .9; }
+      50%{ transform: scaleX(1.02); filter: brightness(1.12); opacity: 1; }
+    }
+    #progressBar{ transform-origin: left center; }
+    .breathing{ animation: breathe 2.6s ease-in-out infinite; }
+
+    .q-enter{ animation: qEnter .28s cubic-bezier(.2,.9,.2,1) both; }
+    @keyframes qEnter{
+      from{ opacity:0; transform: translateY(10px); filter: blur(6px); }
+      to{ opacity:1; transform: translateY(0px); filter: blur(0px); }
+    }
+    .q-exit{ animation: qExit .22s ease both; }
+    @keyframes qExit{
+      from{ opacity:1; transform: translateY(0px); filter: blur(0px); }
+      to{ opacity:0; transform: translateY(-8px); filter: blur(6px); }
+    }
+
+    .accordion{
+      overflow: hidden;
+      transition: max-height .35s cubic-bezier(.2,.9,.2,1), opacity .2s ease;
+      max-height: 0px;
+      opacity: 0;
+    }
+    .accordion.open{
+      max-height: 600px;
+      opacity: 1;
+    }
+
+  
+    /* Mini mapa de rede */
+    #netMini .mini-step{ display:inline-flex; align-items:center; gap:6px; padding:4px 6px; border-radius: 10px; border:1px solid rgba(255,255,255,.08); background: rgba(0,0,0,.18); }
+    #netMini .mini-link{ height:2px; flex: 1; background: rgba(255,255,255,.10); border-radius: 999px; }
+    #netMini .mini-step.active{ border-color: rgba(70,176,255,.28); box-shadow: 0 0 18px rgba(70,176,255,.10); color: rgba(255,255,255,.85); }
+    #netMini .mini-step.active i{ color: rgba(70,176,255,.95); }
+    @keyframes flowPulse{
+      0%,100%{ transform: translateX(-10%); opacity:.75; }
+      50%{ transform: translateX(10%); opacity: 1; }
+    }
+    #miniFlow{ animation: flowPulse 2.8s ease-in-out infinite; }
+
+  
+    /* Data stream orientado */
+    @keyframes dsMove { 
+      0%{ offset-distance: 0%; opacity: .2; }
+      20%{ opacity: .9; }
+      100%{ offset-distance: 100%; opacity: 0; }
+    }
+    #dsDot{
+      offset-path: path("M40 40 C 260 40, 740 180, 960 180");
+      animation: dsMove .55s ease-out 1;
+      filter: drop-shadow(0 0 16px rgba(70,176,255,.20));
+    }
+
+  
+    /* Novo fluxo: Próxima salva a resposta */
+    #btnConfirm{ display:none !important; }
+    #btnNext{
+      background: linear-gradient(135deg, rgba(70,176,255,.95), rgba(11,74,139,.85));
+      border: none !important;
+      box-shadow: 0 18px 55px rgba(0,0,0,.35), 0 0 0 1px rgba(70,176,255,.18), 0 0 34px rgba(70,176,255,.14);
+    }
+    #btnNext:hover{ opacity: .96; }
+
+    /* Mode switch */
+    .mode-switch{ width:46px; height:24px; border-radius:999px; position:relative; background: rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12); transition: .2s ease; }
+    .mode-switch .mode-knob{ position:absolute; top:3px; left:3px; width:18px; height:18px; border-radius:999px; background: rgba(255,255,255,.8); box-shadow: 0 10px 20px rgba(0,0,0,.35); transition: .22s cubic-bezier(.2,.9,.2,1); }
+    .mode-switch.on{ background: rgba(70,176,255,.16); border-color: rgba(70,176,255,.20); }
+    .mode-switch.on .mode-knob{ left:25px; background: rgba(70,176,255,.92); }
+
+    /* Tipografia/Hiearquia */
+    #qText{ font-size: 1.25rem !important; line-height: 1.35 !important; font-weight: 800 !important; letter-spacing: -0.01em; }
+    #qTitle{ font-size: .72rem; letter-spacing: .22em; text-transform: uppercase; opacity: .82; }
+    #studyHint{ line-height: 1.35; }
+    .answer-btn{ padding: 16px 16px !important; }
+    .answer-btn .ans-letter{ font-size: 12px !important; }
+    .answer-btn .ans-text{ font-size: 14px !important; line-height: 1.4 !important; }
+
+    /* Glass refine: bordas sutis, sombra realista, menos ruído */
+    .glass-card{ border-color: rgba(255,255,255,.09) !important; background: rgba(255,255,255,.045) !important; }
+    .glass-card, .hudbar, #netMini{ box-shadow: 0 24px 80px rgba(0,0,0,.45); }
+    .hudbar{ background: rgba(255,255,255,.035) !important; border-color: rgba(255,255,255,.09) !important; }
+
+  
+    /* Foco por teclado */
+    .answer-btn.focused{ outline: 2px solid rgba(70,176,255,.35); box-shadow: 0 0 0 1px rgba(70,176,255,.25), 0 0 30px rgba(70,176,255,.10); }
+
+  
+    body:not(.mode-study) #dataStream{ display:none !important; }
+    body:not(.mode-study) .answer-btn.focused{ outline-color: rgba(255,255,255,.16); box-shadow:none; }
+
+  
+    /* tsParticles background layer */
+    #tsparticles{ position:absolute; inset:0; }
+    #tsparticles canvas{ position:absolute !important; inset:0; width:100% !important; height:100% !important; }
+    .telecom-lines{ mix-blend-mode: screen; pointer-events:none; }
+
+    /* Refino AAA: menos glow geral, mais onde importa */
+    .answer-btn{ box-shadow: 0 10px 28px rgba(0,0,0,.24); }
+    .answer-btn:not(.answer-selected):hover{ box-shadow: 0 12px 34px rgba(0,0,0,.28); }
+    .answer-btn.answer-selected{ box-shadow: 0 0 0 1px rgba(70,176,255,.30), 0 0 38px rgba(70,176,255,.18), 0 16px 40px rgba(0,0,0,.25); }
+    #btnNext:not([disabled]){ box-shadow: 0 0 0 1px rgba(70,176,255,.24), 0 0 42px rgba(70,176,255,.18); }
+
+    /* Transição curta entre perguntas */
+    .q-slide-enter{ transform: translateX(14px); filter: blur(6px); opacity: 0; }
+    .q-slide-enter-active{ transition: transform .22s ease, filter .22s ease, opacity .22s ease; transform: translateX(0); filter: blur(0); opacity: 1; }
+
+
+    @media (max-width: 640px){
+      header .shadow-glow{ box-shadow: none; }
+      .glass-card{ padding: 16px !important; border-radius: 22px !important; }
+      button{ -webkit-tap-highlight-color: transparent; }
+      .rf-wave{ opacity: .65; }
+      #answers button, #answers .answer-btn{ min-height: 54px; }
+    }
+    
+</style>
+
+  <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/shift-away.css">
+  <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#0b4a8b">
+</head>
+
+<body class="min-h-screen bg-gradient-to-b from-base-950 via-base-900 to-base-950 text-white/90">
+
+  <div class="pointer-events-none fixed inset-0 -z-10 tech-pattern">
+    <div class="bg-drift"></div>
+    <div class="fiber-strands"></div>
+    <div class="holo-grid"></div>
+    <div id="tsparticles" class="absolute inset-0"></div>
+    <canvas id="rfWaveCanvas" class="absolute inset-0 rf-wave" aria-hidden="true"></canvas>
+    <svg class="telecom-lines absolute inset-0 h-full w-full opacity-30" viewBox="0 0 1000 600" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="telecomGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="rgba(70,176,255,.65)"/>
+          <stop offset="0.55" stop-color="rgba(255,64,129,.30)"/>
+          <stop offset="1" stop-color="rgba(70,176,255,.45)"/>
+        </linearGradient>
+        <filter id="softGlow">
+          <feGaussianBlur stdDeviation="2.2" result="b"/>
+          <feColorMatrix in="b" type="matrix"
+            values="1 0 0 0 0
+                    0 1 0 0 0
+                    0 0 1 0 0
+                    0 0 0 .55 0"/>
+          <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <!-- "Fibra" + ondas RF nos cantos -->
+      <path d="M-40,520 C180,420 260,610 470,500 C640,410 720,560 1040,430" stroke="url(#telecomGrad)" stroke-width="2" fill="none" opacity=".55" filter="url(#softGlow)"/>
+      <path d="M-60,120 C220,40 320,220 520,120 C720,20 820,190 1080,70" stroke="url(#telecomGrad)" stroke-width="1.6" fill="none" opacity=".32" filter="url(#softGlow)"/>
+      <path d="M850,30 a120,120 0 0 1 120,120" stroke="rgba(70,176,255,.35)" stroke-width="2" fill="none" opacity=".22"/>
+      <path d="M865,45 a95,95 0 0 1 95,95" stroke="rgba(255,64,129,.28)" stroke-width="2" fill="none" opacity=".18"/>
+      <circle cx="120" cy="540" r="4" fill="rgba(70,176,255,.75)" opacity=".55"/>
+      <circle cx="470" cy="500" r="3" fill="rgba(255,64,129,.65)" opacity=".40"/>
+      <circle cx="720" cy="560" r="3.5" fill="rgba(70,176,255,.70)" opacity=".45"/>
+    </svg>
+
+<div class="wave-overlay"></div>
+  </div>
+
+  <header class="sticky top-0 z-30 border-b border-white/10 bg-base-900/65 backdrop-blur">
+    <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-3 sm:px-4 py-3">
+      <div class="flex items-center gap-3 min-w-0">
+        <div class="flex items-center justify-center rounded-2xl border border-white/15 bg-white/90 px-4 py-2 shadow-glow">
+          <div class="rounded-xl bg-[linear-gradient(135deg,rgba(255,255,255,.98),rgba(255,255,255,.86))] px-3 py-1.5">
+            <img src="assets/tcf-telecom.png" alt="TCF Telecom" class="h-8 sm:h-10 w-auto select-none [filter:drop-shadow(0_2px_10px_rgba(0,0,0,.18))_contrast(1.05)_saturate(1.1)]" draggable="false" />
+          </div>
+        </div>
+        <div class="min-w-0">
+          <h1 class="truncate text-[14px] font-extrabold tracking-tight text-white/85">Quiz: Redes de Computadores</h1>
+          <p class="truncate text-xs text-white/55">Simulado + estudo com explicações • PC e celular</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button id="btnSound" class="rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold hover:bg-white/10 transition">
+          <span class="sm:hidden">🔊</span>
+          <span class="hidden sm:inline">🔊 Sons: <span id="soundState">ON</span></span>
+        </button>
+        <button id="btnMemes" data-tip="Ativar/desativar memes do resultado" class="rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold hover:bg-white/10 transition">
+          <span class="sm:hidden">😄</span>
+          <span class="hidden sm:inline">😄 Memes: <span id="memeState">ON</span></span>
+        </button>
+        <button id="btnHow" class="rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold hover:bg-white/10 transition" title="Ajuda (H)">
+          ❔ Ajuda
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-6xl px-4 py-5">
+    <!-- HOME -->
+    <section id="screenHome" class="block">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+        <div class="col-span-12 lg:col-span-8">
+          <div class="rounded-3xl border border-white/10 bg-white/[0.055] shadow-glow">
+            <div class="p-5">
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <p class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">
+                    ⚡ Atalhos: <b class="text-white/90">1–4</b> • <b class="text-white/90">Enter</b> • <b class="text-white/90">H</b> • <b class="text-white/90">Esc</b>
+                  </p>
+                  <h2 class="mt-3 text-2xl font-black tracking-tight">Configurar partida</h2>
+                  <p class="mt-1 text-sm text-white/60">Layout limpo, foco no conteúdo e revisão completa no final.</p>
+                </div>
+                <div class="hidden md:flex items-center gap-2">
+                  <button id="btnReset" class="rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold hover:bg-white/10 transition">
+                    ♻️ Resetar recordes
+                  </button>
+                </div>
+              </div>
+
+              <div class="mt-5 grid grid-cols-1 sm:grid-cols-12 gap-3">
+                <div class="col-span-12 sm:col-span-6">
+                  <label class="text-xs text-white/60">Modo</label>
+                  <select id="selMode" class="mt-1 w-full rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-sm focus:ring-4 focus:ring-[rgba(70,176,255,.22)]">
+                    <option value="mixed">Misto (todas as categorias)</option>
+                    <option value="category">Por categoria</option>
+                  </select>
+                </div>
+
+                <div class="col-span-12 sm:col-span-6" id="wrapCategory" hidden>
+                  <label class="text-xs text-white/60">Categoria</label>
+                  <select id="selCategory" class="mt-1 w-full rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-sm focus:ring-4 focus:ring-[rgba(70,176,255,.22)]"></select>
+                </div>
+
+                <div class="col-span-12 sm:col-span-4">
+                  <label class="text-xs text-white/60">Perguntas</label>
+                  <select id="selCount" class="mt-1 w-full rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-sm focus:ring-4 focus:ring-[rgba(70,176,255,.22)]">
+                    <option>5</option><option>10</option><option selected>15</option><option>20</option><option>25</option>
+                  </select>
+                </div>
+
+                <div class="col-span-12 sm:col-span-4">
+                  <label class="text-xs text-white/60">Dificuldade</label>
+                  <select id="selDifficulty" class="mt-1 w-full rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-sm focus:ring-4 focus:ring-[rgba(70,176,255,.22)]">
+                    <option value="all" selected>Todas</option>
+                    <option value="easy">Fácil</option>
+                    <option value="medium">Médio</option>
+                    <option value="hard">Difícil</option>
+                  </select>
+                </div>
+
+                <div class="col-span-12 lg:col-span-4 order-last lg:order-none">
+                  <label class="text-xs text-white/60">Timer</label>
+                  <div class="mt-1 flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-3 py-2">
+                    <input id="chkTimer" type="checkbox" class="h-4 w-4 accent-violet-500" />
+                    <span class="text-sm text-white/70">Ativar</span>
+                    <span class="ml-auto text-xs text-white/50">bônus por rapidez</span>
+                  </div>
+                </div>
+
+                <div class="col-span-6" id="wrapTimer" hidden>
+                  <label class="text-xs text-white/60">Tempo por pergunta</label>
+                  <select id="selTimer" class="mt-1 w-full rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-sm focus:ring-4 focus:ring-[rgba(70,176,255,.22)]">
+                    <option value="10">10s</option>
+                    <option value="15" selected>15s</option>
+                    <option value="20">20s</option>
+                    <option value="30">30s</option>
+                  </select>
+                </div>
+
+                <div class="col-span-12 mt-1 flex flex-wrap gap-2">
+                  <button id="btnStart" class="rounded-2xl bg-[linear-gradient(135deg,var(--brand-1),var(--brand-3))] px-4 py-3 text-sm font-extrabold text-white shadow-glow hover:opacity-95 transition">
+                    ▶ Começar (valendo)
+                  </button>
+                  <button id="btnPractice" class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-bold hover:bg-white/10 transition">
+                    🧠 Treino (sem pontos)
+                  </button>
+                </div>
+              </div>
+
+              <div class="mt-5 grid grid-cols-4 gap-3">
+                <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                  <div class="text-xs text-white/60">Melhor pontuação</div>
+                  <div id="bestScore" class="mt-1 text-xl font-black">—</div>
+                </div>
+                <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                  <div class="text-xs text-white/60">Melhor streak</div>
+                  <div id="bestStreak" class="mt-1 text-xl font-black">—</div>
+                </div>
+                <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                  <div class="text-xs text-white/60">Perguntas no banco</div>
+                  <div id="bankCount" class="mt-1 text-xl font-black">—</div>
+                </div>
+              </div>
+
+              <p class="mt-4 text-xs text-white/50">No final: revisão detalhada + resumo do tema (mini-aula) baseado nas categorias da prova.</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="col-span-12 lg:col-span-4 order-last lg:order-none">
+
+          <div id="netMini" class="mb-4 rounded-3xl border border-white/10 bg-white/[0.038] p-4 relative overflow-hidden">
+            <div class="flex items-center justify-between">
+              <div class="text-xs font-extrabold text-white/80">Mapa de rede</div>
+              <div class="text-[11px] text-white/55">Cliente → Internet</div>
+            </div>
+            <div class="mt-2 flex items-center justify-between gap-1 text-[10px] text-white/55">
+              <span class="mini-step" data-step="client"><i data-lucide="laptop" class="w-3 h-3 inline"></i> Cliente</span>
+              <span class="mini-link"></span>
+              <span class="mini-step" data-step="onu"><i data-lucide="router" class="w-3 h-3 inline"></i> ONU</span>
+              <span class="mini-link"></span>
+              <span class="mini-step" data-step="olt"><i data-lucide="server" class="w-3 h-3 inline"></i> OLT</span>
+              <span class="mini-link"></span>
+              <span class="mini-step" data-step="router"><i data-lucide="network" class="w-3 h-3 inline"></i> Router</span>
+              <span class="mini-link"></span>
+              <span class="mini-step" data-step="internet"><i data-lucide="globe" class="w-3 h-3 inline"></i> Internet</span>
+            </div>
+            <div class="mt-2 h-[6px] rounded-full bg-white/5 overflow-hidden">
+              <div id="miniFlow" class="h-full w-1/3 rounded-full" style="background: linear-gradient(90deg, rgba(70,176,255,.9), rgba(255,64,129,.45));"></div>
+            </div>
+          </div>
+
+          <div class="hidden lg:block rounded-3xl border border-white/10 bg-white/[0.038] p-5">
+            <h3 class="text-sm font-extrabold">O que cai aqui</h3>
+            <ul class="mt-3 space-y-2 text-sm text-white/70">
+              <li class="flex gap-2"><span class="text-white/40">•</span> LAN/MAN/WAN • Topologias</li>
+              <li class="flex gap-2"><span class="text-white/40">•</span> Switch, roteador, modem, ONU</li>
+              <li class="flex gap-2"><span class="text-white/40">•</span> TCP/IP, OSI, UDP vs TCP</li>
+              <li class="flex gap-2"><span class="text-white/40">•</span> NAT/SNAT/DNAT/CGNAT</li>
+              <li class="flex gap-2"><span class="text-white/40">•</span> DHCP, DNS (primário/secundário)</li>
+              <li class="flex gap-2"><span class="text-white/40">•</span> Sub-redes e hosts</li>
+              <li class="flex gap-2"><span class="text-white/40">•</span> Wi‑Fi (WPA2/WPA3)</li>
+              <li class="flex gap-2"><span class="text-white/40">•</span> HTTP/FTP/SMTP • SSH</li>
+              <li class="flex gap-2"><span class="text-white/40">•</span> Fibra: SC/LC/ST/FC</li>
+              <li class="flex gap-2"><span class="text-white/40">•</span> Proxy vs VPN</li>
+            </ul>
+
+            <div class="mt-4 rounded-2xl border border-white/10 bg-white/5 p-3 text-xs text-white/60">
+              💡 <b class="text-white/80">Dica:</b> Faça 1 treino e depois 1 valendo com timer.
+            </div>
+
+            <button id="btnReset2" class="mt-4 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-bold hover:bg-white/10 transition">
+              ♻️ Resetar recordes
+            </button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- QUIZ -->
+    <section id="screenQuiz" class="hidden">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+        <div class="col-span-12 lg:col-span-8">
+          <div class="rounded-3xl neon-border glass-card border border-white/10 bg-white/[0.055] p-5 shadow-glow">
+            <div class="flex items-start justify-between gap-3">
+              <div class="min-w-0">
+                <h2 class="text-xl font-black font-display tracking-tight">
+                  Pergunta <span id="qIndex">1</span>/<span id="qTotal">10</span>
+                </h2>
+                <div class="mt-2 flex flex-wrap items-center gap-2 text-xs">
+                  <span id="qCategory" class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-white/70">Categoria</span>
+                  <span id="qDifficulty" class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-white/80">Médio</span>
+                </div>
+              </div>
+
+              <div class="flex items-stretch gap-2">
+                <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-2 text-center">
+                  <div class="text-[11px] text-white/60">Respondidas</div>
+                  <div id="score" class="mt-1 text-lg font-black">0</div>
+                </div>
+                <div id="timerWrap" class="hidden rounded-2xl border border-white/10 bg-white/5 px-4 py-2 text-center">
+                  <div class="text-[11px] text-white/60">Tempo</div>
+                  <div class="mt-1 text-lg font-black"><span id="timer">15</span><span class="text-sm text-white/60">s</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4 h-3 w-full overflow-hidden rounded-full border border-white/10 bg-white/5">
+              <div id="progressBar" class="h-full w-0 bg-[linear-gradient(90deg,var(--brand-1),var(--brand-3))] transition-[width] duration-300"></div>
+            </div>
+
+            <p id="qText" class="mt-4 text-lg font-semibold leading-relaxed">...</p>
+
+            <div id="selHint" class="mt-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/65">Selecione uma alternativa (1–4). Você pode trocar antes de ir para Próxima.</div>
+
+            <div id="answers" class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3 transition-opacity duration-150"></div>
+
+            <div id="feedback" class="mt-4 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-white/70 min-h-[76px]">
+              Escolha uma alternativa.
+            </div>
+
+            <div class="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+              <button id="btnQuit" class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-bold hover:bg-white/10 transition">
+                ⟵ Sair <span class="hidden sm:inline">(Esc)</span>
+              </button>
+
+              <div class="flex flex-wrap justify-end gap-2">
+                <button id="btnClear" data-tip="Limpar seleção (P)" class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-bold hover:bg-white/10 transition disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto" disabled>
+                  🧽 Limpar
+                </button>
+                <button id="btnConfirm" class="rounded-2xl bg-[linear-gradient(135deg,var(--brand-1),var(--brand-3))] px-4 py-3 text-sm font-extrabold shadow-glow hover:opacity-95 transition disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto" disabled>
+                  ✅ Confirmar (Enter)
+                </button>
+                <button id="btnSkip" data-tip="Pular questão" class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-bold hover:bg-white/10 transition w-full sm:w-auto">
+                  ⏭ Pular
+                </button>
+                <button id="btnNext" data-tip="Próxima (Enter/N) salva e avança" class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-extrabold hover:bg-white/10 transition disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto" disabled>
+                  ➜ Próxima
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="col-span-12 lg:col-span-4 order-last lg:order-none">
+
+          <div id="netMini" class="mb-4 rounded-3xl border border-white/10 bg-white/[0.038] p-4 relative overflow-hidden">
+            <div class="flex items-center justify-between">
+              <div class="text-xs font-extrabold text-white/80">Mapa de rede</div>
+              <div class="text-[11px] text-white/55">Cliente → Internet</div>
+            </div>
+            <div class="mt-2 flex items-center justify-between gap-1 text-[10px] text-white/55">
+              <span class="mini-step" data-step="client"><i data-lucide="laptop" class="w-3 h-3 inline"></i> Cliente</span>
+              <span class="mini-link"></span>
+              <span class="mini-step" data-step="onu"><i data-lucide="router" class="w-3 h-3 inline"></i> ONU</span>
+              <span class="mini-link"></span>
+              <span class="mini-step" data-step="olt"><i data-lucide="server" class="w-3 h-3 inline"></i> OLT</span>
+              <span class="mini-link"></span>
+              <span class="mini-step" data-step="router"><i data-lucide="network" class="w-3 h-3 inline"></i> Router</span>
+              <span class="mini-link"></span>
+              <span class="mini-step" data-step="internet"><i data-lucide="globe" class="w-3 h-3 inline"></i> Internet</span>
+            </div>
+            <div class="mt-2 h-[6px] rounded-full bg-white/5 overflow-hidden">
+              <div id="miniFlow" class="h-full w-1/3 rounded-full" style="background: linear-gradient(90deg, rgba(70,176,255,.9), rgba(255,64,129,.45));"></div>
+            </div>
+          </div>
+
+          <div class="rounded-3xl border border-white/10 bg-white/[0.038] p-5">
+            <h3 class="text-sm font-extrabold">Atalhos</h3>
+            <ul class="mt-3 space-y-2 text-sm text-white/70">
+              <li><b class="text-white/85">1–4</b> responder</li>
+              <li><b class="text-white/85">Enter</b> próxima</li>
+              <li><b class="text-white/85">Esc</b> sair</li>
+              <li><b class="text-white/85">H</b> ajuda</li>
+            </ul>
+
+            <div class="mt-4 rounded-2xl border border-white/10 bg-white/5 p-3 text-xs text-white/60">
+              ✅ <b class="text-white/80">Boas práticas:</b> se errar, leia o “por que” e anote.
+            </div>
+
+            <div class="mt-4 grid grid-cols-2 gap-2">
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-3 text-xs text-white/60 flex items-center justify-between">
+                <span>Memes</span><span id="memeHint" class="text-white/80 font-bold">ON</span>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-3 text-xs text-white/60 flex items-center justify-between">
+                <span>Sons</span><span id="soundHint" class="text-white/80 font-bold">ON</span>
+              </div>
+            </div>
+
+            <button id="btnHow2" class="mt-4 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-bold hover:bg-white/10 transition">
+              ❔ Ajuda (H)
+            </button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- RESULT -->
+    <section id="screenResult" class="hidden">
+      <div class="rounded-3xl border border-white/10 bg-white/[0.055] p-5 shadow-glow">
+        <div class="flex items-start justify-between gap-3 flex-wrap">
+          <div>
+            <h2 class="text-xl font-black font-display tracking-tight">Resultado</h2>
+            <p class="mt-1 text-sm text-white/60">Revisão detalhada + mini-aula no final baseada no que caiu.</p>
+          </div>
+          <div class="flex gap-2 text-xs">
+            <span id="badgeMode" class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-white/70">Modo</span>
+            <span id="badgeDiff" class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-white/80">Dificuldade</span>
+          </div>
+        </div>
+
+        <div class="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+            <div class="text-xs text-white/60">Pontuação</div>
+            <div id="finalScore" class="mt-1 text-2xl font-black">0</div>
+          </div>
+          <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+            <div class="text-xs text-white/60">Acertos</div>
+            <div id="finalHits" class="mt-1 text-2xl font-black">0</div>
+          </div>
+          <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+            <div class="text-xs text-white/60">Tempo médio</div>
+            <div id="avgTime" class="mt-1 text-2xl font-black">—</div>
+          </div>
+          <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+            <div class="text-xs text-white/60">Taxa de acerto</div>
+            <div id="hitRate" class="mt-1 text-2xl font-black">—</div>
+          </div>
+        </div>
+
+        <div id="memeCard" class="mt-5 hidden rounded-3xl border border-white/10 bg-white/5 overflow-hidden">
+          <div class="flex items-center justify-between gap-3 px-4 py-3 border-b border-white/10 bg-white/5">
+            <div class="text-sm font-extrabold">Meme do resultado</div>
+            <div id="memeLabel" class="text-xs text-white/60">—</div>
+          </div>
+          <div class="p-4">
+            <img id="memeImg" alt="Meme" class="w-full max-h-[360px] object-contain rounded-2xl border border-white/10 bg-base-900/30" />
+            <div id="memeTitle" class="mt-3 text-sm font-semibold text-white/80"></div>
+            <div id="memeText" class="mt-1 text-xs text-white/60"></div>
+          </div>
+        </div>
+
+        <div class="mt-6 rounded-3xl border border-white/10 bg-white/5 p-4 review-wrap">
+  <div class="flex items-center justify-between gap-3 flex-wrap">
+    <div>
+      <h3 class="text-sm font-extrabold">Revisão (por pergunta)</h3>
+      <p class="mt-1 text-xs text-white/60">Abra cada item para ver a explicação e o porquê do gabarito.</p>
+    </div>
+    <div class="text-xs text-white/60">Dica: use <b>Ctrl + F</b> para buscar termos (DNS, NAT, etc.).</div>
+  </div>
+  <div id="review" class="mt-3 space-y-3 max-h-[48vh] overflow-auto pr-2"></div>
+</div>
+
+        <div class="mt-6 rounded-3xl border border-white/10 bg-white/5 p-4">
+  <h3 class="text-sm font-extrabold">Mini-aula final (resumo do tema)</h3>
+          <p class="mt-1 text-sm text-white/60">Gerado conforme as categorias que apareceram na sua prova.</p>
+          <div id="studyGuide" class="mt-3 grid grid-cols-2 gap-3"></div>
+        </div>
+
+        <div class="mt-6 flex flex-wrap gap-2">
+  <!-- Botão leva para a página de estudo dos erros -->
+          <a id="btnTrainErrors" class="rounded-2xl bg-[linear-gradient(135deg,var(--brand-1),var(--brand-2))] px-4 py-3 text-sm font-extrabold shadow-glow hover:opacity-95 transition" href="erros.html" class="inline-flex items-center gap-2 rounded-2xl bg-[linear-gradient(135deg,var(--brand-1),var(--brand-2))] px-4 py-3 text-sm font-extrabold shadow-glow hover:opacity-95 transition"><span class="stream"></span>🧠 Entender meus erros</a>
+          <button id="btnRetryWrong" class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-extrabold hover:bg-white/10 transition"><span class="stream"></span>🎯 Refazer só erros</button>
+          <button id="btnAgain" class="rounded-2xl bg-[linear-gradient(135deg,var(--brand-1),var(--brand-3))] px-4 py-3 text-sm font-extrabold shadow-glow hover:opacity-95 transition">
+            🔁 Jogar de novo
+          </button>
+          <button id="btnHome" class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-bold hover:bg-white/10 transition">
+            🏠 Voltar ao início
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal -->
+    <dialog id="modal" class="backdrop:bg-black/50 backdrop:backdrop-blur">
+      <div class="w-[820px] max-w-[calc(100vw-32px)] rounded-3xl border border-white/10 bg-base-900 p-5 shadow-glow">
+        <div class="flex items-center justify-between gap-3">
+          <h3 id="modalTitle" class="text-sm font-extrabold">Ajuda</h3>
+          <button id="btnCloseModal" class="rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold hover:bg-white/10 transition">✕</button>
+        </div>
+        <div id="modalBody" class="mt-3 text-sm text-white/70 leading-relaxed"></div>
+      </div>
+    </dialog>
+
+    <!-- Toast -->
+    <div id="toast" class="pointer-events-none fixed bottom-5 left-1/2 z-40 -translate-x-1/2 opacity-0 transition-all duration-200">
+      <div id="toastInner" class="rounded-full border border-white/10 bg-base-900/80 px-4 py-2 text-sm shadow-glow"></div>
+    </div>
+
+    <!-- Confetti Canvas -->
+    <canvas id="fxCanvas" class="pointer-events-none fixed inset-0 z-40"></canvas>
+  
+    <div id="glossaryPop" class="hidden fixed z-[80] max-w-[420px] rounded-3xl border border-white/10 bg-[#0b1022]/95 p-4 text-sm text-white/80 shadow-[0_30px_120px_rgba(0,0,0,.55)] backdrop-blur-xl">
+      <div class="flex items-center justify-between gap-2">
+        <div class="text-xs font-extrabold text-white/80">Glossário Telecom</div>
+        <button id="btnGlossaryClose" class="rounded-xl border border-white/10 bg-white/5 px-2 py-1 text-xs font-extrabold hover:bg-white/10">Fechar</button>
+      </div>
+      <div class="mt-3 space-y-2">
+        <div><b>NAT/CGNAT</b>: tradução de IPs. CGNAT = IP público compartilhado pelo provedor.</div>
+        <div><b>DNS</b>: resolve nome → IP (ex.: google.com → 142.250...).</div>
+        <div><b>DHCP</b>: entrega IP automaticamente (lease).</div>
+        <div><b>Máscara</b>: define rede/hosts; errar máscara quebra gateway.</div>
+      </div>
+      <div class="mt-3 text-xs text-white/55">Dica: passe o mouse nas categorias para ver explicações rápidas.</div>
+    </div>
+
+  </main>
+
+  <!-- Modal: Entender meus erros -->
+  <div id="errorModal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Entender meus erros">
+    <div class="modal neon-border">
+      <header>
+        <div class="min-w-0">
+          <div class="text-lg font-black font-display">Entender meus erros</div>
+          <div id="modalSub" class="text-sm text-white/60">Cards guiados para entender de verdade.</div>
+        </div>
+        <div class="flex items-center gap-2">
+          <span id="modalCount" class="chip">—</span>
+          <button id="btnModalHome" class="btn-ghost"><span class="stream"></span>🏠 Início</button>
+          <button id="btnModalClose" class="btn-ghost"><span class="stream"></span>✕ Fechar</button>
+        </div>
+      </header>
+      <div class="body">
+        <div id="modalTop" class="grid grid-cols-2 sm:grid-cols-4 gap-3"></div>
+
+        <div class="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div class="card col-span-2">
+            <div class="text-xs text-white/60">Pergunta</div>
+            <div id="mQ" class="mt-2 text-base font-extrabold leading-snug">—</div>
+            <div id="mMeta" class="mt-2 flex flex-wrap gap-2"></div>
+          </div>
+          <div class="card">
+            <div class="text-xs text-white/60">Navegação</div>
+            <div class="mt-3 flex flex-col gap-2">
+              <button id="btnPrevErr" class="btn-ghost"><span class="stream"></span>← Anterior</button>
+              <button id="btnNextErr" class="btn-ghost"><span class="stream"></span>Próximo →</button>
+              <button id="btnMarkUnderstood" class="btn-primary"><span class="stream"></span>✅ Entendi</button>
+            </div>
+            <div id="mProgress" class="mt-3 text-xs text-white/60">—</div>
+          </div>
+        </div>
+
+        <div class="mt-4 grid grid-cols-2 gap-3">
+          <div class="card">
+            <div class="text-xs text-white/60">Sua resposta</div>
+            <div id="mYour" class="mt-2 text-sm font-extrabold text-rose-300">—</div>
+            <div class="mt-3 text-xs text-white/55">Gabarito</div>
+            <div id="mCorrect" class="mt-1 text-sm font-extrabold text-teal-300">—</div>
+          </div>
+          <div class="card">
+            <div class="text-xs text-white/60">Por que a correta é essa</div>
+            <div id="mExplain" class="mt-2 text-sm text-white/75 leading-relaxed">—</div>
+          </div>
+        </div>
+
+        <div class="mt-4 grid grid-cols-4 gap-3">
+          <div class="card">
+            <div class="text-xs text-white/60">Conceito rápido</div>
+            <div id="mConcept" class="mt-2 text-sm text-white/75 leading-relaxed">—</div>
+          </div>
+          <div class="card">
+            <div class="text-xs text-white/60">Dica de provedor</div>
+            <div id="mTip" class="mt-2 text-sm text-white/75 leading-relaxed">—</div>
+          </div>
+          <div class="card">
+            <div class="text-xs text-white/60">Exemplo prático</div>
+            <div id="mExample" class="mt-2 text-sm text-white/75 leading-relaxed">—</div>
+          </div>
+        </div>
+
+        <div class="mt-4 card">
+          <div class="flex items-center justify-between gap-2">
+            <div class="text-sm font-extrabold">Fixação rápida (mini quiz)</div>
+            <div id="mQuizFeedback" class="text-xs text-white/60">—</div>
+          </div>
+          <div id="mQuiz" class="mt-3 grid grid-cols-2 gap-3 miniq"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <!-- Premium libs -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.9.1/tsparticles.bundle.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/howler@2.2.4/dist/howler.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tone@14.8.49/build/Tone.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/hotkeys-js@3.13.7/dist/hotkeys.min.js"></script>
+
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+  <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.min.js"></script>
+  <script src="https://unpkg.com/@floating-ui/dom@1.6.10"></script>
+
+  <!-- App -->
+  <script src="questions.js"></script>
+  <script src="assets/rf-wave.js"></script>
+  <script src="app.js"></script>
+  <script src="assets/bg-tsparticles.js"></script>
+
+</body>
+</html>

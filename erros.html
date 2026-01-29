@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Entender meus erros • Quiz de Redes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{
+      --brand-1: #46B0FF;
+      --brand-2: #ff4081;
+      --brand-3: #0B4A8B;
+      --base-900:#070A14;
+    }
+    body{ background: radial-gradient(1000px 600px at 20% 10%, rgba(70,176,255,.14), transparent 60%),
+                  radial-gradient(900px 520px at 80% 15%, rgba(255,64,129,.10), transparent 60%),
+                  radial-gradient(1000px 700px at 50% 100%, rgba(11,74,139,.16), transparent 60%),
+                  var(--base-900); color: white; }
+    .font-display{ font-family: "Sora", ui-sans-serif, system-ui; letter-spacing:-0.01em; }
+    .neon-border{ position: relative; }
+    .neon-border:after{
+      content:""; position:absolute; inset:-1px; border-radius: 26px;
+      padding:1px; background: linear-gradient(90deg, rgba(70,176,255,.55), rgba(255,64,129,.45), rgba(70,176,255,.55));
+      opacity:.35;
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude;
+      pointer-events:none;
+    }
+    .card{ border:1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.05); border-radius: 22px; padding: 14px; }
+    .chip{ display:inline-flex; align-items:center; gap:8px; border:1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.05);
+      padding: 6px 10px; border-radius: 999px; font-size: 12px; color: rgba(255,255,255,.78); }
+    .btn{ border:1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.06); padding: 10px 14px; border-radius: 16px; font-weight: 900; font-size: 13px;
+      color: rgba(255,255,255,.86); transition: transform .18s ease, background .18s ease; }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.10); }
+    .btn-primary{ background: linear-gradient(135deg, rgba(70,176,255,.95), rgba(255,64,129,.70)); color:#061021; border: none; box-shadow: 0 18px 55px rgba(0,0,0,.35), 0 0 30px rgba(70,176,255,.14); }
+    details > summary{ list-style:none; }
+    summary::-webkit-details-marker{ display:none; }
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/shift-away.css">
+  <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css">
+</head>
+<body class="min-h-screen">
+  <main class="mx-auto max-w-6xl px-5 py-6">
+    <div class="flex items-center justify-between gap-3 flex-wrap">
+      <div>
+        <h1 class="text-2xl font-black font-display">Entender meus erros</h1>
+        <p class="mt-1 text-sm text-white/60">Cards explicativos com foco no que você errou (e como funciona na prática).</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="index.html" class="btn">🏠 Início</a>
+        <button id="btnClearStore" class="btn">🗑️ Limpar resultado salvo</button>
+      </div>
+    </div>
+
+    <div id="empty" class="mt-6 hidden rounded-3xl border border-white/10 bg-white/5 p-5 neon-border">
+      <div class="text-lg font-black font-display">Não encontrei uma prova salva.</div>
+      <p class="mt-2 text-sm text-white/70">Volte ao início, finalize um quiz e depois clique em <b>Entender meus erros</b> no resultado.</p>
+      <div class="mt-4">
+        <a href="index.html" class="btn btn-primary">Voltar para o quiz</a>
+      </div>
+    </div>
+
+    <div id="top" class="mt-6 grid grid-cols-4 gap-3"></div>
+
+    <div class="mt-4 rounded-3xl border border-white/10 bg-white/5 p-4 neon-border">
+      <div class="flex items-center justify-between gap-2 flex-wrap">
+        <div>
+          <div class="text-sm font-extrabold">Erros (cards)</div>
+          <div class="text-xs text-white/60">Abra para ver: por que errou, conceito, dica de provedor e exemplo prático.</div>
+        </div>
+        <div class="text-xs text-white/60">Dica: use Ctrl+F para buscar “DNS”, “NAT”, “Subnet”, etc.</div>
+      </div>
+      <div id="cards" class="mt-3 space-y-3"></div>
+    </div>
+  </main>
+
+  <script src="erros.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/howler@2.2.4/dist/howler.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/hotkeys-js@3.13.7/dist/hotkeys.min.js"></script>
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+  <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.min.js"></script>
+</body>
+</html>
