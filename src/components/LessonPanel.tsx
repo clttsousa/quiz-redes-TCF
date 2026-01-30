@@ -1,76 +1,206 @@
+import { useMemo, useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import type { RenderQuestion } from '@/lib/types'
 import { buildLesson } from '@/lib/lesson'
 import { Badge } from '@/components/ui/badge'
-import { CheckCircle2, Info, XCircle } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
+import {
+  BookOpen,
+  CheckCircle2,
+  ChevronDown,
+  CircleHelp,
+  GraduationCap,
+  Lightbulb,
+  ListChecks,
+  Target,
+  XCircle,
+} from 'lucide-react'
+
+function letter(idx: number) {
+  return String.fromCharCode(65 + idx)
+}
 
 export function LessonPanel({ q, selected }: { q: RenderQuestion; selected?: number }) {
-  const lesson = buildLesson(q, selected)
+  const lesson = useMemo(() => buildLesson(q, selected), [q, selected])
+  const [open, setOpen] = useState(true)
+
   const isAnswered = typeof selected === 'number'
   const isCorrect = isAnswered && selected === q.answer
+  const selectedText = isAnswered ? q.choices[selected as number] : undefined
+  const correctText = q.choices[q.answer]
+
+  // Some banks may not provide a one-liner; fall back to the first takeaway.
+  const oneLiner =
+    (lesson as any).oneLiner ||
+    (lesson.keyTakeaways?.[0] ? lesson.keyTakeaways[0] : 'a alternativa correta bate exatamente com o conceito do enunciado')
 
   return (
-    <details className="group mt-3 rounded-2xl border bg-background/20 p-4 open:shadow-lg transition-all">
-      <summary className="flex cursor-pointer list-none items-center justify-between gap-3">
-        <div className="flex items-center gap-2 text-sm font-medium">
-          <span className="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-primary/10 text-primary">
-            <Info className="h-4 w-4" />
+    <div className="mt-3 rounded-2xl border bg-background/25 p-4 shadow-sm">
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <div className="flex items-center gap-2">
+          <span className="inline-flex h-9 w-9 items-center justify-center rounded-2xl bg-primary/12 text-primary">
+            <GraduationCap className="h-4 w-4" />
           </span>
-          {lesson.title}
+          <div className="grid">
+            <div className="text-sm font-semibold leading-tight">{lesson.title}</div>
+            <div className="text-xs text-muted-foreground">Mini aula • 30–60s</div>
+          </div>
+
           {isAnswered && (
-            <Badge className={isCorrect ? 'bg-primary/10 text-primary' : 'bg-destructive/10 text-destructive'}>
+            <Badge className={isCorrect ? 'bg-primary/12 text-primary' : 'bg-destructive/12 text-destructive'}>
               {isCorrect ? (
-                <>
-                  <CheckCircle2 className="mr-1 h-4 w-4" /> Certo
-                </>
+                <span className="inline-flex items-center gap-1">
+                  <CheckCircle2 className="h-4 w-4" /> Acertou
+                </span>
               ) : (
-                <>
-                  <XCircle className="mr-1 h-4 w-4" /> Errou — vamos entender
-                </>
+                <span className="inline-flex items-center gap-1">
+                  <XCircle className="h-4 w-4" /> Errou — vamos destravar
+                </span>
               )}
             </Badge>
           )}
         </div>
-        <span className="text-xs text-muted-foreground group-open:hidden">Clique para abrir</span>
-        <span className="text-xs text-muted-foreground hidden group-open:inline">Clique para fechar</span>
-      </summary>
 
-      <div className="mt-3 grid gap-4 text-sm">
-        <div className="grid gap-2">
-          <div className="font-medium">✅ Por que a correta é a correta</div>
-          <ul className="list-disc pl-5 text-muted-foreground">
-            {lesson.whyCorrect.map((x, i) => (
-              <li key={i} className="leading-relaxed">{x}</li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="grid gap-2">
-          <div className="font-medium">🧠 Onde a gente costuma escorregar</div>
-          <ul className="list-disc pl-5 text-muted-foreground">
-            {lesson.whyWrong.map((x, i) => (
-              <li key={i} className="leading-relaxed">{x}</li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="grid gap-2">
-          <div className="font-medium">📌 Resumo do conteúdo</div>
-          <ul className="list-disc pl-5 text-muted-foreground">
-            {lesson.keyTakeaways.map((x, i) => (
-              <li key={i} className="leading-relaxed">{x}</li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="grid gap-2">
-          <div className="font-medium">🎯 Dica de prova</div>
-          <ul className="list-disc pl-5 text-muted-foreground">
-            {lesson.examTips.map((x, i) => (
-              <li key={i} className="leading-relaxed">{x}</li>
-            ))}
-          </ul>
-        </div>
+        <Button variant="outline" size="sm" onClick={() => setOpen((v) => !v)} className="rounded-xl">
+          {open ? 'Recolher' : 'Abrir'}
+          <ChevronDown className={cn('ml-2 h-4 w-4 transition-transform', open && 'rotate-180')} />
+        </Button>
       </div>
-    </details>
+
+      <div className="mt-4 grid gap-2">
+        <div className="flex flex-wrap gap-2 text-xs">
+          <span className="inline-flex items-center gap-2 rounded-xl border bg-muted/30 px-3 py-2">
+            <CircleHelp className="h-4 w-4 text-muted-foreground" />
+            <span className="text-muted-foreground">Você marcou:</span>
+            <span className={cn('font-medium', isCorrect ? 'text-primary' : 'text-destructive')}>
+              {isAnswered ? `${letter(selected as number)} — ${selectedText}` : '—'}
+            </span>
+          </span>
+
+          <span className="inline-flex items-center gap-2 rounded-xl border bg-primary/10 px-3 py-2">
+            <CheckCircle2 className="h-4 w-4 text-primary" />
+            <span className="text-muted-foreground">Correta:</span>
+            <span className="font-medium text-primary">
+              {letter(q.answer)} — {correctText}
+            </span>
+          </span>
+        </div>
+
+        <div className="h-px w-full bg-border/60" />
+      </div>
+
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25, ease: 'easeOut' }}
+            className="overflow-hidden"
+          >
+            <div className="mt-4 grid gap-4 text-sm">
+              {lesson.concept && lesson.concept.length > 0 && (
+                <div className="rounded-2xl border bg-background/20 p-4">
+                  <div className="mb-2 inline-flex items-center gap-2 font-semibold">
+                    <Lightbulb className="h-4 w-4 text-muted-foreground" />
+                    Conceito em 1 minuto
+                  </div>
+                  <ul className="grid gap-2 pl-5 text-muted-foreground list-disc">
+                    {lesson.concept.map((x, i) => (
+                      <li key={i} className="leading-relaxed">{x}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {lesson.steps && lesson.steps.length > 0 && (
+                <div className="rounded-2xl border bg-muted/20 p-4">
+                  <div className="mb-2 inline-flex items-center gap-2 font-semibold">
+                    <ListChecks className="h-4 w-4 text-muted-foreground" />
+                    Como resolver (passo a passo)
+                  </div>
+                  <ul className="grid gap-2 pl-5 text-muted-foreground list-disc">
+                    {lesson.steps.map((x, i) => (
+                      <li key={i} className="leading-relaxed">{x}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              <div className="rounded-2xl border bg-primary/6 p-4">
+                <div className="mb-2 inline-flex items-center gap-2 font-semibold">
+                  <BookOpen className="h-4 w-4 text-primary" />
+                  Por que a correta é a correta
+                </div>
+                <ul className="grid gap-2 pl-5 text-muted-foreground list-disc">
+                  {lesson.whyCorrect.map((x, i) => (
+                    <li key={i} className="leading-relaxed">{x}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="rounded-2xl border bg-destructive/6 p-4">
+                <div className="mb-2 inline-flex items-center gap-2 font-semibold">
+                  <Target className="h-4 w-4 text-destructive" />
+                  Onde a gente costuma errar
+                </div>
+                <ul className="grid gap-2 pl-5 text-muted-foreground list-disc">
+                  {lesson.whyWrong.map((x, i) => (
+                    <li key={i} className="leading-relaxed">{x}</li>
+                  ))}
+                </ul>
+              </div>
+
+              {lesson.distractors && lesson.distractors.length > 0 && (
+                <div className="rounded-2xl border bg-background/25 p-4">
+                  <div className="mb-2 inline-flex items-center gap-2 font-semibold">
+                    <Target className="h-4 w-4 text-muted-foreground" />
+                    Por que as outras parecem certas (e não são)
+                  </div>
+                  <ul className="grid gap-2 pl-5 text-muted-foreground list-disc">
+                    {lesson.distractors.map((x, i) => (
+                      <li key={i} className="leading-relaxed">{x}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              <div className="rounded-2xl border bg-muted/25 p-4">
+                <div className="mb-2 inline-flex items-center gap-2 font-semibold">
+                  <Lightbulb className="h-4 w-4 text-muted-foreground" />
+                  Resumo do conteúdo (guarde isso)
+                </div>
+                <ul className="grid gap-2 pl-5 text-muted-foreground list-disc">
+                  {lesson.keyTakeaways.map((x, i) => (
+                    <li key={i} className="leading-relaxed">{x}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="rounded-2xl border bg-amber-500/10 p-4">
+                <div className="mb-2 inline-flex items-center gap-2 font-semibold">
+                  <Target className="h-4 w-4 text-amber-500" />
+                  Dica de prova (atalho)
+                </div>
+                <ul className="grid gap-2 pl-5 text-muted-foreground list-disc">
+                  {lesson.examTips.map((x, i) => (
+                    <li key={i} className="leading-relaxed">{x}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="rounded-2xl border bg-background/20 p-4">
+                <div className="mb-2 font-semibold">Pratique em 10 segundos</div>
+                <div className="text-muted-foreground leading-relaxed">
+                  Releia o enunciado e responda em voz alta:{' '}
+                  <span className="text-foreground font-medium">“Porque {oneLiner}.”</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   )
 }

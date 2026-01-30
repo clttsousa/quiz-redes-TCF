@@ -1,4 +1,5 @@
 import { useEffect, useMemo } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import { useQuiz } from '@/quiz/QuizContext'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
@@ -74,8 +75,47 @@ export function QuizPage() {
       </div>
 
       <Progress value={progress} />
-
-      <Card>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={q.id}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.22, ease: "easeOut" }}
+        >
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={q.id}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.22, ease: "easeOut" }}
+        >
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={q.id}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.22, ease: "easeOut" }}
+        >
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={q.id}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.22, ease: "easeOut" }}
+        >
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={q.id}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.22, ease: "easeOut" }}
+        >
+          <Card>
         <CardHeader>
           <div className="flex flex-wrap items-center justify-between gap-3">
             <CardTitle className="text-lg">
@@ -97,9 +137,13 @@ export function QuizPage() {
             const bad = showFeedback && chosen && !correct
 
             return (
-              <button
+              <motion.button
                 key={idx}
                 onClick={() => choose(idx)}
+                whileHover={{ scale: 1.01, y: -2 }}
+                whileTap={{ scale: 0.99 }}
+                animate={bad ? { x: [0, -6, 6, -4, 4, 0] } : { x: 0 }}
+                transition={{ duration: bad ? 0.35 : 0.2 }}
                 className={cn(
                   "group flex w-full items-start justify-between gap-3 rounded-2xl border bg-background/20 px-4 py-3 text-left text-sm transition-all hover:bg-muted hover:-translate-y-0.5 hover:shadow-md",
                   chosen && "border-primary/40 bg-primary/10",
@@ -121,7 +165,7 @@ export function QuizPage() {
                     {ok ? <CheckCircle2 className="h-5 w-5 text-primary" /> : bad ? <XCircle className="h-5 w-5 text-destructive" /> : null}
                   </span>
                 )}
-              </button>
+              </motion.button>
             )
           })}
 
@@ -154,7 +198,17 @@ export function QuizPage() {
             )}
           </div>
         </CardFooter>
-      </Card>
+          </Card>
+        </motion.div>
+      </AnimatePresence>
+        </motion.div>
+      </AnimatePresence>
+        </motion.div>
+      </AnimatePresence>
+        </motion.div>
+      </AnimatePresence>
+        </motion.div>
+      </AnimatePresence>
 
       <div className="text-xs text-muted-foreground">
         Dica: em <span className="font-medium text-foreground">Prova/Simulado</span> o resultado aparece só no final.
