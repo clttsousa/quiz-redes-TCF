@@ -507,7 +507,7 @@ if(!Array.isArray(window.QUESTION_BANK)) window.QUESTION_BANK = [];
 
 async function loadQuestionBank(){
   try{
-    const res = await fetch("questions/bank.json", { cache: "no-store" });
+    const res = await fetch("/questions/bank.json", { cache: "no-store" });
     if(!res.ok) throw new Error("HTTP "+res.status);
     const data = await res.json();
     if(!Array.isArray(data)) throw new Error("Formato inválido: esperado array");
