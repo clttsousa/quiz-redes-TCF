@@ -1623,5 +1623,7061 @@ window.QUESTION_BANK = [
     ],
     "answer": 2,
     "explain": "Na topologia em barramento, todos compartilham o mesmo meio. Uma falha no cabo principal ou terminações pode impactar toda a rede."
+  },
+  {
+    "id": "extra-conceitos-001",
+    "category": "Conceitos",
+    "difficulty": "easy",
+    "q": "O que é 'largura de banda' (bandwidth) em redes?",
+    "choices": [
+      "Atraso de ida e volta (RTT)",
+      "Capacidade máxima teórica de transmissão do enlace",
+      "Quantidade de erros por segundo",
+      "Potência do sinal Wi‑Fi"
+    ],
+    "answer": 1,
+    "explain": "Largura de banda é a capacidade (taxa) máxima de transmissão suportada por um enlace, geralmente em bps."
+  },
+  {
+    "id": "extra-conceitos-002",
+    "category": "Conceitos",
+    "difficulty": "easy",
+    "q": "O que é 'latência' em redes?",
+    "choices": [
+      "Taxa máxima de bits por segundo",
+      "Tempo de atraso entre enviar e receber dados",
+      "Quantidade de hosts na sub-rede",
+      "Tipo de cabo utilizado"
+    ],
+    "answer": 1,
+    "explain": "Latência é o atraso (tempo) entre o envio e o recebimento/chegada de um dado."
+  },
+  {
+    "id": "extra-conceitos-003",
+    "category": "Conceitos",
+    "difficulty": "medium",
+    "q": "Qual afirmação melhor descreve 'jitter'?",
+    "choices": [
+      "Variação do atraso (latência) ao longo do tempo",
+      "Perda total de conectividade",
+      "Aumento de largura de banda",
+      "Troca de endereço IP"
+    ],
+    "answer": 0,
+    "explain": "Jitter é a variação da latência. Afeta bastante voz e vídeo em tempo real."
+  },
+  {
+    "id": "extra-conceitos-004",
+    "category": "Conceitos",
+    "difficulty": "medium",
+    "q": "O que é 'throughput' (vazão) em redes?",
+    "choices": [
+      "Capacidade teórica do link (bandwidth)",
+      "Taxa efetiva de dados transferidos com sucesso",
+      "Número de switches na rede",
+      "Distância máxima do cabo"
+    ],
+    "answer": 1,
+    "explain": "Throughput é o que você realmente consegue transferir, considerando overhead, perdas, congestionamento etc."
+  },
+  {
+    "id": "extra-conceitos-005",
+    "category": "Conceitos",
+    "difficulty": "medium",
+    "q": "O que é um 'domínio de broadcast'?",
+    "choices": [
+      "Conjunto de dispositivos que recebem quadros unicast",
+      "Conjunto de dispositivos que recebem frames de broadcast no mesmo segmento L2",
+      "Conjunto de rotas no roteador",
+      "Conjunto de portas TCP abertas"
+    ],
+    "answer": 1,
+    "explain": "Em L2, broadcasts se propagam dentro do mesmo domínio; roteadores costumam separar domínios de broadcast."
+  },
+  {
+    "id": "extra-conceitos-006",
+    "category": "Conceitos",
+    "difficulty": "medium",
+    "q": "O que é MTU?",
+    "choices": [
+      "Tipo de cabo coaxial usado em TV a cabo",
+      "Protocolo de roteamento entre AS na Internet",
+      "Tamanho máximo de uma unidade de transmissão em um enlace (ex.: 1500 bytes em Ethernet)",
+      "Serviço que converte nomes de domínio em endereços IP"
+    ],
+    "answer": 2,
+    "explain": "Tamanho máximo de uma unidade de transmissão em um enlace (ex.: 1500 bytes em Ethernet)"
+  },
+  {
+    "id": "extra-conceitos-007",
+    "category": "Conceitos",
+    "difficulty": "medium",
+    "q": "O que é RTT?",
+    "choices": [
+      "Tempo de ida e volta entre dois pontos na rede",
+      "Serviço que converte nomes de domínio em endereços IP",
+      "Protocolo de roteamento entre AS na Internet",
+      "Tipo de cabo coaxial usado em TV a cabo"
+    ],
+    "answer": 0,
+    "explain": "Tempo de ida e volta entre dois pontos na rede"
+  },
+  {
+    "id": "extra-conceitos-008",
+    "category": "Conceitos",
+    "difficulty": "medium",
+    "q": "O que é QoS?",
+    "choices": [
+      "Protocolo de roteamento entre AS na Internet",
+      "Mecanismos para priorizar/controlar tráfego (latência, perda, banda)",
+      "Serviço que converte nomes de domínio em endereços IP",
+      "Tipo de cabo coaxial usado em TV a cabo"
+    ],
+    "answer": 1,
+    "explain": "Mecanismos para priorizar/controlar tráfego (latência, perda, banda)"
+  },
+  {
+    "id": "extra-conceitos-009",
+    "category": "Conceitos",
+    "difficulty": "medium",
+    "q": "O que é FCS?",
+    "choices": [
+      "Campo de verificação de erro no frame Ethernet (CRC)",
+      "Tipo de cabo coaxial usado em TV a cabo",
+      "Serviço que converte nomes de domínio em endereços IP",
+      "Protocolo de roteamento entre AS na Internet"
+    ],
+    "answer": 0,
+    "explain": "Campo de verificação de erro no frame Ethernet (CRC)"
+  },
+  {
+    "id": "extra-conceitos-010",
+    "category": "Conceitos",
+    "difficulty": "medium",
+    "q": "O que é CSMA/CD?",
+    "choices": [
+      "Método clássico de acesso ao meio em Ethernet half-duplex, com detecção de colisão",
+      "Tipo de cabo coaxial usado em TV a cabo",
+      "Protocolo de roteamento entre AS na Internet",
+      "Serviço que converte nomes de domínio em endereços IP"
+    ],
+    "answer": 0,
+    "explain": "Método clássico de acesso ao meio em Ethernet half-duplex, com detecção de colisão"
+  },
+  {
+    "id": "extra-conceitos-011",
+    "category": "Conceitos",
+    "difficulty": "medium",
+    "q": "O que é VLAN?",
+    "choices": [
+      "Tipo de cabo coaxial usado em TV a cabo",
+      "Serviço que converte nomes de domínio em endereços IP",
+      "Protocolo de roteamento entre AS na Internet",
+      "Segmentação lógica de uma LAN em domínios separados de broadcast em L2"
+    ],
+    "answer": 3,
+    "explain": "Segmentação lógica de uma LAN em domínios separados de broadcast em L2"
+  },
+  {
+    "id": "extra-conceitos-012",
+    "category": "Conceitos",
+    "difficulty": "medium",
+    "q": "O que é ARP?",
+    "choices": [
+      "Protocolo para resolver IP -> MAC em IPv4",
+      "Serviço que converte nomes de domínio em endereços IP",
+      "Protocolo de roteamento entre AS na Internet",
+      "Tipo de cabo coaxial usado em TV a cabo"
+    ],
+    "answer": 0,
+    "explain": "Protocolo para resolver IP -> MAC em IPv4"
+  },
+  {
+    "id": "extra-conceitos-013",
+    "category": "Conceitos",
+    "difficulty": "medium",
+    "q": "O que é ICMP?",
+    "choices": [
+      "Tipo de cabo coaxial usado em TV a cabo",
+      "Serviço que converte nomes de domínio em endereços IP",
+      "Protocolo de roteamento entre AS na Internet",
+      "Protocolo usado para mensagens de controle/diagnóstico (ex.: ping)"
+    ],
+    "answer": 3,
+    "explain": "Protocolo usado para mensagens de controle/diagnóstico (ex.: ping)"
+  },
+  {
+    "id": "extra-conceitos-014",
+    "category": "Conceitos",
+    "difficulty": "medium",
+    "q": "O que é MSS?",
+    "choices": [
+      "Tipo de cabo coaxial usado em TV a cabo",
+      "Tamanho máximo do segmento TCP (payload)",
+      "Protocolo de roteamento entre AS na Internet",
+      "Serviço que converte nomes de domínio em endereços IP"
+    ],
+    "answer": 1,
+    "explain": "Tamanho máximo do segmento TCP (payload)"
+  },
+  {
+    "id": "extra-conceitos-015",
+    "category": "Conceitos",
+    "difficulty": "medium",
+    "q": "O que é TTL?",
+    "choices": [
+      "Campo que limita número de saltos para evitar loops (decrementa a cada roteador)",
+      "Serviço que converte nomes de domínio em endereços IP",
+      "Tipo de cabo coaxial usado em TV a cabo",
+      "Protocolo de roteamento entre AS na Internet"
+    ],
+    "answer": 0,
+    "explain": "Campo que limita número de saltos para evitar loops (decrementa a cada roteador)"
+  },
+  {
+    "id": "extra-conceitos-016",
+    "category": "Conceitos",
+    "difficulty": "medium",
+    "q": "O que é NTP?",
+    "choices": [
+      "Protocolo para sincronizar relógios em rede",
+      "Protocolo de roteamento entre AS na Internet",
+      "Tipo de cabo coaxial usado em TV a cabo",
+      "Serviço que converte nomes de domínio em endereços IP"
+    ],
+    "answer": 0,
+    "explain": "Protocolo para sincronizar relógios em rede"
+  },
+  {
+    "id": "extra-conceitos-017",
+    "category": "Conceitos",
+    "difficulty": "medium",
+    "q": "O que é PoE?",
+    "choices": [
+      "Tipo de cabo coaxial usado em TV a cabo",
+      "Protocolo de roteamento entre AS na Internet",
+      "Serviço que converte nomes de domínio em endereços IP",
+      "Alimentação elétrica via cabo Ethernet"
+    ],
+    "answer": 3,
+    "explain": "Alimentação elétrica via cabo Ethernet"
+  },
+  {
+    "id": "extra-conceitos-018",
+    "category": "Conceitos",
+    "difficulty": "medium",
+    "q": "O que é STP?",
+    "choices": [
+      "Spanning Tree Protocol, evita loops em redes com switches",
+      "Tipo de cabo coaxial usado em TV a cabo",
+      "Serviço que converte nomes de domínio em endereços IP",
+      "Protocolo de roteamento entre AS na Internet"
+    ],
+    "answer": 0,
+    "explain": "Spanning Tree Protocol, evita loops em redes com switches"
+  },
+  {
+    "id": "extra-conceitos-019",
+    "category": "Conceitos",
+    "difficulty": "medium",
+    "q": "O que é CDN?",
+    "choices": [
+      "Protocolo de roteamento entre AS na Internet",
+      "Tipo de cabo coaxial usado em TV a cabo",
+      "Rede de distribuição de conteúdo para reduzir latência e carga",
+      "Serviço que converte nomes de domínio em endereços IP"
+    ],
+    "answer": 2,
+    "explain": "Rede de distribuição de conteúdo para reduzir latência e carga"
+  },
+  {
+    "id": "extra-conceitos-020",
+    "category": "Conceitos",
+    "difficulty": "medium",
+    "q": "O que é Anycast?",
+    "choices": [
+      "Serviço que converte nomes de domínio em endereços IP",
+      "Técnica de roteamento onde múltiplos hosts compartilham o mesmo IP e o tráfego vai para o mais próximo",
+      "Tipo de cabo coaxial usado em TV a cabo",
+      "Protocolo de roteamento entre AS na Internet"
+    ],
+    "answer": 1,
+    "explain": "Técnica de roteamento onde múltiplos hosts compartilham o mesmo IP e o tráfego vai para o mais próximo"
+  },
+  {
+    "id": "extra-conceitos-021",
+    "category": "Conceitos",
+    "difficulty": "easy",
+    "q": "O que é 'payload' em um pacote/quadro?",
+    "choices": [
+      "Cabeçalho de roteamento",
+      "Dados úteis transportados (conteúdo)",
+      "Somente o endereço MAC",
+      "Somente o FCS"
+    ],
+    "answer": 1,
+    "explain": "Payload é a parte de dados úteis transportada, sem os cabeçalhos/trailers."
+  },
+  {
+    "id": "extra-conceitos-022",
+    "category": "Conceitos",
+    "difficulty": "medium",
+    "q": "O que é 'overhead' em redes?",
+    "choices": [
+      "Dados úteis do usuário",
+      "Parte adicional (cabeçalhos/controle) necessária para transmitir/gerenciar a comunicação",
+      "Somente criptografia",
+      "Somente largura de banda"
+    ],
+    "answer": 1,
+    "explain": "Overhead é o custo extra (headers, controle, retransmissões) além do payload."
+  },
+  {
+    "id": "extra-tipos-de-rede-001",
+    "category": "Tipos de Rede",
+    "difficulty": "easy",
+    "q": "PAN normalmente se refere a:",
+    "choices": [
+      "Rede pessoal de curto alcance (ex.: Bluetooth)",
+      "Rede metropolitana",
+      "Rede entre países",
+      "Rede dentro de um datacenter"
+    ],
+    "answer": 0,
+    "explain": "PAN (Personal Area Network) é curta distância, como Bluetooth ou NFC."
+  },
+  {
+    "id": "extra-tipos-de-rede-002",
+    "category": "Tipos de Rede",
+    "difficulty": "medium",
+    "q": "SAN (Storage Area Network) é usada principalmente para:",
+    "choices": [
+      "Compartilhar impressoras em casa",
+      "Conectar storages a servidores com alta performance (ex.: Fibre Channel/iSCSI)",
+      "Fornecer Wi‑Fi público",
+      "Trocar e-mails entre servidores"
+    ],
+    "answer": 1,
+    "explain": "SAN é uma rede dedicada para armazenamento, com baixa latência e alta disponibilidade."
+  },
+  {
+    "id": "extra-tipos-de-rede-003",
+    "category": "Tipos de Rede",
+    "difficulty": "medium",
+    "q": "CAN (Campus Area Network) costuma cobrir:",
+    "choices": [
+      "Uma única sala",
+      "Um campus/universidade com múltiplos prédios",
+      "Uma cidade inteira",
+      "A Internet global"
+    ],
+    "answer": 1,
+    "explain": "CAN interliga múltiplas LANs em um campus (universidade/empresa com vários prédios)."
+  },
+  {
+    "id": "extra-tipos-de-rede-004",
+    "category": "Tipos de Rede",
+    "difficulty": "medium",
+    "q": "Uma VPN é mais corretamente descrita como:",
+    "choices": [
+      "Uma rede física dedicada",
+      "Um túnel lógico (geralmente criptografado) sobre outra rede (ex.: Internet)",
+      "Um tipo de cabo",
+      "Um protocolo de roteamento"
+    ],
+    "answer": 1,
+    "explain": "VPN cria um túnel lógico sobre uma rede existente, frequentemente com criptografia."
+  },
+  {
+    "id": "extra-tipos-de-rede-005",
+    "category": "Tipos de Rede",
+    "difficulty": "medium",
+    "q": "O termo 'Intranet' em redes se refere a:",
+    "choices": [
+      "Internet pública",
+      "Rede privada interna de uma organização",
+      "Rede metropolitana (MAN)",
+      "Rede pessoal (PAN)"
+    ],
+    "answer": 1,
+    "explain": "Rede privada interna de uma organização"
+  },
+  {
+    "id": "extra-tipos-de-rede-006",
+    "category": "Tipos de Rede",
+    "difficulty": "medium",
+    "q": "O termo 'Extranet' em redes se refere a:",
+    "choices": [
+      "Rede sem fio doméstica",
+      "Rede entre switches na mesma sala",
+      "Acesso controlado à rede/serviços de uma organização para parceiros externos",
+      "Rede somente de armazenamento"
+    ],
+    "answer": 2,
+    "explain": "Acesso controlado à rede/serviços de uma organização para parceiros externos"
+  },
+  {
+    "id": "extra-tipos-de-rede-007",
+    "category": "Tipos de Rede",
+    "difficulty": "medium",
+    "q": "O termo 'Backbone' em redes se refere a:",
+    "choices": [
+      "Um tipo de endereço IP",
+      "Um cabo exclusivo para teclado",
+      "Conjunto de impressoras em rede",
+      "Parte central de alta capacidade que interliga redes/segmentos"
+    ],
+    "answer": 3,
+    "explain": "Parte central de alta capacidade que interliga redes/segmentos"
+  },
+  {
+    "id": "extra-tipos-de-rede-008",
+    "category": "Tipos de Rede",
+    "difficulty": "medium",
+    "q": "O termo 'P2P' em redes se refere a:",
+    "choices": [
+      "Arquitetura onde nós atuam como clientes e servidores",
+      "Rede só de fibra multimodo",
+      "Rede apenas com NAT",
+      "Rede com servidor central obrigatório"
+    ],
+    "answer": 0,
+    "explain": "Arquitetura onde nós atuam como clientes e servidores"
+  },
+  {
+    "id": "extra-tipos-de-rede-009",
+    "category": "Tipos de Rede",
+    "difficulty": "easy",
+    "q": "Qual rede costuma ter maior área geográfica?",
+    "choices": [
+      "WAN",
+      "SAN",
+      "LAN",
+      "PAN"
+    ],
+    "answer": 0,
+    "explain": "WAN"
+  },
+  {
+    "id": "extra-tipos-de-rede-010",
+    "category": "Tipos de Rede",
+    "difficulty": "easy",
+    "q": "Qual rede é focada em armazenamento?",
+    "choices": [
+      "MAN",
+      "LAN",
+      "SAN",
+      "PAN"
+    ],
+    "answer": 2,
+    "explain": "SAN"
+  },
+  {
+    "id": "extra-tipos-de-rede-011",
+    "category": "Tipos de Rede",
+    "difficulty": "easy",
+    "q": "Qual rede é tipicamente Bluetooth?",
+    "choices": [
+      "MAN",
+      "PAN",
+      "SAN",
+      "WAN"
+    ],
+    "answer": 1,
+    "explain": "PAN"
+  },
+  {
+    "id": "extra-tipos-de-rede-012",
+    "category": "Tipos de Rede",
+    "difficulty": "easy",
+    "q": "Uma rede que cobre uma cidade é geralmente:",
+    "choices": [
+      "WAN",
+      "PAN",
+      "MAN",
+      "LAN"
+    ],
+    "answer": 2,
+    "explain": "MAN"
+  },
+  {
+    "id": "extra-tipos-de-rede-013",
+    "category": "Tipos de Rede",
+    "difficulty": "easy",
+    "q": "Em geral, uma LAN é mais associada a:",
+    "choices": [
+      "área local (casa/escritório)",
+      "área metropolitana (cidade)",
+      "grandes distâncias (cidades/países)",
+      "curtíssimo alcance pessoal (Bluetooth)"
+    ],
+    "answer": 0,
+    "explain": "área local (casa/escritório)"
+  },
+  {
+    "id": "extra-tipos-de-rede-014",
+    "category": "Tipos de Rede",
+    "difficulty": "easy",
+    "q": "Em geral, uma WAN é mais associada a:",
+    "choices": [
+      "curtíssimo alcance pessoal (Bluetooth)",
+      "área metropolitana (cidade)",
+      "área local (casa/escritório)",
+      "grandes distâncias (cidades/países)"
+    ],
+    "answer": 3,
+    "explain": "grandes distâncias (cidades/países)"
+  },
+  {
+    "id": "extra-tipos-de-rede-015",
+    "category": "Tipos de Rede",
+    "difficulty": "easy",
+    "q": "Em geral, uma MAN é mais associada a:",
+    "choices": [
+      "grandes distâncias (cidades/países)",
+      "área local (casa/escritório)",
+      "área metropolitana (cidade)",
+      "curtíssimo alcance pessoal (Bluetooth)"
+    ],
+    "answer": 2,
+    "explain": "área metropolitana (cidade)"
+  },
+  {
+    "id": "extra-tipos-de-rede-016",
+    "category": "Tipos de Rede",
+    "difficulty": "easy",
+    "q": "Em geral, uma PAN é mais associada a:",
+    "choices": [
+      "curtíssimo alcance pessoal (Bluetooth)",
+      "grandes distâncias (cidades/países)",
+      "área local (casa/escritório)",
+      "área metropolitana (cidade)"
+    ],
+    "answer": 0,
+    "explain": "curtíssimo alcance pessoal (Bluetooth)"
+  },
+  {
+    "id": "extra-tipos-de-rede-017",
+    "category": "Tipos de Rede",
+    "difficulty": "easy",
+    "q": "Em geral, uma LAN é mais associada a:",
+    "choices": [
+      "área local (casa/escritório)",
+      "área metropolitana (cidade)",
+      "grandes distâncias (cidades/países)",
+      "curtíssimo alcance pessoal (Bluetooth)"
+    ],
+    "answer": 0,
+    "explain": "área local (casa/escritório)"
+  },
+  {
+    "id": "extra-tipos-de-rede-018",
+    "category": "Tipos de Rede",
+    "difficulty": "easy",
+    "q": "Em geral, uma WAN é mais associada a:",
+    "choices": [
+      "curtíssimo alcance pessoal (Bluetooth)",
+      "grandes distâncias (cidades/países)",
+      "área metropolitana (cidade)",
+      "área local (casa/escritório)"
+    ],
+    "answer": 1,
+    "explain": "grandes distâncias (cidades/países)"
+  },
+  {
+    "id": "extra-tipos-de-rede-019",
+    "category": "Tipos de Rede",
+    "difficulty": "easy",
+    "q": "Em geral, uma MAN é mais associada a:",
+    "choices": [
+      "grandes distâncias (cidades/países)",
+      "área local (casa/escritório)",
+      "área metropolitana (cidade)",
+      "curtíssimo alcance pessoal (Bluetooth)"
+    ],
+    "answer": 2,
+    "explain": "área metropolitana (cidade)"
+  },
+  {
+    "id": "extra-tipos-de-rede-020",
+    "category": "Tipos de Rede",
+    "difficulty": "easy",
+    "q": "Em geral, uma PAN é mais associada a:",
+    "choices": [
+      "área metropolitana (cidade)",
+      "grandes distâncias (cidades/países)",
+      "área local (casa/escritório)",
+      "curtíssimo alcance pessoal (Bluetooth)"
+    ],
+    "answer": 3,
+    "explain": "curtíssimo alcance pessoal (Bluetooth)"
+  },
+  {
+    "id": "extra-tipos-de-rede-021",
+    "category": "Tipos de Rede",
+    "difficulty": "easy",
+    "q": "Em geral, uma LAN é mais associada a:",
+    "choices": [
+      "área metropolitana (cidade)",
+      "área local (casa/escritório)",
+      "grandes distâncias (cidades/países)",
+      "curtíssimo alcance pessoal (Bluetooth)"
+    ],
+    "answer": 1,
+    "explain": "área local (casa/escritório)"
+  },
+  {
+    "id": "extra-tipos-de-rede-022",
+    "category": "Tipos de Rede",
+    "difficulty": "easy",
+    "q": "Em geral, uma WAN é mais associada a:",
+    "choices": [
+      "área local (casa/escritório)",
+      "área metropolitana (cidade)",
+      "grandes distâncias (cidades/países)",
+      "curtíssimo alcance pessoal (Bluetooth)"
+    ],
+    "answer": 2,
+    "explain": "grandes distâncias (cidades/países)"
+  },
+  {
+    "id": "extra-topologias-001",
+    "category": "Topologias",
+    "difficulty": "easy",
+    "q": "Na topologia em estrela, o principal ponto de falha único é:",
+    "choices": [
+      "O cabo de cada host",
+      "O equipamento central (switch/hub)",
+      "A placa de rede do host",
+      "O conector RJ‑45"
+    ],
+    "answer": 1,
+    "explain": "Se o equipamento central cair, os hosts perdem conectividade entre si."
+  },
+  {
+    "id": "extra-topologias-002",
+    "category": "Topologias",
+    "difficulty": "medium",
+    "q": "Qual topologia é mais associada a uma estrutura hierárquica (core/distribution/access)?",
+    "choices": [
+      "Árvore (tree)",
+      "Anel",
+      "Barramento",
+      "Ponto-a-ponto"
+    ],
+    "answer": 0,
+    "explain": "A topologia em árvore é usada em redes hierárquicas, com camadas."
+  },
+  {
+    "id": "extra-topologias-003",
+    "category": "Topologias",
+    "difficulty": "medium",
+    "q": "Qual topologia normalmente oferece melhor tolerância a falhas sem depender de um único caminho?",
+    "choices": [
+      "Barramento",
+      "Malha parcial/total",
+      "Anel simples",
+      "Linha"
+    ],
+    "answer": 1,
+    "explain": "Em malha, há múltiplos caminhos; a falha de um link pode não interromper a comunicação."
+  },
+  {
+    "id": "extra-topologias-004",
+    "category": "Topologias",
+    "difficulty": "hard",
+    "q": "Em topologia em anel, uma falha pode ser mitigada com:",
+    "choices": [
+      "Remover o switch central",
+      "Trocar DNS",
+      "Anel duplo (dual ring) ou mecanismos de bypass",
+      "Ativar DHCP"
+    ],
+    "answer": 2,
+    "explain": "Anel duplo (dual ring) ou mecanismos de bypass"
+  },
+  {
+    "id": "extra-topologias-005",
+    "category": "Topologias",
+    "difficulty": "easy",
+    "q": "Uma topologia 'ponto-a-ponto' significa:",
+    "choices": [
+      "Conexão direta entre dois nós",
+      "Todos conectados a um hub",
+      "Conexão com múltiplos caminhos",
+      "Conexão em círculo"
+    ],
+    "answer": 0,
+    "explain": "Conexão direta entre dois nós"
+  },
+  {
+    "id": "extra-topologias-006",
+    "category": "Topologias",
+    "difficulty": "medium",
+    "q": "Topologia híbrida é:",
+    "choices": [
+      "Apenas malha total",
+      "Apenas anel",
+      "Combinação de duas ou mais topologias (ex.: estrela + árvore)",
+      "Apenas barramento"
+    ],
+    "answer": 2,
+    "explain": "Combinação de duas ou mais topologias (ex.: estrela + árvore)"
+  },
+  {
+    "id": "extra-topologias-007",
+    "category": "Topologias",
+    "difficulty": "easy",
+    "q": "Qual topologia tende a ser mais simples de expandir adicionando novos hosts ao switch central?",
+    "choices": [
+      "Estrela",
+      "Barramento",
+      "Anel simples",
+      "Linha"
+    ],
+    "answer": 0,
+    "explain": "Estrela"
+  },
+  {
+    "id": "extra-topologias-008",
+    "category": "Topologias",
+    "difficulty": "easy",
+    "q": "Qual topologia tende a ser mais simples de expandir adicionando novos hosts ao switch central?",
+    "choices": [
+      "Linha",
+      "Anel simples",
+      "Barramento",
+      "Estrela"
+    ],
+    "answer": 3,
+    "explain": "Estrela"
+  },
+  {
+    "id": "extra-topologias-009",
+    "category": "Topologias",
+    "difficulty": "easy",
+    "q": "Qual topologia tende a ser mais simples de expandir adicionando novos hosts ao switch central?",
+    "choices": [
+      "Anel simples",
+      "Linha",
+      "Estrela",
+      "Barramento"
+    ],
+    "answer": 2,
+    "explain": "Estrela"
+  },
+  {
+    "id": "extra-topologias-010",
+    "category": "Topologias",
+    "difficulty": "easy",
+    "q": "Qual topologia tende a ser mais simples de expandir adicionando novos hosts ao switch central?",
+    "choices": [
+      "Barramento",
+      "Anel simples",
+      "Estrela",
+      "Linha"
+    ],
+    "answer": 2,
+    "explain": "Estrela"
+  },
+  {
+    "id": "extra-topologias-011",
+    "category": "Topologias",
+    "difficulty": "easy",
+    "q": "Qual topologia tende a ser mais simples de expandir adicionando novos hosts ao switch central?",
+    "choices": [
+      "Linha",
+      "Anel simples",
+      "Estrela",
+      "Barramento"
+    ],
+    "answer": 2,
+    "explain": "Estrela"
+  },
+  {
+    "id": "extra-topologias-012",
+    "category": "Topologias",
+    "difficulty": "easy",
+    "q": "Qual topologia tende a ser mais simples de expandir adicionando novos hosts ao switch central?",
+    "choices": [
+      "Barramento",
+      "Linha",
+      "Estrela",
+      "Anel simples"
+    ],
+    "answer": 2,
+    "explain": "Estrela"
+  },
+  {
+    "id": "extra-topologias-013",
+    "category": "Topologias",
+    "difficulty": "easy",
+    "q": "Qual topologia tende a ser mais simples de expandir adicionando novos hosts ao switch central?",
+    "choices": [
+      "Barramento",
+      "Estrela",
+      "Linha",
+      "Anel simples"
+    ],
+    "answer": 1,
+    "explain": "Estrela"
+  },
+  {
+    "id": "extra-topologias-014",
+    "category": "Topologias",
+    "difficulty": "easy",
+    "q": "Qual topologia tende a ser mais simples de expandir adicionando novos hosts ao switch central?",
+    "choices": [
+      "Barramento",
+      "Anel simples",
+      "Estrela",
+      "Linha"
+    ],
+    "answer": 2,
+    "explain": "Estrela"
+  },
+  {
+    "id": "extra-topologias-015",
+    "category": "Topologias",
+    "difficulty": "easy",
+    "q": "Qual topologia tende a ser mais simples de expandir adicionando novos hosts ao switch central?",
+    "choices": [
+      "Linha",
+      "Estrela",
+      "Anel simples",
+      "Barramento"
+    ],
+    "answer": 1,
+    "explain": "Estrela"
+  },
+  {
+    "id": "extra-topologias-016",
+    "category": "Topologias",
+    "difficulty": "easy",
+    "q": "Qual topologia tende a ser mais simples de expandir adicionando novos hosts ao switch central?",
+    "choices": [
+      "Anel simples",
+      "Barramento",
+      "Estrela",
+      "Linha"
+    ],
+    "answer": 2,
+    "explain": "Estrela"
+  },
+  {
+    "id": "extra-topologias-017",
+    "category": "Topologias",
+    "difficulty": "easy",
+    "q": "Qual topologia tende a ser mais simples de expandir adicionando novos hosts ao switch central?",
+    "choices": [
+      "Barramento",
+      "Estrela",
+      "Linha",
+      "Anel simples"
+    ],
+    "answer": 1,
+    "explain": "Estrela"
+  },
+  {
+    "id": "extra-topologias-018",
+    "category": "Topologias",
+    "difficulty": "easy",
+    "q": "Qual topologia tende a ser mais simples de expandir adicionando novos hosts ao switch central?",
+    "choices": [
+      "Estrela",
+      "Barramento",
+      "Anel simples",
+      "Linha"
+    ],
+    "answer": 0,
+    "explain": "Estrela"
+  },
+  {
+    "id": "extra-topologias-019",
+    "category": "Topologias",
+    "difficulty": "easy",
+    "q": "Qual topologia tende a ser mais simples de expandir adicionando novos hosts ao switch central?",
+    "choices": [
+      "Barramento",
+      "Anel simples",
+      "Estrela",
+      "Linha"
+    ],
+    "answer": 2,
+    "explain": "Estrela"
+  },
+  {
+    "id": "extra-topologias-020",
+    "category": "Topologias",
+    "difficulty": "easy",
+    "q": "Qual topologia tende a ser mais simples de expandir adicionando novos hosts ao switch central?",
+    "choices": [
+      "Linha",
+      "Estrela",
+      "Barramento",
+      "Anel simples"
+    ],
+    "answer": 1,
+    "explain": "Estrela"
+  },
+  {
+    "id": "extra-equipamentos-001",
+    "category": "Equipamentos",
+    "difficulty": "easy",
+    "q": "Qual equipamento normalmente fornece Wi‑Fi e faz ponte entre rede sem fio e rede cabeada?",
+    "choices": [
+      "Access Point (AP)",
+      "Patch panel",
+      "Conversor de mídia apenas",
+      "Repetidor passivo"
+    ],
+    "answer": 0,
+    "explain": "AP conecta clientes Wi‑Fi à rede, geralmente via Ethernet ao switch/roteador."
+  },
+  {
+    "id": "extra-equipamentos-002",
+    "category": "Equipamentos",
+    "difficulty": "medium",
+    "q": "Um hub Ethernet (10/100 antigo) difere de um switch porque o hub:",
+    "choices": [
+      "Encaminha por MAC",
+      "Replica sinais para todas as portas (um domínio de colisão)",
+      "Faz roteamento IP",
+      "Bloqueia broadcasts"
+    ],
+    "answer": 1,
+    "explain": "Hub é repetidor multiporta: tudo vai para todas as portas, criando colisões e compartilhando banda."
+  },
+  {
+    "id": "extra-equipamentos-003",
+    "category": "Equipamentos",
+    "difficulty": "medium",
+    "q": "Um firewall de borda é usado principalmente para:",
+    "choices": [
+      "Resolver nomes DNS",
+      "Controlar/filtrar tráfego com base em regras (IP/porta/protocolo)",
+      "Aumentar a potência do sinal Wi‑Fi",
+      "Converter fibra em cobre"
+    ],
+    "answer": 1,
+    "explain": "Firewalls aplicam políticas de segurança, controlando o que entra/sai."
+  },
+  {
+    "id": "extra-equipamentos-004",
+    "category": "Equipamentos",
+    "difficulty": "hard",
+    "q": "Qual equipamento em redes GPON fica na central do provedor e atende múltiplas ONUs?",
+    "choices": [
+      "OLT",
+      "ONT",
+      "Modem ADSL",
+      "Switch de acesso comum"
+    ],
+    "answer": 0,
+    "explain": "OLT (Optical Line Terminal) fica no provedor e conecta-se a várias ONUs via splitters."
+  },
+  {
+    "id": "extra-equipamentos-005",
+    "category": "Equipamentos",
+    "difficulty": "easy",
+    "q": "Qual equipamento fornece conectividade Wi‑Fi e normalmente faz bridge L2 para a LAN?",
+    "choices": [
+      "OLT",
+      "Access Point (AP)",
+      "DNS",
+      "Patch panel"
+    ],
+    "answer": 1,
+    "explain": "Access Point (AP)"
+  },
+  {
+    "id": "extra-equipamentos-006",
+    "category": "Equipamentos",
+    "difficulty": "medium",
+    "q": "O que um 'patch panel' faz em cabeamento estruturado?",
+    "choices": [
+      "Distribui IPs",
+      "Criptografa tráfego",
+      "Faz roteamento IP",
+      "Organiza e termina cabos, facilitando conexões por patch cords"
+    ],
+    "answer": 3,
+    "explain": "Organiza e termina cabos, facilitando conexões por patch cords"
+  },
+  {
+    "id": "extra-equipamentos-007",
+    "category": "Equipamentos",
+    "difficulty": "easy",
+    "q": "Um conversor de mídia é usado para:",
+    "choices": [
+      "Gerar endereços MAC",
+      "Converter entre meios (ex.: fibra <-> Ethernet cobre)",
+      "Servir páginas web",
+      "Fazer DHCP"
+    ],
+    "answer": 1,
+    "explain": "Converter entre meios (ex.: fibra <-> Ethernet cobre)"
+  },
+  {
+    "id": "extra-equipamentos-008",
+    "category": "Equipamentos",
+    "difficulty": "easy",
+    "q": "Um repetidor/extensor de sinal tem como objetivo principal:",
+    "choices": [
+      "Regenerar/ampliar sinal para aumentar alcance",
+      "Criar sub-redes",
+      "Fazer NAT",
+      "Resolver DNS"
+    ],
+    "answer": 0,
+    "explain": "Regenerar/ampliar sinal para aumentar alcance"
+  },
+  {
+    "id": "extra-equipamentos-009",
+    "category": "Equipamentos",
+    "difficulty": "hard",
+    "q": "Um balanceador de carga L7 normalmente decide para qual servidor enviar com base em:",
+    "choices": [
+      "Canal Wi‑Fi",
+      "MAC address",
+      "Máscara de sub-rede",
+      "Conteúdo da aplicação (URL/headers) e políticas"
+    ],
+    "answer": 3,
+    "explain": "Conteúdo da aplicação (URL/headers) e políticas"
+  },
+  {
+    "id": "extra-equipamentos-010",
+    "category": "Equipamentos",
+    "difficulty": "medium",
+    "q": "Um roteador doméstico normalmente realiza qual função além de roteamento?",
+    "choices": [
+      "Substituir switch gerenciável em todos os casos",
+      "Ser servidor autoritativo DNS sempre",
+      "NAT/PAT para compartilhar Internet",
+      "Trocar fibras automaticamente"
+    ],
+    "answer": 2,
+    "explain": "NAT/PAT para compartilhar Internet"
+  },
+  {
+    "id": "extra-equipamentos-011",
+    "category": "Equipamentos",
+    "difficulty": "medium",
+    "q": "Um roteador doméstico normalmente realiza qual função além de roteamento?",
+    "choices": [
+      "NAT/PAT para compartilhar Internet",
+      "Trocar fibras automaticamente",
+      "Substituir switch gerenciável em todos os casos",
+      "Ser servidor autoritativo DNS sempre"
+    ],
+    "answer": 0,
+    "explain": "NAT/PAT para compartilhar Internet"
+  },
+  {
+    "id": "extra-equipamentos-012",
+    "category": "Equipamentos",
+    "difficulty": "medium",
+    "q": "Um roteador doméstico normalmente realiza qual função além de roteamento?",
+    "choices": [
+      "NAT/PAT para compartilhar Internet",
+      "Trocar fibras automaticamente",
+      "Ser servidor autoritativo DNS sempre",
+      "Substituir switch gerenciável em todos os casos"
+    ],
+    "answer": 0,
+    "explain": "NAT/PAT para compartilhar Internet"
+  },
+  {
+    "id": "extra-equipamentos-013",
+    "category": "Equipamentos",
+    "difficulty": "medium",
+    "q": "Um roteador doméstico normalmente realiza qual função além de roteamento?",
+    "choices": [
+      "NAT/PAT para compartilhar Internet",
+      "Trocar fibras automaticamente",
+      "Ser servidor autoritativo DNS sempre",
+      "Substituir switch gerenciável em todos os casos"
+    ],
+    "answer": 0,
+    "explain": "NAT/PAT para compartilhar Internet"
+  },
+  {
+    "id": "extra-equipamentos-014",
+    "category": "Equipamentos",
+    "difficulty": "medium",
+    "q": "Um roteador doméstico normalmente realiza qual função além de roteamento?",
+    "choices": [
+      "Trocar fibras automaticamente",
+      "Substituir switch gerenciável em todos os casos",
+      "Ser servidor autoritativo DNS sempre",
+      "NAT/PAT para compartilhar Internet"
+    ],
+    "answer": 3,
+    "explain": "NAT/PAT para compartilhar Internet"
+  },
+  {
+    "id": "extra-equipamentos-015",
+    "category": "Equipamentos",
+    "difficulty": "medium",
+    "q": "Um roteador doméstico normalmente realiza qual função além de roteamento?",
+    "choices": [
+      "NAT/PAT para compartilhar Internet",
+      "Ser servidor autoritativo DNS sempre",
+      "Substituir switch gerenciável em todos os casos",
+      "Trocar fibras automaticamente"
+    ],
+    "answer": 0,
+    "explain": "NAT/PAT para compartilhar Internet"
+  },
+  {
+    "id": "extra-equipamentos-016",
+    "category": "Equipamentos",
+    "difficulty": "medium",
+    "q": "Um roteador doméstico normalmente realiza qual função além de roteamento?",
+    "choices": [
+      "NAT/PAT para compartilhar Internet",
+      "Ser servidor autoritativo DNS sempre",
+      "Substituir switch gerenciável em todos os casos",
+      "Trocar fibras automaticamente"
+    ],
+    "answer": 0,
+    "explain": "NAT/PAT para compartilhar Internet"
+  },
+  {
+    "id": "extra-equipamentos-017",
+    "category": "Equipamentos",
+    "difficulty": "medium",
+    "q": "Um roteador doméstico normalmente realiza qual função além de roteamento?",
+    "choices": [
+      "NAT/PAT para compartilhar Internet",
+      "Ser servidor autoritativo DNS sempre",
+      "Trocar fibras automaticamente",
+      "Substituir switch gerenciável em todos os casos"
+    ],
+    "answer": 0,
+    "explain": "NAT/PAT para compartilhar Internet"
+  },
+  {
+    "id": "extra-equipamentos-018",
+    "category": "Equipamentos",
+    "difficulty": "medium",
+    "q": "Um roteador doméstico normalmente realiza qual função além de roteamento?",
+    "choices": [
+      "Substituir switch gerenciável em todos os casos",
+      "Ser servidor autoritativo DNS sempre",
+      "Trocar fibras automaticamente",
+      "NAT/PAT para compartilhar Internet"
+    ],
+    "answer": 3,
+    "explain": "NAT/PAT para compartilhar Internet"
+  },
+  {
+    "id": "extra-equipamentos-019",
+    "category": "Equipamentos",
+    "difficulty": "medium",
+    "q": "Um roteador doméstico normalmente realiza qual função além de roteamento?",
+    "choices": [
+      "NAT/PAT para compartilhar Internet",
+      "Trocar fibras automaticamente",
+      "Substituir switch gerenciável em todos os casos",
+      "Ser servidor autoritativo DNS sempre"
+    ],
+    "answer": 0,
+    "explain": "NAT/PAT para compartilhar Internet"
+  },
+  {
+    "id": "extra-tcp-ip-001",
+    "category": "TCP/IP",
+    "difficulty": "easy",
+    "q": "No TCP/IP, qual camada é responsável por endereçamento e roteamento IP?",
+    "choices": [
+      "Aplicação",
+      "Transporte",
+      "Internet",
+      "Acesso à Rede"
+    ],
+    "answer": 2,
+    "explain": "A camada Internet trata de IP, roteamento e endereçamento lógico."
+  },
+  {
+    "id": "extra-tcp-ip-002",
+    "category": "TCP/IP",
+    "difficulty": "medium",
+    "q": "O processo de encapsulamento significa que:",
+    "choices": [
+      "Os dados perdem cabeçalhos ao descer as camadas",
+      "Cada camada adiciona seu próprio cabeçalho (e às vezes trailer) ao dado",
+      "Somente TCP adiciona cabeçalho",
+      "Somente a camada física adiciona cabeçalho"
+    ],
+    "answer": 1,
+    "explain": "Ao descer a pilha, cada camada encapsula adicionando cabeçalhos (e em L2, trailer/FCS)."
+  },
+  {
+    "id": "extra-tcp-ip-003",
+    "category": "TCP/IP",
+    "difficulty": "medium",
+    "q": "Qual PDU (unidade de dados) é mais associada à camada de Transporte?",
+    "choices": [
+      "Quadro (frame)",
+      "Pacote (packet)",
+      "Segmento/Datagrama",
+      "Bits"
+    ],
+    "answer": 2,
+    "explain": "Na camada de Transporte usa-se segmento (TCP) ou datagrama (UDP)."
+  },
+  {
+    "id": "extra-tcp-ip-004",
+    "category": "TCP/IP",
+    "difficulty": "easy",
+    "q": "Qual protocolo da camada Internet do TCP/IP é responsável por endereçamento e roteamento?",
+    "choices": [
+      "Ethernet",
+      "TCP",
+      "IP",
+      "HTTP"
+    ],
+    "answer": 2,
+    "explain": "IP"
+  },
+  {
+    "id": "extra-tcp-ip-005",
+    "category": "TCP/IP",
+    "difficulty": "easy",
+    "q": "Qual protocolo é usado para mapear IP -> MAC em redes IPv4?",
+    "choices": [
+      "TLS",
+      "DNS",
+      "BGP",
+      "ARP"
+    ],
+    "answer": 3,
+    "explain": "ARP"
+  },
+  {
+    "id": "extra-tcp-ip-006",
+    "category": "TCP/IP",
+    "difficulty": "medium",
+    "q": "No TCP, o three-way handshake serve para:",
+    "choices": [
+      "Encerrar a conexão rapidamente",
+      "Escolher o canal Wi‑Fi",
+      "Resolver nomes de domínio",
+      "Estabelecer uma conexão e sincronizar parâmetros (SYN/SYN-ACK/ACK)"
+    ],
+    "answer": 3,
+    "explain": "Estabelecer uma conexão e sincronizar parâmetros (SYN/SYN-ACK/ACK)"
+  },
+  {
+    "id": "extra-tcp-ip-007",
+    "category": "TCP/IP",
+    "difficulty": "medium",
+    "q": "No TCP, o campo 'Window Size' é usado para:",
+    "choices": [
+      "Controle de roteamento",
+      "Controle de fluxo (janela deslizante)",
+      "Definir IP público",
+      "Criptografar payload"
+    ],
+    "answer": 1,
+    "explain": "Controle de fluxo (janela deslizante)"
+  },
+  {
+    "id": "extra-tcp-ip-008",
+    "category": "TCP/IP",
+    "difficulty": "medium",
+    "q": "O que é 'socket'?",
+    "choices": [
+      "Um padrão Wi‑Fi",
+      "Um registro DNS",
+      "Um tipo de cabo",
+      "Combinação de IP + porta (e protocolo) para identificar uma comunicação"
+    ],
+    "answer": 3,
+    "explain": "Combinação de IP + porta (e protocolo) para identificar uma comunicação"
+  },
+  {
+    "id": "extra-tcp-ip-009",
+    "category": "TCP/IP",
+    "difficulty": "hard",
+    "q": "Em comunicação típica, qual ordem de encapsulamento é mais correta (do dado para o meio)?",
+    "choices": [
+      "Dados → Segmento/Datagrama → Pacote IP → Quadro Ethernet → Bits",
+      "Bits → Quadro → Pacote → Segmento → Dados",
+      "Dados → Quadro → Pacote → Segmento → Bits",
+      "Pacote → Segmento → Quadro → Bits → Dados"
+    ],
+    "answer": 0,
+    "explain": "Dados → Segmento/Datagrama → Pacote IP → Quadro Ethernet → Bits"
+  },
+  {
+    "id": "extra-tcp-ip-010",
+    "category": "TCP/IP",
+    "difficulty": "hard",
+    "q": "Em comunicação típica, qual ordem de encapsulamento é mais correta (do dado para o meio)?",
+    "choices": [
+      "Dados → Quadro → Pacote → Segmento → Bits",
+      "Pacote → Segmento → Quadro → Bits → Dados",
+      "Bits → Quadro → Pacote → Segmento → Dados",
+      "Dados → Segmento/Datagrama → Pacote IP → Quadro Ethernet → Bits"
+    ],
+    "answer": 3,
+    "explain": "Dados → Segmento/Datagrama → Pacote IP → Quadro Ethernet → Bits"
+  },
+  {
+    "id": "extra-tcp-ip-011",
+    "category": "TCP/IP",
+    "difficulty": "hard",
+    "q": "Em comunicação típica, qual ordem de encapsulamento é mais correta (do dado para o meio)?",
+    "choices": [
+      "Dados → Segmento/Datagrama → Pacote IP → Quadro Ethernet → Bits",
+      "Bits → Quadro → Pacote → Segmento → Dados",
+      "Dados → Quadro → Pacote → Segmento → Bits",
+      "Pacote → Segmento → Quadro → Bits → Dados"
+    ],
+    "answer": 0,
+    "explain": "Dados → Segmento/Datagrama → Pacote IP → Quadro Ethernet → Bits"
+  },
+  {
+    "id": "extra-tcp-ip-012",
+    "category": "TCP/IP",
+    "difficulty": "hard",
+    "q": "Em comunicação típica, qual ordem de encapsulamento é mais correta (do dado para o meio)?",
+    "choices": [
+      "Bits → Quadro → Pacote → Segmento → Dados",
+      "Dados → Quadro → Pacote → Segmento → Bits",
+      "Pacote → Segmento → Quadro → Bits → Dados",
+      "Dados → Segmento/Datagrama → Pacote IP → Quadro Ethernet → Bits"
+    ],
+    "answer": 3,
+    "explain": "Dados → Segmento/Datagrama → Pacote IP → Quadro Ethernet → Bits"
+  },
+  {
+    "id": "extra-tcp-ip-013",
+    "category": "TCP/IP",
+    "difficulty": "hard",
+    "q": "Em comunicação típica, qual ordem de encapsulamento é mais correta (do dado para o meio)?",
+    "choices": [
+      "Dados → Segmento/Datagrama → Pacote IP → Quadro Ethernet → Bits",
+      "Dados → Quadro → Pacote → Segmento → Bits",
+      "Pacote → Segmento → Quadro → Bits → Dados",
+      "Bits → Quadro → Pacote → Segmento → Dados"
+    ],
+    "answer": 0,
+    "explain": "Dados → Segmento/Datagrama → Pacote IP → Quadro Ethernet → Bits"
+  },
+  {
+    "id": "extra-tcp-ip-014",
+    "category": "TCP/IP",
+    "difficulty": "hard",
+    "q": "Em comunicação típica, qual ordem de encapsulamento é mais correta (do dado para o meio)?",
+    "choices": [
+      "Dados → Quadro → Pacote → Segmento → Bits",
+      "Dados → Segmento/Datagrama → Pacote IP → Quadro Ethernet → Bits",
+      "Pacote → Segmento → Quadro → Bits → Dados",
+      "Bits → Quadro → Pacote → Segmento → Dados"
+    ],
+    "answer": 1,
+    "explain": "Dados → Segmento/Datagrama → Pacote IP → Quadro Ethernet → Bits"
+  },
+  {
+    "id": "extra-tcp-ip-015",
+    "category": "TCP/IP",
+    "difficulty": "hard",
+    "q": "Em comunicação típica, qual ordem de encapsulamento é mais correta (do dado para o meio)?",
+    "choices": [
+      "Bits → Quadro → Pacote → Segmento → Dados",
+      "Pacote → Segmento → Quadro → Bits → Dados",
+      "Dados → Segmento/Datagrama → Pacote IP → Quadro Ethernet → Bits",
+      "Dados → Quadro → Pacote → Segmento → Bits"
+    ],
+    "answer": 2,
+    "explain": "Dados → Segmento/Datagrama → Pacote IP → Quadro Ethernet → Bits"
+  },
+  {
+    "id": "extra-tcp-ip-016",
+    "category": "TCP/IP",
+    "difficulty": "hard",
+    "q": "Em comunicação típica, qual ordem de encapsulamento é mais correta (do dado para o meio)?",
+    "choices": [
+      "Pacote → Segmento → Quadro → Bits → Dados",
+      "Bits → Quadro → Pacote → Segmento → Dados",
+      "Dados → Segmento/Datagrama → Pacote IP → Quadro Ethernet → Bits",
+      "Dados → Quadro → Pacote → Segmento → Bits"
+    ],
+    "answer": 2,
+    "explain": "Dados → Segmento/Datagrama → Pacote IP → Quadro Ethernet → Bits"
+  },
+  {
+    "id": "extra-tcp-ip-017",
+    "category": "TCP/IP",
+    "difficulty": "hard",
+    "q": "Em comunicação típica, qual ordem de encapsulamento é mais correta (do dado para o meio)?",
+    "choices": [
+      "Pacote → Segmento → Quadro → Bits → Dados",
+      "Bits → Quadro → Pacote → Segmento → Dados",
+      "Dados → Quadro → Pacote → Segmento → Bits",
+      "Dados → Segmento/Datagrama → Pacote IP → Quadro Ethernet → Bits"
+    ],
+    "answer": 3,
+    "explain": "Dados → Segmento/Datagrama → Pacote IP → Quadro Ethernet → Bits"
+  },
+  {
+    "id": "extra-osi-vs-tcp-ip-001",
+    "category": "OSI vs TCP/IP",
+    "difficulty": "easy",
+    "q": "Quantas camadas possui o modelo OSI?",
+    "choices": [
+      "4",
+      "5",
+      "7",
+      "8"
+    ],
+    "answer": 2,
+    "explain": "O modelo OSI possui 7 camadas."
+  },
+  {
+    "id": "extra-osi-vs-tcp-ip-002",
+    "category": "OSI vs TCP/IP",
+    "difficulty": "medium",
+    "q": "No OSI, qual camada é responsável por endereçamento MAC e controle de acesso ao meio?",
+    "choices": [
+      "Rede",
+      "Enlace (Data Link)",
+      "Transporte",
+      "Aplicação"
+    ],
+    "answer": 1,
+    "explain": "A Camada de Enlace (L2) lida com MAC, frames e acesso ao meio."
+  },
+  {
+    "id": "extra-osi-vs-tcp-ip-003",
+    "category": "OSI vs TCP/IP",
+    "difficulty": "medium",
+    "q": "No OSI, criptografia e formatação de dados (ex.: charset, compressão) são tipicamente associadas a qual camada?",
+    "choices": [
+      "Apresentação",
+      "Sessão",
+      "Transporte",
+      "Física"
+    ],
+    "answer": 0,
+    "explain": "A camada de Apresentação lida com representação dos dados, como codificação e criptografia (conceitualmente)."
+  },
+  {
+    "id": "extra-osi-vs-tcp-ip-004",
+    "category": "OSI vs TCP/IP",
+    "difficulty": "easy",
+    "q": "No modelo OSI, a camada Física trata principalmente de:",
+    "choices": [
+      "Transporte",
+      "Rede",
+      "Enlace",
+      "Transmissão de bits no meio"
+    ],
+    "answer": 3,
+    "explain": "Transmissão de bits no meio"
+  },
+  {
+    "id": "extra-osi-vs-tcp-ip-005",
+    "category": "OSI vs TCP/IP",
+    "difficulty": "easy",
+    "q": "No modelo OSI, a camada Enlace trata principalmente de:",
+    "choices": [
+      "Aplicação",
+      "Endereçamento MAC e frames",
+      "Física",
+      "Transporte"
+    ],
+    "answer": 1,
+    "explain": "Endereçamento MAC e frames"
+  },
+  {
+    "id": "extra-osi-vs-tcp-ip-006",
+    "category": "OSI vs TCP/IP",
+    "difficulty": "easy",
+    "q": "No modelo OSI, a camada Rede trata principalmente de:",
+    "choices": [
+      "Roteamento e endereçamento IP (conceito)",
+      "Apresentação",
+      "Sessão",
+      "Enlace"
+    ],
+    "answer": 0,
+    "explain": "Roteamento e endereçamento IP (conceito)"
+  },
+  {
+    "id": "extra-osi-vs-tcp-ip-007",
+    "category": "OSI vs TCP/IP",
+    "difficulty": "easy",
+    "q": "No modelo OSI, a camada Transporte trata principalmente de:",
+    "choices": [
+      "Aplicação",
+      "Física",
+      "Conexões fim-a-fim, portas, confiabilidade (TCP)",
+      "Rede"
+    ],
+    "answer": 2,
+    "explain": "Conexões fim-a-fim, portas, confiabilidade (TCP)"
+  },
+  {
+    "id": "extra-osi-vs-tcp-ip-008",
+    "category": "OSI vs TCP/IP",
+    "difficulty": "easy",
+    "q": "No modelo OSI, a camada Sessão trata principalmente de:",
+    "choices": [
+      "Física",
+      "Apresentação",
+      "Enlace",
+      "Controle de sessão, estabelecimento/manutenção (conceitual)"
+    ],
+    "answer": 3,
+    "explain": "Controle de sessão, estabelecimento/manutenção (conceitual)"
+  },
+  {
+    "id": "extra-osi-vs-tcp-ip-009",
+    "category": "OSI vs TCP/IP",
+    "difficulty": "easy",
+    "q": "No modelo OSI, a camada Aplicação trata principalmente de:",
+    "choices": [
+      "Física",
+      "Serviços ao usuário (HTTP, SMTP, etc.)",
+      "Transporte",
+      "Rede"
+    ],
+    "answer": 1,
+    "explain": "Serviços ao usuário (HTTP, SMTP, etc.)"
+  },
+  {
+    "id": "extra-osi-vs-tcp-ip-010",
+    "category": "OSI vs TCP/IP",
+    "difficulty": "medium",
+    "q": "No mapeamento comum, as camadas OSI Sessão + Apresentação + Aplicação correspondem a qual camada no TCP/IP?",
+    "choices": [
+      "Aplicação",
+      "Internet",
+      "Acesso à Rede",
+      "Transporte"
+    ],
+    "answer": 0,
+    "explain": "Aplicação"
+  },
+  {
+    "id": "extra-osi-vs-tcp-ip-011",
+    "category": "OSI vs TCP/IP",
+    "difficulty": "medium",
+    "q": "A camada OSI Enlace + Física correspondem a qual camada no TCP/IP?",
+    "choices": [
+      "Transporte",
+      "Acesso à Rede",
+      "Internet",
+      "Aplicação"
+    ],
+    "answer": 1,
+    "explain": "Acesso à Rede"
+  },
+  {
+    "id": "extra-osi-vs-tcp-ip-012",
+    "category": "OSI vs TCP/IP",
+    "difficulty": "easy",
+    "q": "No OSI, qual PDU é da camada de Rede?",
+    "choices": [
+      "Segmento",
+      "Pacote",
+      "Quadro",
+      "Bits"
+    ],
+    "answer": 1,
+    "explain": "Pacote"
+  },
+  {
+    "id": "extra-osi-vs-tcp-ip-013",
+    "category": "OSI vs TCP/IP",
+    "difficulty": "easy",
+    "q": "No OSI, qual PDU é da camada de Enlace?",
+    "choices": [
+      "Mensagem",
+      "Segmento",
+      "Pacote",
+      "Quadro"
+    ],
+    "answer": 3,
+    "explain": "Quadro"
+  },
+  {
+    "id": "extra-osi-vs-tcp-ip-014",
+    "category": "OSI vs TCP/IP",
+    "difficulty": "easy",
+    "q": "No OSI, qual PDU é da camada Física?",
+    "choices": [
+      "Bits",
+      "Quadro",
+      "Segmento",
+      "Pacote"
+    ],
+    "answer": 0,
+    "explain": "Bits"
+  },
+  {
+    "id": "extra-osi-vs-tcp-ip-015",
+    "category": "OSI vs TCP/IP",
+    "difficulty": "hard",
+    "q": "Qual opção lista corretamente as camadas OSI (de cima para baixo)?",
+    "choices": [
+      "Aplicação → Apresentação → Sessão → Transporte → Rede → Enlace → Física",
+      "Aplicação → Transporte → Internet → Acesso → Física → Sessão → Apresentação",
+      "Aplicação → Sessão → Apresentação → Transporte → Rede → Física → Enlace",
+      "Transporte → Aplicação → Rede → Enlace → Física → Sessão → Apresentação"
+    ],
+    "answer": 0,
+    "explain": "Aplicação → Apresentação → Sessão → Transporte → Rede → Enlace → Física"
+  },
+  {
+    "id": "extra-osi-vs-tcp-ip-016",
+    "category": "OSI vs TCP/IP",
+    "difficulty": "hard",
+    "q": "Qual opção lista corretamente as camadas OSI (de cima para baixo)?",
+    "choices": [
+      "Aplicação → Apresentação → Sessão → Transporte → Rede → Enlace → Física",
+      "Transporte → Aplicação → Rede → Enlace → Física → Sessão → Apresentação",
+      "Aplicação → Transporte → Internet → Acesso → Física → Sessão → Apresentação",
+      "Aplicação → Sessão → Apresentação → Transporte → Rede → Física → Enlace"
+    ],
+    "answer": 0,
+    "explain": "Aplicação → Apresentação → Sessão → Transporte → Rede → Enlace → Física"
+  },
+  {
+    "id": "extra-osi-vs-tcp-ip-017",
+    "category": "OSI vs TCP/IP",
+    "difficulty": "hard",
+    "q": "Qual opção lista corretamente as camadas OSI (de cima para baixo)?",
+    "choices": [
+      "Transporte → Aplicação → Rede → Enlace → Física → Sessão → Apresentação",
+      "Aplicação → Sessão → Apresentação → Transporte → Rede → Física → Enlace",
+      "Aplicação → Transporte → Internet → Acesso → Física → Sessão → Apresentação",
+      "Aplicação → Apresentação → Sessão → Transporte → Rede → Enlace → Física"
+    ],
+    "answer": 3,
+    "explain": "Aplicação → Apresentação → Sessão → Transporte → Rede → Enlace → Física"
+  },
+  {
+    "id": "extra-osi-vs-tcp-ip-018",
+    "category": "OSI vs TCP/IP",
+    "difficulty": "hard",
+    "q": "Qual opção lista corretamente as camadas OSI (de cima para baixo)?",
+    "choices": [
+      "Aplicação → Apresentação → Sessão → Transporte → Rede → Enlace → Física",
+      "Aplicação → Sessão → Apresentação → Transporte → Rede → Física → Enlace",
+      "Aplicação → Transporte → Internet → Acesso → Física → Sessão → Apresentação",
+      "Transporte → Aplicação → Rede → Enlace → Física → Sessão → Apresentação"
+    ],
+    "answer": 0,
+    "explain": "Aplicação → Apresentação → Sessão → Transporte → Rede → Enlace → Física"
+  },
+  {
+    "id": "extra-osi-vs-tcp-ip-019",
+    "category": "OSI vs TCP/IP",
+    "difficulty": "hard",
+    "q": "Qual opção lista corretamente as camadas OSI (de cima para baixo)?",
+    "choices": [
+      "Aplicação → Transporte → Internet → Acesso → Física → Sessão → Apresentação",
+      "Aplicação → Sessão → Apresentação → Transporte → Rede → Física → Enlace",
+      "Aplicação → Apresentação → Sessão → Transporte → Rede → Enlace → Física",
+      "Transporte → Aplicação → Rede → Enlace → Física → Sessão → Apresentação"
+    ],
+    "answer": 2,
+    "explain": "Aplicação → Apresentação → Sessão → Transporte → Rede → Enlace → Física"
+  },
+  {
+    "id": "extra-osi-vs-tcp-ip-020",
+    "category": "OSI vs TCP/IP",
+    "difficulty": "hard",
+    "q": "Qual opção lista corretamente as camadas OSI (de cima para baixo)?",
+    "choices": [
+      "Aplicação → Sessão → Apresentação → Transporte → Rede → Física → Enlace",
+      "Aplicação → Transporte → Internet → Acesso → Física → Sessão → Apresentação",
+      "Aplicação → Apresentação → Sessão → Transporte → Rede → Enlace → Física",
+      "Transporte → Aplicação → Rede → Enlace → Física → Sessão → Apresentação"
+    ],
+    "answer": 2,
+    "explain": "Aplicação → Apresentação → Sessão → Transporte → Rede → Enlace → Física"
+  },
+  {
+    "id": "extra-osi-vs-tcp-ip-021",
+    "category": "OSI vs TCP/IP",
+    "difficulty": "hard",
+    "q": "Qual opção lista corretamente as camadas OSI (de cima para baixo)?",
+    "choices": [
+      "Transporte → Aplicação → Rede → Enlace → Física → Sessão → Apresentação",
+      "Aplicação → Apresentação → Sessão → Transporte → Rede → Enlace → Física",
+      "Aplicação → Sessão → Apresentação → Transporte → Rede → Física → Enlace",
+      "Aplicação → Transporte → Internet → Acesso → Física → Sessão → Apresentação"
+    ],
+    "answer": 1,
+    "explain": "Aplicação → Apresentação → Sessão → Transporte → Rede → Enlace → Física"
+  },
+  {
+    "id": "extra-osi-vs-tcp-ip-022",
+    "category": "OSI vs TCP/IP",
+    "difficulty": "hard",
+    "q": "Qual opção lista corretamente as camadas OSI (de cima para baixo)?",
+    "choices": [
+      "Aplicação → Sessão → Apresentação → Transporte → Rede → Física → Enlace",
+      "Aplicação → Transporte → Internet → Acesso → Física → Sessão → Apresentação",
+      "Aplicação → Apresentação → Sessão → Transporte → Rede → Enlace → Física",
+      "Transporte → Aplicação → Rede → Enlace → Física → Sessão → Apresentação"
+    ],
+    "answer": 2,
+    "explain": "Aplicação → Apresentação → Sessão → Transporte → Rede → Enlace → Física"
+  },
+  {
+    "id": "extra-osi-vs-tcp-ip-023",
+    "category": "OSI vs TCP/IP",
+    "difficulty": "hard",
+    "q": "Qual opção lista corretamente as camadas OSI (de cima para baixo)?",
+    "choices": [
+      "Aplicação → Sessão → Apresentação → Transporte → Rede → Física → Enlace",
+      "Aplicação → Apresentação → Sessão → Transporte → Rede → Enlace → Física",
+      "Aplicação → Transporte → Internet → Acesso → Física → Sessão → Apresentação",
+      "Transporte → Aplicação → Rede → Enlace → Física → Sessão → Apresentação"
+    ],
+    "answer": 1,
+    "explain": "Aplicação → Apresentação → Sessão → Transporte → Rede → Enlace → Física"
+  },
+  {
+    "id": "extra-osi-vs-tcp-ip-024",
+    "category": "OSI vs TCP/IP",
+    "difficulty": "hard",
+    "q": "Qual opção lista corretamente as camadas OSI (de cima para baixo)?",
+    "choices": [
+      "Aplicação → Sessão → Apresentação → Transporte → Rede → Física → Enlace",
+      "Aplicação → Transporte → Internet → Acesso → Física → Sessão → Apresentação",
+      "Transporte → Aplicação → Rede → Enlace → Física → Sessão → Apresentação",
+      "Aplicação → Apresentação → Sessão → Transporte → Rede → Enlace → Física"
+    ],
+    "answer": 3,
+    "explain": "Aplicação → Apresentação → Sessão → Transporte → Rede → Enlace → Física"
+  },
+  {
+    "id": "extra-udp-001",
+    "category": "UDP",
+    "difficulty": "easy",
+    "q": "Qual característica é típica do UDP?",
+    "choices": [
+      "Orientado a conexão",
+      "Entrega garantida e ordenada",
+      "Baixo overhead e sem handshake",
+      "Controle de congestionamento obrigatório"
+    ],
+    "answer": 2,
+    "explain": "UDP é simples, sem conexão e com baixo overhead; não garante entrega/ordem."
+  },
+  {
+    "id": "extra-udp-002",
+    "category": "UDP",
+    "difficulty": "medium",
+    "q": "Qual campo existe no cabeçalho UDP para detectar erros?",
+    "choices": [
+      "TTL",
+      "Checksum",
+      "Window Size",
+      "Flags SYN/ACK"
+    ],
+    "answer": 1,
+    "explain": "UDP possui checksum (obrigatório em IPv6) para verificação de integridade."
+  },
+  {
+    "id": "extra-udp-003",
+    "category": "UDP",
+    "difficulty": "easy",
+    "q": "UDP garante entrega e ordem?",
+    "choices": [
+      "Não, UDP não garante entrega nem ordenação",
+      "Sim, sempre",
+      "Apenas em Wi‑Fi",
+      "Somente em IPv6"
+    ],
+    "answer": 0,
+    "explain": "Não, UDP não garante entrega nem ordenação"
+  },
+  {
+    "id": "extra-udp-004",
+    "category": "UDP",
+    "difficulty": "medium",
+    "q": "Aplicações como DNS e VoIP costumam usar UDP porque:",
+    "choices": [
+      "Overhead menor e baixa latência são prioritários",
+      "Exige controle de fluxo robusto",
+      "Precisa de handshake",
+      "Sempre criptografa"
+    ],
+    "answer": 0,
+    "explain": "Overhead menor e baixa latência são prioritários"
+  },
+  {
+    "id": "extra-udp-005",
+    "category": "UDP",
+    "difficulty": "medium",
+    "q": "Em IPv6, o checksum do UDP é:",
+    "choices": [
+      "Opcional",
+      "Inexistente",
+      "Obrigatório",
+      "Substituído por ARP"
+    ],
+    "answer": 2,
+    "explain": "Obrigatório"
+  },
+  {
+    "id": "extra-udp-006",
+    "category": "UDP",
+    "difficulty": "medium",
+    "q": "O UDP é frequentemente escolhido para jogos online principalmente por:",
+    "choices": [
+      "Necessidade de sessão autenticada por padrão",
+      "Menor overhead e possibilidade de tolerar perda sem retransmissões pesadas",
+      "Controle de congestionamento obrigatório",
+      "Entrega garantida e ordenada"
+    ],
+    "answer": 1,
+    "explain": "Menor overhead e possibilidade de tolerar perda sem retransmissões pesadas"
+  },
+  {
+    "id": "extra-udp-007",
+    "category": "UDP",
+    "difficulty": "medium",
+    "q": "O UDP é frequentemente escolhido para NTP principalmente por:",
+    "choices": [
+      "Necessidade de sessão autenticada por padrão",
+      "Menor overhead e possibilidade de tolerar perda sem retransmissões pesadas",
+      "Entrega garantida e ordenada",
+      "Controle de congestionamento obrigatório"
+    ],
+    "answer": 1,
+    "explain": "Menor overhead e possibilidade de tolerar perda sem retransmissões pesadas"
+  },
+  {
+    "id": "extra-udp-008",
+    "category": "UDP",
+    "difficulty": "medium",
+    "q": "O UDP é frequentemente escolhido para DHCP principalmente por:",
+    "choices": [
+      "Necessidade de sessão autenticada por padrão",
+      "Controle de congestionamento obrigatório",
+      "Entrega garantida e ordenada",
+      "Menor overhead e possibilidade de tolerar perda sem retransmissões pesadas"
+    ],
+    "answer": 3,
+    "explain": "Menor overhead e possibilidade de tolerar perda sem retransmissões pesadas"
+  },
+  {
+    "id": "extra-udp-009",
+    "category": "UDP",
+    "difficulty": "medium",
+    "q": "O UDP é frequentemente escolhido para VoIP principalmente por:",
+    "choices": [
+      "Menor overhead e possibilidade de tolerar perda sem retransmissões pesadas",
+      "Necessidade de sessão autenticada por padrão",
+      "Controle de congestionamento obrigatório",
+      "Entrega garantida e ordenada"
+    ],
+    "answer": 0,
+    "explain": "Menor overhead e possibilidade de tolerar perda sem retransmissões pesadas"
+  },
+  {
+    "id": "extra-udp-010",
+    "category": "UDP",
+    "difficulty": "medium",
+    "q": "O UDP é frequentemente escolhido para streaming ao vivo principalmente por:",
+    "choices": [
+      "Necessidade de sessão autenticada por padrão",
+      "Menor overhead e possibilidade de tolerar perda sem retransmissões pesadas",
+      "Controle de congestionamento obrigatório",
+      "Entrega garantida e ordenada"
+    ],
+    "answer": 1,
+    "explain": "Menor overhead e possibilidade de tolerar perda sem retransmissões pesadas"
+  },
+  {
+    "id": "extra-udp-011",
+    "category": "UDP",
+    "difficulty": "medium",
+    "q": "O UDP é frequentemente escolhido para DNS principalmente por:",
+    "choices": [
+      "Menor overhead e possibilidade de tolerar perda sem retransmissões pesadas",
+      "Necessidade de sessão autenticada por padrão",
+      "Controle de congestionamento obrigatório",
+      "Entrega garantida e ordenada"
+    ],
+    "answer": 0,
+    "explain": "Menor overhead e possibilidade de tolerar perda sem retransmissões pesadas"
+  },
+  {
+    "id": "extra-udp-012",
+    "category": "UDP",
+    "difficulty": "medium",
+    "q": "O UDP é frequentemente escolhido para jogos online principalmente por:",
+    "choices": [
+      "Necessidade de sessão autenticada por padrão",
+      "Controle de congestionamento obrigatório",
+      "Entrega garantida e ordenada",
+      "Menor overhead e possibilidade de tolerar perda sem retransmissões pesadas"
+    ],
+    "answer": 3,
+    "explain": "Menor overhead e possibilidade de tolerar perda sem retransmissões pesadas"
+  },
+  {
+    "id": "extra-udp-013",
+    "category": "UDP",
+    "difficulty": "medium",
+    "q": "O UDP é frequentemente escolhido para NTP principalmente por:",
+    "choices": [
+      "Menor overhead e possibilidade de tolerar perda sem retransmissões pesadas",
+      "Entrega garantida e ordenada",
+      "Necessidade de sessão autenticada por padrão",
+      "Controle de congestionamento obrigatório"
+    ],
+    "answer": 0,
+    "explain": "Menor overhead e possibilidade de tolerar perda sem retransmissões pesadas"
+  },
+  {
+    "id": "extra-udp-014",
+    "category": "UDP",
+    "difficulty": "medium",
+    "q": "O UDP é frequentemente escolhido para DHCP principalmente por:",
+    "choices": [
+      "Necessidade de sessão autenticada por padrão",
+      "Menor overhead e possibilidade de tolerar perda sem retransmissões pesadas",
+      "Controle de congestionamento obrigatório",
+      "Entrega garantida e ordenada"
+    ],
+    "answer": 1,
+    "explain": "Menor overhead e possibilidade de tolerar perda sem retransmissões pesadas"
+  },
+  {
+    "id": "extra-udp-015",
+    "category": "UDP",
+    "difficulty": "medium",
+    "q": "O UDP é frequentemente escolhido para VoIP principalmente por:",
+    "choices": [
+      "Entrega garantida e ordenada",
+      "Controle de congestionamento obrigatório",
+      "Menor overhead e possibilidade de tolerar perda sem retransmissões pesadas",
+      "Necessidade de sessão autenticada por padrão"
+    ],
+    "answer": 2,
+    "explain": "Menor overhead e possibilidade de tolerar perda sem retransmissões pesadas"
+  },
+  {
+    "id": "extra-udp-016",
+    "category": "UDP",
+    "difficulty": "medium",
+    "q": "O UDP é frequentemente escolhido para streaming ao vivo principalmente por:",
+    "choices": [
+      "Controle de congestionamento obrigatório",
+      "Entrega garantida e ordenada",
+      "Menor overhead e possibilidade de tolerar perda sem retransmissões pesadas",
+      "Necessidade de sessão autenticada por padrão"
+    ],
+    "answer": 2,
+    "explain": "Menor overhead e possibilidade de tolerar perda sem retransmissões pesadas"
+  },
+  {
+    "id": "extra-udp-017",
+    "category": "UDP",
+    "difficulty": "medium",
+    "q": "O UDP é frequentemente escolhido para DNS principalmente por:",
+    "choices": [
+      "Controle de congestionamento obrigatório",
+      "Necessidade de sessão autenticada por padrão",
+      "Menor overhead e possibilidade de tolerar perda sem retransmissões pesadas",
+      "Entrega garantida e ordenada"
+    ],
+    "answer": 2,
+    "explain": "Menor overhead e possibilidade de tolerar perda sem retransmissões pesadas"
+  },
+  {
+    "id": "extra-udp-018",
+    "category": "UDP",
+    "difficulty": "medium",
+    "q": "O UDP é frequentemente escolhido para jogos online principalmente por:",
+    "choices": [
+      "Controle de congestionamento obrigatório",
+      "Menor overhead e possibilidade de tolerar perda sem retransmissões pesadas",
+      "Entrega garantida e ordenada",
+      "Necessidade de sessão autenticada por padrão"
+    ],
+    "answer": 1,
+    "explain": "Menor overhead e possibilidade de tolerar perda sem retransmissões pesadas"
+  },
+  {
+    "id": "extra-udp-019",
+    "category": "UDP",
+    "difficulty": "medium",
+    "q": "O UDP é frequentemente escolhido para NTP principalmente por:",
+    "choices": [
+      "Necessidade de sessão autenticada por padrão",
+      "Menor overhead e possibilidade de tolerar perda sem retransmissões pesadas",
+      "Entrega garantida e ordenada",
+      "Controle de congestionamento obrigatório"
+    ],
+    "answer": 1,
+    "explain": "Menor overhead e possibilidade de tolerar perda sem retransmissões pesadas"
+  },
+  {
+    "id": "extra-udp-020",
+    "category": "UDP",
+    "difficulty": "medium",
+    "q": "O UDP é frequentemente escolhido para DHCP principalmente por:",
+    "choices": [
+      "Necessidade de sessão autenticada por padrão",
+      "Entrega garantida e ordenada",
+      "Controle de congestionamento obrigatório",
+      "Menor overhead e possibilidade de tolerar perda sem retransmissões pesadas"
+    ],
+    "answer": 3,
+    "explain": "Menor overhead e possibilidade de tolerar perda sem retransmissões pesadas"
+  },
+  {
+    "id": "extra-udp-021",
+    "category": "UDP",
+    "difficulty": "medium",
+    "q": "O UDP é frequentemente escolhido para VoIP principalmente por:",
+    "choices": [
+      "Necessidade de sessão autenticada por padrão",
+      "Controle de congestionamento obrigatório",
+      "Menor overhead e possibilidade de tolerar perda sem retransmissões pesadas",
+      "Entrega garantida e ordenada"
+    ],
+    "answer": 2,
+    "explain": "Menor overhead e possibilidade de tolerar perda sem retransmissões pesadas"
+  },
+  {
+    "id": "extra-udp-022",
+    "category": "UDP",
+    "difficulty": "medium",
+    "q": "O UDP é frequentemente escolhido para streaming ao vivo principalmente por:",
+    "choices": [
+      "Necessidade de sessão autenticada por padrão",
+      "Controle de congestionamento obrigatório",
+      "Entrega garantida e ordenada",
+      "Menor overhead e possibilidade de tolerar perda sem retransmissões pesadas"
+    ],
+    "answer": 3,
+    "explain": "Menor overhead e possibilidade de tolerar perda sem retransmissões pesadas"
+  },
+  {
+    "id": "extra-udp-023",
+    "category": "UDP",
+    "difficulty": "medium",
+    "q": "O UDP é frequentemente escolhido para DNS principalmente por:",
+    "choices": [
+      "Entrega garantida e ordenada",
+      "Controle de congestionamento obrigatório",
+      "Menor overhead e possibilidade de tolerar perda sem retransmissões pesadas",
+      "Necessidade de sessão autenticada por padrão"
+    ],
+    "answer": 2,
+    "explain": "Menor overhead e possibilidade de tolerar perda sem retransmissões pesadas"
+  },
+  {
+    "id": "extra-udp-024",
+    "category": "UDP",
+    "difficulty": "medium",
+    "q": "O UDP é frequentemente escolhido para jogos online principalmente por:",
+    "choices": [
+      "Menor overhead e possibilidade de tolerar perda sem retransmissões pesadas",
+      "Necessidade de sessão autenticada por padrão",
+      "Controle de congestionamento obrigatório",
+      "Entrega garantida e ordenada"
+    ],
+    "answer": 0,
+    "explain": "Menor overhead e possibilidade de tolerar perda sem retransmissões pesadas"
+  },
+  {
+    "id": "extra-udp-tcp-001",
+    "category": "UDP/TCP",
+    "difficulty": "easy",
+    "q": "Qual protocolo é orientado à conexão?",
+    "choices": [
+      "UDP",
+      "TCP",
+      "ICMP",
+      "ARP"
+    ],
+    "answer": 1,
+    "explain": "TCP estabelece conexão (handshake) e gerencia estado."
+  },
+  {
+    "id": "extra-udp-tcp-002",
+    "category": "UDP/TCP",
+    "difficulty": "medium",
+    "q": "O controle de fluxo no TCP é feito principalmente usando:",
+    "choices": [
+      "TTL",
+      "Janela (window)",
+      "Portas dinâmicas",
+      "DNS"
+    ],
+    "answer": 1,
+    "explain": "O TCP usa janela deslizante para controle de fluxo."
+  },
+  {
+    "id": "extra-udp-tcp-003",
+    "category": "UDP/TCP",
+    "difficulty": "medium",
+    "q": "A finalização 'graciosa' de uma conexão TCP normalmente envolve:",
+    "choices": [
+      "SYN → SYN/ACK",
+      "FIN/ACK (encerramento em quatro vias)",
+      "ARP Request",
+      "ICMP Echo"
+    ],
+    "answer": 1,
+    "explain": "O encerramento usa FIN/ACK (geralmente 4 mensagens) para finalizar corretamente."
+  },
+  {
+    "id": "extra-udp-tcp-004",
+    "category": "UDP/TCP",
+    "difficulty": "easy",
+    "q": "Qual afirmação é verdadeira sobre TCP?",
+    "choices": [
+      "TCP é sem conexão",
+      "TCP não usa portas",
+      "TCP não tem controle de fluxo",
+      "TCP fornece confiabilidade com confirmações (ACK) e retransmissões"
+    ],
+    "answer": 3,
+    "explain": "TCP fornece confiabilidade com confirmações (ACK) e retransmissões"
+  },
+  {
+    "id": "extra-udp-tcp-005",
+    "category": "UDP/TCP",
+    "difficulty": "easy",
+    "q": "Qual afirmação é verdadeira sobre UDP?",
+    "choices": [
+      "UDP sempre retransmite",
+      "UDP não tem checksum",
+      "UDP usa handshake de 3 vias",
+      "UDP é sem conexão e não garante entrega/ordem"
+    ],
+    "answer": 3,
+    "explain": "UDP é sem conexão e não garante entrega/ordem"
+  },
+  {
+    "id": "extra-udp-tcp-006",
+    "category": "UDP/TCP",
+    "difficulty": "easy",
+    "q": "Em geral, qual escolha faz mais sentido para transferência de arquivos sem perda?",
+    "choices": [
+      "TCP",
+      "ICMP",
+      "ARP",
+      "UDP"
+    ],
+    "answer": 0,
+    "explain": "TCP"
+  },
+  {
+    "id": "extra-udp-tcp-007",
+    "category": "UDP/TCP",
+    "difficulty": "easy",
+    "q": "Qual afirmação é verdadeira sobre TCP?",
+    "choices": [
+      "TCP não tem controle de fluxo",
+      "TCP não usa portas",
+      "TCP é sem conexão",
+      "TCP fornece confiabilidade com confirmações (ACK) e retransmissões"
+    ],
+    "answer": 3,
+    "explain": "TCP fornece confiabilidade com confirmações (ACK) e retransmissões"
+  },
+  {
+    "id": "extra-udp-tcp-008",
+    "category": "UDP/TCP",
+    "difficulty": "easy",
+    "q": "Qual afirmação é verdadeira sobre UDP?",
+    "choices": [
+      "UDP é sem conexão e não garante entrega/ordem",
+      "UDP não tem checksum",
+      "UDP usa handshake de 3 vias",
+      "UDP sempre retransmite"
+    ],
+    "answer": 0,
+    "explain": "UDP é sem conexão e não garante entrega/ordem"
+  },
+  {
+    "id": "extra-udp-tcp-009",
+    "category": "UDP/TCP",
+    "difficulty": "easy",
+    "q": "Em geral, qual escolha faz mais sentido para transferência de arquivos sem perda?",
+    "choices": [
+      "ARP",
+      "TCP",
+      "ICMP",
+      "UDP"
+    ],
+    "answer": 1,
+    "explain": "TCP"
+  },
+  {
+    "id": "extra-udp-tcp-010",
+    "category": "UDP/TCP",
+    "difficulty": "easy",
+    "q": "Qual afirmação é verdadeira sobre TCP?",
+    "choices": [
+      "TCP não usa portas",
+      "TCP não tem controle de fluxo",
+      "TCP fornece confiabilidade com confirmações (ACK) e retransmissões",
+      "TCP é sem conexão"
+    ],
+    "answer": 2,
+    "explain": "TCP fornece confiabilidade com confirmações (ACK) e retransmissões"
+  },
+  {
+    "id": "extra-udp-tcp-011",
+    "category": "UDP/TCP",
+    "difficulty": "easy",
+    "q": "Qual afirmação é verdadeira sobre UDP?",
+    "choices": [
+      "UDP usa handshake de 3 vias",
+      "UDP é sem conexão e não garante entrega/ordem",
+      "UDP sempre retransmite",
+      "UDP não tem checksum"
+    ],
+    "answer": 1,
+    "explain": "UDP é sem conexão e não garante entrega/ordem"
+  },
+  {
+    "id": "extra-udp-tcp-012",
+    "category": "UDP/TCP",
+    "difficulty": "easy",
+    "q": "Em geral, qual escolha faz mais sentido para transferência de arquivos sem perda?",
+    "choices": [
+      "TCP",
+      "ICMP",
+      "UDP",
+      "ARP"
+    ],
+    "answer": 0,
+    "explain": "TCP"
+  },
+  {
+    "id": "extra-udp-tcp-013",
+    "category": "UDP/TCP",
+    "difficulty": "easy",
+    "q": "Qual afirmação é verdadeira sobre TCP?",
+    "choices": [
+      "TCP é sem conexão",
+      "TCP não tem controle de fluxo",
+      "TCP não usa portas",
+      "TCP fornece confiabilidade com confirmações (ACK) e retransmissões"
+    ],
+    "answer": 3,
+    "explain": "TCP fornece confiabilidade com confirmações (ACK) e retransmissões"
+  },
+  {
+    "id": "extra-udp-tcp-014",
+    "category": "UDP/TCP",
+    "difficulty": "easy",
+    "q": "Qual afirmação é verdadeira sobre UDP?",
+    "choices": [
+      "UDP sempre retransmite",
+      "UDP não tem checksum",
+      "UDP é sem conexão e não garante entrega/ordem",
+      "UDP usa handshake de 3 vias"
+    ],
+    "answer": 2,
+    "explain": "UDP é sem conexão e não garante entrega/ordem"
+  },
+  {
+    "id": "extra-udp-tcp-015",
+    "category": "UDP/TCP",
+    "difficulty": "easy",
+    "q": "Em geral, qual escolha faz mais sentido para transferência de arquivos sem perda?",
+    "choices": [
+      "UDP",
+      "ARP",
+      "TCP",
+      "ICMP"
+    ],
+    "answer": 2,
+    "explain": "TCP"
+  },
+  {
+    "id": "extra-udp-tcp-016",
+    "category": "UDP/TCP",
+    "difficulty": "easy",
+    "q": "Qual afirmação é verdadeira sobre TCP?",
+    "choices": [
+      "TCP fornece confiabilidade com confirmações (ACK) e retransmissões",
+      "TCP não usa portas",
+      "TCP não tem controle de fluxo",
+      "TCP é sem conexão"
+    ],
+    "answer": 0,
+    "explain": "TCP fornece confiabilidade com confirmações (ACK) e retransmissões"
+  },
+  {
+    "id": "extra-udp-tcp-017",
+    "category": "UDP/TCP",
+    "difficulty": "easy",
+    "q": "Qual afirmação é verdadeira sobre UDP?",
+    "choices": [
+      "UDP é sem conexão e não garante entrega/ordem",
+      "UDP não tem checksum",
+      "UDP usa handshake de 3 vias",
+      "UDP sempre retransmite"
+    ],
+    "answer": 0,
+    "explain": "UDP é sem conexão e não garante entrega/ordem"
+  },
+  {
+    "id": "extra-udp-tcp-018",
+    "category": "UDP/TCP",
+    "difficulty": "easy",
+    "q": "Em geral, qual escolha faz mais sentido para transferência de arquivos sem perda?",
+    "choices": [
+      "UDP",
+      "TCP",
+      "ICMP",
+      "ARP"
+    ],
+    "answer": 1,
+    "explain": "TCP"
+  },
+  {
+    "id": "extra-udp-tcp-019",
+    "category": "UDP/TCP",
+    "difficulty": "easy",
+    "q": "Qual afirmação é verdadeira sobre TCP?",
+    "choices": [
+      "TCP é sem conexão",
+      "TCP não tem controle de fluxo",
+      "TCP fornece confiabilidade com confirmações (ACK) e retransmissões",
+      "TCP não usa portas"
+    ],
+    "answer": 2,
+    "explain": "TCP fornece confiabilidade com confirmações (ACK) e retransmissões"
+  },
+  {
+    "id": "extra-udp-tcp-020",
+    "category": "UDP/TCP",
+    "difficulty": "easy",
+    "q": "Qual afirmação é verdadeira sobre UDP?",
+    "choices": [
+      "UDP usa handshake de 3 vias",
+      "UDP não tem checksum",
+      "UDP sempre retransmite",
+      "UDP é sem conexão e não garante entrega/ordem"
+    ],
+    "answer": 3,
+    "explain": "UDP é sem conexão e não garante entrega/ordem"
+  },
+  {
+    "id": "extra-udp-tcp-021",
+    "category": "UDP/TCP",
+    "difficulty": "easy",
+    "q": "Em geral, qual escolha faz mais sentido para transferência de arquivos sem perda?",
+    "choices": [
+      "UDP",
+      "ICMP",
+      "ARP",
+      "TCP"
+    ],
+    "answer": 3,
+    "explain": "TCP"
+  },
+  {
+    "id": "extra-ip-publico-x-privado-001",
+    "category": "IP Público x Privado",
+    "difficulty": "easy",
+    "q": "Qual faixa é privada segundo RFC 1918?",
+    "choices": [
+      "8.8.8.0/24",
+      "10.0.0.0/8",
+      "100.64.0.0/10",
+      "169.254.0.0/16"
+    ],
+    "answer": 1,
+    "explain": "10.0.0.0/8 é uma faixa privada (RFC 1918)."
+  },
+  {
+    "id": "extra-ip-publico-x-privado-002",
+    "category": "IP Público x Privado",
+    "difficulty": "easy",
+    "q": "Qual faixa é link-local (APIPA) em IPv4?",
+    "choices": [
+      "169.254.0.0/16",
+      "192.168.0.0/16",
+      "172.16.0.0/12",
+      "127.0.0.0/8"
+    ],
+    "answer": 0,
+    "explain": "169.254.0.0/16 é link-local, usada quando não há DHCP, por exemplo."
+  },
+  {
+    "id": "extra-ip-publico-x-privado-003",
+    "category": "IP Público x Privado",
+    "difficulty": "medium",
+    "q": "Qual faixa é reservada para CGNAT (Shared Address Space)?",
+    "choices": [
+      "100.64.0.0/10",
+      "192.0.2.0/24",
+      "198.51.100.0/24",
+      "203.0.113.0/24"
+    ],
+    "answer": 0,
+    "explain": "100.64.0.0/10 é a faixa reservada para CGNAT (RFC 6598)."
+  },
+  {
+    "id": "extra-ip-publico-x-privado-004",
+    "category": "IP Público x Privado",
+    "difficulty": "medium",
+    "q": "O endereço 127.0.0.1 é usado para:",
+    "choices": [
+      "Broadcast",
+      "Loopback (localhost)",
+      "Gateway padrão",
+      "DNS público do Google"
+    ],
+    "answer": 1,
+    "explain": "127.0.0.1 é loopback/localhost."
+  },
+  {
+    "id": "extra-ip-publico-x-privado-005",
+    "category": "IP Público x Privado",
+    "difficulty": "easy",
+    "q": "Qual faixa é privada RFC 1918?",
+    "choices": [
+      "100.0.0.0/8",
+      "172.16.0.0/12",
+      "172.0.0.0/8",
+      "11.0.0.0/8"
+    ],
+    "answer": 1,
+    "explain": "172.16.0.0/12"
+  },
+  {
+    "id": "extra-ip-publico-x-privado-006",
+    "category": "IP Público x Privado",
+    "difficulty": "easy",
+    "q": "Qual faixa é privada RFC 1918?",
+    "choices": [
+      "192.0.2.0/24",
+      "192.168.0.0/16",
+      "203.0.113.0/24",
+      "198.51.100.0/24"
+    ],
+    "answer": 1,
+    "explain": "192.168.0.0/16"
+  },
+  {
+    "id": "extra-ip-publico-x-privado-007",
+    "category": "IP Público x Privado",
+    "difficulty": "medium",
+    "q": "Qual faixa é multicast em IPv4?",
+    "choices": [
+      "240.0.0.0/4",
+      "169.254.0.0/16",
+      "127.0.0.0/8",
+      "224.0.0.0/4"
+    ],
+    "answer": 3,
+    "explain": "224.0.0.0/4"
+  },
+  {
+    "id": "extra-ip-publico-x-privado-008",
+    "category": "IP Público x Privado",
+    "difficulty": "easy",
+    "q": "Qual faixa é loopback?",
+    "choices": [
+      "128.0.0.0/8",
+      "0.0.0.0/8",
+      "127.0.0.0/8",
+      "255.0.0.0/8"
+    ],
+    "answer": 2,
+    "explain": "127.0.0.0/8"
+  },
+  {
+    "id": "extra-ip-publico-x-privado-009",
+    "category": "IP Público x Privado",
+    "difficulty": "medium",
+    "q": "Endereços privados são roteáveis na Internet pública?",
+    "choices": [
+      "Não, normalmente não são roteados na Internet e precisam de NAT para saída",
+      "Somente em redes Wi‑Fi",
+      "Apenas em IPv6",
+      "Sim, sempre"
+    ],
+    "answer": 0,
+    "explain": "Não, normalmente não são roteados na Internet e precisam de NAT para saída"
+  },
+  {
+    "id": "extra-ip-publico-x-privado-010",
+    "category": "IP Público x Privado",
+    "difficulty": "easy",
+    "q": "Qual endereço é tipicamente público (exemplo), não pertencendo às faixas privadas RFC1918?",
+    "choices": [
+      "172.16.5.5",
+      "10.0.0.10",
+      "8.8.8.8",
+      "192.168.1.1"
+    ],
+    "answer": 2,
+    "explain": "8.8.8.8"
+  },
+  {
+    "id": "extra-ip-publico-x-privado-011",
+    "category": "IP Público x Privado",
+    "difficulty": "easy",
+    "q": "Qual endereço é tipicamente público (exemplo), não pertencendo às faixas privadas RFC1918?",
+    "choices": [
+      "8.8.8.8",
+      "192.168.1.1",
+      "10.0.0.10",
+      "172.16.5.5"
+    ],
+    "answer": 0,
+    "explain": "8.8.8.8"
+  },
+  {
+    "id": "extra-ip-publico-x-privado-012",
+    "category": "IP Público x Privado",
+    "difficulty": "easy",
+    "q": "Qual endereço é tipicamente público (exemplo), não pertencendo às faixas privadas RFC1918?",
+    "choices": [
+      "192.168.1.1",
+      "172.16.5.5",
+      "10.0.0.10",
+      "8.8.8.8"
+    ],
+    "answer": 3,
+    "explain": "8.8.8.8"
+  },
+  {
+    "id": "extra-ip-publico-x-privado-013",
+    "category": "IP Público x Privado",
+    "difficulty": "easy",
+    "q": "Qual endereço é tipicamente público (exemplo), não pertencendo às faixas privadas RFC1918?",
+    "choices": [
+      "192.168.1.1",
+      "172.16.5.5",
+      "8.8.8.8",
+      "10.0.0.10"
+    ],
+    "answer": 2,
+    "explain": "8.8.8.8"
+  },
+  {
+    "id": "extra-ip-publico-x-privado-014",
+    "category": "IP Público x Privado",
+    "difficulty": "easy",
+    "q": "Qual endereço é tipicamente público (exemplo), não pertencendo às faixas privadas RFC1918?",
+    "choices": [
+      "172.16.5.5",
+      "10.0.0.10",
+      "8.8.8.8",
+      "192.168.1.1"
+    ],
+    "answer": 2,
+    "explain": "8.8.8.8"
+  },
+  {
+    "id": "extra-ip-publico-x-privado-015",
+    "category": "IP Público x Privado",
+    "difficulty": "easy",
+    "q": "Qual endereço é tipicamente público (exemplo), não pertencendo às faixas privadas RFC1918?",
+    "choices": [
+      "192.168.1.1",
+      "172.16.5.5",
+      "10.0.0.10",
+      "8.8.8.8"
+    ],
+    "answer": 3,
+    "explain": "8.8.8.8"
+  },
+  {
+    "id": "extra-ip-publico-x-privado-016",
+    "category": "IP Público x Privado",
+    "difficulty": "easy",
+    "q": "Qual endereço é tipicamente público (exemplo), não pertencendo às faixas privadas RFC1918?",
+    "choices": [
+      "8.8.8.8",
+      "192.168.1.1",
+      "10.0.0.10",
+      "172.16.5.5"
+    ],
+    "answer": 0,
+    "explain": "8.8.8.8"
+  },
+  {
+    "id": "extra-ip-publico-x-privado-017",
+    "category": "IP Público x Privado",
+    "difficulty": "easy",
+    "q": "Qual endereço é tipicamente público (exemplo), não pertencendo às faixas privadas RFC1918?",
+    "choices": [
+      "8.8.8.8",
+      "10.0.0.10",
+      "192.168.1.1",
+      "172.16.5.5"
+    ],
+    "answer": 0,
+    "explain": "8.8.8.8"
+  },
+  {
+    "id": "extra-ip-publico-x-privado-018",
+    "category": "IP Público x Privado",
+    "difficulty": "easy",
+    "q": "Qual endereço é tipicamente público (exemplo), não pertencendo às faixas privadas RFC1918?",
+    "choices": [
+      "10.0.0.10",
+      "172.16.5.5",
+      "192.168.1.1",
+      "8.8.8.8"
+    ],
+    "answer": 3,
+    "explain": "8.8.8.8"
+  },
+  {
+    "id": "extra-ip-publico-x-privado-019",
+    "category": "IP Público x Privado",
+    "difficulty": "easy",
+    "q": "Qual endereço é tipicamente público (exemplo), não pertencendo às faixas privadas RFC1918?",
+    "choices": [
+      "192.168.1.1",
+      "10.0.0.10",
+      "8.8.8.8",
+      "172.16.5.5"
+    ],
+    "answer": 2,
+    "explain": "8.8.8.8"
+  },
+  {
+    "id": "extra-ip-publico-x-privado-020",
+    "category": "IP Público x Privado",
+    "difficulty": "easy",
+    "q": "Qual endereço é tipicamente público (exemplo), não pertencendo às faixas privadas RFC1918?",
+    "choices": [
+      "172.16.5.5",
+      "8.8.8.8",
+      "192.168.1.1",
+      "10.0.0.10"
+    ],
+    "answer": 1,
+    "explain": "8.8.8.8"
+  },
+  {
+    "id": "extra-nat-001",
+    "category": "NAT",
+    "difficulty": "easy",
+    "q": "PAT (Port Address Translation) também é conhecido como:",
+    "choices": [
+      "NAT estático",
+      "NAT 1:1",
+      "NAT overload (muitos-para-um)",
+      "Roteamento dinâmico"
+    ],
+    "answer": 2,
+    "explain": "PAT traduz múltiplos IPs internos para um IP externo usando portas (overload)."
+  },
+  {
+    "id": "extra-nat-002",
+    "category": "NAT",
+    "difficulty": "medium",
+    "q": "Port forwarding é mais associado a qual tipo de NAT?",
+    "choices": [
+      "DNAT (destino)",
+      "SNAT (origem)",
+      "NAT64",
+      "ARP spoofing"
+    ],
+    "answer": 0,
+    "explain": "Port forwarding normalmente é DNAT: altera o IP/porta de destino para um host interno."
+  },
+  {
+    "id": "extra-nat-003",
+    "category": "NAT",
+    "difficulty": "medium",
+    "q": "Um efeito colateral comum do NAT para serviços inbound é:",
+    "choices": [
+      "Facilita acesso direto sem regras",
+      "Exige regras/port forwarding para conexões de fora para dentro",
+      "Elimina necessidade de firewall",
+      "Torna DNS desnecessário"
+    ],
+    "answer": 1,
+    "explain": "Como endereços internos não são roteáveis, é necessário mapear portas para acesso externo."
+  },
+  {
+    "id": "extra-nat-004",
+    "category": "NAT",
+    "difficulty": "medium",
+    "q": "Qual cenário descreve melhor um NAT estático (1:1)?",
+    "choices": [
+      "Vários hosts internos compartilham 1 IP público via portas",
+      "Um IP interno é mapeado permanentemente para um único IP público",
+      "Um roteador troca endereços MAC em uma LAN",
+      "O servidor DNS altera respostas com base em geolocalização"
+    ],
+    "answer": 1,
+    "explain": "NAT estático cria um mapeamento fixo 1:1 entre um IP interno e um IP público."
+  },
+  {
+    "id": "extra-nat-005",
+    "category": "NAT",
+    "difficulty": "medium",
+    "q": "Qual cenário descreve melhor um NAT estático (1:1)?",
+    "choices": [
+      "Vários hosts internos compartilham 1 IP público via portas",
+      "Um IP interno é mapeado permanentemente para um único IP público",
+      "Um roteador troca endereços MAC em uma LAN",
+      "O servidor DNS altera respostas com base em geolocalização"
+    ],
+    "answer": 1,
+    "explain": "NAT estático cria um mapeamento fixo 1:1 entre um IP interno e um IP público."
+  },
+  {
+    "id": "extra-nat-006",
+    "category": "NAT",
+    "difficulty": "medium",
+    "q": "Qual cenário descreve melhor um NAT estático (1:1)?",
+    "choices": [
+      "Vários hosts internos compartilham 1 IP público via portas",
+      "Um IP interno é mapeado permanentemente para um único IP público",
+      "Um roteador troca endereços MAC em uma LAN",
+      "O servidor DNS altera respostas com base em geolocalização"
+    ],
+    "answer": 1,
+    "explain": "NAT estático cria um mapeamento fixo 1:1 entre um IP interno e um IP público."
+  },
+  {
+    "id": "extra-nat-007",
+    "category": "NAT",
+    "difficulty": "medium",
+    "q": "Qual cenário descreve melhor um NAT estático (1:1)?",
+    "choices": [
+      "Vários hosts internos compartilham 1 IP público via portas",
+      "Um IP interno é mapeado permanentemente para um único IP público",
+      "Um roteador troca endereços MAC em uma LAN",
+      "O servidor DNS altera respostas com base em geolocalização"
+    ],
+    "answer": 1,
+    "explain": "NAT estático cria um mapeamento fixo 1:1 entre um IP interno e um IP público."
+  },
+  {
+    "id": "extra-nat-008",
+    "category": "NAT",
+    "difficulty": "medium",
+    "q": "Qual cenário descreve melhor um NAT estático (1:1)?",
+    "choices": [
+      "Vários hosts internos compartilham 1 IP público via portas",
+      "Um IP interno é mapeado permanentemente para um único IP público",
+      "Um roteador troca endereços MAC em uma LAN",
+      "O servidor DNS altera respostas com base em geolocalização"
+    ],
+    "answer": 1,
+    "explain": "NAT estático cria um mapeamento fixo 1:1 entre um IP interno e um IP público."
+  },
+  {
+    "id": "extra-nat-009",
+    "category": "NAT",
+    "difficulty": "medium",
+    "q": "Qual cenário descreve melhor um NAT estático (1:1)?",
+    "choices": [
+      "Vários hosts internos compartilham 1 IP público via portas",
+      "Um IP interno é mapeado permanentemente para um único IP público",
+      "Um roteador troca endereços MAC em uma LAN",
+      "O servidor DNS altera respostas com base em geolocalização"
+    ],
+    "answer": 1,
+    "explain": "NAT estático cria um mapeamento fixo 1:1 entre um IP interno e um IP público."
+  },
+  {
+    "id": "extra-nat-010",
+    "category": "NAT",
+    "difficulty": "medium",
+    "q": "Qual cenário descreve melhor um NAT estático (1:1)?",
+    "choices": [
+      "Vários hosts internos compartilham 1 IP público via portas",
+      "Um IP interno é mapeado permanentemente para um único IP público",
+      "Um roteador troca endereços MAC em uma LAN",
+      "O servidor DNS altera respostas com base em geolocalização"
+    ],
+    "answer": 1,
+    "explain": "NAT estático cria um mapeamento fixo 1:1 entre um IP interno e um IP público."
+  },
+  {
+    "id": "extra-nat-011",
+    "category": "NAT",
+    "difficulty": "medium",
+    "q": "Qual cenário descreve melhor um NAT estático (1:1)?",
+    "choices": [
+      "Vários hosts internos compartilham 1 IP público via portas",
+      "Um IP interno é mapeado permanentemente para um único IP público",
+      "Um roteador troca endereços MAC em uma LAN",
+      "O servidor DNS altera respostas com base em geolocalização"
+    ],
+    "answer": 1,
+    "explain": "NAT estático cria um mapeamento fixo 1:1 entre um IP interno e um IP público."
+  },
+  {
+    "id": "extra-nat-012",
+    "category": "NAT",
+    "difficulty": "medium",
+    "q": "Qual cenário descreve melhor um NAT estático (1:1)?",
+    "choices": [
+      "Vários hosts internos compartilham 1 IP público via portas",
+      "Um IP interno é mapeado permanentemente para um único IP público",
+      "Um roteador troca endereços MAC em uma LAN",
+      "O servidor DNS altera respostas com base em geolocalização"
+    ],
+    "answer": 1,
+    "explain": "NAT estático cria um mapeamento fixo 1:1 entre um IP interno e um IP público."
+  },
+  {
+    "id": "extra-nat-013",
+    "category": "NAT",
+    "difficulty": "medium",
+    "q": "Qual cenário descreve melhor um NAT estático (1:1)?",
+    "choices": [
+      "Vários hosts internos compartilham 1 IP público via portas",
+      "Um IP interno é mapeado permanentemente para um único IP público",
+      "Um roteador troca endereços MAC em uma LAN",
+      "O servidor DNS altera respostas com base em geolocalização"
+    ],
+    "answer": 1,
+    "explain": "NAT estático cria um mapeamento fixo 1:1 entre um IP interno e um IP público."
+  },
+  {
+    "id": "extra-nat-014",
+    "category": "NAT",
+    "difficulty": "medium",
+    "q": "Qual cenário descreve melhor um NAT estático (1:1)?",
+    "choices": [
+      "Vários hosts internos compartilham 1 IP público via portas",
+      "Um IP interno é mapeado permanentemente para um único IP público",
+      "Um roteador troca endereços MAC em uma LAN",
+      "O servidor DNS altera respostas com base em geolocalização"
+    ],
+    "answer": 1,
+    "explain": "NAT estático cria um mapeamento fixo 1:1 entre um IP interno e um IP público."
+  },
+  {
+    "id": "extra-nat-015",
+    "category": "NAT",
+    "difficulty": "medium",
+    "q": "Qual cenário descreve melhor um NAT estático (1:1)?",
+    "choices": [
+      "Vários hosts internos compartilham 1 IP público via portas",
+      "Um IP interno é mapeado permanentemente para um único IP público",
+      "Um roteador troca endereços MAC em uma LAN",
+      "O servidor DNS altera respostas com base em geolocalização"
+    ],
+    "answer": 1,
+    "explain": "NAT estático cria um mapeamento fixo 1:1 entre um IP interno e um IP público."
+  },
+  {
+    "id": "extra-nat-016",
+    "category": "NAT",
+    "difficulty": "hard",
+    "q": "Qual termo descreve a tradução do endereço de destino (ex.: redirecionar tráfego para um host interno)?",
+    "choices": [
+      "DNAT",
+      "SNAT",
+      "ARP",
+      "ICMP"
+    ],
+    "answer": 0,
+    "explain": "DNAT altera o destino; SNAT altera a origem."
+  },
+  {
+    "id": "extra-cgnat-001",
+    "category": "CGNAT",
+    "difficulty": "easy",
+    "q": "CGNAT é usado por provedores principalmente para:",
+    "choices": [
+      "Aumentar a velocidade do Wi‑Fi",
+      "Economizar IPv4 públicos compartilhando um IP entre vários clientes",
+      "Substituir IPv6",
+      "Eliminar roteadores"
+    ],
+    "answer": 1,
+    "explain": "CGNAT permite compartilhar IPs públicos devido à escassez de IPv4."
+  },
+  {
+    "id": "extra-cgnat-002",
+    "category": "CGNAT",
+    "difficulty": "medium",
+    "q": "Qual é um impacto comum do CGNAT para gamers/hosts de servidor?",
+    "choices": [
+      "Facilita abrir portas",
+      "Dificulta conexões inbound e port forwarding (NAT duplo)",
+      "Melhora sempre o ping",
+      "Impede uso de DNS"
+    ],
+    "answer": 1,
+    "explain": "Com CGNAT, o cliente geralmente não tem IP público direto, dificultando abrir portas e receber conexões."
+  },
+  {
+    "id": "extra-cgnat-003",
+    "category": "CGNAT",
+    "difficulty": "medium",
+    "q": "Um indício de CGNAT é quando o 'WAN IP' do roteador está em:",
+    "choices": [
+      "10.0.0.0/8 ou 172.16.0.0/12 ou 192.168.0.0/16",
+      "8.8.8.8/32",
+      "100.64.0.0/10",
+      "224.0.0.0/4"
+    ],
+    "answer": 2,
+    "explain": "No CGNAT, é comum ver o IP WAN na faixa 100.64.0.0/10."
+  },
+  {
+    "id": "extra-cgnat-004",
+    "category": "CGNAT",
+    "difficulty": "medium",
+    "q": "Em um cenário de NAT duplo (roteador doméstico + CGNAT), o port forwarding no roteador doméstico:",
+    "choices": [
+      "Pode não funcionar para entrada externa, pois o provedor ainda faz NAT acima",
+      "Sempre funciona igual",
+      "Dispensa IPv6",
+      "Gera IP público automaticamente"
+    ],
+    "answer": 0,
+    "explain": "Pode não funcionar para entrada externa, pois o provedor ainda faz NAT acima"
+  },
+  {
+    "id": "extra-cgnat-005",
+    "category": "CGNAT",
+    "difficulty": "easy",
+    "q": "Uma alternativa moderna ao CGNAT para evitar escassez de IPv4 é:",
+    "choices": [
+      "Usar WEP",
+      "Desligar DNS",
+      "Implantar IPv6",
+      "Trocar cabo RJ‑45"
+    ],
+    "answer": 2,
+    "explain": "Implantar IPv6"
+  },
+  {
+    "id": "extra-cgnat-006",
+    "category": "CGNAT",
+    "difficulty": "medium",
+    "q": "No CGNAT, múltiplos clientes compartilham:",
+    "choices": [
+      "Uma mesma rota BGP",
+      "Um mesmo SSID",
+      "Um mesmo MAC",
+      "Um mesmo IP público, diferenciados por portas/intervalos de portas"
+    ],
+    "answer": 3,
+    "explain": "Um mesmo IP público, diferenciados por portas/intervalos de portas"
+  },
+  {
+    "id": "extra-cgnat-007",
+    "category": "CGNAT",
+    "difficulty": "hard",
+    "q": "Para expor um servidor residencial na Internet com CGNAT, uma opção é:",
+    "choices": [
+      "Trocar o switch por hub",
+      "Mudar canal Wi‑Fi",
+      "Solicitar IP público/IPv6 ou usar tunelamento/relay (ex.: VPS)",
+      "Formatar o PC"
+    ],
+    "answer": 2,
+    "explain": "Solicitar IP público/IPv6 ou usar tunelamento/relay (ex.: VPS)"
+  },
+  {
+    "id": "extra-cgnat-008",
+    "category": "CGNAT",
+    "difficulty": "medium",
+    "q": "Qual afirmação é verdadeira sobre CGNAT?",
+    "choices": [
+      "É um tipo de cabo de fibra",
+      "Geralmente impede conexões inbound diretas sem suporte do provedor, pois o cliente não tem IP público exclusivo",
+      "É um padrão Wi‑Fi",
+      "Substitui o DNS"
+    ],
+    "answer": 1,
+    "explain": "Geralmente impede conexões inbound diretas sem suporte do provedor, pois o cliente não tem IP público exclusivo"
+  },
+  {
+    "id": "extra-cgnat-009",
+    "category": "CGNAT",
+    "difficulty": "medium",
+    "q": "Qual afirmação é verdadeira sobre CGNAT?",
+    "choices": [
+      "Geralmente impede conexões inbound diretas sem suporte do provedor, pois o cliente não tem IP público exclusivo",
+      "É um padrão Wi‑Fi",
+      "Substitui o DNS",
+      "É um tipo de cabo de fibra"
+    ],
+    "answer": 0,
+    "explain": "Geralmente impede conexões inbound diretas sem suporte do provedor, pois o cliente não tem IP público exclusivo"
+  },
+  {
+    "id": "extra-cgnat-010",
+    "category": "CGNAT",
+    "difficulty": "medium",
+    "q": "Qual afirmação é verdadeira sobre CGNAT?",
+    "choices": [
+      "Substitui o DNS",
+      "Geralmente impede conexões inbound diretas sem suporte do provedor, pois o cliente não tem IP público exclusivo",
+      "É um padrão Wi‑Fi",
+      "É um tipo de cabo de fibra"
+    ],
+    "answer": 1,
+    "explain": "Geralmente impede conexões inbound diretas sem suporte do provedor, pois o cliente não tem IP público exclusivo"
+  },
+  {
+    "id": "extra-cgnat-011",
+    "category": "CGNAT",
+    "difficulty": "medium",
+    "q": "Qual afirmação é verdadeira sobre CGNAT?",
+    "choices": [
+      "Substitui o DNS",
+      "Geralmente impede conexões inbound diretas sem suporte do provedor, pois o cliente não tem IP público exclusivo",
+      "É um padrão Wi‑Fi",
+      "É um tipo de cabo de fibra"
+    ],
+    "answer": 1,
+    "explain": "Geralmente impede conexões inbound diretas sem suporte do provedor, pois o cliente não tem IP público exclusivo"
+  },
+  {
+    "id": "extra-cgnat-012",
+    "category": "CGNAT",
+    "difficulty": "medium",
+    "q": "Qual afirmação é verdadeira sobre CGNAT?",
+    "choices": [
+      "Geralmente impede conexões inbound diretas sem suporte do provedor, pois o cliente não tem IP público exclusivo",
+      "Substitui o DNS",
+      "É um padrão Wi‑Fi",
+      "É um tipo de cabo de fibra"
+    ],
+    "answer": 0,
+    "explain": "Geralmente impede conexões inbound diretas sem suporte do provedor, pois o cliente não tem IP público exclusivo"
+  },
+  {
+    "id": "extra-cgnat-013",
+    "category": "CGNAT",
+    "difficulty": "medium",
+    "q": "Qual afirmação é verdadeira sobre CGNAT?",
+    "choices": [
+      "É um tipo de cabo de fibra",
+      "Substitui o DNS",
+      "Geralmente impede conexões inbound diretas sem suporte do provedor, pois o cliente não tem IP público exclusivo",
+      "É um padrão Wi‑Fi"
+    ],
+    "answer": 2,
+    "explain": "Geralmente impede conexões inbound diretas sem suporte do provedor, pois o cliente não tem IP público exclusivo"
+  },
+  {
+    "id": "extra-cgnat-014",
+    "category": "CGNAT",
+    "difficulty": "medium",
+    "q": "Qual afirmação é verdadeira sobre CGNAT?",
+    "choices": [
+      "Geralmente impede conexões inbound diretas sem suporte do provedor, pois o cliente não tem IP público exclusivo",
+      "É um padrão Wi‑Fi",
+      "É um tipo de cabo de fibra",
+      "Substitui o DNS"
+    ],
+    "answer": 0,
+    "explain": "Geralmente impede conexões inbound diretas sem suporte do provedor, pois o cliente não tem IP público exclusivo"
+  },
+  {
+    "id": "extra-cgnat-015",
+    "category": "CGNAT",
+    "difficulty": "medium",
+    "q": "Qual afirmação é verdadeira sobre CGNAT?",
+    "choices": [
+      "É um padrão Wi‑Fi",
+      "Geralmente impede conexões inbound diretas sem suporte do provedor, pois o cliente não tem IP público exclusivo",
+      "É um tipo de cabo de fibra",
+      "Substitui o DNS"
+    ],
+    "answer": 1,
+    "explain": "Geralmente impede conexões inbound diretas sem suporte do provedor, pois o cliente não tem IP público exclusivo"
+  },
+  {
+    "id": "extra-cgnat-016",
+    "category": "CGNAT",
+    "difficulty": "medium",
+    "q": "Qual afirmação é verdadeira sobre CGNAT?",
+    "choices": [
+      "Geralmente impede conexões inbound diretas sem suporte do provedor, pois o cliente não tem IP público exclusivo",
+      "Substitui o DNS",
+      "É um tipo de cabo de fibra",
+      "É um padrão Wi‑Fi"
+    ],
+    "answer": 0,
+    "explain": "Geralmente impede conexões inbound diretas sem suporte do provedor, pois o cliente não tem IP público exclusivo"
+  },
+  {
+    "id": "extra-cgnat-017",
+    "category": "CGNAT",
+    "difficulty": "medium",
+    "q": "Qual afirmação é verdadeira sobre CGNAT?",
+    "choices": [
+      "É um tipo de cabo de fibra",
+      "É um padrão Wi‑Fi",
+      "Substitui o DNS",
+      "Geralmente impede conexões inbound diretas sem suporte do provedor, pois o cliente não tem IP público exclusivo"
+    ],
+    "answer": 3,
+    "explain": "Geralmente impede conexões inbound diretas sem suporte do provedor, pois o cliente não tem IP público exclusivo"
+  },
+  {
+    "id": "extra-cgnat-018",
+    "category": "CGNAT",
+    "difficulty": "medium",
+    "q": "Qual afirmação é verdadeira sobre CGNAT?",
+    "choices": [
+      "É um padrão Wi‑Fi",
+      "É um tipo de cabo de fibra",
+      "Geralmente impede conexões inbound diretas sem suporte do provedor, pois o cliente não tem IP público exclusivo",
+      "Substitui o DNS"
+    ],
+    "answer": 2,
+    "explain": "Geralmente impede conexões inbound diretas sem suporte do provedor, pois o cliente não tem IP público exclusivo"
+  },
+  {
+    "id": "extra-cgnat-019",
+    "category": "CGNAT",
+    "difficulty": "medium",
+    "q": "Qual afirmação é verdadeira sobre CGNAT?",
+    "choices": [
+      "Substitui o DNS",
+      "É um tipo de cabo de fibra",
+      "É um padrão Wi‑Fi",
+      "Geralmente impede conexões inbound diretas sem suporte do provedor, pois o cliente não tem IP público exclusivo"
+    ],
+    "answer": 3,
+    "explain": "Geralmente impede conexões inbound diretas sem suporte do provedor, pois o cliente não tem IP público exclusivo"
+  },
+  {
+    "id": "extra-cgnat-020",
+    "category": "CGNAT",
+    "difficulty": "medium",
+    "q": "Qual afirmação é verdadeira sobre CGNAT?",
+    "choices": [
+      "É um padrão Wi‑Fi",
+      "Substitui o DNS",
+      "É um tipo de cabo de fibra",
+      "Geralmente impede conexões inbound diretas sem suporte do provedor, pois o cliente não tem IP público exclusivo"
+    ],
+    "answer": 3,
+    "explain": "Geralmente impede conexões inbound diretas sem suporte do provedor, pois o cliente não tem IP público exclusivo"
+  },
+  {
+    "id": "extra-cgnat-021",
+    "category": "CGNAT",
+    "difficulty": "medium",
+    "q": "Qual afirmação é verdadeira sobre CGNAT?",
+    "choices": [
+      "É um tipo de cabo de fibra",
+      "É um padrão Wi‑Fi",
+      "Geralmente impede conexões inbound diretas sem suporte do provedor, pois o cliente não tem IP público exclusivo",
+      "Substitui o DNS"
+    ],
+    "answer": 2,
+    "explain": "Geralmente impede conexões inbound diretas sem suporte do provedor, pois o cliente não tem IP público exclusivo"
+  },
+  {
+    "id": "extra-dhcp-001",
+    "category": "DHCP",
+    "difficulty": "easy",
+    "q": "Qual porta UDP o servidor DHCP usa normalmente?",
+    "choices": [
+      "53",
+      "67",
+      "68",
+      "123"
+    ],
+    "answer": 1,
+    "explain": "Servidor DHCP usa UDP 67; cliente usa UDP 68."
+  },
+  {
+    "id": "extra-dhcp-002",
+    "category": "DHCP",
+    "difficulty": "easy",
+    "q": "Qual porta UDP o cliente DHCP usa normalmente?",
+    "choices": [
+      "67",
+      "68",
+      "161",
+      "443"
+    ],
+    "answer": 1,
+    "explain": "Cliente DHCP usa UDP 68."
+  },
+  {
+    "id": "extra-dhcp-003",
+    "category": "DHCP",
+    "difficulty": "medium",
+    "q": "Qual componente permite que clientes DHCP em uma rede alcancem o servidor DHCP em outra rede?",
+    "choices": [
+      "DNS",
+      "DHCP Relay (helper address)",
+      "NAT",
+      "Proxy reverso"
+    ],
+    "answer": 1,
+    "explain": "DHCP Relay encaminha broadcasts DHCP entre sub-redes, permitindo servidor centralizado."
+  },
+  {
+    "id": "extra-dhcp-004",
+    "category": "DHCP",
+    "difficulty": "medium",
+    "q": "A opção DHCP que informa o gateway padrão ao cliente é a:",
+    "choices": [
+      "Opção 3 (Router)",
+      "Opção 6 (DNS)",
+      "Opção 15 (Domain Name)",
+      "Opção 42 (NTP)"
+    ],
+    "answer": 0,
+    "explain": "A opção 3 fornece o roteador/gateway padrão."
+  },
+  {
+    "id": "extra-dhcp-005",
+    "category": "DHCP",
+    "difficulty": "medium",
+    "q": "A opção DHCP que informa servidores DNS ao cliente é a:",
+    "choices": [
+      "Opção 1 (Subnet Mask)",
+      "Opção 6 (DNS)",
+      "Opção 51 (Lease Time)",
+      "Opção 12 (Hostname)"
+    ],
+    "answer": 1,
+    "explain": "A opção 6 fornece a lista de servidores DNS."
+  },
+  {
+    "id": "extra-dhcp-006",
+    "category": "DHCP",
+    "difficulty": "medium",
+    "q": "O 'lease time' do DHCP é:",
+    "choices": [
+      "O tempo de ping",
+      "O tempo do Wi‑Fi",
+      "O tempo de boot",
+      "O tempo pelo qual o IP é concedido ao cliente antes de precisar renovar"
+    ],
+    "answer": 3,
+    "explain": "O tempo pelo qual o IP é concedido ao cliente antes de precisar renovar"
+  },
+  {
+    "id": "extra-dhcp-007",
+    "category": "DHCP",
+    "difficulty": "easy",
+    "q": "Se um cliente recebe 169.254.x.x automaticamente, isso sugere:",
+    "choices": [
+      "BGP ativo",
+      "NAT configurado",
+      "Falha em obter DHCP e uso de link-local (APIPA)",
+      "DNS funcionando"
+    ],
+    "answer": 2,
+    "explain": "Falha em obter DHCP e uso de link-local (APIPA)"
+  },
+  {
+    "id": "extra-dhcp-008",
+    "category": "DHCP",
+    "difficulty": "medium",
+    "q": "DHCP Reservation (reserva) significa:",
+    "choices": [
+      "Ativar NAT",
+      "Fixar um IP para um MAC específico via servidor DHCP",
+      "Criar uma VLAN",
+      "Bloquear um MAC no Wi‑Fi"
+    ],
+    "answer": 1,
+    "explain": "Fixar um IP para um MAC específico via servidor DHCP"
+  },
+  {
+    "id": "extra-dhcp-009",
+    "category": "DHCP",
+    "difficulty": "easy",
+    "q": "A mensagem DHCP 'Offer' é enviada por:",
+    "choices": [
+      "Cliente para servidor",
+      "DNS para cliente",
+      "Servidor para o cliente, oferecendo um endereço",
+      "Roteador para switch"
+    ],
+    "answer": 2,
+    "explain": "Servidor para o cliente, oferecendo um endereço"
+  },
+  {
+    "id": "extra-dhcp-010",
+    "category": "DHCP",
+    "difficulty": "easy",
+    "q": "A mensagem DHCP 'Request' serve para:",
+    "choices": [
+      "Servidor negar IP",
+      "Definir canal Wi‑Fi",
+      "Cliente solicitar formalmente o IP oferecido e opções",
+      "Cliente encerrar conexão TCP"
+    ],
+    "answer": 2,
+    "explain": "Cliente solicitar formalmente o IP oferecido e opções"
+  },
+  {
+    "id": "extra-dhcp-011",
+    "category": "DHCP",
+    "difficulty": "hard",
+    "q": "Em redes com múltiplos servidores DHCP, um risco é:",
+    "choices": [
+      "Aumento de IPv6",
+      "Melhorar ping automaticamente",
+      "Eliminar broadcasts",
+      "Conflito de escopos e concessão errada se não houver coordenação"
+    ],
+    "answer": 3,
+    "explain": "Conflito de escopos e concessão errada se não houver coordenação"
+  },
+  {
+    "id": "extra-dhcp-012",
+    "category": "DHCP",
+    "difficulty": "easy",
+    "q": "O DHCP normalmente opera usando qual protocolo de transporte?",
+    "choices": [
+      "ARP",
+      "TCP",
+      "UDP",
+      "ICMP"
+    ],
+    "answer": 2,
+    "explain": "UDP"
+  },
+  {
+    "id": "extra-dhcp-013",
+    "category": "DHCP",
+    "difficulty": "easy",
+    "q": "O DHCP normalmente opera usando qual protocolo de transporte?",
+    "choices": [
+      "ICMP",
+      "TCP",
+      "ARP",
+      "UDP"
+    ],
+    "answer": 3,
+    "explain": "UDP"
+  },
+  {
+    "id": "extra-dhcp-014",
+    "category": "DHCP",
+    "difficulty": "easy",
+    "q": "O DHCP normalmente opera usando qual protocolo de transporte?",
+    "choices": [
+      "ICMP",
+      "TCP",
+      "ARP",
+      "UDP"
+    ],
+    "answer": 3,
+    "explain": "UDP"
+  },
+  {
+    "id": "extra-dhcp-015",
+    "category": "DHCP",
+    "difficulty": "easy",
+    "q": "O DHCP normalmente opera usando qual protocolo de transporte?",
+    "choices": [
+      "TCP",
+      "ARP",
+      "ICMP",
+      "UDP"
+    ],
+    "answer": 3,
+    "explain": "UDP"
+  },
+  {
+    "id": "extra-dhcp-016",
+    "category": "DHCP",
+    "difficulty": "easy",
+    "q": "O DHCP normalmente opera usando qual protocolo de transporte?",
+    "choices": [
+      "UDP",
+      "ICMP",
+      "TCP",
+      "ARP"
+    ],
+    "answer": 0,
+    "explain": "UDP"
+  },
+  {
+    "id": "extra-dhcp-017",
+    "category": "DHCP",
+    "difficulty": "easy",
+    "q": "O DHCP normalmente opera usando qual protocolo de transporte?",
+    "choices": [
+      "ICMP",
+      "ARP",
+      "TCP",
+      "UDP"
+    ],
+    "answer": 3,
+    "explain": "UDP"
+  },
+  {
+    "id": "extra-dhcp-018",
+    "category": "DHCP",
+    "difficulty": "easy",
+    "q": "O DHCP normalmente opera usando qual protocolo de transporte?",
+    "choices": [
+      "ARP",
+      "TCP",
+      "ICMP",
+      "UDP"
+    ],
+    "answer": 3,
+    "explain": "UDP"
+  },
+  {
+    "id": "extra-dns-001",
+    "category": "DNS",
+    "difficulty": "easy",
+    "q": "Qual registro DNS aponta um nome para um endereço IPv4?",
+    "choices": [
+      "AAAA",
+      "A",
+      "MX",
+      "PTR"
+    ],
+    "answer": 1,
+    "explain": "Registro A mapeia nome para IPv4."
+  },
+  {
+    "id": "extra-dns-002",
+    "category": "DNS",
+    "difficulty": "easy",
+    "q": "Qual registro DNS aponta um nome para um endereço IPv6?",
+    "choices": [
+      "AAAA",
+      "A",
+      "CNAME",
+      "SRV"
+    ],
+    "answer": 0,
+    "explain": "Registro AAAA mapeia nome para IPv6."
+  },
+  {
+    "id": "extra-dns-003",
+    "category": "DNS",
+    "difficulty": "easy",
+    "q": "Qual registro DNS é usado para e-mail (servidor de recebimento) de um domínio?",
+    "choices": [
+      "MX",
+      "TXT",
+      "NS",
+      "SOA"
+    ],
+    "answer": 0,
+    "explain": "MX define servidores de e-mail do domínio."
+  },
+  {
+    "id": "extra-dns-004",
+    "category": "DNS",
+    "difficulty": "medium",
+    "q": "Qual registro DNS é usado para alias (apelido) apontando para outro nome?",
+    "choices": [
+      "CNAME",
+      "A",
+      "PTR",
+      "CAA"
+    ],
+    "answer": 0,
+    "explain": "CNAME cria um alias para outro hostname."
+  },
+  {
+    "id": "extra-dns-005",
+    "category": "DNS",
+    "difficulty": "medium",
+    "q": "O que o TTL em um registro DNS controla?",
+    "choices": [
+      "Tempo máximo de resolução do nome",
+      "Tempo que respostas podem ficar em cache",
+      "Tamanho do pacote UDP",
+      "Número de servidores autoritativos"
+    ],
+    "answer": 1,
+    "explain": "TTL define por quanto tempo resolvers podem cachear a resposta."
+  },
+  {
+    "id": "extra-dns-006",
+    "category": "DNS",
+    "difficulty": "medium",
+    "q": "DNS recursivo significa que o servidor:",
+    "choices": [
+      "Responde apenas por sua zona autoritativa",
+      "Consulta outros servidores em nome do cliente até obter a resposta",
+      "Bloqueia consultas externas",
+      "Sempre usa TCP"
+    ],
+    "answer": 1,
+    "explain": "Resolver recursivo faz consultas iterativas/recursivas para achar a resposta."
+  },
+  {
+    "id": "extra-dns-007",
+    "category": "DNS",
+    "difficulty": "medium",
+    "q": "Qual tipo de registro DNS NS é melhor descrito como: \"Define servidores de nomes autoritativos de uma zona\"?",
+    "choices": [
+      "CNAME",
+      "NS",
+      "MX",
+      "A"
+    ],
+    "answer": 1,
+    "explain": "O registro NS define servidores de nomes autoritativos de uma zona."
+  },
+  {
+    "id": "extra-dns-008",
+    "category": "DNS",
+    "difficulty": "medium",
+    "q": "Qual tipo de registro DNS NS é melhor descrito como: \"Define servidores de nomes autoritativos de uma zona\"?",
+    "choices": [
+      "NS",
+      "MX",
+      "A",
+      "CNAME"
+    ],
+    "answer": 0,
+    "explain": "O registro NS define servidores de nomes autoritativos de uma zona."
+  },
+  {
+    "id": "extra-dns-009",
+    "category": "DNS",
+    "difficulty": "medium",
+    "q": "Qual tipo de registro DNS NS é melhor descrito como: \"Define servidores de nomes autoritativos de uma zona\"?",
+    "choices": [
+      "MX",
+      "CNAME",
+      "A",
+      "NS"
+    ],
+    "answer": 3,
+    "explain": "O registro NS define servidores de nomes autoritativos de uma zona."
+  },
+  {
+    "id": "extra-dns-010",
+    "category": "DNS",
+    "difficulty": "medium",
+    "q": "Qual tipo de registro DNS SOA é melhor descrito como: \"Contém informações administrativas da zona (serial, timers)\"?",
+    "choices": [
+      "A",
+      "SOA",
+      "CNAME",
+      "MX"
+    ],
+    "answer": 1,
+    "explain": "O registro SOA contém informações administrativas da zona (serial, timers)."
+  },
+  {
+    "id": "extra-dns-011",
+    "category": "DNS",
+    "difficulty": "medium",
+    "q": "Qual tipo de registro DNS SOA é melhor descrito como: \"Contém informações administrativas da zona (serial, timers)\"?",
+    "choices": [
+      "A",
+      "CNAME",
+      "SOA",
+      "MX"
+    ],
+    "answer": 2,
+    "explain": "O registro SOA contém informações administrativas da zona (serial, timers)."
+  },
+  {
+    "id": "extra-dns-012",
+    "category": "DNS",
+    "difficulty": "medium",
+    "q": "Qual tipo de registro DNS SOA é melhor descrito como: \"Contém informações administrativas da zona (serial, timers)\"?",
+    "choices": [
+      "A",
+      "SOA",
+      "CNAME",
+      "MX"
+    ],
+    "answer": 1,
+    "explain": "O registro SOA contém informações administrativas da zona (serial, timers)."
+  },
+  {
+    "id": "extra-dns-013",
+    "category": "DNS",
+    "difficulty": "medium",
+    "q": "Qual tipo de registro DNS PTR é melhor descrito como: \"Usado para resolução reversa (IP -> nome)\"?",
+    "choices": [
+      "MX",
+      "A",
+      "CNAME",
+      "PTR"
+    ],
+    "answer": 3,
+    "explain": "O registro PTR usado para resolução reversa (ip -> nome)."
+  },
+  {
+    "id": "extra-dns-014",
+    "category": "DNS",
+    "difficulty": "medium",
+    "q": "Qual tipo de registro DNS PTR é melhor descrito como: \"Usado para resolução reversa (IP -> nome)\"?",
+    "choices": [
+      "CNAME",
+      "PTR",
+      "MX",
+      "A"
+    ],
+    "answer": 1,
+    "explain": "O registro PTR usado para resolução reversa (ip -> nome)."
+  },
+  {
+    "id": "extra-dns-015",
+    "category": "DNS",
+    "difficulty": "medium",
+    "q": "Qual tipo de registro DNS PTR é melhor descrito como: \"Usado para resolução reversa (IP -> nome)\"?",
+    "choices": [
+      "MX",
+      "CNAME",
+      "A",
+      "PTR"
+    ],
+    "answer": 3,
+    "explain": "O registro PTR usado para resolução reversa (ip -> nome)."
+  },
+  {
+    "id": "extra-dns-016",
+    "category": "DNS",
+    "difficulty": "medium",
+    "q": "Qual tipo de registro DNS TXT é melhor descrito como: \"Armazena texto (SPF, verificações, etc.)\"?",
+    "choices": [
+      "MX",
+      "A",
+      "TXT",
+      "CNAME"
+    ],
+    "answer": 2,
+    "explain": "O registro TXT armazena texto (spf, verificações, etc.)."
+  },
+  {
+    "id": "extra-dns-017",
+    "category": "DNS",
+    "difficulty": "medium",
+    "q": "Qual tipo de registro DNS TXT é melhor descrito como: \"Armazena texto (SPF, verificações, etc.)\"?",
+    "choices": [
+      "TXT",
+      "MX",
+      "A",
+      "CNAME"
+    ],
+    "answer": 0,
+    "explain": "O registro TXT armazena texto (spf, verificações, etc.)."
+  },
+  {
+    "id": "extra-dns-018",
+    "category": "DNS",
+    "difficulty": "medium",
+    "q": "Qual tipo de registro DNS TXT é melhor descrito como: \"Armazena texto (SPF, verificações, etc.)\"?",
+    "choices": [
+      "TXT",
+      "MX",
+      "A",
+      "CNAME"
+    ],
+    "answer": 0,
+    "explain": "O registro TXT armazena texto (spf, verificações, etc.)."
+  },
+  {
+    "id": "extra-dns-019",
+    "category": "DNS",
+    "difficulty": "medium",
+    "q": "Qual tipo de registro DNS SRV é melhor descrito como: \"Define localização de serviços (host/porta)\"?",
+    "choices": [
+      "CNAME",
+      "MX",
+      "A",
+      "SRV"
+    ],
+    "answer": 3,
+    "explain": "O registro SRV define localização de serviços (host/porta)."
+  },
+  {
+    "id": "extra-dns-020",
+    "category": "DNS",
+    "difficulty": "medium",
+    "q": "Qual tipo de registro DNS SRV é melhor descrito como: \"Define localização de serviços (host/porta)\"?",
+    "choices": [
+      "CNAME",
+      "MX",
+      "A",
+      "SRV"
+    ],
+    "answer": 3,
+    "explain": "O registro SRV define localização de serviços (host/porta)."
+  },
+  {
+    "id": "extra-dns-021",
+    "category": "DNS",
+    "difficulty": "medium",
+    "q": "Qual tipo de registro DNS SRV é melhor descrito como: \"Define localização de serviços (host/porta)\"?",
+    "choices": [
+      "A",
+      "MX",
+      "CNAME",
+      "SRV"
+    ],
+    "answer": 3,
+    "explain": "O registro SRV define localização de serviços (host/porta)."
+  },
+  {
+    "id": "extra-dns-022",
+    "category": "DNS",
+    "difficulty": "medium",
+    "q": "Qual tipo de registro DNS CAA é melhor descrito como: \"Define quais CAs podem emitir certificados para o domínio\"?",
+    "choices": [
+      "A",
+      "CNAME",
+      "MX",
+      "CAA"
+    ],
+    "answer": 3,
+    "explain": "O registro CAA define quais cas podem emitir certificados para o domínio."
+  },
+  {
+    "id": "extra-dns-023",
+    "category": "DNS",
+    "difficulty": "medium",
+    "q": "Qual tipo de registro DNS CAA é melhor descrito como: \"Define quais CAs podem emitir certificados para o domínio\"?",
+    "choices": [
+      "A",
+      "MX",
+      "CNAME",
+      "CAA"
+    ],
+    "answer": 3,
+    "explain": "O registro CAA define quais cas podem emitir certificados para o domínio."
+  },
+  {
+    "id": "extra-dns-024",
+    "category": "DNS",
+    "difficulty": "medium",
+    "q": "Qual tipo de registro DNS CAA é melhor descrito como: \"Define quais CAs podem emitir certificados para o domínio\"?",
+    "choices": [
+      "CNAME",
+      "MX",
+      "CAA",
+      "A"
+    ],
+    "answer": 2,
+    "explain": "O registro CAA define quais cas podem emitir certificados para o domínio."
+  },
+  {
+    "id": "extra-roteamento-001",
+    "category": "Roteamento",
+    "difficulty": "easy",
+    "q": "O que é 'gateway padrão' (default gateway) em uma LAN?",
+    "choices": [
+      "Servidor DNS",
+      "Endereço do roteador usado para sair da rede local",
+      "Endereço do switch principal",
+      "Endereço de broadcast"
+    ],
+    "answer": 1,
+    "explain": "Gateway padrão é o roteador para destinos fora da sub-rede."
+  },
+  {
+    "id": "extra-roteamento-002",
+    "category": "Roteamento",
+    "difficulty": "medium",
+    "q": "Uma rota default em IPv4 é normalmente representada por:",
+    "choices": [
+      "0.0.0.0/0",
+      "255.255.255.255/32",
+      "127.0.0.0/8",
+      "224.0.0.0/4"
+    ],
+    "answer": 0,
+    "explain": "0.0.0.0/0 é a rota padrão (qualquer destino não mais específico)."
+  },
+  {
+    "id": "extra-roteamento-003",
+    "category": "Roteamento",
+    "difficulty": "medium",
+    "q": "Qual protocolo é classificado como IGP de estado de enlace (link-state)?",
+    "choices": [
+      "RIP",
+      "OSPF",
+      "BGP",
+      "SMTP"
+    ],
+    "answer": 1,
+    "explain": "OSPF é link-state; RIP é distance-vector; BGP é EGP."
+  },
+  {
+    "id": "extra-roteamento-004",
+    "category": "Roteamento",
+    "difficulty": "medium",
+    "q": "Qual protocolo é um EGP usado entre sistemas autônomos na Internet?",
+    "choices": [
+      "OSPF",
+      "RIP",
+      "BGP",
+      "STP"
+    ],
+    "answer": 2,
+    "explain": "BGP é usado entre AS (roteamento interdomínios)."
+  },
+  {
+    "id": "extra-roteamento-005",
+    "category": "Roteamento",
+    "difficulty": "hard",
+    "q": "Em roteamento, 'métrica' é:",
+    "choices": [
+      "Uma senha do roteador",
+      "Um valor usado para escolher o melhor caminho (menor custo)",
+      "Um tipo de endereço IP",
+      "Uma técnica de criptografia"
+    ],
+    "answer": 1,
+    "explain": "Métrica/custo influencia a seleção da rota preferida."
+  },
+  {
+    "id": "extra-roteamento-006",
+    "category": "Roteamento",
+    "difficulty": "easy",
+    "q": "Em uma tabela de rotas, o que representa o 'next-hop' (próximo salto) para a rota 10.10.0.0/16?",
+    "choices": [
+      "A máscara de sub-rede",
+      "O endereço do roteador para onde o pacote deve ser encaminhado",
+      "O endereço MAC do destino final",
+      "A porta TCP do serviço"
+    ],
+    "answer": 1,
+    "explain": "Next-hop é o endereço do roteador/saída para encaminhar o pacote em direção ao destino."
+  },
+  {
+    "id": "extra-roteamento-007",
+    "category": "Roteamento",
+    "difficulty": "easy",
+    "q": "Em uma tabela de rotas, o que representa o 'next-hop' (próximo salto) para a rota 192.168.50.0/24?",
+    "choices": [
+      "A máscara de sub-rede",
+      "O endereço do roteador para onde o pacote deve ser encaminhado",
+      "O endereço MAC do destino final",
+      "A porta TCP do serviço"
+    ],
+    "answer": 1,
+    "explain": "Next-hop é o endereço do roteador/saída para encaminhar o pacote em direção ao destino."
+  },
+  {
+    "id": "extra-roteamento-008",
+    "category": "Roteamento",
+    "difficulty": "easy",
+    "q": "Em uma tabela de rotas, o que representa o 'next-hop' (próximo salto) para a rota 10.10.0.0/16?",
+    "choices": [
+      "A máscara de sub-rede",
+      "O endereço do roteador para onde o pacote deve ser encaminhado",
+      "O endereço MAC do destino final",
+      "A porta TCP do serviço"
+    ],
+    "answer": 1,
+    "explain": "Next-hop é o endereço do roteador/saída para encaminhar o pacote em direção ao destino."
+  },
+  {
+    "id": "extra-roteamento-009",
+    "category": "Roteamento",
+    "difficulty": "easy",
+    "q": "Em uma tabela de rotas, o que representa o 'next-hop' (próximo salto) para a rota 172.16.0.0/12?",
+    "choices": [
+      "A máscara de sub-rede",
+      "O endereço do roteador para onde o pacote deve ser encaminhado",
+      "O endereço MAC do destino final",
+      "A porta TCP do serviço"
+    ],
+    "answer": 1,
+    "explain": "Next-hop é o endereço do roteador/saída para encaminhar o pacote em direção ao destino."
+  },
+  {
+    "id": "extra-roteamento-010",
+    "category": "Roteamento",
+    "difficulty": "easy",
+    "q": "Em uma tabela de rotas, o que representa o 'next-hop' (próximo salto) para a rota 172.16.0.0/12?",
+    "choices": [
+      "A máscara de sub-rede",
+      "O endereço do roteador para onde o pacote deve ser encaminhado",
+      "O endereço MAC do destino final",
+      "A porta TCP do serviço"
+    ],
+    "answer": 1,
+    "explain": "Next-hop é o endereço do roteador/saída para encaminhar o pacote em direção ao destino."
+  },
+  {
+    "id": "extra-roteamento-011",
+    "category": "Roteamento",
+    "difficulty": "easy",
+    "q": "Em uma tabela de rotas, o que representa o 'next-hop' (próximo salto) para a rota 172.16.0.0/12?",
+    "choices": [
+      "A máscara de sub-rede",
+      "O endereço do roteador para onde o pacote deve ser encaminhado",
+      "O endereço MAC do destino final",
+      "A porta TCP do serviço"
+    ],
+    "answer": 1,
+    "explain": "Next-hop é o endereço do roteador/saída para encaminhar o pacote em direção ao destino."
+  },
+  {
+    "id": "extra-roteamento-012",
+    "category": "Roteamento",
+    "difficulty": "easy",
+    "q": "Em uma tabela de rotas, o que representa o 'next-hop' (próximo salto) para a rota 172.16.0.0/12?",
+    "choices": [
+      "A máscara de sub-rede",
+      "O endereço do roteador para onde o pacote deve ser encaminhado",
+      "O endereço MAC do destino final",
+      "A porta TCP do serviço"
+    ],
+    "answer": 1,
+    "explain": "Next-hop é o endereço do roteador/saída para encaminhar o pacote em direção ao destino."
+  },
+  {
+    "id": "extra-roteamento-013",
+    "category": "Roteamento",
+    "difficulty": "easy",
+    "q": "Em uma tabela de rotas, o que representa o 'next-hop' (próximo salto) para a rota 0.0.0.0/0?",
+    "choices": [
+      "A máscara de sub-rede",
+      "O endereço do roteador para onde o pacote deve ser encaminhado",
+      "O endereço MAC do destino final",
+      "A porta TCP do serviço"
+    ],
+    "answer": 1,
+    "explain": "Next-hop é o endereço do roteador/saída para encaminhar o pacote em direção ao destino."
+  },
+  {
+    "id": "extra-roteamento-014",
+    "category": "Roteamento",
+    "difficulty": "easy",
+    "q": "Em uma tabela de rotas, o que representa o 'next-hop' (próximo salto) para a rota 10.10.0.0/16?",
+    "choices": [
+      "A máscara de sub-rede",
+      "O endereço do roteador para onde o pacote deve ser encaminhado",
+      "O endereço MAC do destino final",
+      "A porta TCP do serviço"
+    ],
+    "answer": 1,
+    "explain": "Next-hop é o endereço do roteador/saída para encaminhar o pacote em direção ao destino."
+  },
+  {
+    "id": "extra-roteamento-015",
+    "category": "Roteamento",
+    "difficulty": "easy",
+    "q": "Em uma tabela de rotas, o que representa o 'next-hop' (próximo salto) para a rota 192.168.50.0/24?",
+    "choices": [
+      "A máscara de sub-rede",
+      "O endereço do roteador para onde o pacote deve ser encaminhado",
+      "O endereço MAC do destino final",
+      "A porta TCP do serviço"
+    ],
+    "answer": 1,
+    "explain": "Next-hop é o endereço do roteador/saída para encaminhar o pacote em direção ao destino."
+  },
+  {
+    "id": "extra-roteamento-016",
+    "category": "Roteamento",
+    "difficulty": "easy",
+    "q": "Em uma tabela de rotas, o que representa o 'next-hop' (próximo salto) para a rota 10.10.0.0/16?",
+    "choices": [
+      "A máscara de sub-rede",
+      "O endereço do roteador para onde o pacote deve ser encaminhado",
+      "O endereço MAC do destino final",
+      "A porta TCP do serviço"
+    ],
+    "answer": 1,
+    "explain": "Next-hop é o endereço do roteador/saída para encaminhar o pacote em direção ao destino."
+  },
+  {
+    "id": "extra-roteamento-017",
+    "category": "Roteamento",
+    "difficulty": "easy",
+    "q": "Em uma tabela de rotas, o que representa o 'next-hop' (próximo salto) para a rota 10.10.0.0/16?",
+    "choices": [
+      "A máscara de sub-rede",
+      "O endereço do roteador para onde o pacote deve ser encaminhado",
+      "O endereço MAC do destino final",
+      "A porta TCP do serviço"
+    ],
+    "answer": 1,
+    "explain": "Next-hop é o endereço do roteador/saída para encaminhar o pacote em direção ao destino."
+  },
+  {
+    "id": "extra-roteamento-018",
+    "category": "Roteamento",
+    "difficulty": "easy",
+    "q": "Em uma tabela de rotas, o que representa o 'next-hop' (próximo salto) para a rota 10.10.0.0/16?",
+    "choices": [
+      "A máscara de sub-rede",
+      "O endereço do roteador para onde o pacote deve ser encaminhado",
+      "O endereço MAC do destino final",
+      "A porta TCP do serviço"
+    ],
+    "answer": 1,
+    "explain": "Next-hop é o endereço do roteador/saída para encaminhar o pacote em direção ao destino."
+  },
+  {
+    "id": "extra-roteamento-019",
+    "category": "Roteamento",
+    "difficulty": "easy",
+    "q": "Em uma tabela de rotas, o que representa o 'next-hop' (próximo salto) para a rota 172.16.0.0/12?",
+    "choices": [
+      "A máscara de sub-rede",
+      "O endereço do roteador para onde o pacote deve ser encaminhado",
+      "O endereço MAC do destino final",
+      "A porta TCP do serviço"
+    ],
+    "answer": 1,
+    "explain": "Next-hop é o endereço do roteador/saída para encaminhar o pacote em direção ao destino."
+  },
+  {
+    "id": "extra-roteamento-020",
+    "category": "Roteamento",
+    "difficulty": "easy",
+    "q": "Em uma tabela de rotas, o que representa o 'next-hop' (próximo salto) para a rota 172.16.0.0/12?",
+    "choices": [
+      "A máscara de sub-rede",
+      "O endereço do roteador para onde o pacote deve ser encaminhado",
+      "O endereço MAC do destino final",
+      "A porta TCP do serviço"
+    ],
+    "answer": 1,
+    "explain": "Next-hop é o endereço do roteador/saída para encaminhar o pacote em direção ao destino."
+  },
+  {
+    "id": "extra-wireless-001",
+    "category": "Wireless",
+    "difficulty": "easy",
+    "q": "Qual banda Wi‑Fi normalmente oferece maior alcance porém mais interferência?",
+    "choices": [
+      "5 GHz",
+      "2,4 GHz",
+      "60 GHz",
+      "Não existe diferença"
+    ],
+    "answer": 1,
+    "explain": "2,4 GHz tende a atravessar melhor obstáculos e ter mais alcance, mas é mais congestionada."
+  },
+  {
+    "id": "extra-wireless-002",
+    "category": "Wireless",
+    "difficulty": "easy",
+    "q": "Qual banda Wi‑Fi normalmente oferece maior taxa e menos interferência, porém menor alcance?",
+    "choices": [
+      "2,4 GHz",
+      "5 GHz",
+      "AM rádio",
+      "Bluetooth"
+    ],
+    "answer": 1,
+    "explain": "5 GHz geralmente tem mais canais e menos interferência, mas menor alcance."
+  },
+  {
+    "id": "extra-wireless-003",
+    "category": "Wireless",
+    "difficulty": "medium",
+    "q": "Em 2,4 GHz, quais canais são tipicamente não sobrepostos (no padrão 20 MHz)?",
+    "choices": [
+      "1, 6 e 11",
+      "2, 7 e 12",
+      "3, 8 e 13",
+      "4, 9 e 14"
+    ],
+    "answer": 0,
+    "explain": "Em muitos países, 1/6/11 são o conjunto clássico de canais não sobrepostos em 20 MHz."
+  },
+  {
+    "id": "extra-wireless-004",
+    "category": "Wireless",
+    "difficulty": "medium",
+    "q": "O que é SSID?",
+    "choices": [
+      "Senha do Wi‑Fi",
+      "Nome lógico da rede Wi‑Fi",
+      "Tipo de criptografia",
+      "Canal do roteador"
+    ],
+    "answer": 1,
+    "explain": "SSID é o identificador (nome) da rede sem fio."
+  },
+  {
+    "id": "extra-wireless-005",
+    "category": "Wireless",
+    "difficulty": "medium",
+    "q": "Qual tecnologia melhora desempenho usando múltiplas antenas para transmitir/receber simultaneamente?",
+    "choices": [
+      "NFC",
+      "MIMO",
+      "ARP",
+      "ICMP"
+    ],
+    "answer": 1,
+    "explain": "MIMO usa múltiplas antenas para aumentar throughput/robustez."
+  },
+  {
+    "id": "extra-wireless-006",
+    "category": "Wireless",
+    "difficulty": "hard",
+    "q": "WPA3, em relação ao WPA2-Personal, melhora principalmente:",
+    "choices": [
+      "A largura de banda do roteador",
+      "A segurança do handshake/autenticação (SAE)",
+      "A distância do sinal",
+      "O número de canais em 2,4 GHz"
+    ],
+    "answer": 1,
+    "explain": "WPA3-Personal usa SAE, melhorando resistência a ataques de dicionário offline."
+  },
+  {
+    "id": "extra-wireless-007",
+    "category": "Wireless",
+    "difficulty": "medium",
+    "q": "O padrão 802.11n é conhecido comercialmente como:",
+    "choices": [
+      "Wi‑Fi 4",
+      "Wi‑Fi 3",
+      "Wi‑Fi 8",
+      "Wi‑Fi 1"
+    ],
+    "answer": 0,
+    "explain": "802.11n é popularmente chamado de Wi‑Fi 4."
+  },
+  {
+    "id": "extra-wireless-008",
+    "category": "Wireless",
+    "difficulty": "medium",
+    "q": "O padrão 802.11be é conhecido comercialmente como:",
+    "choices": [
+      "Wi‑Fi 1",
+      "Wi‑Fi 8",
+      "Wi‑Fi 3",
+      "Wi‑Fi 7"
+    ],
+    "answer": 3,
+    "explain": "802.11be é popularmente chamado de Wi‑Fi 7."
+  },
+  {
+    "id": "extra-wireless-009",
+    "category": "Wireless",
+    "difficulty": "medium",
+    "q": "O padrão 802.11ax é conhecido comercialmente como:",
+    "choices": [
+      "Wi‑Fi 3",
+      "Wi‑Fi 6/6E",
+      "Wi‑Fi 8",
+      "Wi‑Fi 1"
+    ],
+    "answer": 1,
+    "explain": "802.11ax é popularmente chamado de Wi‑Fi 6/6E."
+  },
+  {
+    "id": "extra-wireless-010",
+    "category": "Wireless",
+    "difficulty": "medium",
+    "q": "O padrão 802.11ac é conhecido comercialmente como:",
+    "choices": [
+      "Wi‑Fi 3",
+      "Wi‑Fi 5",
+      "Wi‑Fi 8",
+      "Wi‑Fi 1"
+    ],
+    "answer": 1,
+    "explain": "802.11ac é popularmente chamado de Wi‑Fi 5."
+  },
+  {
+    "id": "extra-wireless-011",
+    "category": "Wireless",
+    "difficulty": "medium",
+    "q": "O padrão 802.11n é conhecido comercialmente como:",
+    "choices": [
+      "Wi‑Fi 3",
+      "Wi‑Fi 1",
+      "Wi‑Fi 8",
+      "Wi‑Fi 4"
+    ],
+    "answer": 3,
+    "explain": "802.11n é popularmente chamado de Wi‑Fi 4."
+  },
+  {
+    "id": "extra-wireless-012",
+    "category": "Wireless",
+    "difficulty": "medium",
+    "q": "O padrão 802.11ax é conhecido comercialmente como:",
+    "choices": [
+      "Wi‑Fi 3",
+      "Wi‑Fi 1",
+      "Wi‑Fi 6/6E",
+      "Wi‑Fi 8"
+    ],
+    "answer": 2,
+    "explain": "802.11ax é popularmente chamado de Wi‑Fi 6/6E."
+  },
+  {
+    "id": "extra-wireless-013",
+    "category": "Wireless",
+    "difficulty": "medium",
+    "q": "O padrão 802.11ax é conhecido comercialmente como:",
+    "choices": [
+      "Wi‑Fi 6/6E",
+      "Wi‑Fi 3",
+      "Wi‑Fi 1",
+      "Wi‑Fi 8"
+    ],
+    "answer": 0,
+    "explain": "802.11ax é popularmente chamado de Wi‑Fi 6/6E."
+  },
+  {
+    "id": "extra-wireless-014",
+    "category": "Wireless",
+    "difficulty": "medium",
+    "q": "O padrão 802.11be é conhecido comercialmente como:",
+    "choices": [
+      "Wi‑Fi 1",
+      "Wi‑Fi 8",
+      "Wi‑Fi 3",
+      "Wi‑Fi 7"
+    ],
+    "answer": 3,
+    "explain": "802.11be é popularmente chamado de Wi‑Fi 7."
+  },
+  {
+    "id": "extra-wireless-015",
+    "category": "Wireless",
+    "difficulty": "medium",
+    "q": "O padrão 802.11be é conhecido comercialmente como:",
+    "choices": [
+      "Wi‑Fi 7",
+      "Wi‑Fi 1",
+      "Wi‑Fi 8",
+      "Wi‑Fi 3"
+    ],
+    "answer": 0,
+    "explain": "802.11be é popularmente chamado de Wi‑Fi 7."
+  },
+  {
+    "id": "extra-wireless-016",
+    "category": "Wireless",
+    "difficulty": "medium",
+    "q": "O padrão 802.11n é conhecido comercialmente como:",
+    "choices": [
+      "Wi‑Fi 1",
+      "Wi‑Fi 3",
+      "Wi‑Fi 8",
+      "Wi‑Fi 4"
+    ],
+    "answer": 3,
+    "explain": "802.11n é popularmente chamado de Wi‑Fi 4."
+  },
+  {
+    "id": "extra-wireless-017",
+    "category": "Wireless",
+    "difficulty": "medium",
+    "q": "O padrão 802.11ax é conhecido comercialmente como:",
+    "choices": [
+      "Wi‑Fi 3",
+      "Wi‑Fi 1",
+      "Wi‑Fi 8",
+      "Wi‑Fi 6/6E"
+    ],
+    "answer": 3,
+    "explain": "802.11ax é popularmente chamado de Wi‑Fi 6/6E."
+  },
+  {
+    "id": "extra-wireless-018",
+    "category": "Wireless",
+    "difficulty": "medium",
+    "q": "O padrão 802.11be é conhecido comercialmente como:",
+    "choices": [
+      "Wi‑Fi 8",
+      "Wi‑Fi 1",
+      "Wi‑Fi 7",
+      "Wi‑Fi 3"
+    ],
+    "answer": 2,
+    "explain": "802.11be é popularmente chamado de Wi‑Fi 7."
+  },
+  {
+    "id": "extra-fibra-optica-001",
+    "category": "Fibra Óptica",
+    "difficulty": "easy",
+    "q": "Fibra monomodo (SMF) é mais comum em longas distâncias porque:",
+    "choices": [
+      "Tem maior dispersão modal",
+      "Permite maior alcance e menor atenuação em links longos",
+      "Só funciona em 2,4 GHz",
+      "Usa conector RJ‑45"
+    ],
+    "answer": 1,
+    "explain": "SMF tem um único modo de propagação, permitindo longas distâncias com menor dispersão."
+  },
+  {
+    "id": "extra-fibra-optica-002",
+    "category": "Fibra Óptica",
+    "difficulty": "easy",
+    "q": "Fibra multimodo (MMF) é mais comum em curtas distâncias (ex.: datacenter) porque:",
+    "choices": [
+      "É sempre mais barata para transceptores curtos e instalações internas",
+      "Só funciona em GPON",
+      "É usada apenas em cabos submarinos",
+      "Não sofre atenuação"
+    ],
+    "answer": 0,
+    "explain": "MMF costuma ser usada em distâncias curtas devido a dispersão modal; transceptores curtos podem ser mais baratos."
+  },
+  {
+    "id": "extra-fibra-optica-003",
+    "category": "Fibra Óptica",
+    "difficulty": "medium",
+    "q": "Qual conector é muito comum em patch cords de fibra em datacenters por ser menor?",
+    "choices": [
+      "LC",
+      "SC",
+      "RJ‑11",
+      "BNC"
+    ],
+    "answer": 0,
+    "explain": "LC é pequeno e comum em alta densidade."
+  },
+  {
+    "id": "extra-fibra-optica-004",
+    "category": "Fibra Óptica",
+    "difficulty": "medium",
+    "q": "Em GPON, um splitter óptico é usado para:",
+    "choices": [
+      "Converter sinal óptico em elétrico",
+      "Dividir o sinal de uma fibra para múltiplas ONUs",
+      "Aumentar o sinal elétrico do roteador",
+      "Gerar endereços IP"
+    ],
+    "answer": 1,
+    "explain": "Splitters dividem a fibra (passivamente) para atender vários clientes."
+  },
+  {
+    "id": "extra-fibra-optica-005",
+    "category": "Fibra Óptica",
+    "difficulty": "hard",
+    "q": "Qual equipamento mede atenuação e eventos (emendas, conectores) ao longo de um enlace de fibra?",
+    "choices": [
+      "Multímetro",
+      "OTDR",
+      "Analisador Wi‑Fi",
+      "Switch gerenciável"
+    ],
+    "answer": 1,
+    "explain": "OTDR (Optical Time-Domain Reflectometer) mede eventos e perdas ao longo da fibra."
+  },
+  {
+    "id": "extra-fibra-optica-006",
+    "category": "Fibra Óptica",
+    "difficulty": "medium",
+    "q": "Em redes GPON, qual afirmação é correta sobre a distribuição óptica?",
+    "choices": [
+      "É ponto-a-ponto dedicado, sem splitters",
+      "Usa splitters passivos para compartilhar a fibra da OLT com várias ONUs",
+      "Sempre requer conversão para coaxial antes do cliente",
+      "Funciona apenas com fibra multimodo"
+    ],
+    "answer": 1,
+    "explain": "GPON utiliza uma rede óptica passiva (PON) com splitters para atender múltiplos clientes."
+  },
+  {
+    "id": "extra-fibra-optica-007",
+    "category": "Fibra Óptica",
+    "difficulty": "medium",
+    "q": "Em redes GPON, qual afirmação é correta sobre a distribuição óptica?",
+    "choices": [
+      "É ponto-a-ponto dedicado, sem splitters",
+      "Usa splitters passivos para compartilhar a fibra da OLT com várias ONUs",
+      "Sempre requer conversão para coaxial antes do cliente",
+      "Funciona apenas com fibra multimodo"
+    ],
+    "answer": 1,
+    "explain": "GPON utiliza uma rede óptica passiva (PON) com splitters para atender múltiplos clientes."
+  },
+  {
+    "id": "extra-fibra-optica-008",
+    "category": "Fibra Óptica",
+    "difficulty": "medium",
+    "q": "Em redes GPON, qual afirmação é correta sobre a distribuição óptica?",
+    "choices": [
+      "É ponto-a-ponto dedicado, sem splitters",
+      "Usa splitters passivos para compartilhar a fibra da OLT com várias ONUs",
+      "Sempre requer conversão para coaxial antes do cliente",
+      "Funciona apenas com fibra multimodo"
+    ],
+    "answer": 1,
+    "explain": "GPON utiliza uma rede óptica passiva (PON) com splitters para atender múltiplos clientes."
+  },
+  {
+    "id": "extra-fibra-optica-009",
+    "category": "Fibra Óptica",
+    "difficulty": "medium",
+    "q": "Em redes GPON, qual afirmação é correta sobre a distribuição óptica?",
+    "choices": [
+      "É ponto-a-ponto dedicado, sem splitters",
+      "Usa splitters passivos para compartilhar a fibra da OLT com várias ONUs",
+      "Sempre requer conversão para coaxial antes do cliente",
+      "Funciona apenas com fibra multimodo"
+    ],
+    "answer": 1,
+    "explain": "GPON utiliza uma rede óptica passiva (PON) com splitters para atender múltiplos clientes."
+  },
+  {
+    "id": "extra-fibra-optica-010",
+    "category": "Fibra Óptica",
+    "difficulty": "medium",
+    "q": "Em redes GPON, qual afirmação é correta sobre a distribuição óptica?",
+    "choices": [
+      "É ponto-a-ponto dedicado, sem splitters",
+      "Usa splitters passivos para compartilhar a fibra da OLT com várias ONUs",
+      "Sempre requer conversão para coaxial antes do cliente",
+      "Funciona apenas com fibra multimodo"
+    ],
+    "answer": 1,
+    "explain": "GPON utiliza uma rede óptica passiva (PON) com splitters para atender múltiplos clientes."
+  },
+  {
+    "id": "extra-fibra-optica-011",
+    "category": "Fibra Óptica",
+    "difficulty": "medium",
+    "q": "Em redes GPON, qual afirmação é correta sobre a distribuição óptica?",
+    "choices": [
+      "É ponto-a-ponto dedicado, sem splitters",
+      "Usa splitters passivos para compartilhar a fibra da OLT com várias ONUs",
+      "Sempre requer conversão para coaxial antes do cliente",
+      "Funciona apenas com fibra multimodo"
+    ],
+    "answer": 1,
+    "explain": "GPON utiliza uma rede óptica passiva (PON) com splitters para atender múltiplos clientes."
+  },
+  {
+    "id": "extra-fibra-optica-012",
+    "category": "Fibra Óptica",
+    "difficulty": "medium",
+    "q": "Em redes GPON, qual afirmação é correta sobre a distribuição óptica?",
+    "choices": [
+      "É ponto-a-ponto dedicado, sem splitters",
+      "Usa splitters passivos para compartilhar a fibra da OLT com várias ONUs",
+      "Sempre requer conversão para coaxial antes do cliente",
+      "Funciona apenas com fibra multimodo"
+    ],
+    "answer": 1,
+    "explain": "GPON utiliza uma rede óptica passiva (PON) com splitters para atender múltiplos clientes."
+  },
+  {
+    "id": "extra-fibra-optica-013",
+    "category": "Fibra Óptica",
+    "difficulty": "medium",
+    "q": "Em redes GPON, qual afirmação é correta sobre a distribuição óptica?",
+    "choices": [
+      "É ponto-a-ponto dedicado, sem splitters",
+      "Usa splitters passivos para compartilhar a fibra da OLT com várias ONUs",
+      "Sempre requer conversão para coaxial antes do cliente",
+      "Funciona apenas com fibra multimodo"
+    ],
+    "answer": 1,
+    "explain": "GPON utiliza uma rede óptica passiva (PON) com splitters para atender múltiplos clientes."
+  },
+  {
+    "id": "extra-fibra-optica-014",
+    "category": "Fibra Óptica",
+    "difficulty": "medium",
+    "q": "Em redes GPON, qual afirmação é correta sobre a distribuição óptica?",
+    "choices": [
+      "É ponto-a-ponto dedicado, sem splitters",
+      "Usa splitters passivos para compartilhar a fibra da OLT com várias ONUs",
+      "Sempre requer conversão para coaxial antes do cliente",
+      "Funciona apenas com fibra multimodo"
+    ],
+    "answer": 1,
+    "explain": "GPON utiliza uma rede óptica passiva (PON) com splitters para atender múltiplos clientes."
+  },
+  {
+    "id": "extra-fibra-optica-015",
+    "category": "Fibra Óptica",
+    "difficulty": "medium",
+    "q": "Em redes GPON, qual afirmação é correta sobre a distribuição óptica?",
+    "choices": [
+      "É ponto-a-ponto dedicado, sem splitters",
+      "Usa splitters passivos para compartilhar a fibra da OLT com várias ONUs",
+      "Sempre requer conversão para coaxial antes do cliente",
+      "Funciona apenas com fibra multimodo"
+    ],
+    "answer": 1,
+    "explain": "GPON utiliza uma rede óptica passiva (PON) com splitters para atender múltiplos clientes."
+  },
+  {
+    "id": "extra-fibra-optica-016",
+    "category": "Fibra Óptica",
+    "difficulty": "medium",
+    "q": "Qual tecnologia PON é amplamente usada em FTTH e significa Gigabit-capable PON?",
+    "choices": [
+      "GPON",
+      "Wi‑Fi",
+      "DOCSIS",
+      "ADSL"
+    ],
+    "answer": 0,
+    "explain": "GPON é uma tecnologia de rede óptica passiva muito usada em FTTH."
+  },
+  {
+    "id": "extra-fibra-optica-017",
+    "category": "Fibra Óptica",
+    "difficulty": "hard",
+    "q": "Em transceptores, SFP/SFP+ são módulos usados para:",
+    "choices": [
+      "Gerar endereços IP",
+      "Conectar interfaces de rede (switch/roteador) a meios como fibra/cobre com módulos substituíveis",
+      "Fazer NAT",
+      "Servir páginas HTTP"
+    ],
+    "answer": 1,
+    "explain": "SFP/SFP+ são módulos ópticos/eletrônicos hot-swappable para conectar a diferentes meios/velocidades."
+  },
+  {
+    "id": "extra-fibra-optica-018",
+    "category": "Fibra Óptica",
+    "difficulty": "medium",
+    "q": "Um problema comum causado por sujeira no conector de fibra é:",
+    "choices": [
+      "Aumento de atenuação e erros",
+      "Aumentar throughput automaticamente",
+      "Gerar IP público",
+      "Melhorar roaming Wi‑Fi"
+    ],
+    "answer": 0,
+    "explain": "Sujeira em conectores aumenta perdas e pode causar instabilidade/erros."
+  },
+  {
+    "id": "extra-fibra-001",
+    "category": "Fibra",
+    "difficulty": "easy",
+    "q": "Qual dos itens abaixo NÃO é um conector típico de fibra óptica?",
+    "choices": [
+      "SC",
+      "LC",
+      "ST",
+      "RJ‑45"
+    ],
+    "answer": 3,
+    "explain": "RJ‑45 é conector de par trançado (cobre), não de fibra."
+  },
+  {
+    "id": "extra-fibra-002",
+    "category": "Fibra",
+    "difficulty": "medium",
+    "q": "O que significa 'atenuação' em um enlace de fibra?",
+    "choices": [
+      "Aumento do sinal",
+      "Perda de potência do sinal óptico ao longo da distância",
+      "Mudança de endereço IP",
+      "Troca do conector"
+    ],
+    "answer": 1,
+    "explain": "Atenuação é a perda de sinal, medida em dB (por km, por exemplo)."
+  },
+  {
+    "id": "extra-fibra-003",
+    "category": "Fibra",
+    "difficulty": "medium",
+    "q": "Qual é a principal diferença prática entre conectores APC e UPC?",
+    "choices": [
+      "APC é sempre multimodo",
+      "APC tem polimento angulado, reduzindo reflexão (melhor para sinais sensíveis)",
+      "UPC não funciona em GPON",
+      "UPC é para coaxial"
+    ],
+    "answer": 1,
+    "explain": "APC (verde) tem face angulada e menor reflectância; UPC (azul) é reta/polida."
+  },
+  {
+    "id": "extra-fibra-004",
+    "category": "Fibra",
+    "difficulty": "easy",
+    "q": "Qual cor costuma identificar conector APC?",
+    "choices": [
+      "Vermelho",
+      "Azul",
+      "Verde",
+      "Amarelo"
+    ],
+    "answer": 2,
+    "explain": "Verde"
+  },
+  {
+    "id": "extra-fibra-005",
+    "category": "Fibra",
+    "difficulty": "easy",
+    "q": "Qual cor costuma identificar conector UPC?",
+    "choices": [
+      "Verde",
+      "Preto",
+      "Laranja",
+      "Azul"
+    ],
+    "answer": 3,
+    "explain": "Azul"
+  },
+  {
+    "id": "extra-fibra-006",
+    "category": "Fibra",
+    "difficulty": "medium",
+    "q": "Uma emenda mal feita em fibra tende a causar:",
+    "choices": [
+      "Melhor Wi‑Fi",
+      "Menos jitter sempre",
+      "Mais IPs disponíveis",
+      "Aumento de perda/reflexão (atenuação)"
+    ],
+    "answer": 3,
+    "explain": "Aumento de perda/reflexão (atenuação)"
+  },
+  {
+    "id": "extra-fibra-007",
+    "category": "Fibra",
+    "difficulty": "hard",
+    "q": "O que é 'reflectância' em conectores de fibra?",
+    "choices": [
+      "Tipo de IP",
+      "Tipo de roteamento",
+      "Reflexão do sinal óptico de volta à fonte",
+      "Tipo de VLAN"
+    ],
+    "answer": 2,
+    "explain": "Reflexão do sinal óptico de volta à fonte"
+  },
+  {
+    "id": "extra-fibra-008",
+    "category": "Fibra",
+    "difficulty": "medium",
+    "q": "Em cabos de fibra, 'duplex' normalmente significa:",
+    "choices": [
+      "Duas redes diferentes",
+      "Duas fibras (TX e RX) em um mesmo cabo/patch cord",
+      "Dois switches em HA",
+      "Dois endereços IP"
+    ],
+    "answer": 1,
+    "explain": "Duas fibras (TX e RX) em um mesmo cabo/patch cord"
+  },
+  {
+    "id": "extra-fibra-009",
+    "category": "Fibra",
+    "difficulty": "medium",
+    "q": "O principal benefício da fibra óptica em relação ao cobre em longas distâncias é:",
+    "choices": [
+      "Menor atenuação e imunidade a interferência eletromagnética",
+      "Uso obrigatório de RJ‑11",
+      "Maior suscetibilidade a EMI",
+      "Menor capacidade sempre"
+    ],
+    "answer": 0,
+    "explain": "Menor atenuação e imunidade a interferência eletromagnética"
+  },
+  {
+    "id": "extra-fibra-010",
+    "category": "Fibra",
+    "difficulty": "medium",
+    "q": "O principal benefício da fibra óptica em relação ao cobre em longas distâncias é:",
+    "choices": [
+      "Menor capacidade sempre",
+      "Uso obrigatório de RJ‑11",
+      "Maior suscetibilidade a EMI",
+      "Menor atenuação e imunidade a interferência eletromagnética"
+    ],
+    "answer": 3,
+    "explain": "Menor atenuação e imunidade a interferência eletromagnética"
+  },
+  {
+    "id": "extra-fibra-011",
+    "category": "Fibra",
+    "difficulty": "medium",
+    "q": "O principal benefício da fibra óptica em relação ao cobre em longas distâncias é:",
+    "choices": [
+      "Maior suscetibilidade a EMI",
+      "Menor capacidade sempre",
+      "Menor atenuação e imunidade a interferência eletromagnética",
+      "Uso obrigatório de RJ‑11"
+    ],
+    "answer": 2,
+    "explain": "Menor atenuação e imunidade a interferência eletromagnética"
+  },
+  {
+    "id": "extra-fibra-012",
+    "category": "Fibra",
+    "difficulty": "medium",
+    "q": "O principal benefício da fibra óptica em relação ao cobre em longas distâncias é:",
+    "choices": [
+      "Menor atenuação e imunidade a interferência eletromagnética",
+      "Menor capacidade sempre",
+      "Uso obrigatório de RJ‑11",
+      "Maior suscetibilidade a EMI"
+    ],
+    "answer": 0,
+    "explain": "Menor atenuação e imunidade a interferência eletromagnética"
+  },
+  {
+    "id": "extra-fibra-013",
+    "category": "Fibra",
+    "difficulty": "medium",
+    "q": "O principal benefício da fibra óptica em relação ao cobre em longas distâncias é:",
+    "choices": [
+      "Uso obrigatório de RJ‑11",
+      "Menor capacidade sempre",
+      "Menor atenuação e imunidade a interferência eletromagnética",
+      "Maior suscetibilidade a EMI"
+    ],
+    "answer": 2,
+    "explain": "Menor atenuação e imunidade a interferência eletromagnética"
+  },
+  {
+    "id": "extra-fibra-014",
+    "category": "Fibra",
+    "difficulty": "medium",
+    "q": "O principal benefício da fibra óptica em relação ao cobre em longas distâncias é:",
+    "choices": [
+      "Menor capacidade sempre",
+      "Maior suscetibilidade a EMI",
+      "Menor atenuação e imunidade a interferência eletromagnética",
+      "Uso obrigatório de RJ‑11"
+    ],
+    "answer": 2,
+    "explain": "Menor atenuação e imunidade a interferência eletromagnética"
+  },
+  {
+    "id": "extra-fibra-015",
+    "category": "Fibra",
+    "difficulty": "medium",
+    "q": "O principal benefício da fibra óptica em relação ao cobre em longas distâncias é:",
+    "choices": [
+      "Uso obrigatório de RJ‑11",
+      "Menor atenuação e imunidade a interferência eletromagnética",
+      "Menor capacidade sempre",
+      "Maior suscetibilidade a EMI"
+    ],
+    "answer": 1,
+    "explain": "Menor atenuação e imunidade a interferência eletromagnética"
+  },
+  {
+    "id": "extra-fibra-016",
+    "category": "Fibra",
+    "difficulty": "medium",
+    "q": "O principal benefício da fibra óptica em relação ao cobre em longas distâncias é:",
+    "choices": [
+      "Maior suscetibilidade a EMI",
+      "Menor capacidade sempre",
+      "Menor atenuação e imunidade a interferência eletromagnética",
+      "Uso obrigatório de RJ‑11"
+    ],
+    "answer": 2,
+    "explain": "Menor atenuação e imunidade a interferência eletromagnética"
+  },
+  {
+    "id": "extra-fibra-017",
+    "category": "Fibra",
+    "difficulty": "medium",
+    "q": "O principal benefício da fibra óptica em relação ao cobre em longas distâncias é:",
+    "choices": [
+      "Menor atenuação e imunidade a interferência eletromagnética",
+      "Maior suscetibilidade a EMI",
+      "Menor capacidade sempre",
+      "Uso obrigatório de RJ‑11"
+    ],
+    "answer": 0,
+    "explain": "Menor atenuação e imunidade a interferência eletromagnética"
+  },
+  {
+    "id": "extra-fibra-018",
+    "category": "Fibra",
+    "difficulty": "medium",
+    "q": "O principal benefício da fibra óptica em relação ao cobre em longas distâncias é:",
+    "choices": [
+      "Menor capacidade sempre",
+      "Menor atenuação e imunidade a interferência eletromagnética",
+      "Maior suscetibilidade a EMI",
+      "Uso obrigatório de RJ‑11"
+    ],
+    "answer": 1,
+    "explain": "Menor atenuação e imunidade a interferência eletromagnética"
+  },
+  {
+    "id": "extra-fibra-019",
+    "category": "Fibra",
+    "difficulty": "medium",
+    "q": "O principal benefício da fibra óptica em relação ao cobre em longas distâncias é:",
+    "choices": [
+      "Uso obrigatório de RJ‑11",
+      "Menor capacidade sempre",
+      "Menor atenuação e imunidade a interferência eletromagnética",
+      "Maior suscetibilidade a EMI"
+    ],
+    "answer": 2,
+    "explain": "Menor atenuação e imunidade a interferência eletromagnética"
+  },
+  {
+    "id": "extra-fibra-020",
+    "category": "Fibra",
+    "difficulty": "medium",
+    "q": "O principal benefício da fibra óptica em relação ao cobre em longas distâncias é:",
+    "choices": [
+      "Maior suscetibilidade a EMI",
+      "Uso obrigatório de RJ‑11",
+      "Menor capacidade sempre",
+      "Menor atenuação e imunidade a interferência eletromagnética"
+    ],
+    "answer": 3,
+    "explain": "Menor atenuação e imunidade a interferência eletromagnética"
+  },
+  {
+    "id": "extra-fibra-021",
+    "category": "Fibra",
+    "difficulty": "medium",
+    "q": "O principal benefício da fibra óptica em relação ao cobre em longas distâncias é:",
+    "choices": [
+      "Maior suscetibilidade a EMI",
+      "Menor capacidade sempre",
+      "Uso obrigatório de RJ‑11",
+      "Menor atenuação e imunidade a interferência eletromagnética"
+    ],
+    "answer": 3,
+    "explain": "Menor atenuação e imunidade a interferência eletromagnética"
+  },
+  {
+    "id": "extra-fibra-022",
+    "category": "Fibra",
+    "difficulty": "medium",
+    "q": "O principal benefício da fibra óptica em relação ao cobre em longas distâncias é:",
+    "choices": [
+      "Menor atenuação e imunidade a interferência eletromagnética",
+      "Uso obrigatório de RJ‑11",
+      "Maior suscetibilidade a EMI",
+      "Menor capacidade sempre"
+    ],
+    "answer": 0,
+    "explain": "Menor atenuação e imunidade a interferência eletromagnética"
+  },
+  {
+    "id": "extra-fibra-023",
+    "category": "Fibra",
+    "difficulty": "medium",
+    "q": "O principal benefício da fibra óptica em relação ao cobre em longas distâncias é:",
+    "choices": [
+      "Menor capacidade sempre",
+      "Maior suscetibilidade a EMI",
+      "Menor atenuação e imunidade a interferência eletromagnética",
+      "Uso obrigatório de RJ‑11"
+    ],
+    "answer": 2,
+    "explain": "Menor atenuação e imunidade a interferência eletromagnética"
+  },
+  {
+    "id": "extra-proxy-vpn-001",
+    "category": "Proxy/VPN",
+    "difficulty": "easy",
+    "q": "Um proxy 'forward' é usado principalmente para:",
+    "choices": [
+      "Publicar um site para a Internet (balanceamento)",
+      "Intermediar requisições de clientes para a Internet, podendo filtrar e cachear",
+      "Trocar IPs de roteamento BGP",
+      "Aumentar potência do Wi‑Fi"
+    ],
+    "answer": 1,
+    "explain": "Proxy forward atua do lado do cliente, intermediando acesso a recursos externos."
+  },
+  {
+    "id": "extra-proxy-vpn-002",
+    "category": "Proxy/VPN",
+    "difficulty": "medium",
+    "q": "Um 'reverse proxy' é usado principalmente para:",
+    "choices": [
+      "Conectar Bluetooth",
+      "Expor serviços internos para clientes externos, balancear carga e terminar TLS",
+      "Fornecer DHCP",
+      "Realizar NAT em roteadores domésticos"
+    ],
+    "answer": 1,
+    "explain": "Reverse proxy fica na frente dos servidores, podendo balancear, cachear e terminar TLS."
+  },
+  {
+    "id": "extra-proxy-vpn-003",
+    "category": "Proxy/VPN",
+    "difficulty": "medium",
+    "q": "Split tunneling em VPN significa:",
+    "choices": [
+      "Todo tráfego passa pela VPN obrigatoriamente",
+      "Apenas parte do tráfego (ex.: redes corporativas) passa pela VPN; o resto sai direto",
+      "A VPN não usa criptografia",
+      "A VPN só funciona com IPv6"
+    ],
+    "answer": 1,
+    "explain": "Split tunneling envia apenas rotas específicas pelo túnel, reduzindo carga/latência para tráfego geral."
+  },
+  {
+    "id": "extra-proxy-vpn-004",
+    "category": "Proxy/VPN",
+    "difficulty": "medium",
+    "q": "Qual é uma diferença comum entre proxy e VPN?",
+    "choices": [
+      "VPN costuma tunelar todo tráfego; proxy atua por aplicação/protocolo",
+      "Proxy sempre criptografa tudo",
+      "São a mesma coisa",
+      "VPN só funciona com HTTP"
+    ],
+    "answer": 0,
+    "explain": "VPN costuma tunelar todo tráfego; proxy atua por aplicação/protocolo"
+  },
+  {
+    "id": "extra-proxy-vpn-005",
+    "category": "Proxy/VPN",
+    "difficulty": "easy",
+    "q": "Um proxy pode fornecer benefício de:",
+    "choices": [
+      "Distribuir IPs via DHCP",
+      "Roteamento BGP",
+      "Sincronizar horário",
+      "Cache e controle de acesso"
+    ],
+    "answer": 3,
+    "explain": "Cache e controle de acesso"
+  },
+  {
+    "id": "extra-proxy-vpn-006",
+    "category": "Proxy/VPN",
+    "difficulty": "easy",
+    "q": "Um uso comum de VPN corporativa é:",
+    "choices": [
+      "Eliminar firewall",
+      "Acesso seguro a recursos internos a partir de fora da empresa",
+      "Substituir DNS",
+      "Aumentar potência Wi‑Fi"
+    ],
+    "answer": 1,
+    "explain": "Acesso seguro a recursos internos a partir de fora da empresa"
+  },
+  {
+    "id": "extra-proxy-vpn-007",
+    "category": "Proxy/VPN",
+    "difficulty": "medium",
+    "q": "O que é 'túnel' em VPN?",
+    "choices": [
+      "Uma máscara de sub-rede",
+      "Um tipo de conector de fibra",
+      "Um canal Wi‑Fi",
+      "Encapsulamento de tráfego dentro de outro protocolo, geralmente com criptografia"
+    ],
+    "answer": 3,
+    "explain": "Encapsulamento de tráfego dentro de outro protocolo, geralmente com criptografia"
+  },
+  {
+    "id": "extra-proxy-vpn-008",
+    "category": "Proxy/VPN",
+    "difficulty": "medium",
+    "q": "O que é 'túnel' em VPN?",
+    "choices": [
+      "Encapsulamento de tráfego dentro de outro protocolo, geralmente com criptografia",
+      "Um tipo de conector de fibra",
+      "Um canal Wi‑Fi",
+      "Uma máscara de sub-rede"
+    ],
+    "answer": 0,
+    "explain": "Encapsulamento de tráfego dentro de outro protocolo, geralmente com criptografia"
+  },
+  {
+    "id": "extra-proxy-vpn-009",
+    "category": "Proxy/VPN",
+    "difficulty": "medium",
+    "q": "O que é 'túnel' em VPN?",
+    "choices": [
+      "Um tipo de conector de fibra",
+      "Encapsulamento de tráfego dentro de outro protocolo, geralmente com criptografia",
+      "Um canal Wi‑Fi",
+      "Uma máscara de sub-rede"
+    ],
+    "answer": 1,
+    "explain": "Encapsulamento de tráfego dentro de outro protocolo, geralmente com criptografia"
+  },
+  {
+    "id": "extra-proxy-vpn-010",
+    "category": "Proxy/VPN",
+    "difficulty": "medium",
+    "q": "O que é 'túnel' em VPN?",
+    "choices": [
+      "Uma máscara de sub-rede",
+      "Um tipo de conector de fibra",
+      "Um canal Wi‑Fi",
+      "Encapsulamento de tráfego dentro de outro protocolo, geralmente com criptografia"
+    ],
+    "answer": 3,
+    "explain": "Encapsulamento de tráfego dentro de outro protocolo, geralmente com criptografia"
+  },
+  {
+    "id": "extra-proxy-vpn-011",
+    "category": "Proxy/VPN",
+    "difficulty": "medium",
+    "q": "O que é 'túnel' em VPN?",
+    "choices": [
+      "Uma máscara de sub-rede",
+      "Um tipo de conector de fibra",
+      "Um canal Wi‑Fi",
+      "Encapsulamento de tráfego dentro de outro protocolo, geralmente com criptografia"
+    ],
+    "answer": 3,
+    "explain": "Encapsulamento de tráfego dentro de outro protocolo, geralmente com criptografia"
+  },
+  {
+    "id": "extra-proxy-vpn-012",
+    "category": "Proxy/VPN",
+    "difficulty": "medium",
+    "q": "O que é 'túnel' em VPN?",
+    "choices": [
+      "Um canal Wi‑Fi",
+      "Uma máscara de sub-rede",
+      "Encapsulamento de tráfego dentro de outro protocolo, geralmente com criptografia",
+      "Um tipo de conector de fibra"
+    ],
+    "answer": 2,
+    "explain": "Encapsulamento de tráfego dentro de outro protocolo, geralmente com criptografia"
+  },
+  {
+    "id": "extra-proxy-vpn-013",
+    "category": "Proxy/VPN",
+    "difficulty": "medium",
+    "q": "O que é 'túnel' em VPN?",
+    "choices": [
+      "Um canal Wi‑Fi",
+      "Encapsulamento de tráfego dentro de outro protocolo, geralmente com criptografia",
+      "Um tipo de conector de fibra",
+      "Uma máscara de sub-rede"
+    ],
+    "answer": 1,
+    "explain": "Encapsulamento de tráfego dentro de outro protocolo, geralmente com criptografia"
+  },
+  {
+    "id": "extra-proxy-vpn-014",
+    "category": "Proxy/VPN",
+    "difficulty": "medium",
+    "q": "O que é 'túnel' em VPN?",
+    "choices": [
+      "Um tipo de conector de fibra",
+      "Um canal Wi‑Fi",
+      "Uma máscara de sub-rede",
+      "Encapsulamento de tráfego dentro de outro protocolo, geralmente com criptografia"
+    ],
+    "answer": 3,
+    "explain": "Encapsulamento de tráfego dentro de outro protocolo, geralmente com criptografia"
+  },
+  {
+    "id": "extra-proxy-vpn-015",
+    "category": "Proxy/VPN",
+    "difficulty": "medium",
+    "q": "O que é 'túnel' em VPN?",
+    "choices": [
+      "Um tipo de conector de fibra",
+      "Uma máscara de sub-rede",
+      "Encapsulamento de tráfego dentro de outro protocolo, geralmente com criptografia",
+      "Um canal Wi‑Fi"
+    ],
+    "answer": 2,
+    "explain": "Encapsulamento de tráfego dentro de outro protocolo, geralmente com criptografia"
+  },
+  {
+    "id": "extra-proxy-vpn-016",
+    "category": "Proxy/VPN",
+    "difficulty": "medium",
+    "q": "O que é 'túnel' em VPN?",
+    "choices": [
+      "Uma máscara de sub-rede",
+      "Encapsulamento de tráfego dentro de outro protocolo, geralmente com criptografia",
+      "Um canal Wi‑Fi",
+      "Um tipo de conector de fibra"
+    ],
+    "answer": 1,
+    "explain": "Encapsulamento de tráfego dentro de outro protocolo, geralmente com criptografia"
+  },
+  {
+    "id": "extra-proxy-vpn-017",
+    "category": "Proxy/VPN",
+    "difficulty": "medium",
+    "q": "O que é 'túnel' em VPN?",
+    "choices": [
+      "Uma máscara de sub-rede",
+      "Um tipo de conector de fibra",
+      "Um canal Wi‑Fi",
+      "Encapsulamento de tráfego dentro de outro protocolo, geralmente com criptografia"
+    ],
+    "answer": 3,
+    "explain": "Encapsulamento de tráfego dentro de outro protocolo, geralmente com criptografia"
+  },
+  {
+    "id": "extra-proxy-vpn-018",
+    "category": "Proxy/VPN",
+    "difficulty": "medium",
+    "q": "O que é 'túnel' em VPN?",
+    "choices": [
+      "Um tipo de conector de fibra",
+      "Uma máscara de sub-rede",
+      "Encapsulamento de tráfego dentro de outro protocolo, geralmente com criptografia",
+      "Um canal Wi‑Fi"
+    ],
+    "answer": 2,
+    "explain": "Encapsulamento de tráfego dentro de outro protocolo, geralmente com criptografia"
+  },
+  {
+    "id": "extra-proxy-vpn-019",
+    "category": "Proxy/VPN",
+    "difficulty": "medium",
+    "q": "O que é 'túnel' em VPN?",
+    "choices": [
+      "Encapsulamento de tráfego dentro de outro protocolo, geralmente com criptografia",
+      "Uma máscara de sub-rede",
+      "Um tipo de conector de fibra",
+      "Um canal Wi‑Fi"
+    ],
+    "answer": 0,
+    "explain": "Encapsulamento de tráfego dentro de outro protocolo, geralmente com criptografia"
+  },
+  {
+    "id": "extra-proxy-vpn-020",
+    "category": "Proxy/VPN",
+    "difficulty": "medium",
+    "q": "O que é 'túnel' em VPN?",
+    "choices": [
+      "Um tipo de conector de fibra",
+      "Uma máscara de sub-rede",
+      "Um canal Wi‑Fi",
+      "Encapsulamento de tráfego dentro de outro protocolo, geralmente com criptografia"
+    ],
+    "answer": 3,
+    "explain": "Encapsulamento de tráfego dentro de outro protocolo, geralmente com criptografia"
+  },
+  {
+    "id": "extra-proxy-vpn-021",
+    "category": "Proxy/VPN",
+    "difficulty": "medium",
+    "q": "O que é 'túnel' em VPN?",
+    "choices": [
+      "Um tipo de conector de fibra",
+      "Um canal Wi‑Fi",
+      "Encapsulamento de tráfego dentro de outro protocolo, geralmente com criptografia",
+      "Uma máscara de sub-rede"
+    ],
+    "answer": 2,
+    "explain": "Encapsulamento de tráfego dentro de outro protocolo, geralmente com criptografia"
+  },
+  {
+    "id": "extra-proxy-vpn-022",
+    "category": "Proxy/VPN",
+    "difficulty": "medium",
+    "q": "O que é 'túnel' em VPN?",
+    "choices": [
+      "Uma máscara de sub-rede",
+      "Um tipo de conector de fibra",
+      "Um canal Wi‑Fi",
+      "Encapsulamento de tráfego dentro de outro protocolo, geralmente com criptografia"
+    ],
+    "answer": 3,
+    "explain": "Encapsulamento de tráfego dentro de outro protocolo, geralmente com criptografia"
+  },
+  {
+    "id": "extra-ssh-001",
+    "category": "SSH",
+    "difficulty": "easy",
+    "q": "Qual porta TCP padrão do SSH?",
+    "choices": [
+      "21",
+      "22",
+      "23",
+      "3389"
+    ],
+    "answer": 1,
+    "explain": "SSH usa porta 22 por padrão."
+  },
+  {
+    "id": "extra-ssh-002",
+    "category": "SSH",
+    "difficulty": "medium",
+    "q": "Uma vantagem do SSH sobre Telnet é que o SSH:",
+    "choices": [
+      "É mais rápido sempre",
+      "Criptografa a sessão, protegendo credenciais e comandos",
+      "Não precisa de rede",
+      "Só funciona localmente"
+    ],
+    "answer": 1,
+    "explain": "Telnet envia texto em claro; SSH criptografa."
+  },
+  {
+    "id": "extra-ssh-003",
+    "category": "SSH",
+    "difficulty": "medium",
+    "q": "Chaves SSH assimétricas normalmente usam:",
+    "choices": [
+      "Uma única chave compartilhada",
+      "Par de chaves (pública/privada)",
+      "Somente senha",
+      "Somente token OTP"
+    ],
+    "answer": 1,
+    "explain": "Autenticação por chave usa um par: a chave privada fica com o cliente, a pública no servidor."
+  },
+  {
+    "id": "extra-ssh-004",
+    "category": "SSH",
+    "difficulty": "medium",
+    "q": "No SSH, autenticação por chave pública exige que:",
+    "choices": [
+      "A chave pública esteja no servidor (authorized_keys) e a privada fique com o cliente",
+      "A privada fique no servidor",
+      "As duas chaves sejam iguais",
+      "Use apenas UDP"
+    ],
+    "answer": 0,
+    "explain": "A chave pública esteja no servidor (authorized_keys) e a privada fique com o cliente"
+  },
+  {
+    "id": "extra-ssh-005",
+    "category": "SSH",
+    "difficulty": "hard",
+    "q": "O comando 'ssh user@host' usa qual tipo de criptografia para troca de chaves?",
+    "choices": [
+      "Somente CRC",
+      "Somente cifra de César",
+      "Criptografia assimétrica na negociação + simétrica no canal",
+      "Somente texto claro"
+    ],
+    "answer": 2,
+    "explain": "Criptografia assimétrica na negociação + simétrica no canal"
+  },
+  {
+    "id": "extra-ssh-006",
+    "category": "SSH",
+    "difficulty": "medium",
+    "q": "SSH pode ser usado para tunelar tráfego via:",
+    "choices": [
+      "ICMP Redirect",
+      "STP",
+      "ARP",
+      "Port forwarding (local/remoto/dinâmico)"
+    ],
+    "answer": 3,
+    "explain": "Port forwarding (local/remoto/dinâmico)"
+  },
+  {
+    "id": "extra-ssh-007",
+    "category": "SSH",
+    "difficulty": "easy",
+    "q": "Qual ferramenta/arquivo normalmente guarda chaves privadas SSH no Linux?",
+    "choices": [
+      "~/.ssh/id_rsa (ou id_ed25519)",
+      "C:\\Windows\\System32",
+      "/etc/hosts",
+      "/var/log/syslog"
+    ],
+    "answer": 0,
+    "explain": "~/.ssh/id_rsa (ou id_ed25519)"
+  },
+  {
+    "id": "extra-ssh-008",
+    "category": "SSH",
+    "difficulty": "easy",
+    "q": "Qual ferramenta/arquivo normalmente guarda chaves privadas SSH no Linux?",
+    "choices": [
+      "/etc/hosts",
+      "/var/log/syslog",
+      "C:\\Windows\\System32",
+      "~/.ssh/id_rsa (ou id_ed25519)"
+    ],
+    "answer": 3,
+    "explain": "~/.ssh/id_rsa (ou id_ed25519)"
+  },
+  {
+    "id": "extra-ssh-009",
+    "category": "SSH",
+    "difficulty": "easy",
+    "q": "Qual ferramenta/arquivo normalmente guarda chaves privadas SSH no Linux?",
+    "choices": [
+      "~/.ssh/id_rsa (ou id_ed25519)",
+      "/etc/hosts",
+      "/var/log/syslog",
+      "C:\\Windows\\System32"
+    ],
+    "answer": 0,
+    "explain": "~/.ssh/id_rsa (ou id_ed25519)"
+  },
+  {
+    "id": "extra-ssh-010",
+    "category": "SSH",
+    "difficulty": "easy",
+    "q": "Qual ferramenta/arquivo normalmente guarda chaves privadas SSH no Linux?",
+    "choices": [
+      "/var/log/syslog",
+      "/etc/hosts",
+      "C:\\Windows\\System32",
+      "~/.ssh/id_rsa (ou id_ed25519)"
+    ],
+    "answer": 3,
+    "explain": "~/.ssh/id_rsa (ou id_ed25519)"
+  },
+  {
+    "id": "extra-ssh-011",
+    "category": "SSH",
+    "difficulty": "easy",
+    "q": "Qual ferramenta/arquivo normalmente guarda chaves privadas SSH no Linux?",
+    "choices": [
+      "/var/log/syslog",
+      "C:\\Windows\\System32",
+      "~/.ssh/id_rsa (ou id_ed25519)",
+      "/etc/hosts"
+    ],
+    "answer": 2,
+    "explain": "~/.ssh/id_rsa (ou id_ed25519)"
+  },
+  {
+    "id": "extra-ssh-012",
+    "category": "SSH",
+    "difficulty": "easy",
+    "q": "Qual ferramenta/arquivo normalmente guarda chaves privadas SSH no Linux?",
+    "choices": [
+      "/var/log/syslog",
+      "/etc/hosts",
+      "~/.ssh/id_rsa (ou id_ed25519)",
+      "C:\\Windows\\System32"
+    ],
+    "answer": 2,
+    "explain": "~/.ssh/id_rsa (ou id_ed25519)"
+  },
+  {
+    "id": "extra-ssh-013",
+    "category": "SSH",
+    "difficulty": "easy",
+    "q": "Qual ferramenta/arquivo normalmente guarda chaves privadas SSH no Linux?",
+    "choices": [
+      "~/.ssh/id_rsa (ou id_ed25519)",
+      "/etc/hosts",
+      "/var/log/syslog",
+      "C:\\Windows\\System32"
+    ],
+    "answer": 0,
+    "explain": "~/.ssh/id_rsa (ou id_ed25519)"
+  },
+  {
+    "id": "extra-ssh-014",
+    "category": "SSH",
+    "difficulty": "easy",
+    "q": "Qual ferramenta/arquivo normalmente guarda chaves privadas SSH no Linux?",
+    "choices": [
+      "/var/log/syslog",
+      "/etc/hosts",
+      "~/.ssh/id_rsa (ou id_ed25519)",
+      "C:\\Windows\\System32"
+    ],
+    "answer": 2,
+    "explain": "~/.ssh/id_rsa (ou id_ed25519)"
+  },
+  {
+    "id": "extra-ssh-015",
+    "category": "SSH",
+    "difficulty": "easy",
+    "q": "Qual ferramenta/arquivo normalmente guarda chaves privadas SSH no Linux?",
+    "choices": [
+      "/etc/hosts",
+      "~/.ssh/id_rsa (ou id_ed25519)",
+      "/var/log/syslog",
+      "C:\\Windows\\System32"
+    ],
+    "answer": 1,
+    "explain": "~/.ssh/id_rsa (ou id_ed25519)"
+  },
+  {
+    "id": "extra-ssh-016",
+    "category": "SSH",
+    "difficulty": "easy",
+    "q": "Qual ferramenta/arquivo normalmente guarda chaves privadas SSH no Linux?",
+    "choices": [
+      "/var/log/syslog",
+      "~/.ssh/id_rsa (ou id_ed25519)",
+      "/etc/hosts",
+      "C:\\Windows\\System32"
+    ],
+    "answer": 1,
+    "explain": "~/.ssh/id_rsa (ou id_ed25519)"
+  },
+  {
+    "id": "extra-ssh-017",
+    "category": "SSH",
+    "difficulty": "easy",
+    "q": "Qual ferramenta/arquivo normalmente guarda chaves privadas SSH no Linux?",
+    "choices": [
+      "/etc/hosts",
+      "C:\\Windows\\System32",
+      "/var/log/syslog",
+      "~/.ssh/id_rsa (ou id_ed25519)"
+    ],
+    "answer": 3,
+    "explain": "~/.ssh/id_rsa (ou id_ed25519)"
+  },
+  {
+    "id": "extra-ssh-018",
+    "category": "SSH",
+    "difficulty": "easy",
+    "q": "Qual ferramenta/arquivo normalmente guarda chaves privadas SSH no Linux?",
+    "choices": [
+      "~/.ssh/id_rsa (ou id_ed25519)",
+      "C:\\Windows\\System32",
+      "/etc/hosts",
+      "/var/log/syslog"
+    ],
+    "answer": 0,
+    "explain": "~/.ssh/id_rsa (ou id_ed25519)"
+  },
+  {
+    "id": "extra-ssh-019",
+    "category": "SSH",
+    "difficulty": "easy",
+    "q": "Qual ferramenta/arquivo normalmente guarda chaves privadas SSH no Linux?",
+    "choices": [
+      "~/.ssh/id_rsa (ou id_ed25519)",
+      "C:\\Windows\\System32",
+      "/var/log/syslog",
+      "/etc/hosts"
+    ],
+    "answer": 0,
+    "explain": "~/.ssh/id_rsa (ou id_ed25519)"
+  },
+  {
+    "id": "extra-ssh-020",
+    "category": "SSH",
+    "difficulty": "easy",
+    "q": "Qual ferramenta/arquivo normalmente guarda chaves privadas SSH no Linux?",
+    "choices": [
+      "/etc/hosts",
+      "~/.ssh/id_rsa (ou id_ed25519)",
+      "/var/log/syslog",
+      "C:\\Windows\\System32"
+    ],
+    "answer": 1,
+    "explain": "~/.ssh/id_rsa (ou id_ed25519)"
+  },
+  {
+    "id": "extra-seguranca-001",
+    "category": "Segurança",
+    "difficulty": "easy",
+    "q": "O que é um ataque de phishing?",
+    "choices": [
+      "Roubo físico de cabos",
+      "Tentativa de enganar o usuário para obter dados (senhas) via e-mail/sites falsos",
+      "Ataque que quebra fibra óptica",
+      "Atualização de firmware"
+    ],
+    "answer": 1,
+    "explain": "Phishing é engenharia social para capturar credenciais/dados."
+  },
+  {
+    "id": "extra-seguranca-002",
+    "category": "Segurança",
+    "difficulty": "medium",
+    "q": "Qual prática melhora a segurança do Wi‑Fi doméstico?",
+    "choices": [
+      "Usar WEP",
+      "Manter senha fraca para lembrar",
+      "Usar WPA2/WPA3 e senha forte",
+      "Desativar criptografia"
+    ],
+    "answer": 2,
+    "explain": "WEP é inseguro; WPA2/WPA3 com senha forte é recomendado."
+  },
+  {
+    "id": "extra-seguranca-003",
+    "category": "Segurança",
+    "difficulty": "medium",
+    "q": "O que é '2FA/MFA'?",
+    "choices": [
+      "Dois firewalls em série",
+      "Autenticação com mais de um fator (ex.: senha + código)",
+      "Dois endereços IP por computador",
+      "Dois canais Wi‑Fi"
+    ],
+    "answer": 1,
+    "explain": "MFA usa múltiplos fatores (conhecimento, posse, biometria)."
+  },
+  {
+    "id": "extra-seguranca-004",
+    "category": "Segurança",
+    "difficulty": "hard",
+    "q": "Um IDS (Intrusion Detection System) faz principalmente:",
+    "choices": [
+      "Bloqueio ativo de tráfego sempre",
+      "Detecção/alerta de atividades suspeitas (pode ser passivo)",
+      "Distribuição de IPs",
+      "Conversão de fibra"
+    ],
+    "answer": 1,
+    "explain": "IDS detecta e alerta; IPS é mais associado a bloqueio/prevenção ativa."
+  },
+  {
+    "id": "extra-seguranca-005",
+    "category": "Segurança",
+    "difficulty": "hard",
+    "q": "O que é um firewall stateful?",
+    "choices": [
+      "Firewall que acompanha o estado das conexões (ex.: TCP) para decidir permitir/bloquear",
+      "Firewall que troca DNS",
+      "Firewall que só filtra por MAC",
+      "Firewall que aumenta banda"
+    ],
+    "answer": 0,
+    "explain": "Firewall que acompanha o estado das conexões (ex.: TCP) para decidir permitir/bloquear"
+  },
+  {
+    "id": "extra-seguranca-006",
+    "category": "Segurança",
+    "difficulty": "easy",
+    "q": "Qual prática reduz risco de vulnerabilidades?",
+    "choices": [
+      "Desligar roteador sempre",
+      "Manter sistemas/firmwares atualizados",
+      "Compartilhar senha",
+      "Usar WEP"
+    ],
+    "answer": 1,
+    "explain": "Manter sistemas/firmwares atualizados"
+  },
+  {
+    "id": "extra-seguranca-007",
+    "category": "Segurança",
+    "difficulty": "medium",
+    "q": "O que é 'port scanning'?",
+    "choices": [
+      "Sincronizar portas USB",
+      "Técnica para verificar quais portas/serviços estão abertos em um host",
+      "Criar VLANs",
+      "Aumentar velocidade do switch"
+    ],
+    "answer": 1,
+    "explain": "Técnica para verificar quais portas/serviços estão abertos em um host"
+  },
+  {
+    "id": "extra-seguranca-008",
+    "category": "Segurança",
+    "difficulty": "easy",
+    "q": "O que significa usar 'senha forte'?",
+    "choices": [
+      "Uma senha longa, única e difícil de adivinhar (mistura de tipos de caracteres)",
+      "Senha escrita no roteador",
+      "Senha curta com nome",
+      "Mesma senha para tudo"
+    ],
+    "answer": 0,
+    "explain": "Uma senha longa, única e difícil de adivinhar (mistura de tipos de caracteres)"
+  },
+  {
+    "id": "extra-seguranca-009",
+    "category": "Segurança",
+    "difficulty": "easy",
+    "q": "O que significa usar 'senha forte'?",
+    "choices": [
+      "Mesma senha para tudo",
+      "Senha curta com nome",
+      "Senha escrita no roteador",
+      "Uma senha longa, única e difícil de adivinhar (mistura de tipos de caracteres)"
+    ],
+    "answer": 3,
+    "explain": "Uma senha longa, única e difícil de adivinhar (mistura de tipos de caracteres)"
+  },
+  {
+    "id": "extra-seguranca-010",
+    "category": "Segurança",
+    "difficulty": "easy",
+    "q": "O que significa usar 'senha forte'?",
+    "choices": [
+      "Senha curta com nome",
+      "Senha escrita no roteador",
+      "Uma senha longa, única e difícil de adivinhar (mistura de tipos de caracteres)",
+      "Mesma senha para tudo"
+    ],
+    "answer": 2,
+    "explain": "Uma senha longa, única e difícil de adivinhar (mistura de tipos de caracteres)"
+  },
+  {
+    "id": "extra-seguranca-011",
+    "category": "Segurança",
+    "difficulty": "easy",
+    "q": "O que significa usar 'senha forte'?",
+    "choices": [
+      "Mesma senha para tudo",
+      "Uma senha longa, única e difícil de adivinhar (mistura de tipos de caracteres)",
+      "Senha curta com nome",
+      "Senha escrita no roteador"
+    ],
+    "answer": 1,
+    "explain": "Uma senha longa, única e difícil de adivinhar (mistura de tipos de caracteres)"
+  },
+  {
+    "id": "extra-seguranca-012",
+    "category": "Segurança",
+    "difficulty": "easy",
+    "q": "O que significa usar 'senha forte'?",
+    "choices": [
+      "Senha curta com nome",
+      "Uma senha longa, única e difícil de adivinhar (mistura de tipos de caracteres)",
+      "Mesma senha para tudo",
+      "Senha escrita no roteador"
+    ],
+    "answer": 1,
+    "explain": "Uma senha longa, única e difícil de adivinhar (mistura de tipos de caracteres)"
+  },
+  {
+    "id": "extra-seguranca-013",
+    "category": "Segurança",
+    "difficulty": "easy",
+    "q": "O que significa usar 'senha forte'?",
+    "choices": [
+      "Uma senha longa, única e difícil de adivinhar (mistura de tipos de caracteres)",
+      "Senha curta com nome",
+      "Senha escrita no roteador",
+      "Mesma senha para tudo"
+    ],
+    "answer": 0,
+    "explain": "Uma senha longa, única e difícil de adivinhar (mistura de tipos de caracteres)"
+  },
+  {
+    "id": "extra-seguranca-014",
+    "category": "Segurança",
+    "difficulty": "easy",
+    "q": "O que significa usar 'senha forte'?",
+    "choices": [
+      "Mesma senha para tudo",
+      "Senha escrita no roteador",
+      "Uma senha longa, única e difícil de adivinhar (mistura de tipos de caracteres)",
+      "Senha curta com nome"
+    ],
+    "answer": 2,
+    "explain": "Uma senha longa, única e difícil de adivinhar (mistura de tipos de caracteres)"
+  },
+  {
+    "id": "extra-seguranca-015",
+    "category": "Segurança",
+    "difficulty": "easy",
+    "q": "O que significa usar 'senha forte'?",
+    "choices": [
+      "Mesma senha para tudo",
+      "Senha escrita no roteador",
+      "Senha curta com nome",
+      "Uma senha longa, única e difícil de adivinhar (mistura de tipos de caracteres)"
+    ],
+    "answer": 3,
+    "explain": "Uma senha longa, única e difícil de adivinhar (mistura de tipos de caracteres)"
+  },
+  {
+    "id": "extra-seguranca-016",
+    "category": "Segurança",
+    "difficulty": "easy",
+    "q": "O que significa usar 'senha forte'?",
+    "choices": [
+      "Senha escrita no roteador",
+      "Mesma senha para tudo",
+      "Uma senha longa, única e difícil de adivinhar (mistura de tipos de caracteres)",
+      "Senha curta com nome"
+    ],
+    "answer": 2,
+    "explain": "Uma senha longa, única e difícil de adivinhar (mistura de tipos de caracteres)"
+  },
+  {
+    "id": "extra-seguranca-017",
+    "category": "Segurança",
+    "difficulty": "easy",
+    "q": "O que significa usar 'senha forte'?",
+    "choices": [
+      "Mesma senha para tudo",
+      "Uma senha longa, única e difícil de adivinhar (mistura de tipos de caracteres)",
+      "Senha curta com nome",
+      "Senha escrita no roteador"
+    ],
+    "answer": 1,
+    "explain": "Uma senha longa, única e difícil de adivinhar (mistura de tipos de caracteres)"
+  },
+  {
+    "id": "extra-seguranca-018",
+    "category": "Segurança",
+    "difficulty": "easy",
+    "q": "O que significa usar 'senha forte'?",
+    "choices": [
+      "Uma senha longa, única e difícil de adivinhar (mistura de tipos de caracteres)",
+      "Senha escrita no roteador",
+      "Senha curta com nome",
+      "Mesma senha para tudo"
+    ],
+    "answer": 0,
+    "explain": "Uma senha longa, única e difícil de adivinhar (mistura de tipos de caracteres)"
+  },
+  {
+    "id": "extra-seguranca-019",
+    "category": "Segurança",
+    "difficulty": "easy",
+    "q": "O que significa usar 'senha forte'?",
+    "choices": [
+      "Uma senha longa, única e difícil de adivinhar (mistura de tipos de caracteres)",
+      "Mesma senha para tudo",
+      "Senha curta com nome",
+      "Senha escrita no roteador"
+    ],
+    "answer": 0,
+    "explain": "Uma senha longa, única e difícil de adivinhar (mistura de tipos de caracteres)"
+  },
+  {
+    "id": "extra-seguranca-020",
+    "category": "Segurança",
+    "difficulty": "easy",
+    "q": "O que significa usar 'senha forte'?",
+    "choices": [
+      "Senha escrita no roteador",
+      "Senha curta com nome",
+      "Mesma senha para tudo",
+      "Uma senha longa, única e difícil de adivinhar (mistura de tipos de caracteres)"
+    ],
+    "answer": 3,
+    "explain": "Uma senha longa, única e difícil de adivinhar (mistura de tipos de caracteres)"
+  },
+  {
+    "id": "extra-seguranca-021",
+    "category": "Segurança",
+    "difficulty": "easy",
+    "q": "O que significa usar 'senha forte'?",
+    "choices": [
+      "Mesma senha para tudo",
+      "Senha escrita no roteador",
+      "Senha curta com nome",
+      "Uma senha longa, única e difícil de adivinhar (mistura de tipos de caracteres)"
+    ],
+    "answer": 3,
+    "explain": "Uma senha longa, única e difícil de adivinhar (mistura de tipos de caracteres)"
+  },
+  {
+    "id": "extra-seguranca-022",
+    "category": "Segurança",
+    "difficulty": "easy",
+    "q": "O que significa usar 'senha forte'?",
+    "choices": [
+      "Uma senha longa, única e difícil de adivinhar (mistura de tipos de caracteres)",
+      "Mesma senha para tudo",
+      "Senha curta com nome",
+      "Senha escrita no roteador"
+    ],
+    "answer": 0,
+    "explain": "Uma senha longa, única e difícil de adivinhar (mistura de tipos de caracteres)"
+  },
+  {
+    "id": "extra-seguranca-023",
+    "category": "Segurança",
+    "difficulty": "easy",
+    "q": "O que significa usar 'senha forte'?",
+    "choices": [
+      "Mesma senha para tudo",
+      "Uma senha longa, única e difícil de adivinhar (mistura de tipos de caracteres)",
+      "Senha escrita no roteador",
+      "Senha curta com nome"
+    ],
+    "answer": 1,
+    "explain": "Uma senha longa, única e difícil de adivinhar (mistura de tipos de caracteres)"
+  },
+  {
+    "id": "extra-seguranca-024",
+    "category": "Segurança",
+    "difficulty": "easy",
+    "q": "O que significa usar 'senha forte'?",
+    "choices": [
+      "Uma senha longa, única e difícil de adivinhar (mistura de tipos de caracteres)",
+      "Mesma senha para tudo",
+      "Senha escrita no roteador",
+      "Senha curta com nome"
+    ],
+    "answer": 0,
+    "explain": "Uma senha longa, única e difícil de adivinhar (mistura de tipos de caracteres)"
+  },
+  {
+    "id": "extra-protocolos-de-aplicacao-001",
+    "category": "Protocolos de Aplicação",
+    "difficulty": "easy",
+    "q": "Qual protocolo é usado para sincronizar horário em rede?",
+    "choices": [
+      "NTP",
+      "SMTP",
+      "FTP",
+      "ARP"
+    ],
+    "answer": 0,
+    "explain": "NTP sincroniza relógio em rede (porta 123/UDP)."
+  },
+  {
+    "id": "extra-protocolos-de-aplicacao-002",
+    "category": "Protocolos de Aplicação",
+    "difficulty": "easy",
+    "q": "Qual protocolo é usado para consulta/gerência de dispositivos de rede (monitoramento)?",
+    "choices": [
+      "SNMP",
+      "DHCP",
+      "ICMP",
+      "BGP"
+    ],
+    "answer": 0,
+    "explain": "SNMP é usado para monitorar e gerenciar dispositivos (porta 161/UDP, traps 162)."
+  },
+  {
+    "id": "extra-protocolos-de-aplicacao-003",
+    "category": "Protocolos de Aplicação",
+    "difficulty": "medium",
+    "q": "HTTPS é basicamente:",
+    "choices": [
+      "HTTP + UDP",
+      "HTTP + TLS/SSL",
+      "HTTP + ICMP",
+      "HTTP + ARP"
+    ],
+    "answer": 1,
+    "explain": "HTTPS encapsula HTTP em TLS para criptografia e autenticação."
+  },
+  {
+    "id": "extra-protocolos-de-aplicacao-004",
+    "category": "Protocolos de Aplicação",
+    "difficulty": "medium",
+    "q": "Qual protocolo é usado para transferência de arquivos de forma segura semelhante ao FTP, mas sobre SSH?",
+    "choices": [
+      "TFTP",
+      "SFTP",
+      "SMTP",
+      "SCP apenas sem SSH"
+    ],
+    "answer": 1,
+    "explain": "SFTP funciona sobre SSH, fornecendo transferência segura."
+  },
+  {
+    "id": "extra-protocolos-de-aplicacao-005",
+    "category": "Protocolos de Aplicação",
+    "difficulty": "easy",
+    "q": "Qual porta TCP é mais comumente associada ao serviço HTTP?",
+    "choices": [
+      "3306",
+      "143",
+      "80",
+      "53"
+    ],
+    "answer": 2,
+    "explain": "O serviço HTTP é tipicamente associado à porta 80/TCP (padrão, pode variar por configuração)."
+  },
+  {
+    "id": "extra-protocolos-de-aplicacao-006",
+    "category": "Protocolos de Aplicação",
+    "difficulty": "easy",
+    "q": "Qual porta TCP é mais comumente associada ao serviço HTTPS?",
+    "choices": [
+      "8080",
+      "161",
+      "443",
+      "67"
+    ],
+    "answer": 2,
+    "explain": "O serviço HTTPS é tipicamente associado à porta 443/TCP (padrão, pode variar por configuração)."
+  },
+  {
+    "id": "extra-protocolos-de-aplicacao-007",
+    "category": "Protocolos de Aplicação",
+    "difficulty": "easy",
+    "q": "Qual porta UDP é mais comumente associada ao serviço NTP?",
+    "choices": [
+      "445",
+      "123",
+      "389",
+      "20"
+    ],
+    "answer": 1,
+    "explain": "O serviço NTP é tipicamente associado à porta 123/UDP (padrão, pode variar por configuração)."
+  },
+  {
+    "id": "extra-protocolos-de-aplicacao-008",
+    "category": "Protocolos de Aplicação",
+    "difficulty": "easy",
+    "q": "Qual porta UDP é mais comumente associada ao serviço SNMP?",
+    "choices": [
+      "587",
+      "161",
+      "3389",
+      "80"
+    ],
+    "answer": 1,
+    "explain": "O serviço SNMP é tipicamente associado à porta 161/UDP (padrão, pode variar por configuração)."
+  },
+  {
+    "id": "extra-protocolos-de-aplicacao-009",
+    "category": "Protocolos de Aplicação",
+    "difficulty": "easy",
+    "q": "Qual porta TCP é mais comumente associada ao serviço POP3?",
+    "choices": [
+      "110",
+      "53",
+      "445",
+      "123"
+    ],
+    "answer": 0,
+    "explain": "O serviço POP3 é tipicamente associado à porta 110/TCP (padrão, pode variar por configuração)."
+  },
+  {
+    "id": "extra-protocolos-de-aplicacao-010",
+    "category": "Protocolos de Aplicação",
+    "difficulty": "easy",
+    "q": "Qual porta TCP é mais comumente associada ao serviço IMAP?",
+    "choices": [
+      "67",
+      "587",
+      "143",
+      "22"
+    ],
+    "answer": 2,
+    "explain": "O serviço IMAP é tipicamente associado à porta 143/TCP (padrão, pode variar por configuração)."
+  },
+  {
+    "id": "extra-protocolos-de-aplicacao-011",
+    "category": "Protocolos de Aplicação",
+    "difficulty": "easy",
+    "q": "Qual porta TCP é mais comumente associada ao serviço IMAPS?",
+    "choices": [
+      "443",
+      "22",
+      "20",
+      "993"
+    ],
+    "answer": 3,
+    "explain": "O serviço IMAPS é tipicamente associado à porta 993/TCP (padrão, pode variar por configuração)."
+  },
+  {
+    "id": "extra-protocolos-de-aplicacao-012",
+    "category": "Protocolos de Aplicação",
+    "difficulty": "easy",
+    "q": "Qual porta TCP é mais comumente associada ao serviço POP3S?",
+    "choices": [
+      "389",
+      "993",
+      "995",
+      "123"
+    ],
+    "answer": 2,
+    "explain": "O serviço POP3S é tipicamente associado à porta 995/TCP (padrão, pode variar por configuração)."
+  },
+  {
+    "id": "extra-protocolos-de-aplicacao-013",
+    "category": "Protocolos de Aplicação",
+    "difficulty": "easy",
+    "q": "Qual porta TCP é mais comumente associada ao serviço FTP-control?",
+    "choices": [
+      "123",
+      "993",
+      "21",
+      "23"
+    ],
+    "answer": 2,
+    "explain": "O serviço FTP-control é tipicamente associado à porta 21/TCP (padrão, pode variar por configuração)."
+  },
+  {
+    "id": "extra-protocolos-de-aplicacao-014",
+    "category": "Protocolos de Aplicação",
+    "difficulty": "easy",
+    "q": "Qual porta TCP é mais comumente associada ao serviço SSH?",
+    "choices": [
+      "110",
+      "22",
+      "68",
+      "143"
+    ],
+    "answer": 1,
+    "explain": "O serviço SSH é tipicamente associado à porta 22/TCP (padrão, pode variar por configuração)."
+  },
+  {
+    "id": "extra-protocolos-de-aplicacao-015",
+    "category": "Protocolos de Aplicação",
+    "difficulty": "easy",
+    "q": "Qual porta TCP é mais comumente associada ao serviço Telnet?",
+    "choices": [
+      "23",
+      "8080",
+      "110",
+      "993"
+    ],
+    "answer": 0,
+    "explain": "O serviço Telnet é tipicamente associado à porta 23/TCP (padrão, pode variar por configuração)."
+  },
+  {
+    "id": "extra-protocolos-de-aplicacao-016",
+    "category": "Protocolos de Aplicação",
+    "difficulty": "easy",
+    "q": "Qual protocolo é usado para consulta de páginas web?",
+    "choices": [
+      "HTTP",
+      "SMTP",
+      "SNMP",
+      "NTP"
+    ],
+    "answer": 0,
+    "explain": "HTTP é o protocolo web."
+  },
+  {
+    "id": "extra-protocolos-de-aplicacao-017",
+    "category": "Protocolos de Aplicação",
+    "difficulty": "medium",
+    "q": "Qual protocolo é comumente usado para envio de e-mail entre servidores (relay)?",
+    "choices": [
+      "SMTP",
+      "IMAP",
+      "POP3",
+      "FTP"
+    ],
+    "answer": 0,
+    "explain": "SMTP é usado para envio/relay de e-mails."
+  },
+  {
+    "id": "extra-protocolos-de-aplicacao-018",
+    "category": "Protocolos de Aplicação",
+    "difficulty": "medium",
+    "q": "IMAP difere de POP3 porque IMAP:",
+    "choices": [
+      "Sempre criptografa automaticamente",
+      "Permite manter e sincronizar mensagens no servidor (pastas), em geral",
+      "Só funciona em LAN",
+      "É um protocolo de roteamento"
+    ],
+    "answer": 1,
+    "explain": "IMAP geralmente mantém mensagens no servidor e sincroniza múltiplos dispositivos."
+  },
+  {
+    "id": "extra-aplicacao-001",
+    "category": "Aplicação",
+    "difficulty": "easy",
+    "q": "Qual porta (padrão) o DNS usa para consultas?",
+    "choices": [
+      "53",
+      "80",
+      "443",
+      "25"
+    ],
+    "answer": 0,
+    "explain": "DNS usa 53 (UDP/TCP, dependendo do caso)."
+  },
+  {
+    "id": "extra-aplicacao-002",
+    "category": "Aplicação",
+    "difficulty": "easy",
+    "q": "Qual porta é típica para RDP (Acesso Remoto do Windows)?",
+    "choices": [
+      "22",
+      "3389",
+      "445",
+      "110"
+    ],
+    "answer": 1,
+    "explain": "RDP normalmente usa 3389/TCP."
+  },
+  {
+    "id": "extra-aplicacao-003",
+    "category": "Aplicação",
+    "difficulty": "medium",
+    "q": "Qual serviço é normalmente associado à porta 445/TCP?",
+    "choices": [
+      "SMB/CIFS (compartilhamento Windows)",
+      "SSH",
+      "DNS",
+      "NTP"
+    ],
+    "answer": 0,
+    "explain": "Porta 445 é SMB (compartilhamento de arquivos/impressoras Windows)."
+  },
+  {
+    "id": "extra-aplicacao-004",
+    "category": "Aplicação",
+    "difficulty": "medium",
+    "q": "Qual protocolo é comumente usado para acesso remoto 'legado' e inseguro por enviar em texto claro?",
+    "choices": [
+      "SSH",
+      "Telnet",
+      "HTTPS",
+      "SFTP"
+    ],
+    "answer": 1,
+    "explain": "Telnet não criptografa e é considerado inseguro."
+  },
+  {
+    "id": "extra-aplicacao-005",
+    "category": "Aplicação",
+    "difficulty": "medium",
+    "q": "Qual porta o SMTP usa tipicamente para envio (submission) autenticado por clientes?",
+    "choices": [
+      "25",
+      "587",
+      "110",
+      "143"
+    ],
+    "answer": 1,
+    "explain": "587 é comum para submission; 25 é mais para relay entre servidores (varia por configuração)."
+  },
+  {
+    "id": "extra-aplicacao-006",
+    "category": "Aplicação",
+    "difficulty": "easy",
+    "q": "Qual porta TCP é mais comumente associada ao serviço HTTP?",
+    "choices": [
+      "5900",
+      "23",
+      "80",
+      "995"
+    ],
+    "answer": 2,
+    "explain": "O serviço HTTP é tipicamente associado à porta 80/TCP (padrão, pode variar por configuração)."
+  },
+  {
+    "id": "extra-aplicacao-007",
+    "category": "Aplicação",
+    "difficulty": "easy",
+    "q": "Qual porta TCP é mais comumente associada ao serviço HTTPS?",
+    "choices": [
+      "20",
+      "23",
+      "995",
+      "443"
+    ],
+    "answer": 3,
+    "explain": "O serviço HTTPS é tipicamente associado à porta 443/TCP (padrão, pode variar por configuração)."
+  },
+  {
+    "id": "extra-aplicacao-008",
+    "category": "Aplicação",
+    "difficulty": "easy",
+    "q": "Qual porta UDP é mais comumente associada ao serviço DNS?",
+    "choices": [
+      "23",
+      "110",
+      "8080",
+      "53"
+    ],
+    "answer": 3,
+    "explain": "O serviço DNS é tipicamente associado à porta 53/UDP (padrão, pode variar por configuração)."
+  },
+  {
+    "id": "extra-aplicacao-009",
+    "category": "Aplicação",
+    "difficulty": "easy",
+    "q": "Qual porta UDP é mais comumente associada ao serviço NTP?",
+    "choices": [
+      "123",
+      "143",
+      "389",
+      "993"
+    ],
+    "answer": 0,
+    "explain": "O serviço NTP é tipicamente associado à porta 123/UDP (padrão, pode variar por configuração)."
+  },
+  {
+    "id": "extra-aplicacao-010",
+    "category": "Aplicação",
+    "difficulty": "easy",
+    "q": "Qual porta UDP é mais comumente associada ao serviço SNMP?",
+    "choices": [
+      "443",
+      "8080",
+      "161",
+      "3389"
+    ],
+    "answer": 2,
+    "explain": "O serviço SNMP é tipicamente associado à porta 161/UDP (padrão, pode variar por configuração)."
+  },
+  {
+    "id": "extra-aplicacao-011",
+    "category": "Aplicação",
+    "difficulty": "easy",
+    "q": "Qual porta TCP é mais comumente associada ao serviço SMTP?",
+    "choices": [
+      "995",
+      "80",
+      "25",
+      "123"
+    ],
+    "answer": 2,
+    "explain": "O serviço SMTP é tipicamente associado à porta 25/TCP (padrão, pode variar por configuração)."
+  },
+  {
+    "id": "extra-aplicacao-012",
+    "category": "Aplicação",
+    "difficulty": "easy",
+    "q": "Qual porta TCP é mais comumente associada ao serviço POP3?",
+    "choices": [
+      "443",
+      "68",
+      "110",
+      "995"
+    ],
+    "answer": 2,
+    "explain": "O serviço POP3 é tipicamente associado à porta 110/TCP (padrão, pode variar por configuração)."
+  },
+  {
+    "id": "extra-aplicacao-013",
+    "category": "Aplicação",
+    "difficulty": "easy",
+    "q": "Qual porta TCP é mais comumente associada ao serviço IMAP?",
+    "choices": [
+      "3306",
+      "143",
+      "80",
+      "123"
+    ],
+    "answer": 1,
+    "explain": "O serviço IMAP é tipicamente associado à porta 143/TCP (padrão, pode variar por configuração)."
+  },
+  {
+    "id": "extra-aplicacao-014",
+    "category": "Aplicação",
+    "difficulty": "easy",
+    "q": "Qual porta TCP é mais comumente associada ao serviço IMAPS?",
+    "choices": [
+      "445",
+      "68",
+      "8080",
+      "993"
+    ],
+    "answer": 3,
+    "explain": "O serviço IMAPS é tipicamente associado à porta 993/TCP (padrão, pode variar por configuração)."
+  },
+  {
+    "id": "extra-aplicacao-015",
+    "category": "Aplicação",
+    "difficulty": "easy",
+    "q": "Qual porta TCP é mais comumente associada ao serviço POP3S?",
+    "choices": [
+      "68",
+      "995",
+      "8080",
+      "110"
+    ],
+    "answer": 1,
+    "explain": "O serviço POP3S é tipicamente associado à porta 995/TCP (padrão, pode variar por configuração)."
+  },
+  {
+    "id": "extra-aplicacao-016",
+    "category": "Aplicação",
+    "difficulty": "easy",
+    "q": "Qual porta TCP é mais comumente associada ao serviço FTP-control?",
+    "choices": [
+      "68",
+      "80",
+      "110",
+      "21"
+    ],
+    "answer": 3,
+    "explain": "O serviço FTP-control é tipicamente associado à porta 21/TCP (padrão, pode variar por configuração)."
+  },
+  {
+    "id": "extra-aplicacao-017",
+    "category": "Aplicação",
+    "difficulty": "easy",
+    "q": "Qual porta TCP é mais comumente associada ao serviço SSH?",
+    "choices": [
+      "22",
+      "80",
+      "445",
+      "995"
+    ],
+    "answer": 0,
+    "explain": "O serviço SSH é tipicamente associado à porta 22/TCP (padrão, pode variar por configuração)."
+  },
+  {
+    "id": "extra-aplicacao-018",
+    "category": "Aplicação",
+    "difficulty": "easy",
+    "q": "Qual porta TCP é mais comumente associada ao serviço Telnet?",
+    "choices": [
+      "8080",
+      "25",
+      "23",
+      "993"
+    ],
+    "answer": 2,
+    "explain": "O serviço Telnet é tipicamente associado à porta 23/TCP (padrão, pode variar por configuração)."
+  },
+  {
+    "id": "extra-aplicacao-019",
+    "category": "Aplicação",
+    "difficulty": "easy",
+    "q": "Qual porta UDP é mais comumente associada ao serviço DHCP-server?",
+    "choices": [
+      "67",
+      "995",
+      "23",
+      "20"
+    ],
+    "answer": 0,
+    "explain": "O serviço DHCP-server é tipicamente associado à porta 67/UDP (padrão, pode variar por configuração)."
+  },
+  {
+    "id": "extra-aplicacao-020",
+    "category": "Aplicação",
+    "difficulty": "easy",
+    "q": "Qual porta UDP é mais comumente associada ao serviço DHCP-client?",
+    "choices": [
+      "443",
+      "53",
+      "68",
+      "123"
+    ],
+    "answer": 2,
+    "explain": "O serviço DHCP-client é tipicamente associado à porta 68/UDP (padrão, pode variar por configuração)."
+  },
+  {
+    "id": "extra-aplicacao-021",
+    "category": "Aplicação",
+    "difficulty": "easy",
+    "q": "Qual porta TCP é mais comumente associada ao serviço RDP?",
+    "choices": [
+      "23",
+      "3389",
+      "22",
+      "161"
+    ],
+    "answer": 1,
+    "explain": "O serviço RDP é tipicamente associado à porta 3389/TCP (padrão, pode variar por configuração)."
+  },
+  {
+    "id": "extra-aplicacao-022",
+    "category": "Aplicação",
+    "difficulty": "medium",
+    "q": "Qual protocolo é comumente associado à porta 389/TCP/UDP?",
+    "choices": [
+      "LDAP",
+      "NTP",
+      "DNS",
+      "HTTP"
+    ],
+    "answer": 0,
+    "explain": "LDAP"
+  },
+  {
+    "id": "extra-aplicacao-023",
+    "category": "Aplicação",
+    "difficulty": "medium",
+    "q": "Qual protocolo é comumente associado à porta 389/TCP/UDP?",
+    "choices": [
+      "HTTP",
+      "LDAP",
+      "DNS",
+      "NTP"
+    ],
+    "answer": 1,
+    "explain": "LDAP"
+  },
+  {
+    "id": "extra-sub-rede-001",
+    "category": "Sub-rede",
+    "difficulty": "hard",
+    "q": "Qual é o endereço de rede (network) para o IP 192.168.12.63 com máscara /24?",
+    "choices": [
+      "192.168.11.255",
+      "192.168.11.0",
+      "192.168.13.0",
+      "192.168.12.0"
+    ],
+    "answer": 3,
+    "explain": "Com /24, o bloco tem 256 endereços. O network é o início do bloco: 192.168.12.0."
+  },
+  {
+    "id": "extra-sub-rede-002",
+    "category": "Sub-rede",
+    "difficulty": "hard",
+    "q": "Qual é o endereço de broadcast para a sub-rede do IP 10.47.248.60/24?",
+    "choices": [
+      "10.47.248.255",
+      "10.47.249.255",
+      "10.47.249.254",
+      "10.47.247.255"
+    ],
+    "answer": 0,
+    "explain": "O broadcast é o último endereço do bloco /24: 10.47.248.255."
+  },
+  {
+    "id": "extra-sub-rede-003",
+    "category": "Sub-rede",
+    "difficulty": "hard",
+    "q": "Qual é o endereço de broadcast para a sub-rede do IP 192.168.3.109/26?",
+    "choices": [
+      "192.168.3.191",
+      "192.168.3.126",
+      "192.168.3.128",
+      "192.168.3.127"
+    ],
+    "answer": 3,
+    "explain": "O broadcast é o último endereço do bloco /26: 192.168.3.127."
+  },
+  {
+    "id": "extra-sub-rede-004",
+    "category": "Sub-rede",
+    "difficulty": "hard",
+    "q": "Qual é o endereço de rede (network) para o IP 10.49.132.220 com máscara /27?",
+    "choices": [
+      "10.49.132.193",
+      "10.49.132.192",
+      "10.49.132.128",
+      "10.49.132.160"
+    ],
+    "answer": 1,
+    "explain": "Com /27, o bloco tem 32 endereços. O network é o início do bloco: 10.49.132.192."
+  },
+  {
+    "id": "extra-sub-rede-005",
+    "category": "Sub-rede",
+    "difficulty": "hard",
+    "q": "Qual é o endereço de rede (network) para o IP 172.25.97.148 com máscara /24?",
+    "choices": [
+      "172.25.96.0",
+      "172.25.96.255",
+      "172.25.97.0",
+      "172.25.98.0"
+    ],
+    "answer": 2,
+    "explain": "Com /24, o bloco tem 256 endereços. O network é o início do bloco: 172.25.97.0."
+  },
+  {
+    "id": "extra-sub-rede-006",
+    "category": "Sub-rede",
+    "difficulty": "medium",
+    "q": "Uma rede 172.23.115.0/24 possui quantos endereços IPv4 no total e quantos hosts utilizáveis (IPv4 tradicional)?",
+    "choices": [
+      "32 IPs no total, 30 hosts utilizáveis",
+      "8 IPs no total, 6 hosts utilizáveis",
+      "4 IPs no total, 2 hosts utilizáveis",
+      "256 IPs no total, 254 hosts utilizáveis"
+    ],
+    "answer": 3,
+    "explain": "Para /24: total = 2^(32-24) = 256. Em IPv4, normalmente 2 são reservados (rede e broadcast), restando 254 hosts."
+  },
+  {
+    "id": "extra-sub-rede-007",
+    "category": "Sub-rede",
+    "difficulty": "hard",
+    "q": "Uma rede 172.24.139.0/25 possui quantos endereços IPv4 no total e quantos hosts utilizáveis (IPv4 tradicional)?",
+    "choices": [
+      "8 IPs no total, 6 hosts utilizáveis",
+      "128 IPs no total, 126 hosts utilizáveis",
+      "64 IPs no total, 62 hosts utilizáveis",
+      "4 IPs no total, 2 hosts utilizáveis"
+    ],
+    "answer": 1,
+    "explain": "Para /25: total = 2^(32-25) = 128. Em IPv4, normalmente 2 são reservados (rede e broadcast), restando 126 hosts."
+  },
+  {
+    "id": "extra-sub-rede-008",
+    "category": "Sub-rede",
+    "difficulty": "hard",
+    "q": "Qual é o endereço de broadcast para a sub-rede do IP 192.168.28.181/26?",
+    "choices": [
+      "192.168.28.127",
+      "192.168.28.191",
+      "192.168.28.192",
+      "192.168.28.190"
+    ],
+    "answer": 1,
+    "explain": "O broadcast é o último endereço do bloco /26: 192.168.28.191."
+  },
+  {
+    "id": "extra-sub-rede-009",
+    "category": "Sub-rede",
+    "difficulty": "hard",
+    "q": "Qual é o endereço de broadcast para a sub-rede do IP 192.168.161.30/29?",
+    "choices": [
+      "192.168.161.31",
+      "192.168.161.39",
+      "192.168.161.32",
+      "192.168.161.24"
+    ],
+    "answer": 0,
+    "explain": "O broadcast é o último endereço do bloco /29: 192.168.161.31."
+  },
+  {
+    "id": "extra-sub-rede-010",
+    "category": "Sub-rede",
+    "difficulty": "medium",
+    "q": "Em 192.168.134.128/28, qual é o intervalo de hosts utilizáveis (primeiro e último)?",
+    "choices": [
+      "192.168.134.129 a 192.168.134.143",
+      "192.168.134.128 a 192.168.134.142",
+      "192.168.134.145 a 192.168.134.158",
+      "192.168.134.129 a 192.168.134.142"
+    ],
+    "answer": 3,
+    "explain": "Hosts utilizáveis (IPv4 tradicional) excluem network e broadcast: 192.168.134.129 até 192.168.134.142."
+  },
+  {
+    "id": "extra-sub-rede-011",
+    "category": "Sub-rede",
+    "difficulty": "medium",
+    "q": "Uma rede 10.24.31.160/30 possui quantos endereços IPv4 no total e quantos hosts utilizáveis (IPv4 tradicional)?",
+    "choices": [
+      "256 IPs no total, 254 hosts utilizáveis",
+      "8 IPs no total, 6 hosts utilizáveis",
+      "128 IPs no total, 126 hosts utilizáveis",
+      "4 IPs no total, 2 hosts utilizáveis"
+    ],
+    "answer": 3,
+    "explain": "Para /30: total = 2^(32-30) = 4. Em IPv4, normalmente 2 são reservados (rede e broadcast), restando 2 hosts."
+  },
+  {
+    "id": "extra-sub-rede-012",
+    "category": "Sub-rede",
+    "difficulty": "hard",
+    "q": "Uma rede 192.168.5.192/26 possui quantos endereços IPv4 no total e quantos hosts utilizáveis (IPv4 tradicional)?",
+    "choices": [
+      "64 IPs no total, 62 hosts utilizáveis",
+      "16 IPs no total, 14 hosts utilizáveis",
+      "256 IPs no total, 254 hosts utilizáveis",
+      "32 IPs no total, 30 hosts utilizáveis"
+    ],
+    "answer": 0,
+    "explain": "Para /26: total = 2^(32-26) = 64. Em IPv4, normalmente 2 são reservados (rede e broadcast), restando 62 hosts."
+  },
+  {
+    "id": "extra-sub-rede-013",
+    "category": "Sub-rede",
+    "difficulty": "hard",
+    "q": "Qual é o endereço de broadcast para a sub-rede do IP 172.24.109.130/24?",
+    "choices": [
+      "172.24.108.255",
+      "172.24.109.254",
+      "172.24.109.0",
+      "172.24.109.255"
+    ],
+    "answer": 3,
+    "explain": "O broadcast é o último endereço do bloco /24: 172.24.109.255."
+  },
+  {
+    "id": "extra-sub-rede-014",
+    "category": "Sub-rede",
+    "difficulty": "hard",
+    "q": "Qual é o endereço de rede (network) para o IP 10.0.74.248 com máscara /28?",
+    "choices": [
+      "10.0.75.0",
+      "10.0.74.240",
+      "10.0.74.224",
+      "10.0.74.208"
+    ],
+    "answer": 1,
+    "explain": "Com /28, o bloco tem 16 endereços. O network é o início do bloco: 10.0.74.240."
+  },
+  {
+    "id": "extra-sub-rede-015",
+    "category": "Sub-rede",
+    "difficulty": "medium",
+    "q": "Uma rede 10.248.211.184/29 possui quantos endereços IPv4 no total e quantos hosts utilizáveis (IPv4 tradicional)?",
+    "choices": [
+      "8 IPs no total, 6 hosts utilizáveis",
+      "4 IPs no total, 2 hosts utilizáveis",
+      "128 IPs no total, 126 hosts utilizáveis",
+      "32 IPs no total, 30 hosts utilizáveis"
+    ],
+    "answer": 0,
+    "explain": "Para /29: total = 2^(32-29) = 8. Em IPv4, normalmente 2 são reservados (rede e broadcast), restando 6 hosts."
+  },
+  {
+    "id": "extra-sub-rede-016",
+    "category": "Sub-rede",
+    "difficulty": "hard",
+    "q": "Qual é o endereço de rede (network) para o IP 192.168.204.93 com máscara /26?",
+    "choices": [
+      "192.168.204.0",
+      "192.168.204.192",
+      "192.168.204.64",
+      "192.168.204.65"
+    ],
+    "answer": 2,
+    "explain": "Com /26, o bloco tem 64 endereços. O network é o início do bloco: 192.168.204.64."
+  },
+  {
+    "id": "extra-sub-rede-017",
+    "category": "Sub-rede",
+    "difficulty": "hard",
+    "q": "Qual é o endereço de broadcast para a sub-rede do IP 172.23.93.2/24?",
+    "choices": [
+      "172.23.93.255",
+      "172.23.94.255",
+      "172.23.92.255",
+      "172.23.93.0"
+    ],
+    "answer": 0,
+    "explain": "O broadcast é o último endereço do bloco /24: 172.23.93.255."
+  },
+  {
+    "id": "extra-sub-rede-018",
+    "category": "Sub-rede",
+    "difficulty": "hard",
+    "q": "Qual é o endereço de rede (network) para o IP 10.121.219.187 com máscara /28?",
+    "choices": [
+      "10.121.219.176",
+      "10.121.219.208",
+      "10.121.219.192",
+      "10.121.219.177"
+    ],
+    "answer": 0,
+    "explain": "Com /28, o bloco tem 16 endereços. O network é o início do bloco: 10.121.219.176."
+  },
+  {
+    "id": "extra-sub-rede-019",
+    "category": "Sub-rede",
+    "difficulty": "medium",
+    "q": "Em 10.242.41.128/30, qual é o intervalo de hosts utilizáveis (primeiro e último)?",
+    "choices": [
+      "10.242.41.129 a 10.242.41.130",
+      "10.242.41.129 a 10.242.41.131",
+      "10.242.41.128 a 10.242.41.131",
+      "10.242.41.133 a 10.242.41.134"
+    ],
+    "answer": 0,
+    "explain": "Hosts utilizáveis (IPv4 tradicional) excluem network e broadcast: 10.242.41.129 até 10.242.41.130."
+  },
+  {
+    "id": "extra-sub-rede-020",
+    "category": "Sub-rede",
+    "difficulty": "medium",
+    "q": "Uma rede 172.17.187.196/30 possui quantos endereços IPv4 no total e quantos hosts utilizáveis (IPv4 tradicional)?",
+    "choices": [
+      "4 IPs no total, 2 hosts utilizáveis",
+      "512 IPs no total, 510 hosts utilizáveis",
+      "16 IPs no total, 14 hosts utilizáveis",
+      "8 IPs no total, 6 hosts utilizáveis"
+    ],
+    "answer": 0,
+    "explain": "Para /30: total = 2^(32-30) = 4. Em IPv4, normalmente 2 são reservados (rede e broadcast), restando 2 hosts."
+  },
+  {
+    "id": "extra-sub-rede-021",
+    "category": "Sub-rede",
+    "difficulty": "hard",
+    "q": "Qual é o endereço de broadcast para a sub-rede do IP 10.229.176.167/28?",
+    "choices": [
+      "10.229.176.176",
+      "10.229.176.175",
+      "10.229.176.191",
+      "10.229.176.174"
+    ],
+    "answer": 1,
+    "explain": "O broadcast é o último endereço do bloco /28: 10.229.176.175."
+  },
+  {
+    "id": "extra-sub-rede-022",
+    "category": "Sub-rede",
+    "difficulty": "medium",
+    "q": "Uma rede 192.168.25.0/24 possui quantos endereços IPv4 no total e quantos hosts utilizáveis (IPv4 tradicional)?",
+    "choices": [
+      "256 IPs no total, 254 hosts utilizáveis",
+      "128 IPs no total, 126 hosts utilizáveis",
+      "8 IPs no total, 6 hosts utilizáveis",
+      "64 IPs no total, 62 hosts utilizáveis"
+    ],
+    "answer": 0,
+    "explain": "Para /24: total = 2^(32-24) = 256. Em IPv4, normalmente 2 são reservados (rede e broadcast), restando 254 hosts."
+  },
+  {
+    "id": "extra-sub-rede-023",
+    "category": "Sub-rede",
+    "difficulty": "medium",
+    "q": "Em 172.21.68.0/24, qual é o intervalo de hosts utilizáveis (primeiro e último)?",
+    "choices": [
+      "172.21.69.1 a 172.21.69.254",
+      "172.21.68.0 a 172.21.68.254",
+      "172.21.68.0 a 172.21.68.255",
+      "172.21.68.1 a 172.21.68.254"
+    ],
+    "answer": 3,
+    "explain": "Hosts utilizáveis (IPv4 tradicional) excluem network e broadcast: 172.21.68.1 até 172.21.68.254."
+  },
+  {
+    "id": "extra-sub-rede-024",
+    "category": "Sub-rede",
+    "difficulty": "hard",
+    "q": "Qual é o endereço de broadcast para a sub-rede do IP 192.168.249.42/29?",
+    "choices": [
+      "192.168.249.47",
+      "192.168.249.39",
+      "192.168.249.55",
+      "192.168.249.46"
+    ],
+    "answer": 0,
+    "explain": "O broadcast é o último endereço do bloco /29: 192.168.249.47."
+  },
+  {
+    "id": "extra-sub-rede-025",
+    "category": "Sub-rede",
+    "difficulty": "hard",
+    "q": "Qual é o endereço de broadcast para a sub-rede do IP 10.244.29.15/24?",
+    "choices": [
+      "10.244.28.255",
+      "10.244.30.255",
+      "10.244.30.254",
+      "10.244.29.255"
+    ],
+    "answer": 3,
+    "explain": "O broadcast é o último endereço do bloco /24: 10.244.29.255."
+  },
+  {
+    "id": "extra-sub-rede-026",
+    "category": "Sub-rede",
+    "difficulty": "medium",
+    "q": "Em 192.168.120.108/30, qual é o intervalo de hosts utilizáveis (primeiro e último)?",
+    "choices": [
+      "192.168.120.109 a 192.168.120.110",
+      "192.168.120.113 a 192.168.120.114",
+      "192.168.120.108 a 192.168.120.111",
+      "192.168.120.109 a 192.168.120.111"
+    ],
+    "answer": 0,
+    "explain": "Hosts utilizáveis (IPv4 tradicional) excluem network e broadcast: 192.168.120.109 até 192.168.120.110."
+  },
+  {
+    "id": "extra-sub-rede-027",
+    "category": "Sub-rede",
+    "difficulty": "hard",
+    "q": "Qual é o endereço de broadcast para a sub-rede do IP 192.168.160.219/29?",
+    "choices": [
+      "192.168.160.231",
+      "192.168.160.216",
+      "192.168.160.224",
+      "192.168.160.223"
+    ],
+    "answer": 3,
+    "explain": "O broadcast é o último endereço do bloco /29: 192.168.160.223."
+  },
+  {
+    "id": "extra-sub-rede-028",
+    "category": "Sub-rede",
+    "difficulty": "medium",
+    "q": "Uma rede 10.234.164.0/24 possui quantos endereços IPv4 no total e quantos hosts utilizáveis (IPv4 tradicional)?",
+    "choices": [
+      "256 IPs no total, 254 hosts utilizáveis",
+      "64 IPs no total, 62 hosts utilizáveis",
+      "128 IPs no total, 126 hosts utilizáveis",
+      "32 IPs no total, 30 hosts utilizáveis"
+    ],
+    "answer": 0,
+    "explain": "Para /24: total = 2^(32-24) = 256. Em IPv4, normalmente 2 são reservados (rede e broadcast), restando 254 hosts."
+  },
+  {
+    "id": "extra-sub-rede-029",
+    "category": "Sub-rede",
+    "difficulty": "medium",
+    "q": "Em 172.21.12.64/26, qual é o intervalo de hosts utilizáveis (primeiro e último)?",
+    "choices": [
+      "172.21.12.64 a 172.21.12.126",
+      "172.21.12.65 a 172.21.12.126",
+      "172.21.12.64 a 172.21.12.127",
+      "172.21.12.65 a 172.21.12.127"
+    ],
+    "answer": 1,
+    "explain": "Hosts utilizáveis (IPv4 tradicional) excluem network e broadcast: 172.21.12.65 até 172.21.12.126."
+  },
+  {
+    "id": "extra-sub-rede-030",
+    "category": "Sub-rede",
+    "difficulty": "hard",
+    "q": "Qual é o endereço de rede (network) para o IP 192.168.79.149 com máscara /28?",
+    "choices": [
+      "192.168.79.144",
+      "192.168.79.160",
+      "192.168.79.145",
+      "192.168.79.143"
+    ],
+    "answer": 0,
+    "explain": "Com /28, o bloco tem 16 endereços. O network é o início do bloco: 192.168.79.144."
+  },
+  {
+    "id": "extra-sub-rede-031",
+    "category": "Sub-rede",
+    "difficulty": "hard",
+    "q": "Uma rede 192.168.128.128/27 possui quantos endereços IPv4 no total e quantos hosts utilizáveis (IPv4 tradicional)?",
+    "choices": [
+      "256 IPs no total, 254 hosts utilizáveis",
+      "32 IPs no total, 30 hosts utilizáveis",
+      "8 IPs no total, 6 hosts utilizáveis",
+      "512 IPs no total, 510 hosts utilizáveis"
+    ],
+    "answer": 1,
+    "explain": "Para /27: total = 2^(32-27) = 32. Em IPv4, normalmente 2 são reservados (rede e broadcast), restando 30 hosts."
+  },
+  {
+    "id": "extra-sub-rede-032",
+    "category": "Sub-rede",
+    "difficulty": "medium",
+    "q": "Em 192.168.82.128/26, qual é o intervalo de hosts utilizáveis (primeiro e último)?",
+    "choices": [
+      "192.168.82.129 a 192.168.82.190",
+      "192.168.82.193 a 192.168.82.254",
+      "192.168.82.128 a 192.168.82.191",
+      "192.168.82.129 a 192.168.82.191"
+    ],
+    "answer": 0,
+    "explain": "Hosts utilizáveis (IPv4 tradicional) excluem network e broadcast: 192.168.82.129 até 192.168.82.190."
+  },
+  {
+    "id": "extra-sub-rede-033",
+    "category": "Sub-rede",
+    "difficulty": "hard",
+    "q": "Qual é o endereço de rede (network) para o IP 172.17.86.175 com máscara /25?",
+    "choices": [
+      "172.17.87.0",
+      "172.17.86.0",
+      "172.17.85.128",
+      "172.17.86.128"
+    ],
+    "answer": 3,
+    "explain": "Com /25, o bloco tem 128 endereços. O network é o início do bloco: 172.17.86.128."
+  },
+  {
+    "id": "extra-sub-rede-034",
+    "category": "Sub-rede",
+    "difficulty": "hard",
+    "q": "Qual é o endereço de broadcast para a sub-rede do IP 172.29.1.9/30?",
+    "choices": [
+      "172.29.1.11",
+      "172.29.1.7",
+      "172.29.1.15",
+      "172.29.1.12"
+    ],
+    "answer": 0,
+    "explain": "O broadcast é o último endereço do bloco /30: 172.29.1.11."
+  },
+  {
+    "id": "extra-sub-rede-035",
+    "category": "Sub-rede",
+    "difficulty": "hard",
+    "q": "Qual é o endereço de rede (network) para o IP 172.23.240.253 com máscara /30?",
+    "choices": [
+      "172.23.241.4",
+      "172.23.240.251",
+      "172.23.240.248",
+      "172.23.240.252"
+    ],
+    "answer": 3,
+    "explain": "Com /30, o bloco tem 4 endereços. O network é o início do bloco: 172.23.240.252."
+  },
+  {
+    "id": "extra-sub-rede-036",
+    "category": "Sub-rede",
+    "difficulty": "hard",
+    "q": "Qual é o endereço de rede (network) para o IP 10.235.172.222 com máscara /30?",
+    "choices": [
+      "10.235.172.224",
+      "10.235.172.219",
+      "10.235.172.216",
+      "10.235.172.220"
+    ],
+    "answer": 3,
+    "explain": "Com /30, o bloco tem 4 endereços. O network é o início do bloco: 10.235.172.220."
+  },
+  {
+    "id": "extra-sub-rede-037",
+    "category": "Sub-rede",
+    "difficulty": "hard",
+    "q": "Qual é o endereço de rede (network) para o IP 172.18.56.178 com máscara /30?",
+    "choices": [
+      "172.18.56.177",
+      "172.18.56.176",
+      "172.18.56.184",
+      "172.18.56.175"
+    ],
+    "answer": 1,
+    "explain": "Com /30, o bloco tem 4 endereços. O network é o início do bloco: 172.18.56.176."
+  },
+  {
+    "id": "extra-sub-rede-038",
+    "category": "Sub-rede",
+    "difficulty": "hard",
+    "q": "Uma rede 172.24.126.128/25 possui quantos endereços IPv4 no total e quantos hosts utilizáveis (IPv4 tradicional)?",
+    "choices": [
+      "16 IPs no total, 14 hosts utilizáveis",
+      "128 IPs no total, 126 hosts utilizáveis",
+      "8 IPs no total, 6 hosts utilizáveis",
+      "256 IPs no total, 254 hosts utilizáveis"
+    ],
+    "answer": 1,
+    "explain": "Para /25: total = 2^(32-25) = 128. Em IPv4, normalmente 2 são reservados (rede e broadcast), restando 126 hosts."
+  },
+  {
+    "id": "extra-sub-rede-039",
+    "category": "Sub-rede",
+    "difficulty": "hard",
+    "q": "Qual é o endereço de rede (network) para o IP 172.22.21.33 com máscara /28?",
+    "choices": [
+      "172.22.21.31",
+      "172.22.21.64",
+      "172.22.21.16",
+      "172.22.21.32"
+    ],
+    "answer": 3,
+    "explain": "Com /28, o bloco tem 16 endereços. O network é o início do bloco: 172.22.21.32."
+  },
+  {
+    "id": "extra-sub-rede-040",
+    "category": "Sub-rede",
+    "difficulty": "hard",
+    "q": "Qual é o endereço de rede (network) para o IP 10.169.15.254 com máscara /29?",
+    "choices": [
+      "10.169.15.240",
+      "10.169.15.232",
+      "10.169.15.247",
+      "10.169.15.248"
+    ],
+    "answer": 3,
+    "explain": "Com /29, o bloco tem 8 endereços. O network é o início do bloco: 10.169.15.248."
+  },
+  {
+    "id": "extra-sub-rede-041",
+    "category": "Sub-rede",
+    "difficulty": "hard",
+    "q": "Qual é o endereço de broadcast para a sub-rede do IP 172.25.118.7/27?",
+    "choices": [
+      "172.25.118.32",
+      "172.25.118.63",
+      "172.25.118.0",
+      "172.25.118.31"
+    ],
+    "answer": 3,
+    "explain": "O broadcast é o último endereço do bloco /27: 172.25.118.31."
+  },
+  {
+    "id": "extra-sub-rede-042",
+    "category": "Sub-rede",
+    "difficulty": "medium",
+    "q": "Em 172.22.185.192/26, qual é o intervalo de hosts utilizáveis (primeiro e último)?",
+    "choices": [
+      "172.22.185.192 a 172.22.185.254",
+      "172.22.185.193 a 172.22.185.255",
+      "172.22.186.1 a 172.22.186.62",
+      "172.22.185.193 a 172.22.185.254"
+    ],
+    "answer": 3,
+    "explain": "Hosts utilizáveis (IPv4 tradicional) excluem network e broadcast: 172.22.185.193 até 172.22.185.254."
+  },
+  {
+    "id": "extra-sub-rede-043",
+    "category": "Sub-rede",
+    "difficulty": "hard",
+    "q": "Qual é o endereço de rede (network) para o IP 192.168.145.24 com máscara /24?",
+    "choices": [
+      "192.168.144.255",
+      "192.168.145.0",
+      "192.168.143.0",
+      "192.168.146.0"
+    ],
+    "answer": 1,
+    "explain": "Com /24, o bloco tem 256 endereços. O network é o início do bloco: 192.168.145.0."
+  },
+  {
+    "id": "extra-sub-rede-044",
+    "category": "Sub-rede",
+    "difficulty": "medium",
+    "q": "Em 10.125.92.0/24, qual é o intervalo de hosts utilizáveis (primeiro e último)?",
+    "choices": [
+      "10.125.93.1 a 10.125.93.254",
+      "10.125.92.1 a 10.125.92.254",
+      "10.125.92.1 a 10.125.92.255",
+      "10.125.92.0 a 10.125.92.255"
+    ],
+    "answer": 1,
+    "explain": "Hosts utilizáveis (IPv4 tradicional) excluem network e broadcast: 10.125.92.1 até 10.125.92.254."
+  },
+  {
+    "id": "extra-sub-rede-045",
+    "category": "Sub-rede",
+    "difficulty": "hard",
+    "q": "Uma rede 10.2.214.128/25 possui quantos endereços IPv4 no total e quantos hosts utilizáveis (IPv4 tradicional)?",
+    "choices": [
+      "8 IPs no total, 6 hosts utilizáveis",
+      "64 IPs no total, 62 hosts utilizáveis",
+      "4 IPs no total, 2 hosts utilizáveis",
+      "128 IPs no total, 126 hosts utilizáveis"
+    ],
+    "answer": 3,
+    "explain": "Para /25: total = 2^(32-25) = 128. Em IPv4, normalmente 2 são reservados (rede e broadcast), restando 126 hosts."
+  },
+  {
+    "id": "extra-sub-rede-046",
+    "category": "Sub-rede",
+    "difficulty": "medium",
+    "q": "Em 10.68.69.0/27, qual é o intervalo de hosts utilizáveis (primeiro e último)?",
+    "choices": [
+      "10.68.69.33 a 10.68.69.62",
+      "10.68.69.0 a 10.68.69.30",
+      "10.68.69.1 a 10.68.69.31",
+      "10.68.69.1 a 10.68.69.30"
+    ],
+    "answer": 3,
+    "explain": "Hosts utilizáveis (IPv4 tradicional) excluem network e broadcast: 10.68.69.1 até 10.68.69.30."
+  },
+  {
+    "id": "extra-sub-rede-047",
+    "category": "Sub-rede",
+    "difficulty": "medium",
+    "q": "Em 10.141.251.192/30, qual é o intervalo de hosts utilizáveis (primeiro e último)?",
+    "choices": [
+      "10.141.251.193 a 10.141.251.194",
+      "10.141.251.197 a 10.141.251.198",
+      "10.141.251.193 a 10.141.251.195",
+      "10.141.251.192 a 10.141.251.194"
+    ],
+    "answer": 0,
+    "explain": "Hosts utilizáveis (IPv4 tradicional) excluem network e broadcast: 10.141.251.193 até 10.141.251.194."
+  },
+  {
+    "id": "extra-sub-rede-048",
+    "category": "Sub-rede",
+    "difficulty": "hard",
+    "q": "Qual é o endereço de rede (network) para o IP 10.171.244.58 com máscara /26?",
+    "choices": [
+      "10.171.244.1",
+      "10.171.243.192",
+      "10.171.244.64",
+      "10.171.244.0"
+    ],
+    "answer": 3,
+    "explain": "Com /26, o bloco tem 64 endereços. O network é o início do bloco: 10.171.244.0."
+  },
+  {
+    "id": "extra-sub-rede-049",
+    "category": "Sub-rede",
+    "difficulty": "hard",
+    "q": "Uma rede 192.168.109.128/25 possui quantos endereços IPv4 no total e quantos hosts utilizáveis (IPv4 tradicional)?",
+    "choices": [
+      "8 IPs no total, 6 hosts utilizáveis",
+      "4 IPs no total, 2 hosts utilizáveis",
+      "128 IPs no total, 126 hosts utilizáveis",
+      "16 IPs no total, 14 hosts utilizáveis"
+    ],
+    "answer": 2,
+    "explain": "Para /25: total = 2^(32-25) = 128. Em IPv4, normalmente 2 são reservados (rede e broadcast), restando 126 hosts."
+  },
+  {
+    "id": "extra-sub-rede-050",
+    "category": "Sub-rede",
+    "difficulty": "medium",
+    "q": "Em 172.16.160.0/27, qual é o intervalo de hosts utilizáveis (primeiro e último)?",
+    "choices": [
+      "172.16.160.33 a 172.16.160.62",
+      "172.16.160.0 a 172.16.160.30",
+      "172.16.160.1 a 172.16.160.30",
+      "172.16.160.0 a 172.16.160.31"
+    ],
+    "answer": 2,
+    "explain": "Hosts utilizáveis (IPv4 tradicional) excluem network e broadcast: 172.16.160.1 até 172.16.160.30."
   }
 ];

@@ -165,6 +165,25 @@
 
   function rand(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
 
+  const _rngBuf = new Uint32Array(1);
+  function randInt(max){
+    // Random uniforme (sem viés de módulo) quando crypto está disponível
+    if(!Number.isFinite(max) || max <= 0) return 0;
+    try{
+      if(window.crypto && window.crypto.getRandomValues){
+        const range = 0x100000000; // 2^32
+        const limit = Math.floor(range / max) * max;
+        let x;
+        do{
+          window.crypto.getRandomValues(_rngBuf);
+          x = _rngBuf[0];
+        }while(x >= limit);
+        return x % max;
+      }
+    }catch(_){/* fallback */}
+    return Math.floor(Math.random()*max);
+  }
+
   function toast(msg){
     els.toastInner.textContent = msg;
     els.toast.classList.remove("opacity-0");
@@ -448,7 +467,7 @@ function updateMiniMap(cat){
 
   function shuffle(arr){
     for(let i=arr.length-1;i>0;i--){
-      const j=Math.floor(Math.random()*(i+1));
+      const j=randInt(i+1);
       [arr[i],arr[j]]=[arr[j],arr[i]];
     }
     return arr;
@@ -875,7 +894,10 @@ async function fetchMemeByTag(perf){
   }
 
   function buildDeck(){
-    const wantedCount = parseInt(els.selCount.value,10);
+    // Pode ter prova com poucas questões — aqui a prioridade é variar mais entre provas
+    let wantedCount = parseInt(els.selCount.value,10);
+    if(!Number.isFinite(wantedCount) || wantedCount <= 0) wantedCount = 15;
+
     const diff = els.selDifficulty.value;
     const mode = els.selMode.value;
 
@@ -891,31 +913,69 @@ async function fetchMemeByTag(perf){
     }
     if(pool.length===0) pool = window.QUESTION_BANK.slice();
 
-    // Anti-repetição: tenta evitar perguntas vistas recentemente (entre provas)
+    // Anti-repetição: evita reutilizar itens vistos nas últimas provas (mas sem travar quando o pool é pequeno)
     let recent = [];
-    try{ recent = JSON.parse(localStorage.getItem("recent_deck_ids") || "[]"); }catch(_){}
+    try{ recent = JSON.parse(localStorage.getItem("recent_deck_ids") || "[]"); }catch(_){ recent = []; }
     const recentSet = new Set(recent);
 
-    let freshPool = pool.filter(q=>!recentSet.has(q.id));
-    // Se o filtro ficar pequeno demais, cai no pool completo
-    if(freshPool.length < Math.min(wantedCount, Math.floor(pool.length*0.6))){
-      freshPool = pool.slice();
+    const freshPoolBase = pool.filter(q=>!recentSet.has(q.id));
+
+    const maxAttempts = 3;
+    let deck = [];
+
+    for(let attempt=0; attempt<maxAttempts; attempt++){
+      deck = [];
+      const picked = new Set();
+
+      // 1) Começa por perguntas não-recentes
+      if(freshPoolBase.length){
+        const fresh = freshPoolBase.slice();
+        shuffle(fresh);
+
+        // offset aleatório (quebra padrões em sessões longas)
+        const offset = randInt(fresh.length);
+        const rotated = fresh.slice(offset).concat(fresh.slice(0, offset));
+
+        for(const q of rotated){
+          if(deck.length >= wantedCount) break;
+          if(picked.has(q.id)) continue;
+          deck.push(q);
+          picked.add(q.id);
+        }
+      }
+
+      // 2) Completa com o pool geral (sem repetir dentro da prova)
+      if(deck.length < wantedCount){
+        const rest = pool.filter(q=>!picked.has(q.id));
+        shuffle(rest);
+        for(const q of rest){
+          if(deck.length >= wantedCount) break;
+          deck.push(q);
+          picked.add(q.id);
+        }
+      }
+
+      // 3) Se o pool todo é menor que wantedCount, só devolve o que existir
+      if(deck.length > pool.length) deck = deck.slice(0, pool.length);
+
+      // Evita gerar exatamente a mesma sequência da prova anterior
+      const sig = deck.map(d=>d.id).join(',');
+      const lastSig = (localStorage.getItem("last_deck_sig") || "");
+      if(sig && sig === lastSig && attempt < maxAttempts-1){
+        // tenta novamente
+        continue;
+      }
+      try{ localStorage.setItem("last_deck_sig", sig); }catch(_){ }
+      break;
     }
 
-    // Embaralhamento duplo + offset aleatório (reduz padrões)
-    shuffle(freshPool);
-    const offset = Math.floor(Math.random() * Math.max(1, freshPool.length));
-    freshPool = freshPool.slice(offset).concat(freshPool.slice(0, offset));
-    shuffle(freshPool);
-
-    const deck = freshPool.slice(0, Math.min(wantedCount, freshPool.length));
-
-    // Salva "recentes" (mantém janela de 60 ids)
+    // Salva recentes (janela adaptativa, mantém variedade sem excluir demais)
     try{
       const merged = deck.map(d=>d.id).concat(recent).filter(Boolean);
       const unique = Array.from(new Set(merged));
-      localStorage.setItem("recent_deck_ids", JSON.stringify(unique.slice(0,60)));
-    }catch(_){}
+      const cap = Math.max(60, Math.min(200, window.QUESTION_BANK.length));
+      localStorage.setItem("recent_deck_ids", JSON.stringify(unique.slice(0, cap)));
+    }catch(_){ }
 
     return deck;
   }
@@ -923,7 +983,7 @@ async function fetchMemeByTag(perf){
   function startGame({practice=false}={}){
     state.practice = practice;
     state.mode = els.selMode.value;
-    state.count = parseInt(els.selCount.value,10);
+    state.count = parseInt(els.selCount.value,10) || 15;
     state.difficulty = els.selDifficulty.value;
     state.timerEnabled = els.chkTimer.checked;
     state.timerSeconds = parseInt(els.selTimer.value,10);
