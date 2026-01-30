@@ -1,9 +1,12 @@
-import { Link, NavLink, Outlet } from 'react-router-dom'
+import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Wifi, BarChart3 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import tcfLogo from '@/assets/tcf-logo.png'
+import { AnimatePresence, motion } from 'framer-motion'
+import { TechBackground3D } from '@/components/TechBackground3D'
+import { TooltipProvider } from '@/components/ui/tooltip'
 
 function NavItem({ to, label, icon }: { to: string; label: string; icon: React.ReactNode }) {
   return (
@@ -23,40 +26,11 @@ function NavItem({ to, label, icon }: { to: string; label: string; icon: React.R
 }
 
 export function AppShell() {
+  const location = useLocation()
   return (
-    <div className="min-h-full">
-      {/* Camada extra de fundo (nós/bolhas) para um visual mais “telecom” */}
-      <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-        {/* Linhas animadas (efeito “rede/telecom”) */}
-        <div className="absolute inset-0 tech-lines" />
-
-        <div className="absolute -top-28 left-[-6rem] h-[420px] w-[420px] rounded-full bg-primary/10 blur-3xl animate-float-slow" />
-        <div className="absolute top-10 right-[-8rem] h-[520px] w-[520px] rounded-full bg-indigo-500/10 blur-3xl animate-float" />
-        <div className="absolute bottom-[-10rem] left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-cyan-500/10 blur-3xl animate-float-slow" />
-
-        {/* SVG de “conexões” com traços animados */}
-        <svg
-          className="absolute inset-0 h-full w-full opacity-25"
-          viewBox="0 0 1200 700"
-          preserveAspectRatio="none"
-        >
-          <path className="tech-path" d="M80,540 C220,380 360,580 520,430 C680,280 860,520 1040,360" />
-          <path className="tech-path tech-path-2" d="M120,220 C320,140 420,300 580,240 C760,170 880,260 1120,160" />
-          <path className="tech-path tech-path-3" d="M140,640 C280,520 420,620 560,520 C720,410 860,540 1100,430" />
-
-          <circle className="tech-node" cx="80" cy="540" r="4" />
-          <circle className="tech-node" cx="520" cy="430" r="4" />
-          <circle className="tech-node" cx="1040" cy="360" r="4" />
-          <circle className="tech-node tech-node-2" cx="120" cy="220" r="4" />
-          <circle className="tech-node tech-node-2" cx="580" cy="240" r="4" />
-          <circle className="tech-node tech-node-2" cx="1120" cy="160" r="4" />
-        </svg>
-
-        {/* Pontos “nós da rede” */}
-        <div className="absolute left-[12%] top-[22%] h-2 w-2 rounded-full bg-primary/70 shadow-[0_0_24px_rgba(34,211,238,0.45)] animate-glow" />
-        <div className="absolute left-[78%] top-[28%] h-2 w-2 rounded-full bg-indigo-400/70 shadow-[0_0_24px_rgba(99,102,241,0.45)] animate-glow" />
-        <div className="absolute left-[58%] top-[72%] h-2 w-2 rounded-full bg-primary/70 shadow-[0_0_24px_rgba(34,211,238,0.45)] animate-glow" />
-      </div>
+    <TooltipProvider delayDuration={250}>
+      <div className="min-h-full">
+      <TechBackground3D />
       <header className="sticky top-0 z-40 border-b bg-background/50 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
           <Link to="/" className="flex items-center gap-3">
@@ -89,7 +63,17 @@ export function AppShell() {
       </header>
 
       <main className="mx-auto max-w-6xl px-4 py-8">
-        <Outlet />
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+            key={location.pathname}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.25, ease: 'easeOut' }}
+          >
+            <Outlet />
+          </motion.div>
+        </AnimatePresence>
       </main>
 
       <footer className="mx-auto max-w-6xl px-4 pb-10 text-xs text-muted-foreground">
@@ -103,6 +87,7 @@ export function AppShell() {
           <span className="font-mono">/questions/bank.json</span>
         </div>
       </footer>
-    </div>
+      </div>
+    </TooltipProvider>
   )
 }

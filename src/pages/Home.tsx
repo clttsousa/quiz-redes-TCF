@@ -14,6 +14,8 @@ import { Label } from '@/components/ui/label'
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import { Separator } from '@/components/ui/separator'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import { Network, Shuffle, ClipboardList, GraduationCap } from 'lucide-react'
 
 const DIFF_LABEL: Record<string, string> = {
@@ -100,34 +102,59 @@ export function HomePage() {
             <TabsContent value={mode}>
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="rounded-2xl border bg-background/30 p-4 shadow-sm backdrop-blur">
-                  <Label className="text-xs text-muted-foreground">Dificuldade</Label>
-                  <select
-                    value={difficulty}
-                    onChange={(e) => setDifficulty(e.target.value as Difficulty | 'mix')}
-                    className="mt-2 h-10 w-full rounded-md border border-input bg-background/40 px-3 py-2 text-sm shadow-sm transition focus:outline-none focus:ring-2 focus:ring-ring/50"
-                  >
-                    {(['very_easy', 'easy', 'medium', 'hard', 'mix'] as const).map((d) => (
-                      <option key={d} value={d}>
-                        {DIFF_LABEL[d]}
-                      </option>
-                    ))}
-                  </select>
+                  <div className="flex items-center gap-2">
+                    <Label className="text-xs text-muted-foreground">Dificuldade</Label>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <span className="inline-flex h-5 w-5 items-center justify-center rounded-full border bg-muted/20 text-[10px] text-muted-foreground">i</span>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        Escolha a dificuldade. <span className="font-medium">Misto</span> embaralha níveis.
+                      </TooltipContent>
+                    </Tooltip>
+                  </div>
+
+                  <div className="mt-2">
+                    <Select value={difficulty} onValueChange={(v) => setDifficulty(v as Difficulty | 'mix')}>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Selecione" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {(['very_easy', 'easy', 'medium', 'hard', 'mix'] as const).map((d) => (
+                          <SelectItem key={d} value={d}>
+                            {DIFF_LABEL[d]}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
                 </div>
 
                 <div className="rounded-2xl border bg-background/30 p-4 shadow-sm backdrop-blur">
-                  <Label className="text-xs text-muted-foreground">Quantidade de questões</Label>
+                  <div className="flex items-center gap-2">
+                    <Label className="text-xs text-muted-foreground">Quantidade de questões</Label>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <span className="inline-flex h-5 w-5 items-center justify-center rounded-full border bg-muted/20 text-[10px] text-muted-foreground">i</span>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        Ajuste o tamanho do simulado. Sugestões: 10/25/40.
+                      </TooltipContent>
+                    </Tooltip>
+                  </div>
                   <div className="mt-2 grid gap-2">
-                    <select
-                      value={String(count)}
-                      onChange={(e) => setCount(Number(e.target.value))}
-                      className="h-10 w-full rounded-md border border-input bg-background/40 px-3 py-2 text-sm shadow-sm transition focus:outline-none focus:ring-2 focus:ring-ring/50"
-                    >
-                      {[10, 25, 40, 50, 75, 100, 150, 200].map((n) => (
-                        <option key={n} value={n}>
-                          {n}
-                        </option>
-                      ))}
-                    </select>
+                    <Select value={String(count)} onValueChange={(v) => setCount(Number(v))}>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Selecione" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {[10, 25, 40, 50, 75, 100, 150, 200].map((n) => (
+                          <SelectItem key={n} value={String(n)}>
+                            {n}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                     <div className="text-xs text-muted-foreground">Sugestões: 10 / 25 / 40</div>
                   </div>
 

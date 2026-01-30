@@ -1,3 +1,4 @@
+import type React from 'react'
 import { useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import type { RenderQuestion } from '@/lib/types'
@@ -16,9 +17,53 @@ import {
   Target,
   XCircle,
 } from 'lucide-react'
+import { KeywordHover } from '@/components/KeywordHover'
 
 function letter(idx: number) {
   return String.fromCharCode(65 + idx)
+}
+
+const KEYWORDS = [
+  'TCP', 'UDP', 'DNS', 'DHCP', 'NAT', 'CGNAT', 'VLAN', 'IP', 'IPv4', 'IPv6', 'CIDR',
+  'sub-rede', 'máscara', 'gateway', 'roteador', 'switch', 'OSI', 'MTU', 'ARP', 'ICMP',
+  'fibra', 'GPON', 'ONT', 'OLT', 'ONU',
+]
+
+function highlight(text: string): React.ReactNode {
+  // split preserving delimiters
+  const parts: React.ReactNode[] = []
+  let remaining = text
+  while (remaining.length) {
+    const hit = KEYWORDS
+      .map((k) => ({ k, idx: remaining.toLowerCase().indexOf(k.toLowerCase()) }))
+      .filter((x) => x.idx >= 0)
+      .sort((a, b) => a.idx - b.idx)[0]
+    if (!hit) {
+      parts.push(remaining)
+      break
+    }
+    if (hit.idx > 0) parts.push(remaining.slice(0, hit.idx))
+    parts.push(
+      <KeywordHover
+        key={`${hit.k}-${parts.length}`}
+        term={remaining.slice(hit.idx, hit.idx + hit.k.length)}
+      />
+    )
+    remaining = remaining.slice(hit.idx + hit.k.length)
+  }
+  return <>{parts}</>
+}
+
+const sectionVariants = {
+  hidden: { opacity: 0, y: 10 },
+  show: { opacity: 1, y: 0 },
+}
+
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.06, delayChildren: 0.02 },
+  },
 }
 
 export function LessonPanel({ q, selected }: { q: RenderQuestion; selected?: number }) {
@@ -99,105 +144,112 @@ export function LessonPanel({ q, selected }: { q: RenderQuestion; selected?: num
             transition={{ duration: 0.25, ease: 'easeOut' }}
             className="overflow-hidden"
           >
-            <div className="mt-4 grid gap-4 text-sm">
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              animate="show"
+              className="mt-4 grid gap-4 text-sm"
+            >
               {lesson.concept && lesson.concept.length > 0 && (
-                <div className="rounded-2xl border bg-background/20 p-4">
+                <motion.div variants={sectionVariants} className="rounded-2xl border bg-background/20 p-4">
                   <div className="mb-2 inline-flex items-center gap-2 font-semibold">
                     <Lightbulb className="h-4 w-4 text-muted-foreground" />
                     Conceito em 1 minuto
                   </div>
                   <ul className="grid gap-2 pl-5 text-muted-foreground list-disc">
                     {lesson.concept.map((x, i) => (
-                      <li key={i} className="leading-relaxed">{x}</li>
+                      <li key={i} className="leading-relaxed">{highlight(x)}</li>
                     ))}
                   </ul>
-                </div>
+                </motion.div>
               )}
 
               {lesson.steps && lesson.steps.length > 0 && (
-                <div className="rounded-2xl border bg-muted/20 p-4">
+                <motion.div variants={sectionVariants} className="rounded-2xl border bg-muted/20 p-4">
                   <div className="mb-2 inline-flex items-center gap-2 font-semibold">
                     <ListChecks className="h-4 w-4 text-muted-foreground" />
                     Como resolver (passo a passo)
                   </div>
                   <ul className="grid gap-2 pl-5 text-muted-foreground list-disc">
                     {lesson.steps.map((x, i) => (
-                      <li key={i} className="leading-relaxed">{x}</li>
+                      <li key={i} className="leading-relaxed">{highlight(x)}</li>
                     ))}
                   </ul>
-                </div>
+                </motion.div>
               )}
 
-              <div className="rounded-2xl border bg-primary/6 p-4">
+              <motion.div variants={sectionVariants} className="rounded-2xl border bg-primary/6 p-4">
                 <div className="mb-2 inline-flex items-center gap-2 font-semibold">
                   <BookOpen className="h-4 w-4 text-primary" />
                   Por que a correta é a correta
                 </div>
                 <ul className="grid gap-2 pl-5 text-muted-foreground list-disc">
                   {lesson.whyCorrect.map((x, i) => (
-                    <li key={i} className="leading-relaxed">{x}</li>
+                    <li key={i} className="leading-relaxed">{highlight(x)}</li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
 
-              <div className="rounded-2xl border bg-destructive/6 p-4">
+              <motion.div variants={sectionVariants} className="rounded-2xl border bg-destructive/6 p-4">
                 <div className="mb-2 inline-flex items-center gap-2 font-semibold">
                   <Target className="h-4 w-4 text-destructive" />
                   Onde a gente costuma errar
                 </div>
                 <ul className="grid gap-2 pl-5 text-muted-foreground list-disc">
                   {lesson.whyWrong.map((x, i) => (
-                    <li key={i} className="leading-relaxed">{x}</li>
+                    <li key={i} className="leading-relaxed">{highlight(x)}</li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
 
               {lesson.distractors && lesson.distractors.length > 0 && (
-                <div className="rounded-2xl border bg-background/25 p-4">
+                <motion.div variants={sectionVariants} className="rounded-2xl border bg-background/25 p-4">
                   <div className="mb-2 inline-flex items-center gap-2 font-semibold">
                     <Target className="h-4 w-4 text-muted-foreground" />
                     Por que as outras parecem certas (e não são)
                   </div>
                   <ul className="grid gap-2 pl-5 text-muted-foreground list-disc">
                     {lesson.distractors.map((x, i) => (
-                      <li key={i} className="leading-relaxed">{x}</li>
+                      <li key={i} className="leading-relaxed">{highlight(x)}</li>
                     ))}
                   </ul>
-                </div>
+                </motion.div>
               )}
 
-              <div className="rounded-2xl border bg-muted/25 p-4">
+              <motion.div variants={sectionVariants} className="rounded-2xl border bg-muted/25 p-4">
                 <div className="mb-2 inline-flex items-center gap-2 font-semibold">
                   <Lightbulb className="h-4 w-4 text-muted-foreground" />
                   Resumo do conteúdo (guarde isso)
                 </div>
                 <ul className="grid gap-2 pl-5 text-muted-foreground list-disc">
                   {lesson.keyTakeaways.map((x, i) => (
-                    <li key={i} className="leading-relaxed">{x}</li>
+                    <li key={i} className="leading-relaxed">{highlight(x)}</li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
 
-              <div className="rounded-2xl border bg-amber-500/10 p-4">
+              <motion.div variants={sectionVariants} className="rounded-2xl border bg-amber-500/10 p-4">
                 <div className="mb-2 inline-flex items-center gap-2 font-semibold">
                   <Target className="h-4 w-4 text-amber-500" />
-                  Dica de prova (atalho)
+                  <span className="inline-flex items-center gap-2">Dica de prova (atalho)
+                    <span className="ml-1 inline-flex rounded-full bg-amber-500/20 px-2 py-0.5 text-[10px] font-semibold text-amber-300 animate-[pulse_2.6s_ease-in-out_infinite]">PROVA</span>
+                  </span>
                 </div>
                 <ul className="grid gap-2 pl-5 text-muted-foreground list-disc">
                   {lesson.examTips.map((x, i) => (
-                    <li key={i} className="leading-relaxed">{x}</li>
+                    <li key={i} className="leading-relaxed">{highlight(x)}</li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
 
-              <div className="rounded-2xl border bg-background/20 p-4">
+              <motion.div variants={sectionVariants} className="rounded-2xl border bg-background/20 p-4">
                 <div className="mb-2 font-semibold">Pratique em 10 segundos</div>
                 <div className="text-muted-foreground leading-relaxed">
                   Releia o enunciado e responda em voz alta:{' '}
                   <span className="text-foreground font-medium">“Porque {oneLiner}.”</span>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
