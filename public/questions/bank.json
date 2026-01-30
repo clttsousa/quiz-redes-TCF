@@ -1,4 +1,4 @@
-window.QUESTION_BANK = [
+[
   {
     "id": "net-001",
     "category": "Conceitos",
@@ -8679,5 +8679,1615 @@ window.QUESTION_BANK = [
     ],
     "answer": 2,
     "explain": "Hosts utilizáveis (IPv4 tradicional) excluem network e broadcast: 172.16.160.1 até 172.16.160.30."
+  },
+  {
+    "id": "ve-001",
+    "category": "Conceitos",
+    "difficulty": "very_easy",
+    "q": "O que significa a sigla \"IP\"?",
+    "choices": [
+      "Internet Protocol",
+      "Internal Program",
+      "Interface Port",
+      "Internet Package"
+    ],
+    "answer": 0,
+    "explain": "IP é Internet Protocol, usado para endereçar e encaminhar pacotes na rede."
+  },
+  {
+    "id": "ve-002",
+    "category": "Conceitos",
+    "difficulty": "very_easy",
+    "q": "Para que serve um endereço IP em uma rede?",
+    "choices": [
+      "Identificar um dispositivo na rede",
+      "Aumentar a velocidade do Wi‑Fi",
+      "Substituir o cabo de rede",
+      "Criptografar automaticamente tudo"
+    ],
+    "answer": 0,
+    "explain": "O IP identifica logicamente o dispositivo para comunicação na rede."
+  },
+  {
+    "id": "ve-003",
+    "category": "Conceitos",
+    "difficulty": "very_easy",
+    "q": "O que é \"Wi‑Fi\"?",
+    "choices": [
+      "Uma tecnologia de rede sem fio",
+      "Um tipo de cabo de rede",
+      "Um antivírus",
+      "Um protocolo exclusivo de fibra"
+    ],
+    "answer": 0,
+    "explain": "Wi‑Fi é rede sem fio baseada em padrões IEEE 802.11."
+  },
+  {
+    "id": "ve-004",
+    "category": "Conceitos",
+    "difficulty": "very_easy",
+    "q": "Qual destes é um exemplo de \"dispositivo\" em rede?",
+    "choices": [
+      "Computador",
+      "Caneta",
+      "Copo",
+      "Livro"
+    ],
+    "answer": 0,
+    "explain": "Computadores, celulares, impressoras e roteadores são dispositivos de rede."
+  },
+  {
+    "id": "ve-005",
+    "category": "Conceitos",
+    "difficulty": "very_easy",
+    "q": "O que é \"Internet\" (de forma simples)?",
+    "choices": [
+      "Uma rede mundial de redes",
+      "Um único servidor gigante",
+      "Apenas o Google",
+      "Um aplicativo de mensagens"
+    ],
+    "answer": 0,
+    "explain": "A Internet conecta várias redes no mundo todo."
+  },
+  {
+    "id": "ve-006",
+    "category": "Tipos de Rede",
+    "difficulty": "very_easy",
+    "q": "LAN é uma rede de:",
+    "choices": [
+      "Área local (casa, escritório)",
+      "Países diferentes",
+      "Satélites",
+      "Continentes inteiros"
+    ],
+    "answer": 0,
+    "explain": "LAN cobre uma área pequena, como casa ou empresa."
+  },
+  {
+    "id": "ve-007",
+    "category": "Tipos de Rede",
+    "difficulty": "very_easy",
+    "q": "WAN é mais comum para:",
+    "choices": [
+      "Conectar cidades/países",
+      "Conectar só um quarto",
+      "Conectar um teclado",
+      "Conectar dois PCs no mesmo cabo USB"
+    ],
+    "answer": 0,
+    "explain": "WAN conecta redes distantes (longa distância)."
+  },
+  {
+    "id": "ve-008",
+    "category": "Tipos de Rede",
+    "difficulty": "very_easy",
+    "q": "Qual rede é mais comum dentro de um prédio?",
+    "choices": [
+      "LAN",
+      "WAN",
+      "Internet inteira",
+      "GPS"
+    ],
+    "answer": 0,
+    "explain": "Dentro de um prédio, geralmente usamos LAN."
+  },
+  {
+    "id": "ve-009",
+    "category": "Tipos de Rede",
+    "difficulty": "very_easy",
+    "q": "Uma rede de celular (4G/5G) se encaixa melhor como:",
+    "choices": [
+      "WAN",
+      "LAN",
+      "PAN",
+      "Barramento"
+    ],
+    "answer": 0,
+    "explain": "Rede móvel cobre grandes áreas, típica de WAN."
+  },
+  {
+    "id": "ve-010",
+    "category": "Tipos de Rede",
+    "difficulty": "very_easy",
+    "q": "MAN costuma cobrir:",
+    "choices": [
+      "Uma cidade",
+      "Um único roteador",
+      "Um cabo",
+      "Um único computador"
+    ],
+    "answer": 0,
+    "explain": "MAN é uma rede em escala metropolitana (cidade)."
+  },
+  {
+    "id": "ve-011",
+    "category": "Topologias",
+    "difficulty": "very_easy",
+    "q": "Na topologia estrela, existe normalmente:",
+    "choices": [
+      "Um ponto central (switch/roteador)",
+      "Um cabo único para todos",
+      "Nenhum equipamento",
+      "Somente conexões por rádio"
+    ],
+    "answer": 0,
+    "explain": "A estrela liga os dispositivos a um ponto central."
+  },
+  {
+    "id": "ve-012",
+    "category": "Topologias",
+    "difficulty": "very_easy",
+    "q": "Qual topologia lembra um \"círculo\"?",
+    "choices": [
+      "Anel",
+      "Estrela",
+      "Barramento",
+      "Árvore"
+    ],
+    "answer": 0,
+    "explain": "Em anel, os nós formam um circuito."
+  },
+  {
+    "id": "ve-013",
+    "category": "Topologias",
+    "difficulty": "very_easy",
+    "q": "Qual topologia usa um meio compartilhado (um \"cabo principal\")?",
+    "choices": [
+      "Barramento",
+      "Mesh",
+      "Estrela",
+      "Ponto-a-ponto"
+    ],
+    "answer": 0,
+    "explain": "No barramento, todos compartilham o mesmo meio."
+  },
+  {
+    "id": "ve-014",
+    "category": "Topologias",
+    "difficulty": "very_easy",
+    "q": "Em estrela, se o equipamento central falhar, o que acontece?",
+    "choices": [
+      "A rede para (muitos ficam sem comunicação)",
+      "Nada muda",
+      "Só melhora",
+      "Vira Wi‑Fi automaticamente"
+    ],
+    "answer": 0,
+    "explain": "Se o switch central cair, os dispositivos ficam sem o ponto de conexão."
+  },
+  {
+    "id": "ve-015",
+    "category": "Topologias",
+    "difficulty": "very_easy",
+    "q": "Qual topologia tende a ser mais cara por ter muitos links?",
+    "choices": [
+      "Malha (mesh)",
+      "Barramento",
+      "Estrela simples",
+      "Ponto-a-ponto"
+    ],
+    "answer": 0,
+    "explain": "Mesh tem muitos caminhos/links e tende a custar mais."
+  },
+  {
+    "id": "ve-016",
+    "category": "Equipamentos",
+    "difficulty": "very_easy",
+    "q": "Qual equipamento conecta redes diferentes (casa ↔ internet)?",
+    "choices": [
+      "Roteador",
+      "Switch",
+      "Patch panel",
+      "Teclado"
+    ],
+    "answer": 0,
+    "explain": "Roteador encaminha pacotes entre redes."
+  },
+  {
+    "id": "ve-017",
+    "category": "Equipamentos",
+    "difficulty": "very_easy",
+    "q": "Qual equipamento conecta vários dispositivos na mesma rede (LAN) por cabo?",
+    "choices": [
+      "Switch",
+      "GPS",
+      "DNS",
+      "Bateria"
+    ],
+    "answer": 0,
+    "explain": "Switch conecta dispositivos e comuta quadros na LAN."
+  },
+  {
+    "id": "ve-018",
+    "category": "Equipamentos",
+    "difficulty": "very_easy",
+    "q": "O Access Point (AP) serve para:",
+    "choices": [
+      "Fornecer Wi‑Fi",
+      "Medir energia elétrica",
+      "Criar cabo coaxial",
+      "Atualizar BIOS"
+    ],
+    "answer": 0,
+    "explain": "AP cria/expande a rede Wi‑Fi."
+  },
+  {
+    "id": "ve-019",
+    "category": "Equipamentos",
+    "difficulty": "very_easy",
+    "q": "Um modem (em acesso) normalmente faz:",
+    "choices": [
+      "Converter sinal do provedor para a rede do cliente",
+      "Trocar MAC por IP",
+      "Substituir o roteador em qualquer caso",
+      "Gerar senhas fortes automaticamente"
+    ],
+    "answer": 0,
+    "explain": "Modem adapta o sinal do provedor (cabo/DSL/fibra etc.) para a rede do cliente."
+  },
+  {
+    "id": "ve-020",
+    "category": "Equipamentos",
+    "difficulty": "very_easy",
+    "q": "O que um repetidor de Wi‑Fi tenta fazer?",
+    "choices": [
+      "Aumentar o alcance do sinal",
+      "Trocar a velocidade do cabo",
+      "Criar um IP público",
+      "Bloquear vírus"
+    ],
+    "answer": 0,
+    "explain": "Repetidor estende o alcance do Wi‑Fi (com limitações)."
+  },
+  {
+    "id": "ve-021",
+    "category": "TCP/IP",
+    "difficulty": "very_easy",
+    "q": "O protocolo IP pertence principalmente a qual camada (modelo TCP/IP)?",
+    "choices": [
+      "Internet (rede)",
+      "Aplicação",
+      "Enlace físico",
+      "Sessão"
+    ],
+    "answer": 0,
+    "explain": "No TCP/IP, IP fica na camada Internet."
+  },
+  {
+    "id": "ve-022",
+    "category": "TCP/IP",
+    "difficulty": "very_easy",
+    "q": "TCP é usado principalmente para:",
+    "choices": [
+      "Entregar dados com conexão e confirmação",
+      "Sempre ser mais rápido que UDP",
+      "Trocar nomes por IP",
+      "Conectar fibra ao roteador"
+    ],
+    "answer": 0,
+    "explain": "TCP cria conexão, garante entrega e ordenação (em geral)."
+  },
+  {
+    "id": "ve-023",
+    "category": "TCP/IP",
+    "difficulty": "very_easy",
+    "q": "Qual é um exemplo de protocolo de aplicação?",
+    "choices": [
+      "HTTP",
+      "IP",
+      "Ethernet",
+      "Fibra"
+    ],
+    "answer": 0,
+    "explain": "HTTP é protocolo de aplicação."
+  },
+  {
+    "id": "ve-024",
+    "category": "TCP/IP",
+    "difficulty": "very_easy",
+    "q": "Qual camada do TCP/IP lida com IP e roteamento?",
+    "choices": [
+      "Internet",
+      "Aplicação",
+      "Enlace",
+      "Física"
+    ],
+    "answer": 0,
+    "explain": "A camada Internet trata do endereçamento IP e roteamento."
+  },
+  {
+    "id": "ve-025",
+    "category": "TCP/IP",
+    "difficulty": "very_easy",
+    "q": "O que é um \"pacote\" (bem simples)?",
+    "choices": [
+      "Uma unidade de dados enviada na rede",
+      "Um cabo de rede",
+      "Um roteador",
+      "Um vírus"
+    ],
+    "answer": 0,
+    "explain": "Pacotes carregam dados através da rede."
+  },
+  {
+    "id": "ve-026",
+    "category": "OSI vs TCP/IP",
+    "difficulty": "very_easy",
+    "q": "Quantas camadas tem o modelo OSI?",
+    "choices": [
+      "7",
+      "4",
+      "5",
+      "3"
+    ],
+    "answer": 0,
+    "explain": "O modelo OSI tem 7 camadas."
+  },
+  {
+    "id": "ve-027",
+    "category": "OSI vs TCP/IP",
+    "difficulty": "very_easy",
+    "q": "No modelo OSI, a camada que lida com endereços IP é:",
+    "choices": [
+      "Rede",
+      "Aplicação",
+      "Física",
+      "Apresentação"
+    ],
+    "answer": 0,
+    "explain": "Endereçamento/roteamento é função da camada de Rede."
+  },
+  {
+    "id": "ve-028",
+    "category": "OSI vs TCP/IP",
+    "difficulty": "very_easy",
+    "q": "No OSI, a camada mais próxima do cabo/rádio é:",
+    "choices": [
+      "Física",
+      "Aplicação",
+      "Sessão",
+      "Transporte"
+    ],
+    "answer": 0,
+    "explain": "A camada Física trata do meio e sinal."
+  },
+  {
+    "id": "ve-029",
+    "category": "OSI vs TCP/IP",
+    "difficulty": "very_easy",
+    "q": "No TCP/IP, o modelo costuma ser resumido em quantas camadas?",
+    "choices": [
+      "4",
+      "7",
+      "2",
+      "10"
+    ],
+    "answer": 0,
+    "explain": "O TCP/IP clássico é apresentado com 4 camadas."
+  },
+  {
+    "id": "ve-030",
+    "category": "OSI vs TCP/IP",
+    "difficulty": "very_easy",
+    "q": "TCP fica em qual camada do OSI?",
+    "choices": [
+      "Transporte",
+      "Rede",
+      "Enlace",
+      "Aplicação"
+    ],
+    "answer": 0,
+    "explain": "TCP é um protocolo de transporte."
+  },
+  {
+    "id": "ve-031",
+    "category": "UDP/TCP",
+    "difficulty": "very_easy",
+    "q": "Qual é \"orientado à conexão\"?",
+    "choices": [
+      "TCP",
+      "UDP",
+      "IP",
+      "ARP"
+    ],
+    "answer": 0,
+    "explain": "TCP usa conexão e confirmações."
+  },
+  {
+    "id": "ve-032",
+    "category": "UDP/TCP",
+    "difficulty": "very_easy",
+    "q": "Qual geralmente tem menos overhead e é usado em tempo real?",
+    "choices": [
+      "UDP",
+      "TCP",
+      "DNS",
+      "HTTPS"
+    ],
+    "answer": 0,
+    "explain": "UDP é leve e comum em voz/vídeo em tempo real."
+  },
+  {
+    "id": "ve-033",
+    "category": "UDP/TCP",
+    "difficulty": "very_easy",
+    "q": "Qual protocolo normalmente garante ordem e entrega?",
+    "choices": [
+      "TCP",
+      "UDP",
+      "ICMP",
+      "Wi‑Fi"
+    ],
+    "answer": 0,
+    "explain": "TCP garante entrega e ordenação (quando possível)."
+  },
+  {
+    "id": "ve-034",
+    "category": "UDP/TCP",
+    "difficulty": "very_easy",
+    "q": "Qual protocolo é sem conexão (connectionless)?",
+    "choices": [
+      "UDP",
+      "TCP",
+      "SSH",
+      "HTTP"
+    ],
+    "answer": 0,
+    "explain": "UDP não estabelece conexão."
+  },
+  {
+    "id": "ve-035",
+    "category": "UDP/TCP",
+    "difficulty": "very_easy",
+    "q": "Uma característica simples do TCP é:",
+    "choices": [
+      "Possui retransmissão quando perde dados",
+      "Nunca perde dados",
+      "Não usa portas",
+      "Só funciona em IPv6"
+    ],
+    "answer": 0,
+    "explain": "TCP pode retransmitir segmentos perdidos para aumentar confiabilidade."
+  },
+  {
+    "id": "ve-036",
+    "category": "UDP",
+    "difficulty": "very_easy",
+    "q": "UDP é mais comum em qual tipo de uso?",
+    "choices": [
+      "Streaming/voz em tempo real",
+      "Transferência confiável de arquivos",
+      "Acesso remoto seguro",
+      "Atualização de sistema"
+    ],
+    "answer": 0,
+    "explain": "UDP é comum em aplicações de tempo real."
+  },
+  {
+    "id": "ve-037",
+    "category": "UDP",
+    "difficulty": "very_easy",
+    "q": "UDP usa:",
+    "choices": [
+      "Portas",
+      "Somente MAC",
+      "Somente DNS",
+      "Somente fibra"
+    ],
+    "answer": 0,
+    "explain": "UDP usa portas para identificar aplicações."
+  },
+  {
+    "id": "ve-038",
+    "category": "UDP",
+    "difficulty": "very_easy",
+    "q": "UDP é:",
+    "choices": [
+      "Sem conexão",
+      "Sempre criptografado",
+      "Igual ao TCP",
+      "Um cabo"
+    ],
+    "answer": 0,
+    "explain": "UDP é connectionless."
+  },
+  {
+    "id": "ve-039",
+    "category": "UDP",
+    "difficulty": "very_easy",
+    "q": "Qual frase combina com UDP?",
+    "choices": [
+      "Mais simples e leve",
+      "Sempre confirma recebimento",
+      "Nunca usa IP",
+      "Só funciona em LAN"
+    ],
+    "answer": 0,
+    "explain": "UDP é um transporte simples com pouco overhead."
+  },
+  {
+    "id": "ve-040",
+    "category": "UDP",
+    "difficulty": "very_easy",
+    "q": "UDP e TCP são de qual camada (OSI)?",
+    "choices": [
+      "Transporte",
+      "Rede",
+      "Enlace",
+      "Aplicação"
+    ],
+    "answer": 0,
+    "explain": "UDP e TCP são protocolos de transporte."
+  },
+  {
+    "id": "ve-041",
+    "category": "NAT",
+    "difficulty": "very_easy",
+    "q": "NAT é usado principalmente para:",
+    "choices": [
+      "Traduzir endereços (privado ↔ público)",
+      "Trocar nomes por IP",
+      "Aumentar alcance do Wi‑Fi",
+      "Criar fibra óptica"
+    ],
+    "answer": 0,
+    "explain": "NAT traduz endereços/portas entre redes."
+  },
+  {
+    "id": "ve-042",
+    "category": "NAT",
+    "difficulty": "very_easy",
+    "q": "NAT é muito comum em:",
+    "choices": [
+      "Roteadores domésticos",
+      "Teclados",
+      "Monitores",
+      "Cabos HDMI"
+    ],
+    "answer": 0,
+    "explain": "Roteadores domésticos fazem NAT para compartilhar 1 IP público."
+  },
+  {
+    "id": "ve-043",
+    "category": "NAT",
+    "difficulty": "very_easy",
+    "q": "Quando vários dispositivos da casa usam 1 IP público, isso é:",
+    "choices": [
+      "NAT/PAT",
+      "DNS",
+      "DHCP",
+      "FTP"
+    ],
+    "answer": 0,
+    "explain": "PAT/NAT permite múltiplos dispositivos compartilharem um IP público."
+  },
+  {
+    "id": "ve-044",
+    "category": "NAT",
+    "difficulty": "very_easy",
+    "q": "NAT normalmente acontece em qual equipamento?",
+    "choices": [
+      "Roteador",
+      "Switch",
+      "Patch panel",
+      "Placa de vídeo"
+    ],
+    "answer": 0,
+    "explain": "O roteador costuma fazer NAT."
+  },
+  {
+    "id": "ve-045",
+    "category": "NAT",
+    "difficulty": "very_easy",
+    "q": "Sem NAT, para sair à internet com vários dispositivos, seria mais comum precisar de:",
+    "choices": [
+      "Vários IPs públicos",
+      "Um cabo mais grosso",
+      "Dois switches",
+      "Mais memória RAM"
+    ],
+    "answer": 0,
+    "explain": "Sem NAT, cada dispositivo precisaria de IP público (ou outra solução)."
+  },
+  {
+    "id": "ve-046",
+    "category": "CGNAT",
+    "difficulty": "very_easy",
+    "q": "CGNAT significa que:",
+    "choices": [
+      "Muitos clientes compartilham IPs públicos do provedor",
+      "Seu Wi‑Fi fica mais rápido",
+      "Seu roteador vira switch",
+      "Seu IP vira IPv6 automaticamente"
+    ],
+    "answer": 0,
+    "explain": "CGNAT é NAT em nível de operadora, compartilhando IP público."
+  },
+  {
+    "id": "ve-047",
+    "category": "CGNAT",
+    "difficulty": "very_easy",
+    "q": "No CGNAT, o IP público visto na internet é:",
+    "choices": [
+      "Compartilhado por várias pessoas",
+      "Exclusivo do cliente",
+      "Sempre 192.168.x.x",
+      "Sempre 10.x.x.x"
+    ],
+    "answer": 0,
+    "explain": "Em CGNAT, o IP público costuma ser compartilhado."
+  },
+  {
+    "id": "ve-048",
+    "category": "CGNAT",
+    "difficulty": "very_easy",
+    "q": "Uma consequência comum do CGNAT é:",
+    "choices": [
+      "Dificultar abrir portas para acesso externo",
+      "Aumentar o número de canais Wi‑Fi",
+      "Eliminar necessidade de roteador",
+      "Melhorar ping sempre"
+    ],
+    "answer": 0,
+    "explain": "CGNAT dificulta conexões de entrada (port forwarding)."
+  },
+  {
+    "id": "ve-049",
+    "category": "CGNAT",
+    "difficulty": "very_easy",
+    "q": "CGNAT é usado para:",
+    "choices": [
+      "Economizar endereços IPv4 públicos",
+      "Trocar cabo coaxial por fibra",
+      "Criar DNS mais rápido",
+      "Aumentar bateria do celular"
+    ],
+    "answer": 0,
+    "explain": "CGNAT ajuda a lidar com escassez de IPv4 público."
+  },
+  {
+    "id": "ve-050",
+    "category": "CGNAT",
+    "difficulty": "very_easy",
+    "q": "Se você precisa hospedar serviço acessível de fora, CGNAT pode ser problema por causa de:",
+    "choices": [
+      "Portas de entrada",
+      "Cabo de rede",
+      "Nome do Wi‑Fi",
+      "CPU do PC"
+    ],
+    "answer": 0,
+    "explain": "O problema é a tradução e controle de portas de entrada."
+  },
+  {
+    "id": "ve-051",
+    "category": "IP Público x Privado",
+    "difficulty": "very_easy",
+    "q": "Qual destes é um IP privado típico?",
+    "choices": [
+      "192.168.1.10",
+      "8.8.8.8",
+      "1.1.1.1",
+      "200.200.200.200"
+    ],
+    "answer": 0,
+    "explain": "192.168.0.0/16 é faixa privada."
+  },
+  {
+    "id": "ve-052",
+    "category": "IP Público x Privado",
+    "difficulty": "very_easy",
+    "q": "Qual destes é um IP público (exemplo comum)?",
+    "choices": [
+      "8.8.8.8",
+      "192.168.0.5",
+      "10.0.0.7",
+      "172.16.0.9"
+    ],
+    "answer": 0,
+    "explain": "8.8.8.8 é público (exemplo do Google DNS)."
+  },
+  {
+    "id": "ve-053",
+    "category": "IP Público x Privado",
+    "difficulty": "very_easy",
+    "q": "Endereço 10.0.0.20 é:",
+    "choices": [
+      "Privado",
+      "Público",
+      "MAC",
+      "IPv6"
+    ],
+    "answer": 0,
+    "explain": "10.0.0.0/8 é faixa privada."
+  },
+  {
+    "id": "ve-054",
+    "category": "IP Público x Privado",
+    "difficulty": "very_easy",
+    "q": "Endereço 172.16.5.1 é:",
+    "choices": [
+      "Privado",
+      "Público",
+      "DNS",
+      "Broadcast"
+    ],
+    "answer": 0,
+    "explain": "172.16.0.0/12 é faixa privada."
+  },
+  {
+    "id": "ve-055",
+    "category": "IP Público x Privado",
+    "difficulty": "very_easy",
+    "q": "Um IP público é importante para:",
+    "choices": [
+      "Ser acessado diretamente pela internet",
+      "Conectar teclado",
+      "Substituir roteador",
+      "Aumentar Wi‑Fi"
+    ],
+    "answer": 0,
+    "explain": "IP público é roteável na internet (pode receber conexões de fora)."
+  },
+  {
+    "id": "ve-056",
+    "category": "DHCP",
+    "difficulty": "very_easy",
+    "q": "DHCP serve para:",
+    "choices": [
+      "Entregar IP automaticamente",
+      "Criptografar Wi‑Fi",
+      "Bloquear sites",
+      "Criar DNS"
+    ],
+    "answer": 0,
+    "explain": "DHCP fornece IP, máscara, gateway, DNS automaticamente."
+  },
+  {
+    "id": "ve-057",
+    "category": "DHCP",
+    "difficulty": "very_easy",
+    "q": "Sem DHCP, você precisa:",
+    "choices": [
+      "Configurar IP manualmente",
+      "Trocar de modem",
+      "Comprar fibra",
+      "Reinstalar o Windows"
+    ],
+    "answer": 0,
+    "explain": "Sem DHCP, configurações de rede precisam ser informadas manualmente."
+  },
+  {
+    "id": "ve-058",
+    "category": "DHCP",
+    "difficulty": "very_easy",
+    "q": "Qual informação o DHCP pode fornecer além do IP?",
+    "choices": [
+      "Gateway e DNS",
+      "Senha do Wi‑Fi",
+      "Modelo do roteador",
+      "Número do CPF"
+    ],
+    "answer": 0,
+    "explain": "DHCP pode fornecer gateway padrão e servidores DNS."
+  },
+  {
+    "id": "ve-059",
+    "category": "DHCP",
+    "difficulty": "very_easy",
+    "q": "Em casa, o DHCP normalmente roda em:",
+    "choices": [
+      "Roteador",
+      "Teclado",
+      "Switch passivo",
+      "Cabo RJ45"
+    ],
+    "answer": 0,
+    "explain": "O roteador doméstico costuma ser servidor DHCP da LAN."
+  },
+  {
+    "id": "ve-060",
+    "category": "DHCP",
+    "difficulty": "very_easy",
+    "q": "DHCP é mais usado em:",
+    "choices": [
+      "Redes com muitos dispositivos",
+      "Apenas cabos coaxiais",
+      "Somente IPv6",
+      "Somente datacenter"
+    ],
+    "answer": 0,
+    "explain": "DHCP facilita a vida em redes com vários dispositivos."
+  },
+  {
+    "id": "ve-061",
+    "category": "DNS",
+    "difficulty": "very_easy",
+    "q": "DNS serve para:",
+    "choices": [
+      "Transformar nome em IP",
+      "Aumentar sinal de rádio",
+      "Converter fibra em cobre",
+      "Dar IP automático"
+    ],
+    "answer": 0,
+    "explain": "DNS resolve nomes (ex: site.com) para endereços IP."
+  },
+  {
+    "id": "ve-062",
+    "category": "DNS",
+    "difficulty": "very_easy",
+    "q": "Quando você digita um site no navegador, o DNS ajuda a encontrar:",
+    "choices": [
+      "O IP do servidor",
+      "A senha do Wi‑Fi",
+      "O modelo do roteador",
+      "A velocidade do cabo"
+    ],
+    "answer": 0,
+    "explain": "O DNS ajuda a descobrir o IP do site."
+  },
+  {
+    "id": "ve-063",
+    "category": "DNS",
+    "difficulty": "very_easy",
+    "q": "Qual é um exemplo de nome de domínio?",
+    "choices": [
+      "example.com",
+      "192.168.0.1",
+      "FF:EE:DD:CC:BB:AA",
+      "255.255.255.0"
+    ],
+    "answer": 0,
+    "explain": "example.com é um domínio; os outros são IP/MAC/máscara."
+  },
+  {
+    "id": "ve-064",
+    "category": "DNS",
+    "difficulty": "very_easy",
+    "q": "Um servidor DNS público bem conhecido é:",
+    "choices": [
+      "8.8.8.8",
+      "192.168.1.1",
+      "10.0.0.1",
+      "172.16.0.1"
+    ],
+    "answer": 0,
+    "explain": "8.8.8.8 é um DNS público popular (Google)."
+  },
+  {
+    "id": "ve-065",
+    "category": "DNS",
+    "difficulty": "very_easy",
+    "q": "DNS é mais parecido com:",
+    "choices": [
+      "Agenda telefônica (nome → número)",
+      "Bateria (energia)",
+      "Antena (sinal)",
+      "Câmera (imagem)"
+    ],
+    "answer": 0,
+    "explain": "Analogia: DNS mapeia nomes para números (IPs)."
+  },
+  {
+    "id": "ve-066",
+    "category": "Wireless",
+    "difficulty": "very_easy",
+    "q": "Wi‑Fi é uma rede:",
+    "choices": [
+      "Sem fio",
+      "Somente por fibra",
+      "Somente por cabo coaxial",
+      "Sem internet sempre"
+    ],
+    "answer": 0,
+    "explain": "Wi‑Fi é rede sem fio."
+  },
+  {
+    "id": "ve-067",
+    "category": "Wireless",
+    "difficulty": "very_easy",
+    "q": "A banda 2,4 GHz costuma ter:",
+    "choices": [
+      "Maior alcance e mais interferência",
+      "Menor alcance e zero interferência",
+      "Apenas canais de 160 MHz",
+      "Só funciona perto do roteador"
+    ],
+    "answer": 0,
+    "explain": "2,4 GHz tende a alcançar mais, mas sofre mais interferência."
+  },
+  {
+    "id": "ve-068",
+    "category": "Wireless",
+    "difficulty": "very_easy",
+    "q": "Qual costuma ser mais rápida em curtas distâncias?",
+    "choices": [
+      "5 GHz",
+      "2,4 GHz",
+      "Cabo USB",
+      "HDMI"
+    ],
+    "answer": 0,
+    "explain": "5 GHz geralmente oferece mais velocidade (com menor alcance)."
+  },
+  {
+    "id": "ve-069",
+    "category": "Wireless",
+    "difficulty": "very_easy",
+    "q": "WPA2/WPA3 se relacionam a:",
+    "choices": [
+      "Segurança do Wi‑Fi",
+      "Tipo de cabo",
+      "Modelo de switch",
+      "DNS"
+    ],
+    "answer": 0,
+    "explain": "WPA2/WPA3 são padrões de segurança de Wi‑Fi."
+  },
+  {
+    "id": "ve-070",
+    "category": "Wireless",
+    "difficulty": "very_easy",
+    "q": "O nome da rede Wi‑Fi que aparece no celular é o:",
+    "choices": [
+      "SSID",
+      "MAC",
+      "IP",
+      "TTL"
+    ],
+    "answer": 0,
+    "explain": "SSID é o “nome” da rede Wi‑Fi."
+  },
+  {
+    "id": "ve-071",
+    "category": "Segurança",
+    "difficulty": "very_easy",
+    "q": "Um firewall serve para:",
+    "choices": [
+      "Filtrar/permitir tráfego",
+      "Aumentar sinal",
+      "Trocar cabo",
+      "Resolver DNS"
+    ],
+    "answer": 0,
+    "explain": "Firewall controla tráfego permitido/bloqueado."
+  },
+  {
+    "id": "ve-072",
+    "category": "Segurança",
+    "difficulty": "very_easy",
+    "q": "Qual é uma boa prática de senha do Wi‑Fi?",
+    "choices": [
+      "Usar senha forte e não óbvia",
+      "Usar \"12345678\"",
+      "Deixar sem senha",
+      "Compartilhar publicamente"
+    ],
+    "answer": 0,
+    "explain": "Senha forte ajuda a proteger a rede."
+  },
+  {
+    "id": "ve-073",
+    "category": "Segurança",
+    "difficulty": "very_easy",
+    "q": "HTTPS é:",
+    "choices": [
+      "HTTP com criptografia",
+      "Um cabo",
+      "Um roteador",
+      "Um DNS"
+    ],
+    "answer": 0,
+    "explain": "HTTPS usa criptografia (TLS) para proteger a comunicação."
+  },
+  {
+    "id": "ve-074",
+    "category": "Segurança",
+    "difficulty": "very_easy",
+    "q": "Qual opção é mais segura para Wi‑Fi hoje (em geral)?",
+    "choices": [
+      "WPA3 (quando disponível)",
+      "WEP",
+      "Sem senha",
+      "Senha \"admin\""
+    ],
+    "answer": 0,
+    "explain": "WPA3 é mais moderno; WEP é inseguro."
+  },
+  {
+    "id": "ve-075",
+    "category": "Segurança",
+    "difficulty": "very_easy",
+    "q": "Atualizar o roteador (firmware) ajuda a:",
+    "choices": [
+      "Corrigir falhas de segurança",
+      "Diminuir a cobertura",
+      "Quebrar o Wi‑Fi",
+      "Trocar o IP público"
+    ],
+    "answer": 0,
+    "explain": "Atualizações corrigem bugs e vulnerabilidades."
+  },
+  {
+    "id": "ve-076",
+    "category": "SSH",
+    "difficulty": "very_easy",
+    "q": "SSH é usado principalmente para:",
+    "choices": [
+      "Acesso remoto seguro ao terminal",
+      "Assistir vídeos",
+      "Trocar DNS",
+      "Criar Wi‑Fi"
+    ],
+    "answer": 0,
+    "explain": "SSH permite acesso remoto criptografado a um sistema."
+  },
+  {
+    "id": "ve-077",
+    "category": "SSH",
+    "difficulty": "very_easy",
+    "q": "A porta padrão do SSH é:",
+    "choices": [
+      "22",
+      "80",
+      "443",
+      "53"
+    ],
+    "answer": 0,
+    "explain": "SSH usa porta 22 por padrão."
+  },
+  {
+    "id": "ve-078",
+    "category": "SSH",
+    "difficulty": "very_easy",
+    "q": "SSH normalmente substitui (de forma segura) o:",
+    "choices": [
+      "Telnet",
+      "DNS",
+      "DHCP",
+      "NAT"
+    ],
+    "answer": 0,
+    "explain": "SSH é uma alternativa segura ao Telnet."
+  },
+  {
+    "id": "ve-079",
+    "category": "SSH",
+    "difficulty": "very_easy",
+    "q": "SSH usa criptografia para:",
+    "choices": [
+      "Proteger a conexão",
+      "Aumentar velocidade",
+      "Fazer NAT",
+      "Criar sub-redes"
+    ],
+    "answer": 0,
+    "explain": "Criptografia protege dados e credenciais na conexão."
+  },
+  {
+    "id": "ve-080",
+    "category": "SSH",
+    "difficulty": "very_easy",
+    "q": "Com SSH você consegue:",
+    "choices": [
+      "Gerenciar um servidor remotamente",
+      "Montar fibra",
+      "Criar cabo RJ11",
+      "Medir tensão elétrica"
+    ],
+    "answer": 0,
+    "explain": "SSH permite administrar servidores remotamente."
+  },
+  {
+    "id": "ve-081",
+    "category": "Proxy/VPN",
+    "difficulty": "very_easy",
+    "q": "Uma VPN serve para:",
+    "choices": [
+      "Criar um túnel seguro até outra rede",
+      "Aumentar potência do Wi‑Fi",
+      "Trocar o cabo por fibra",
+      "Eliminar senha"
+    ],
+    "answer": 0,
+    "explain": "VPN cria um túnel criptografado entre você e a rede/servidor."
+  },
+  {
+    "id": "ve-082",
+    "category": "Proxy/VPN",
+    "difficulty": "very_easy",
+    "q": "Um proxy é, de forma simples:",
+    "choices": [
+      "Um intermediário entre você e o site",
+      "Um tipo de roteador",
+      "Um cabo de energia",
+      "Um endereço IP"
+    ],
+    "answer": 0,
+    "explain": "Proxy encaminha requisições como intermediário."
+  },
+  {
+    "id": "ve-083",
+    "category": "Proxy/VPN",
+    "difficulty": "very_easy",
+    "q": "VPN pode ajudar a:",
+    "choices": [
+      "Proteger dados em Wi‑Fi público",
+      "Trocar MAC automaticamente",
+      "Instalar antena",
+      "Criar DNS local"
+    ],
+    "answer": 0,
+    "explain": "VPN ajuda a proteger tráfego em redes não confiáveis."
+  },
+  {
+    "id": "ve-084",
+    "category": "Proxy/VPN",
+    "difficulty": "very_easy",
+    "q": "Quando você usa um proxy, o site pode ver o IP:",
+    "choices": [
+      "Do proxy (em vez do seu)",
+      "Da sua placa-mãe",
+      "Do seu teclado",
+      "Do roteador do vizinho"
+    ],
+    "answer": 0,
+    "explain": "O site enxerga o IP do proxy como origem."
+  },
+  {
+    "id": "ve-085",
+    "category": "Proxy/VPN",
+    "difficulty": "very_easy",
+    "q": "VPN é muito usada para:",
+    "choices": [
+      "Acesso remoto e segurança",
+      "Carregar bateria",
+      "Atualizar BIOS",
+      "Compactar fotos"
+    ],
+    "answer": 0,
+    "explain": "VPN é comum para acesso remoto e proteção."
+  },
+  {
+    "id": "ve-086",
+    "category": "Roteamento",
+    "difficulty": "very_easy",
+    "q": "Gateway padrão é:",
+    "choices": [
+      "O caminho padrão para sair da rede",
+      "O nome do Wi‑Fi",
+      "O cabo do provedor",
+      "A máscara de rede"
+    ],
+    "answer": 0,
+    "explain": "Gateway padrão é o roteador usado para sair da rede local."
+  },
+  {
+    "id": "ve-087",
+    "category": "Roteamento",
+    "difficulty": "very_easy",
+    "q": "Quem encaminha pacotes para a internet na rede doméstica?",
+    "choices": [
+      "Roteador (gateway)",
+      "Switch",
+      "Notebook",
+      "Impressora"
+    ],
+    "answer": 0,
+    "explain": "O roteador faz o encaminhamento para a internet."
+  },
+  {
+    "id": "ve-088",
+    "category": "Roteamento",
+    "difficulty": "very_easy",
+    "q": "Roteamento serve para:",
+    "choices": [
+      "Levar pacotes entre redes",
+      "Trocar senha do Wi‑Fi",
+      "Formatar PC",
+      "Ligar cabo HDMI"
+    ],
+    "answer": 0,
+    "explain": "Roteamento escolhe caminhos entre redes."
+  },
+  {
+    "id": "ve-089",
+    "category": "Roteamento",
+    "difficulty": "very_easy",
+    "q": "Se um PC não acessa a internet, um item básico a conferir é:",
+    "choices": [
+      "Gateway configurado",
+      "Cor do cabo",
+      "Tela do monitor",
+      "Volume do som"
+    ],
+    "answer": 0,
+    "explain": "Sem gateway correto, o tráfego não sai da rede."
+  },
+  {
+    "id": "ve-090",
+    "category": "Roteamento",
+    "difficulty": "very_easy",
+    "q": "Em geral, o gateway na rede doméstica é:",
+    "choices": [
+      "O IP do roteador",
+      "O IP do DNS",
+      "O IP do notebook",
+      "O IP do switch"
+    ],
+    "answer": 0,
+    "explain": "Na prática, gateway é o endereço do roteador na LAN."
+  },
+  {
+    "id": "ve-091",
+    "category": "Sub-rede",
+    "difficulty": "very_easy",
+    "q": "Em IPv4, uma máscara /24 significa:",
+    "choices": [
+      "255.255.255.0",
+      "255.0.0.0",
+      "255.255.0.0",
+      "255.255.255.255"
+    ],
+    "answer": 0,
+    "explain": "/24 corresponde a 255.255.255.0."
+  },
+  {
+    "id": "ve-092",
+    "category": "Sub-rede",
+    "difficulty": "very_easy",
+    "q": "Em uma rede /24, quantos IPs existem no total?",
+    "choices": [
+      "256",
+      "128",
+      "64",
+      "1024"
+    ],
+    "answer": 0,
+    "explain": "/24 tem 2^(32-24)=256 endereços."
+  },
+  {
+    "id": "ve-093",
+    "category": "Sub-rede",
+    "difficulty": "very_easy",
+    "q": "Em redes IPv4 tradicionais, normalmente são reservados:",
+    "choices": [
+      "Endereço de rede e broadcast",
+      "Dois DNS",
+      "Dois roteadores",
+      "Dois switches"
+    ],
+    "answer": 0,
+    "explain": "Rede e broadcast são reservados (na maioria dos casos)."
+  },
+  {
+    "id": "ve-094",
+    "category": "Sub-rede",
+    "difficulty": "very_easy",
+    "q": "O endereço 255.255.255.0 é um exemplo de:",
+    "choices": [
+      "Máscara de rede",
+      "Gateway",
+      "DNS",
+      "MAC"
+    ],
+    "answer": 0,
+    "explain": "255.255.255.0 é máscara /24."
+  },
+  {
+    "id": "ve-095",
+    "category": "Sub-rede",
+    "difficulty": "very_easy",
+    "q": "Para colocar dois PCs na mesma rede, eles precisam:",
+    "choices": [
+      "Ter IPs na mesma faixa e mesma máscara",
+      "Ter senhas iguais",
+      "Ter o mesmo nome",
+      "Ter a mesma marca"
+    ],
+    "answer": 0,
+    "explain": "IPs e máscara compatíveis determinam se estão na mesma rede."
+  },
+  {
+    "id": "ve-096",
+    "category": "Fibra",
+    "difficulty": "very_easy",
+    "q": "Fibra óptica transmite dados usando:",
+    "choices": [
+      "Luz",
+      "Eletricidade no cobre",
+      "Ondas de rádio do Wi‑Fi",
+      "Som"
+    ],
+    "answer": 0,
+    "explain": "Fibra transmite luz guiada pelo cabo óptico."
+  },
+  {
+    "id": "ve-097",
+    "category": "Fibra",
+    "difficulty": "very_easy",
+    "q": "Uma vantagem comum da fibra é:",
+    "choices": [
+      "Alta velocidade e baixa interferência",
+      "Sempre mais barata que cabo",
+      "Dispensa roteador",
+      "Não precisa de energia"
+    ],
+    "answer": 0,
+    "explain": "Fibra é rápida e imune a interferência eletromagnética."
+  },
+  {
+    "id": "ve-098",
+    "category": "Fibra",
+    "difficulty": "very_easy",
+    "q": "FTTH significa:",
+    "choices": [
+      "Fibra até a casa",
+      "Fibra até o poste",
+      "Internet via satélite",
+      "Wi‑Fi até a rua"
+    ],
+    "answer": 0,
+    "explain": "FTTH = Fiber To The Home."
+  },
+  {
+    "id": "ve-099",
+    "category": "Fibra",
+    "difficulty": "very_easy",
+    "q": "Qual é um cuidado básico com fibra óptica?",
+    "choices": [
+      "Evitar dobras muito fortes",
+      "Molhar o conector",
+      "Puxar com força",
+      "Passar lixa"
+    ],
+    "answer": 0,
+    "explain": "Dobras podem causar perda/rompimento do sinal óptico."
+  },
+  {
+    "id": "ve-100",
+    "category": "Fibra",
+    "difficulty": "very_easy",
+    "q": "Um equipamento comum no cliente em FTTH é a:",
+    "choices": [
+      "ONU/ONT",
+      "Placa de vídeo",
+      "HDMI splitter",
+      "Buzzer"
+    ],
+    "answer": 0,
+    "explain": "ONU/ONT termina a fibra no cliente."
+  },
+  {
+    "id": "ve-101",
+    "category": "Fibra Óptica",
+    "difficulty": "very_easy",
+    "q": "A fibra é mais resistente a:",
+    "choices": [
+      "Interferência eletromagnética",
+      "Luz",
+      "Ar",
+      "Som"
+    ],
+    "answer": 0,
+    "explain": "Por usar luz, sofre menos interferência eletromagnética."
+  },
+  {
+    "id": "ve-102",
+    "category": "Fibra Óptica",
+    "difficulty": "very_easy",
+    "q": "Conectores comuns de fibra incluem:",
+    "choices": [
+      "SC e LC",
+      "RJ45 e RJ11",
+      "USB e HDMI",
+      "P2 e P10"
+    ],
+    "answer": 0,
+    "explain": "SC e LC são conectores de fibra comuns."
+  },
+  {
+    "id": "ve-103",
+    "category": "Fibra Óptica",
+    "difficulty": "very_easy",
+    "q": "Se a ponta da fibra estiver suja, pode acontecer:",
+    "choices": [
+      "Perda de sinal",
+      "Mais velocidade",
+      "Wi‑Fi mais forte",
+      "IP muda"
+    ],
+    "answer": 0,
+    "explain": "Sujeira aumenta atenuação e pode derrubar o link."
+  },
+  {
+    "id": "ve-104",
+    "category": "Fibra Óptica",
+    "difficulty": "very_easy",
+    "q": "O que é \"atenuação\" na fibra?",
+    "choices": [
+      "Perda de potência do sinal",
+      "Aumento de IP",
+      "Troca de DNS",
+      "Criação de VLAN"
+    ],
+    "answer": 0,
+    "explain": "Atenuação é perda de potência do sinal ao longo do meio."
+  },
+  {
+    "id": "ve-105",
+    "category": "Fibra Óptica",
+    "difficulty": "very_easy",
+    "q": "Qual cuidado é básico ao conectar fibra?",
+    "choices": [
+      "Limpar e evitar tocar na face do conector",
+      "Esfregar no dedo",
+      "Dobrar no conector",
+      "Molhar para encaixar"
+    ],
+    "answer": 0,
+    "explain": "Limpeza e cuidado com a face do conector evitam perdas."
+  },
+  {
+    "id": "ve-106",
+    "category": "Aplicação",
+    "difficulty": "very_easy",
+    "q": "HTTP é usado principalmente para:",
+    "choices": [
+      "Acessar páginas web",
+      "Dar IP automático",
+      "Roteamento",
+      "Criptografar Wi‑Fi"
+    ],
+    "answer": 0,
+    "explain": "HTTP é protocolo base da web."
+  },
+  {
+    "id": "ve-107",
+    "category": "Aplicação",
+    "difficulty": "very_easy",
+    "q": "E-mail tradicional usa protocolos como:",
+    "choices": [
+      "SMTP/IMAP/POP",
+      "IP/ARP",
+      "Ethernet/PPP",
+      "NAT/CGNAT"
+    ],
+    "answer": 0,
+    "explain": "E-mail usa SMTP para envio e IMAP/POP para recebimento."
+  },
+  {
+    "id": "ve-108",
+    "category": "Aplicação",
+    "difficulty": "very_easy",
+    "q": "Qual é um navegador web?",
+    "choices": [
+      "Chrome/Firefox/Edge",
+      "Excel",
+      "Photoshop",
+      "WinRAR"
+    ],
+    "answer": 0,
+    "explain": "Navegadores acessam páginas web."
+  },
+  {
+    "id": "ve-109",
+    "category": "Aplicação",
+    "difficulty": "very_easy",
+    "q": "Um aplicativo de mensagens depende de:",
+    "choices": [
+      "Rede e internet",
+      "Apenas teclado",
+      "Apenas monitor",
+      "Somente energia"
+    ],
+    "answer": 0,
+    "explain": "Apps de mensagem usam rede/internet para comunicar."
+  },
+  {
+    "id": "ve-110",
+    "category": "Aplicação",
+    "difficulty": "very_easy",
+    "q": "Um exemplo de serviço de nuvem é:",
+    "choices": [
+      "Armazenamento online",
+      "Um cabo RJ45",
+      "Uma máscara /24",
+      "Um switch"
+    ],
+    "answer": 0,
+    "explain": "Nuvem oferece serviços online, como armazenamento."
+  },
+  {
+    "id": "ve-111",
+    "category": "Protocolos de Aplicação",
+    "difficulty": "very_easy",
+    "q": "HTTPS normalmente usa qual porta?",
+    "choices": [
+      "443",
+      "80",
+      "22",
+      "53"
+    ],
+    "answer": 0,
+    "explain": "HTTPS usa 443 por padrão."
+  },
+  {
+    "id": "ve-112",
+    "category": "Protocolos de Aplicação",
+    "difficulty": "very_easy",
+    "q": "HTTP normalmente usa qual porta?",
+    "choices": [
+      "80",
+      "443",
+      "25",
+      "110"
+    ],
+    "answer": 0,
+    "explain": "HTTP usa 80 por padrão."
+  },
+  {
+    "id": "ve-113",
+    "category": "Protocolos de Aplicação",
+    "difficulty": "very_easy",
+    "q": "DNS normalmente usa qual porta (principal)?",
+    "choices": [
+      "53",
+      "22",
+      "443",
+      "3389"
+    ],
+    "answer": 0,
+    "explain": "DNS usa 53 (UDP/TCP dependendo do caso)."
+  },
+  {
+    "id": "ve-114",
+    "category": "Protocolos de Aplicação",
+    "difficulty": "very_easy",
+    "q": "SMTP (envio de e-mail) tem porta comum:",
+    "choices": [
+      "25",
+      "53",
+      "80",
+      "143"
+    ],
+    "answer": 0,
+    "explain": "SMTP tradicional usa 25 (há variações como 587)."
+  },
+  {
+    "id": "ve-115",
+    "category": "Protocolos de Aplicação",
+    "difficulty": "very_easy",
+    "q": "IMAP (receber e-mail) usa porta comum:",
+    "choices": [
+      "143",
+      "110",
+      "25",
+      "80"
+    ],
+    "answer": 0,
+    "explain": "IMAP usa 143 (IMAPS 993)."
   }
-];
+]

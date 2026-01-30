@@ -1,4 +1,4 @@
-(function(){
+(async function(){
   const $ = (s)=>document.querySelector(s);
   const $$ = (s)=>Array.from(document.querySelectorAll(s));
 
@@ -252,6 +252,27 @@ function catLucide(cat){
     return "🛰️";
   }
 
+  function diffLabel(d){
+    return d==="very_easy" ? "Muito fácil"
+      : d==="easy" ? "Fácil"
+      : d==="medium" ? "Médio"
+      : d==="hard" ? "Difícil"
+      : "Todas";
+  }
+
+  function diffBasePoints(d){
+    return d==="very_easy" ? 5 : d==="easy" ? 10 : d==="medium" ? 15 : 20;
+  }
+
+  function diffThroughput(d){
+    // só um detalhe visual no HUD
+    return d==="hard" ? "620 Mbps"
+      : d==="medium" ? "860 Mbps"
+      : d==="very_easy" ? "980 Mbps"
+      : "940 Mbps";
+  }
+
+
   function updateHud(){
     if(!els.hudLatency || !els.hudLoss || !els.hudThrough) return;
     // pseudo realistic values (deterministic-ish by question index)
@@ -259,7 +280,7 @@ function catLucide(cat){
     const jitter = Math.floor((Math.sin((Date.now()/1000)+(state.index*1.7))*4)+4);
     const latency = base + jitter;
     const loss = state.timerEnabled ? (Math.random()<0.08 ? "1%" : "0%") : "0%";
-    const thr = state.difficulty === "Difícil" ? "620 Mbps" : state.difficulty === "Médio" ? "860 Mbps" : "940 Mbps";
+    const thr = diffThroughput(state.difficulty);
     els.hudLatency.textContent = `${latency}ms`;
     els.hudLoss.textContent = loss;
     els.hudThrough.textContent = thr;
@@ -476,8 +497,28 @@ function updateMiniMap(cat){
   function distinct(arr){ return Array.from(new Set(arr)); }
 
   function categories(){
-    return distinct(window.QUESTION_BANK.map(q=>q.category)).sort((a,b)=>a.localeCompare(b,'pt-BR'));
+    return distinct(window.QUESTION_BANK.map(q=>q.category))
+      .sort((a,b)=>a.localeCompare(b,'pt-BR'));
   }
+
+
+// ---------- Question bank loader (JSON) ----------
+if(!Array.isArray(window.QUESTION_BANK)) window.QUESTION_BANK = [];
+
+async function loadQuestionBank(){
+  try{
+    const res = await fetch("questions/bank.json", { cache: "no-store" });
+    if(!res.ok) throw new Error("HTTP "+res.status);
+    const data = await res.json();
+    if(!Array.isArray(data)) throw new Error("Formato inválido: esperado array");
+    window.QUESTION_BANK = data;
+    return true;
+  }catch(err){
+    console.error("Falha ao carregar banco de questões:", err);
+    window.QUESTION_BANK = Array.isArray(window.QUESTION_BANK) ? window.QUESTION_BANK : [];
+    return false;
+  }
+}
 
   // ---------- Clean soundpack (WebAudio) ----------
   let audioCtx = null;
@@ -893,92 +934,204 @@ async function fetchMemeByTag(perf){
     els.bankCount.textContent = String(window.QUESTION_BANK.length);
   }
 
-  function buildDeck(){
-    // Pode ter prova com poucas questões — aqui a prioridade é variar mais entre provas
-    let wantedCount = parseInt(els.selCount.value,10);
-    if(!Number.isFinite(wantedCount) || wantedCount <= 0) wantedCount = 15;
+  
+function shuffleQuestionChoices(q){
+  // Embaralha alternativas e ajusta o índice da resposta correta (varia mesmo quando a pergunta se repete)
+  const idxs = q.choices.map((_,i)=>i);
+  shuffle(idxs);
+  const newChoices = idxs.map(i=>q.choices[i]);
+  const newAnswer = idxs.indexOf(q.answer);
+  return { ...q, choices: newChoices, answer: newAnswer };
+}
 
-    const diff = els.selDifficulty.value;
-    const mode = els.selMode.value;
+function buildDeck(){
+  // Pode ter prova com poucas questões — aqui a prioridade é variar mais entre provas
+  let wantedCount = parseInt(els.selCount.value,10);
+  if(!Number.isFinite(wantedCount) || wantedCount <= 0) wantedCount = 15;
 
-    let pool = window.QUESTION_BANK.slice();
-    if(diff !== "all") pool = pool.filter(q=>q.difficulty===diff);
+  const diff = els.selDifficulty.value;
+  const mode = els.selMode.value;
 
-    if(mode === "category"){
-      const cat = els.selCategory.value;
-      pool = pool.filter(q=>q.category===cat);
-      state.category = cat;
+  const SIMULADO_CATS = new Set([
+    "Conceitos",
+    "Tipos de Rede",
+    "Topologias",
+    "Equipamentos",
+    "TCP/IP",
+    "OSI vs TCP/IP",
+    "UDP",
+    "UDP/TCP",
+    "NAT",
+    "CGNAT",
+    "DHCP",
+    "IP Público x Privado",
+    "DNS",
+    "Sub-rede",
+    "Wireless",
+    "Roteamento",
+  ]);
+
+  let pool = window.QUESTION_BANK.slice();
+
+  // Dificuldade
+  if(diff !== "all"){
+    if(diff === "very_easy"){
+      // Muito fácil: prioriza questões bem básicas, mas permite completar com "Fácil" se o pool for pequeno
+      pool = pool.filter(q=>q.difficulty==="very_easy" || q.difficulty==="easy");
     }else{
-      state.category = null;
+      pool = pool.filter(q=>q.difficulty===diff);
     }
-    if(pool.length===0) pool = window.QUESTION_BANK.slice();
+  }
 
-    // Anti-repetição: evita reutilizar itens vistos nas últimas provas (mas sem travar quando o pool é pequeno)
-    let recent = [];
-    try{ recent = JSON.parse(localStorage.getItem("recent_deck_ids") || "[]"); }catch(_){ recent = []; }
-    const recentSet = new Set(recent);
+  // Modo
+  if(mode === "category"){
+    const cat = els.selCategory.value;
+    pool = pool.filter(q=>q.category===cat);
+    state.category = cat;
+  }else if(mode === "simulado"){
+    pool = pool.filter(q=>SIMULADO_CATS.has(q.category));
+    state.category = "Simulado";
+  }else{
+    state.category = null;
+  }
 
-    const freshPoolBase = pool.filter(q=>!recentSet.has(q.id));
+  // Fallback (evita ficar sem questões)
+  if(pool.length===0){
+    if(mode === "simulado"){
+      pool = window.QUESTION_BANK.filter(q=>SIMULADO_CATS.has(q.category));
+    }else{
+      pool = window.QUESTION_BANK.slice();
+    }
+  }
+  if(pool.length===0) return [];
 
-    const maxAttempts = 3;
-    let deck = [];
+  // Chaves de anti-repetição por "perfil" (modo + dificuldade + categoria)
+  const catKey = (mode === "category") ? (els.selCategory.value || "—") : (mode === "simulado" ? "SIMULADO" : "ALL");
+  const deckKey = `${mode}|${diff}|${catKey}`;
+  const RECENT_KEY = `recent_deck_ids::${deckKey}`;
+  const LASTSIG_KEY = `last_deck_sig::${deckKey}`;
 
-    for(let attempt=0; attempt<maxAttempts; attempt++){
-      deck = [];
-      const picked = new Set();
+  // Janela de "recentes" adaptativa ao tamanho do pool (evita excluir tudo quando o pool é pequeno)
+  let recent = [];
+  try{ recent = JSON.parse(localStorage.getItem(RECENT_KEY) || "[]"); }catch(_){ recent = []; }
+  const poolLen = pool.length;
+  const maxFreshNeeded = Math.min(wantedCount, poolLen);
+  let cap = poolLen - maxFreshNeeded; // garante espaço para frescas quando possível
+  if(cap < 0) cap = 0;
+  // dá um pouco de memória quando o pool é grande, mas sem exagerar
+  cap = Math.min(cap, Math.min(120, Math.max(20, Math.floor(poolLen*0.6))));
+  if(cap === 0) recent = [];
+  const recentSet = new Set(recent.slice(0, cap));
 
-      // 1) Começa por perguntas não-recentes
-      if(freshPoolBase.length){
-        const fresh = freshPoolBase.slice();
-        shuffle(fresh);
+  function pickFromPool(source, n, picked){
+    const out = [];
+    if(n <= 0) return out;
 
-        // offset aleatório (quebra padrões em sessões longas)
-        const offset = randInt(fresh.length);
-        const rotated = fresh.slice(offset).concat(fresh.slice(0, offset));
+    // 1) frescas primeiro
+    let fresh = source.filter(q=>!recentSet.has(q.id) && !picked.has(q.id));
+    shuffle(fresh);
+    const offset = fresh.length ? randInt(fresh.length) : 0;
+    fresh = fresh.slice(offset).concat(fresh.slice(0, offset));
+    for(const q of fresh){
+      if(out.length >= n) break;
+      out.push(q); picked.add(q.id);
+    }
 
-        for(const q of rotated){
-          if(deck.length >= wantedCount) break;
-          if(picked.has(q.id)) continue;
-          deck.push(q);
-          picked.add(q.id);
-        }
+    // 2) completa com o restante
+    if(out.length < n){
+      let rest = source.filter(q=>!picked.has(q.id));
+      shuffle(rest);
+      const off2 = rest.length ? randInt(rest.length) : 0;
+      rest = rest.slice(off2).concat(rest.slice(0, off2));
+      for(const q of rest){
+        if(out.length >= n) break;
+        out.push(q); picked.add(q.id);
+      }
+    }
+    return out;
+  }
+
+  const maxAttempts = 5;
+  let deck = [];
+
+  for(let attempt=0; attempt<maxAttempts; attempt++){
+    deck = [];
+    const picked = new Set();
+
+    if(mode === "simulado"){
+      // Simulado: tenta cobrir os assuntos (distribuição balanceada)
+      const groups = [
+        {name:"Bases", cats:["Conceitos","Tipos de Rede","Topologias","Equipamentos"]},
+        {name:"TCP/IP & OSI", cats:["TCP/IP","OSI vs TCP/IP"]},
+        {name:"UDP", cats:["UDP","UDP/TCP"]},
+        {name:"NAT", cats:["NAT","CGNAT"]},
+        {name:"DHCP", cats:["DHCP"]},
+        {name:"IP Público/Privado", cats:["IP Público x Privado"]},
+        {name:"DNS", cats:["DNS"]},
+        {name:"Sub-rede", cats:["Sub-rede"]},
+        {name:"Wireless", cats:["Wireless"]},
+        {name:"Rotas/Gateway", cats:["Roteamento"]},
+      ].map(g=>({ ...g, pool: pool.filter(q=>g.cats.includes(q.category)) }))
+       .filter(g=>g.pool.length);
+
+      shuffle(groups);
+      const gCount = groups.length || 1;
+      const baseEach = Math.floor(wantedCount / gCount);
+      let rem = wantedCount % gCount;
+
+      for(const g of groups){
+        const target = baseEach + (rem>0 ? 1 : 0);
+        if(rem>0) rem--;
+        deck.push(...pickFromPool(g.pool, target, picked));
       }
 
-      // 2) Completa com o pool geral (sem repetir dentro da prova)
+      // Completa se faltou (quando algum grupo tem poucas questões)
       if(deck.length < wantedCount){
-        const rest = pool.filter(q=>!picked.has(q.id));
-        shuffle(rest);
-        for(const q of rest){
-          if(deck.length >= wantedCount) break;
-          deck.push(q);
-          picked.add(q.id);
-        }
+        deck.push(...pickFromPool(pool, wantedCount - deck.length, picked));
       }
-
-      // 3) Se o pool todo é menor que wantedCount, só devolve o que existir
-      if(deck.length > pool.length) deck = deck.slice(0, pool.length);
-
-      // Evita gerar exatamente a mesma sequência da prova anterior
-      const sig = deck.map(d=>d.id).join(',');
-      const lastSig = (localStorage.getItem("last_deck_sig") || "");
-      if(sig && sig === lastSig && attempt < maxAttempts-1){
-        // tenta novamente
-        continue;
-      }
-      try{ localStorage.setItem("last_deck_sig", sig); }catch(_){ }
-      break;
+    }else{
+      // Normal (misto / por categoria)
+      deck = pickFromPool(pool, wantedCount, picked);
     }
 
-    // Salva recentes (janela adaptativa, mantém variedade sem excluir demais)
-    try{
+    // Se o pool todo é menor que wantedCount, devolve o que existir
+    if(deck.length > pool.length) deck = deck.slice(0, pool.length);
+
+    // Para "muito fácil", garante prioridade real de very_easy dentro do que foi selecionado
+    if(diff === "very_easy"){
+      const ve = deck.filter(q=>q.difficulty==="very_easy");
+      const ez = deck.filter(q=>q.difficulty!=="very_easy");
+      shuffle(ve); shuffle(ez);
+      deck = ve.concat(ez).slice(0, deck.length);
+    }
+
+    // Embaralha ordem final das perguntas
+    shuffle(deck);
+
+    // Embaralha alternativas dentro de cada pergunta (isso reduz MUITO a sensação de repetição)
+    deck = deck.map(shuffleQuestionChoices);
+
+    // Evita gerar exatamente a mesma sequência da prova anterior (por perfil)
+    const sig = deck.map(d=>d.id + ":" + d.answer).join('|');
+    const lastSig = (localStorage.getItem(LASTSIG_KEY) || "");
+    if(sig && sig === lastSig && attempt < maxAttempts-1){
+      continue;
+    }
+    try{ localStorage.setItem(LASTSIG_KEY, sig); }catch(_){ }
+    break;
+  }
+
+  // Salva recentes (por perfil)
+  try{
+    if(cap > 0){
       const merged = deck.map(d=>d.id).concat(recent).filter(Boolean);
       const unique = Array.from(new Set(merged));
-      const cap = Math.max(60, Math.min(200, window.QUESTION_BANK.length));
-      localStorage.setItem("recent_deck_ids", JSON.stringify(unique.slice(0, cap)));
-    }catch(_){ }
+      localStorage.setItem(RECENT_KEY, JSON.stringify(unique.slice(0, cap)));
+    }
+  }catch(_){ }
 
-    return deck;
-  }
+  return deck;
+}
 
   function startGame({practice=false}={}){
     state.practice = practice;
@@ -1062,7 +1215,7 @@ async function fetchMemeByTag(perf){
 
   function pointsFor(q, secondsUsed){
     if(state.practice) return 0;
-    const base = q.difficulty==="easy" ? 10 : q.difficulty==="medium" ? 15 : 20;
+    const base = diffBasePoints(q.difficulty);
     if(!state.timerEnabled) return base;
     const ratio = Math.max(0, Math.min(1, (state.timerSeconds - secondsUsed)/state.timerSeconds));
     const bonus = Math.round(ratio*6);
@@ -1087,7 +1240,7 @@ async function fetchMemeByTag(perf){
     els.qIndex.textContent = String(i);
     els.qTotal.textContent = String(state.deck.length);
     els.qCategory.textContent = q.category;
-    els.qDifficulty.textContent = (q.difficulty==="easy"?"Fácil":q.difficulty==="medium"?"Médio":"Difícil");
+    els.qDifficulty.textContent = diffLabel(q.difficulty);
     els.qText.textContent = q.q;
 
     const labels = ["1","2","3","4"];
@@ -1483,7 +1636,7 @@ function lockAnswer(pickedIdx, timedOut){
         hits += 1;
         // Pontos iguais ao sistema anterior
         const q = { difficulty: h.difficulty };
-        const base = q.difficulty==="easy" ? 10 : q.difficulty==="medium" ? 15 : 20;
+        const base = diffBasePoints(q.difficulty);
         if(!state.practice){
           if(state.timerEnabled){
             const ratio = Math.max(0, Math.min(1, (state.timerSeconds - h.secondsUsed)/state.timerSeconds));
@@ -1540,7 +1693,7 @@ function lockAnswer(pickedIdx, timedOut){
 
     els.badgeMode.textContent = state.practice ? "Treino" : (state.mode==="category"?"Categoria":"Misto");
     els.badgeDiff.textContent = state.difficulty==="all" ? "Dificuldade: todas"
-      : `Dificuldade: ${(state.difficulty==="easy"?"Fácil":state.difficulty==="medium"?"Médio":"Difícil")}`;
+      : `Dificuldade: ${diffLabel(state.difficulty)}`;
 
     if(!state.practice){
       let newBest=false;
@@ -1670,7 +1823,7 @@ function lockAnswer(pickedIdx, timedOut){
     els.mQ.textContent = h.q;
     els.mMeta.innerHTML = `
       <span class="chip">${catIcon(h.category)} ${escapeHtml(h.category)}</span>
-      <span class="chip">🎚️ ${escapeHtml(h.difficulty)}</span>
+      <span class="chip">🎚️ ${escapeHtml(diffLabel(h.difficulty))}</span>
       <span class="chip">${(h.picked === null) ? "⏭️ Não respondida" : (h.timedOut ? "⏱️ Timeout" : "❌ Errada")}</span>
     `;
     els.mProgress.textContent = state.understood[h.id] ? "✅ Marcado como 'Entendi'" : "Marque 'Entendi' quando fixar.";
@@ -1843,7 +1996,7 @@ function lockAnswer(pickedIdx, timedOut){
             <div class="flex items-start justify-between gap-3">
               <div class="min-w-0">
                 <div class="text-sm font-extrabold leading-snug">${idx+1}. ${escapeHtml(h.q)}</div>
-                <div class="mt-1 text-xs text-white/60">${badge} • ${escapeHtml(h.category)} • ${escapeHtml(h.difficulty)}</div>
+                <div class="mt-1 text-xs text-white/60">${badge} • ${escapeHtml(h.category)} • ${escapeHtml(diffLabel(h.difficulty))}</div>
               </div>
               <div class="shrink-0 text-white/60 group-open:rotate-180 transition">⌄</div>
             </div>
@@ -2007,8 +2160,10 @@ function lockAnswer(pickedIdx, timedOut){
   loadPrefs();
   loadBest();
   updateToggleUI();
+  const bankOk = await loadQuestionBank();
+  if(!bankOk){ toast("Não consegui carregar o banco de questões (bank.json). Rode via servidor (Vite) e tente de novo."); }
   updateHomeUI();
   resizeFx();
-  try{ window.RFWave && window.RFWave.init(); }catch(_){}
+  try{ window.RFWave && window.RFWave.init(); }catch(_){ }
 
 })()

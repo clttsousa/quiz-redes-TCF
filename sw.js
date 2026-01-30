@@ -7,6 +7,17 @@ if (workbox) {
   workbox.core.clientsClaim();
   workbox.core.skipWaiting();
 
+
+// Cache de banco de questões (JSON)
+workbox.routing.registerRoute(
+  ({url, request}) => request.destination === '' && url.pathname.includes('/questions/') && url.pathname.endsWith('.json'),
+  new workbox.strategies.StaleWhileRevalidate({
+    cacheName: "quiz-tcf-questions",
+    plugins: [new workbox.expiration.ExpirationPlugin({ maxEntries: 30, maxAgeSeconds: 7*24*60*60 })]
+  })
+);
+
+
   // Cache básico de assets (html/js/css/images/audio)
   workbox.routing.registerRoute(
     ({request}) => ["document","script","style","image","font","audio"].includes(request.destination),
