@@ -45,6 +45,7 @@ export function StatsPage() {
                 setAttempts([])
               }}
               disabled={attempts.length === 0}
+              className="w-full sm:w-auto"
             >
               <Trash2 className="mr-2 h-4 w-4" /> Limpar estatísticas
             </Button>

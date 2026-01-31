@@ -87,7 +87,8 @@ export function HomePage() {
 
         <CardContent className="grid gap-6">
           <Tabs value={mode} onValueChange={(v) => setMode(v as Mode)}>
-            <TabsList className="grid w-full grid-cols-3">
+            {/* Mobile: stack tabs to avoid cramped labels; desktop keeps 3 cols */}
+            <TabsList className="grid w-full grid-cols-1 sm:grid-cols-3">
               <TabsTrigger value="prova" className="flex-1">
                 <ClipboardList className="mr-2 h-4 w-4" /> Prova
               </TabsTrigger>
@@ -258,7 +259,7 @@ export function HomePage() {
           <div className="text-xs text-muted-foreground">
             Dica: no modo Treino você vê a resposta e explicação na hora.
           </div>
-          <Button onClick={startQuiz} disabled={!canStart}>
+          <Button onClick={startQuiz} disabled={!canStart} className="w-full sm:w-auto">
             Começar
           </Button>
         </CardFooter>
