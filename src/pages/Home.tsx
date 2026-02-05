@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom'
 import { useBank } from '@/bank/BankContext'
 import { useQuiz } from '@/quiz/QuizContext'
 import type { QuizConfig } from '@/lib/types'
-import { distinctCategories } from '@/lib/bank'
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -23,10 +22,10 @@ function getLastStudy(): { id: string; title?: string } | null {
 
 export function HomePage() {
   const nav = useNavigate()
-  const { status } = useBank()
-  const { setConfig } = useQuiz()
+  const bankState = useBank()
+  const { start } = useQuiz()
 
-  const ready = status === 'ready'
+  const ready = bankState.status === 'ready'
 
   const last = useMemo(() => getLastStudy(), [])
   const [loadingText, setLoadingText] = useState('Carregando banco de questões…')
@@ -43,16 +42,16 @@ export function HomePage() {
   }, [ready])
 
   const startQuickPractice = () => {
-    // Treino rápido: 10 questões, categorias mistas, dificuldade média
-    const allCats = distinctCategories()
+    // Treino rápido: 10 questões, todas as categorias, dificuldade média
+    if (bankState.status !== 'ready') return
     const cfg: QuizConfig = {
       mode: 'treino',
       count: 10,
       difficulty: 'medium',
-      categories: allCats,
-      revealLessons: true,
+      categories: [],
+      balanced: true,
     }
-    setConfig(cfg)
+    start(cfg, bankState.bank)
     nav('/quiz')
   }
 
