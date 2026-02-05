@@ -97,6 +97,16 @@ export function StudyPage() {
     return manifest.topics.find((t) => t.slug === selectedSlug) || manifest.topics[0] || null
   }, [manifest, selectedSlug])
 
+
+  useEffect(() => {
+    if (!selected) return
+    try {
+      localStorage.setItem('study:lastTopic', JSON.stringify({ id: selected.slug, title: selected.title }))
+    } catch {
+      // ignore
+    }
+  }, [selected])
+
   useEffect(() => {
     let alive = true
     ;(async () => {

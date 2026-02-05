@@ -1,4 +1,4 @@
-# DHCP – Dynamic Host Configuration Protocol (Apostila Completa)
+# DHCP – Guia completo (DORA, lease, reservas, relay e troubleshooting)
 
 ## 🧠 Mapa mental (visão geral)
 
@@ -6,210 +6,161 @@
 
 > Use este mapa para entender o tema como um todo antes de entrar nos detalhes.
 
+## ✅ O que você vai aprender
 
-## 1. Introdução (por que DHCP é “base”)
-O **DHCP** automatiza a configuração de rede. Em vez de configurar IP manualmente em cada dispositivo, o DHCP entrega:
+- O que é DHCP e por que ele é essencial
+- Como funciona o processo DORA (com broadcast)
+- O que é lease, renovação e reserva (reservation)
+- Como DHCP Relay funciona entre VLANs
+- Como diagnosticar rápido (APIPA, pool cheio, conflitos)
+
+---
+
+## 1) Introdução (do zero)
+
+O **DHCP** (Dynamic Host Configuration Protocol) entrega automaticamente as configurações de rede para os dispositivos:
 - IP
-- máscara
-- gateway padrão
-- DNS
-- (e outras opções, conforme a rede)
-
-No suporte, DHCP aparece assim:
-- usuário “conecta” no Wi‑Fi, mas fica **Sem Internet**
-- PC pega **169.254.x.x (APIPA)**
-- “Conflito de IP”
-- “Só alguns dispositivos navegam”
-
----
-
-## 2. Conceitos fundamentais (sem pular etapas)
-- **DHCP Server**: serviço/equipamento que concede parâmetros.
-- **DHCP Client**: dispositivo que solicita.
-- **Lease**: tempo de “aluguel” do IP.
-- **Pool / Escopo (scope)**: faixa de IPs disponíveis.
-- **Reserva (reservation)**: IP fixo associado a um **MAC Address**.
-- **Opções DHCP**: parâmetros extras (DNS, domínio, NTP, rota, etc.).
-- **APIPA**: fallback automático 169.254.0.0/16 quando não consegue DHCP.
-
-### Portas (IPv4)
-- **UDP 67** (servidor)
-- **UDP 68** (cliente)
-
-📌 Glossário rápido:
-- **broadcast**: mensagem para “todos na LAN” (porque o cliente ainda não sabe quem é o servidor).
-- **unicast**: mensagem direta para um destino específico.
-
----
-
-## 3. Processo DORA (passo a passo, com o “porquê”)
-![Fluxo DHCP – DORA](/study/images/dhcp-dora.svg)
-
-1) **Discover (broadcast)**  
-O cliente “grita” na rede: “Existe servidor DHCP aí?”
-- Por que broadcast? Porque o cliente ainda não tem IP e não sabe o IP do servidor.
-
-2) **Offer**  
-O servidor oferece:
-- um IP disponível
 - máscara
 - gateway
 - DNS
-- tempo de lease
+- tempo de concessão (lease)
 
-3) **Request**  
-O cliente escolhe uma oferta e pede formalmente.
+Sem DHCP, a equipe teria que configurar tudo manualmente. Em suporte, DHCP é **um dos maiores causadores de “sem internet”**.
 
-4) **ACK**  
-O servidor confirma e “aluga” aquele IP pelo tempo definido.
+## 2) Conceitos fundamentais
 
-✅ Se houver erro, pode ocorrer **NAK** (negação).
+### DHCP Server x Client
+Servidor concede configurações; cliente solicita. Normalmente o roteador ou um servidor Windows/Linux faz o papel de servidor.
 
----
+### Lease (concessão)
+É o ‘aluguel’ do IP. Expira e pode ser renovado automaticamente.
 
-## 4. O que o DHCP entrega (opções mais comuns)
-Além do IP, as opções mais relevantes para suporte:
-- **Option 1**: máscara
-- **Option 3**: gateway
-- **Option 6**: DNS
-- **Option 15**: sufixo de domínio (ex.: empresa.local)
-- **Lease time**: tempo de validade
+### Reserva (Reservation)
+IP fixo para um dispositivo específico (amarrado ao MAC). Útil para impressoras, servidores, PDV.
 
-Em ambientes corporativos, podem existir opções para:
-- servidores NTP
-- proxy/WPAD
-- rotas específicas
+### Portas e protocolo
+DHCP usa **UDP 67 (server)** e **UDP 68 (client)**.
 
 ---
 
-## 5. Renovação (T1/T2) – o “depois do DORA”
-Muita gente aprende DORA e para por aí. Mas em suporte, o “tempo” é crucial.
+## 3) Como funciona (passo a passo)
 
-- **T1 (renovação)**: o cliente tenta renovar com o mesmo servidor (geralmente unicast).
-- **T2 (rebinding)**: se falhar, tenta renovar com qualquer servidor DHCP.
+![Diagrama – dhcp](/study/images/dhcp-dora.svg)
 
-Se o lease expira e o cliente não renova:
-- ele pode perder conectividade (principalmente em redes com controle rígido)
+![Diagrama – dhcp](/study/images/dhcp-relay.svg)
 
----
+![Diagrama – dhcp](/study/images/dhcp-mapa-mental.svg)
 
-## 6. DHCP Relay (quando há mais de uma rede)
-Broadcast não atravessa roteadores. Então, se o servidor DHCP está em outra rede/VLAN, você precisa de **DHCP Relay**.
+### Processo DORA (passo a passo)
+1. **Discover** (broadcast): “Existe DHCP aí?”
+2. **Offer**: “Tenho o IP X disponível”
+3. **Request**: “Quero o IP X”
+4. **ACK**: “Confirmado. Aqui estão IP/máscara/gateway/DNS”
 
-![DHCP Relay – visão geral](/study/images/dhcp-relay.svg)
-
-Exemplo típico:
-- Clientes na VLAN 20
-- Servidor DHCP na VLAN 10
-- O roteador/switch L3 faz relay (`ip helper-address`)
-
-No suporte, relay mal configurado gera:
-- clientes na VLAN “sem IP”
-- APIPA
-- reclamação “só esse andar não pega rede”
+Depois, o cliente renova antes de expirar:
+- **T1** (renovação com o mesmo servidor)
+- **T2** (tentativa com outros servidores, se necessário)
 
 ---
 
-## 7. Cenários de suporte (bem reais)
-### 7.1 IP 169.254.x.x (APIPA)
-**Causa provável:** não recebeu resposta DHCP.
-**Confirme:** `ipconfig /all` mostra Autoconfiguração IPv4.
+## 4) Exemplos reais no Suporte (cenários)
 
-Checklist:
-- cabo/Wi‑Fi ok?
-- SSID correto?
-- VLAN correta no switch/AP?
-- pool de IP acabou?
-- serviço DHCP ativo?
-- relay está configurado?
+### IP 169.254.x.x (APIPA)
+**Sintoma:** PC pega IP automático 169.254 e não navega.
 
-### 7.2 Pool esgotado
-Sintomas:
-- novos dispositivos não pegam IP
-- rede “funciona para uns e não para outros”
+**O que isso indica:** DHCP não respondeu (cabo/VLAN/servidor/pool).
 
-Soluções:
-- aumentar o pool
-- reduzir lease (com cuidado)
-- remover leases “fantasmas”
+**Como confirmar:**
+- ipconfig /all (ver DHCP habilitado)
+- Testar cabo/porta
+- Testar outro dispositivo na mesma tomada
 
-### 7.3 IP duplicado
-Causas comuns:
-- alguém configurou IP manual dentro do pool
-- reserva mal planejada
+**Como resolver:**
+- Verificar servidor DHCP/roteador
+- Checar se pool está cheio
+- Se houver VLANs, verificar relay
 
-Boa prática:
-- separar uma faixa para IP fixo fora do pool
-- usar reservas no DHCP para equipamentos que precisam “IP fixo”
+### Dispositivo ‘pega IP’, mas sem navegar
+**Sintoma:** Tem IP, mas sites não abrem.
+
+**O que isso indica:** DNS/gateway incorreto entregue pelo DHCP.
+
+**Como confirmar:**
+- Ver gateway e DNS no ipconfig /all
+- Ping gateway
+- Ping 1.1.1.1
+- nslookup
+
+**Como resolver:**
+- Corrigir opções do DHCP (gateway/DNS)
+- Reiniciar lease (release/renew)
+- Padronizar DNS correto
+
 
 ---
 
-## 8. Troubleshooting com comandos (Windows e Linux)
-Windows:
+## 5) Troubleshooting (checklist profissional)
+
+### Checklist DHCP (ordem de diagnóstico)
+1. **IP**: o cliente recebeu IP válido da rede?
+2. **Gateway e DNS**: vieram corretos?
+3. **Pool**: há IPs disponíveis?
+4. **Conflito**: há IP duplicado?
+5. **VLAN/Relay**: o broadcast está chegando ao servidor?
+
+### Comandos úteis (Windows)
 ```bash
 ipconfig /all
 ipconfig /release
 ipconfig /renew
+ipconfig /flushdns
 ```
 
-Linux:
-```bash
-ip a
-sudo dhclient -r
-sudo dhclient
-```
+Dica: se **vários clientes** estão com APIPA ao mesmo tempo, pense no **servidor DHCP** ou no **switch/VLAN**.
 
-Dicas:
-- `ipconfig /renew` ajuda a “forçar” o processo.
-- `ipconfig /all` mostra se o DNS/gateway veio via DHCP.
+## 6) Conexões com outros temas
+
+- DHCP entrega DNS (ver **DNS**)
+- DHCP entrega gateway/rota padrão (ver **Rotas e Gateway**)
+- Problemas de Wi‑Fi também afetam DHCP (ver **Wireless**)
 
 ---
 
-## 9. Segurança (nível suporte: o que você precisa saber)
-Em redes corporativas, pode existir:
-- **DHCP Snooping** (switch bloqueia DHCP “falso”)
-- **Port Security** (limita MACs por porta)
-- **802.1X** (controle de acesso por autenticação)
+## 7) Detalhe técnico (opcional)
 
-Sintomas:
-- usuário conecta mas não ganha IP
-- só funciona após autenticar
-- somente alguns dispositivos passam
+**Por que o Discover é broadcast?**  
+Porque o cliente ainda não sabe **qual** é o servidor DHCP e ainda pode estar sem IP. O broadcast garante que a mensagem chegue a todos no segmento.
+
+**DHCP Relay** é necessário quando o cliente e o servidor estão em **redes/VLANs diferentes**, pois broadcast não atravessa roteador.
 
 ---
 
-## 10. Pegadinhas de prova (e confusões comuns)
-- DHCP usa TCP? ❌ Não, usa UDP.
-- IP automático = DHCP? ❌ Pode ser APIPA.
-- DHCP sempre atravessa roteador? ❌ Precisa de relay.
-- Trocar DNS “resolve internet”? Às vezes sim, mas não corrige gateway errado.
+## 8) O que mais cai em prova (pegadinhas)
 
----
+- DHCP usa UDP, não TCP
+- APIPA (169.254) indica falta de DHCP, não ‘internet fora’ diretamente
+- Broadcast não atravessa roteador sem DHCP Relay
 
-## 11. Leituras (PT‑BR)
-- Microsoft Learn – noções básicas de DHCP: https://learn.microsoft.com/pt-br/windows-server/troubleshoot/dynamic-host-configuration-protocol-basics
-- Material didático (PDF DHCP): https://www.lsi.usp.br/~penasio/cursos/adm_redes/aula_DHCP.pdf
+## ✅ Checklist final (domínio do tema)
 
----
+- [ ] Sei explicar DHCP e o que ele entrega
+- [ ] Sei descrever DORA e por que há broadcast
+- [ ] Sei reconhecer APIPA (169.254) como falta de DHCP
+- [ ] Sei quando preciso de DHCP Relay (VLANs diferentes)
+- [ ] Sei checar pool/lease/reserva e resolver conflitos
 
-## 12. Treino
-Depois de estudar, treine questões de **DHCP** (DORA, portas, relay, APIPA e cenários).
-
-## 🎥 Vídeos (PT‑BR)
-
-### DHCP essencial (PT‑BR)
-
+## 🎥 Vídeos (PT-BR)
+### Vídeo rápido
 ```youtube
 T6DfFgFOKm4
 ```
-
-Link: https://www.youtube.com/watch?v=T6DfFgFOKm4
-
-### Como funciona o DHCP (PT‑BR)
-
+### Aula mais completa
 ```youtube
 EES4_1dI3is
 ```
 
-Link: https://www.youtube.com/watch?v=EES4_1dI3is
+## 📚 Leituras e referências (PT-BR)
 
+- Microsoft Learn (DHCP – PT-BR): https://learn.microsoft.com/pt-br/windows-server/networking/technologies/dhcp/dhcp-top
+- Cloudflare – O que é DHCP? (PT-BR): https://www.cloudflare.com/pt-br/learning/network-layer/what-is-dhcp/
+- Wikipedia PT – DHCP: https://pt.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol

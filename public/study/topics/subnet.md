@@ -1,4 +1,4 @@
-# Máscara de Sub-rede – Conceito, Cálculo e Exemplos
+# Máscara de Sub-rede – Apostila completa (CIDR, cálculo de hosts e prática)
 
 ## 🧠 Mapa mental (visão geral)
 
@@ -6,124 +6,147 @@
 
 > Use este mapa para entender o tema como um todo antes de entrar nos detalhes.
 
+## ✅ O que você vai aprender
 
-## 1. Por que existe máscara de sub-rede?
-A máscara (ou prefixo **/24**, **/26** etc.) define:
-- qual parte do IP é **rede**
-- qual parte do IP é **host**
-
-Isso permite dividir uma rede grande em redes menores (sub-redes), por exemplo:
-- separar setores (TI, Financeiro, Visitantes)
-- melhorar organização e segurança
-- reduzir broadcast
+- Para que serve máscara de sub-rede (o porquê, não só definição)
+- Entender CIDR (/24, /26, /30) sem decorar
+- Calcular quantos hosts cabem em uma sub-rede
+- Identificar endereço de rede e broadcast
+- Usar subnetting no suporte (planejamento e troubleshooting)
 
 ---
 
-## 2. Conceitos básicos (sem pular etapa)
-- **Rede**: “bairro” onde os dispositivos estão.
-- **Host**: “casa” (dispositivo) dentro do bairro.
-- **Network address**: primeiro endereço da rede (não é usado por host)
-- **Broadcast address**: último endereço da rede (mensagem para todos)
-- **Gateway**: roteador dentro da rede (normalmente o .1)
+## 1) Introdução (do zero)
+
+Máscara de sub-rede define **quem está na mesma rede** e quem está “fora” (precisa ir pelo gateway).
+Ela é fundamental para:
+- separar redes (departamentos, VLANs)
+- controlar broadcast
+- planejar endereçamento
+- evitar conflitos
+
+No suporte, máscara errada causa: “tenho IP, mas não acesso o servidor”.
+
+## 2) Conceitos fundamentais
+
+### CIDR (ex.: /24)
+É a forma curta de escrever quantos bits pertencem à rede. /24 significa 24 bits de rede e 8 bits para hosts (em IPv4).
+
+### Endereço de rede
+Primeiro endereço do bloco (identifica a sub-rede).
+
+### Broadcast
+Último endereço do bloco (envia para todos os hosts da sub-rede).
+
+### Hosts úteis
+Em IPv4 tradicional, não usamos o endereço de rede e broadcast para hosts (regra clássica).
 
 ---
 
-## 3. Notação /24, /26… (como ler)
-O número após a barra é quantos bits são “rede”.
+## 3) Como funciona (passo a passo)
+
+![Diagrama – subnet](/study/images/subnet-visual.svg)
+
+![Diagrama – subnet](/study/images/subnet-map.svg)
+
+### Como pensar (passo a passo)
+1. IP + máscara definem o **bloco** (sub-rede)
+2. Se destino está no mesmo bloco → envia direto (sem gateway)
+3. Se destino está fora → envia para o **gateway padrão**
+
+**Exemplo comum:**  
+PC 192.168.1.50/24 enxerga 192.168.1.10 direto, mas para 192.168.2.10 precisa do gateway.
+
+---
+
+## 4) Exemplos reais no Suporte (cenários)
+
+### Tem IP, mas não acessa servidor na mesma faixa
+**Sintoma:** PC e servidor parecem ‘no mesmo 192.168.1.x’, mas não se enxergam.
+
+**O que isso indica:** Máscara diferente (um /24 e outro /25, por exemplo).
+
+**Como confirmar:**
+- Comparar IP/máscara dos dois lados
+- Testar ping
+- Checar gateway
+
+**Como resolver:**
+- Padronizar máscara correta via DHCP
+- Ajustar IPs para mesma sub-rede real
+
+### Rede saturada com muitos broadcasts
+**Sintoma:** Lentidão geral, muitas quedas.
+
+**O que isso indica:** Sub-rede grande demais para o ambiente (broadcast domain enorme).
+
+**Como confirmar:**
+- Ver tamanho do /xx
+- Analisar tráfego se possível
+- Checar número de dispositivos
+
+**Como resolver:**
+- Segmentar em sub-redes menores
+- Usar VLANs
+- Planejar DHCP por escopo
+
+
+---
+
+## 5) Troubleshooting (checklist profissional)
+
+### Checklist de sub-rede
+1. IP, máscara, gateway estão coerentes?
+2. O destino está na mesma rede? (mesmo bloco)
+3. Se não, o gateway responde?
+4. Há conflito de IP?
+
+Dica: problemas de sub-rede se parecem com “cabo ruim”, mas são configuração.
+
+## 6) Conexões com outros temas
+
+- DHCP entrega máscara e gateway (ver **DHCP**)
+- Roteamento depende da rede correta (ver **Rotas e Gateway**)
+- Conceito de broadcast também aparece em DHCP (ver **DHCP**)
+
+---
+
+## 7) Detalhe técnico (opcional)
+
+**Regra rápida para número de hosts (IPv4):**  
+Hosts = 2^(bits de host) – 2
 
 Exemplos:
-- **/24** → 24 bits de rede, 8 bits de host (255.255.255.0)
-- **/26** → 26 bits rede, 6 bits host (255.255.255.192)
-- **/30** → muito comum em links ponto-a-ponto
+- /24 → bits host = 8 → 2^8 – 2 = 254 hosts
+- /26 → bits host = 6 → 62 hosts
+- /30 → bits host = 2 → 2 hosts (muito usado em links ponto‑a‑ponto)
 
 ---
 
-## 4. Quantos hosts cabem? (fórmula)
-Hosts = **2^(bits de host) − 2**
+## 8) O que mais cai em prova (pegadinhas)
 
-Por que “−2”?
-- 1 é o endereço de rede
-- 1 é o broadcast
+- /30 costuma ser usado para links ponto-a-ponto (2 hosts)
+- Máscara errada pode impedir acesso mesmo com IP ‘parecido’
+- Broadcast é o último IP do bloco
 
-Exemplos:
-- /24 → 8 bits host → 2^8 − 2 = 256 − 2 = **254**
-- /26 → 6 bits host → 64 − 2 = **62**
-- /30 → 2 bits host → 4 − 2 = **2**
+## ✅ Checklist final (domínio do tema)
 
----
+- [ ] Consigo explicar o que a máscara faz (quem é rede e quem é host)
+- [ ] Sei calcular hosts para /24, /26, /30
+- [ ] Sei identificar rede e broadcast de um bloco simples
+- [ ] Sei reconhecer sintomas de máscara/gateway errado no suporte
 
-## 5. Visual rápido (para memorizar)
-![Subnet visual](/study/images/subnet-visual.svg)
-
-| Prefixo | Máscara | Hosts úteis |
-|---|---|---|
-| /24 | 255.255.255.0 | 254 |
-| /25 | 255.255.255.128 | 126 |
-| /26 | 255.255.255.192 | 62 |
-| /27 | 255.255.255.224 | 30 |
-| /28 | 255.255.255.240 | 14 |
-| /29 | 255.255.255.248 | 6 |
-| /30 | 255.255.255.252 | 2 |
-
----
-
-## 6. Exemplo completo (muito didático)
-Rede: **192.168.10.0/26**
-
-- /26 → máscara 255.255.255.192
-- Tamanho do bloco: 64 (porque 256/4 = 64)
-Sub-redes:
-- 192.168.10.0 – 192.168.10.63
-- 192.168.10.64 – 192.168.10.127
-- 192.168.10.128 – 192.168.10.191
-- 192.168.10.192 – 192.168.10.255
-
-Para a primeira sub-rede:
-- Network: 192.168.10.0
-- Hosts: 192.168.10.1 até 192.168.10.62
-- Broadcast: 192.168.10.63
-
----
-
-## 7. Como isso aparece no suporte
-### Sintoma: “Não enxerga o servidor, mas está na rede”
-Causa comum: máscara errada.
-- PC com /24 tentando falar com rede que exige /26, ou vice-versa.
-
-Teste:
-- conferir IP/máscara/gateway com `ipconfig /all`
-- comparar com a regra da rede
-
----
-
-## 8. Pegadinhas
-- /24 não é “padrão universal”; depende do ambiente.
-- Máscara errada pode deixar a internet funcionar e a intranet não (ou o contrário).
-
----
-
-## 9. Referências (PT‑BR)
-- NIC.br – materiais de redes: https://www.nic.br
-- Apostila Sub-redes (PT‑BR): https://www.teleco.com.br/tutoriais/tutorialsubrede/
-
----
-
-
-## 🎥 Vídeos (PT‑BR)
-
-### Subnetting – didático
-
+## 🎥 Vídeos (PT-BR)
+### Vídeo rápido
 ```youtube
 XjYmTzZzGi8
 ```
-
-Link: https://www.youtube.com/watch?v=XjYmTzZzGi8
-
-### Subnetting – exercícios
-
+### Aula mais completa
 ```youtube
 CKBWCaiZrsw
 ```
 
-Link: https://www.youtube.com/watch?v=CKBWCaiZrsw
+## 📚 Leituras e referências (PT-BR)
 
+- Cloudflare – O que é subnet? (PT-BR): https://www.cloudflare.com/pt-br/learning/network-layer/what-is-a-subnet/
+- Wikipedia PT – Sub-rede: https://pt.wikipedia.org/wiki/Sub-rede

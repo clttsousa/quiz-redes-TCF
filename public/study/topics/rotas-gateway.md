@@ -1,4 +1,4 @@
-# Criação de Rotas e Gateways – Conceitos e Boas Práticas
+# Rotas e Gateway – Roteamento correto (estático x dinâmico) para suporte
 
 ## 🧠 Mapa mental (visão geral)
 
@@ -6,121 +6,145 @@
 
 > Use este mapa para entender o tema como um todo antes de entrar nos detalhes.
 
+## ✅ O que você vai aprender
 
-## 1. Gateway padrão (o conceito que resolve 80% dos casos)
-O **gateway padrão** é o endereço do roteador usado quando o dispositivo precisa falar com **outra rede** (fora da sua sub-rede).
-Na prática, é a “porta de saída” do seu bairro.
-
-Exemplo:
-- PC: 192.168.1.50/24  
-- Gateway: 192.168.1.1  
-- Internet: fora da rede 192.168.1.0/24 → então o PC envia para o gateway.
-
-Se o gateway estiver errado, acontece isso:
-- o PC fala com a **LAN** (impressora, colegas) ✅
-- mas não fala com redes externas/internet ❌
+- O que é gateway padrão e por que ele é vital
+- Diferença entre rota estática e dinâmica (sem complicar)
+- Como um roteador decide para onde enviar pacotes
+- Diagnóstico de ‘não alcança outra rede’ (tracert, gateway, rota)
 
 ---
 
-## 2. Rotas (routing table) – como o roteador decide o caminho
-Roteadores mantêm uma **tabela de rotas**. Cada rota possui:
-- **destino** (rede/prefixo, ex.: 10.10.0.0/16)
-- **next hop** (próximo salto) ou **interface**
-- **métrica** (preferência)
+## 1) Introdução (do zero)
 
-Regra principal:
-- **a rota mais específica vence** (maior prefixo, ex.: /24 vence /16).
+Gateway padrão é o “próximo salto” que o dispositivo usa para falar com **outras redes**.
+Sem gateway, o PC só conversa com quem está na **mesma sub-rede**.
 
----
+No suporte, muitos casos de “tenho IP, mas não acesso X” são gateway/rota.
 
-## 3. Rotas estáticas x dinâmicas (na linguagem do suporte)
-### Rotas estáticas
-Configuradas manualmente.
-- bom para ambientes pequenos
-- exige manutenção (se mudar algo, tem que alterar)
+## 2) Conceitos fundamentais
 
-### Rotas dinâmicas
-Aprendidas via protocolos (OSPF/BGP/RIP).
-- comum em redes grandes (core/operadora)
-- adapta a falhas melhor
+### Gateway padrão
+Endereço do roteador na sua rede. É para onde vão pacotes destinados fora da sub-rede.
 
-No suporte interno, você geralmente:
-- valida o gateway do usuário
-- valida se existe rota no firewall/roteador
-- valida se a VPN adicionou rotas corretas (split tunnel)
+### Rota
+Regra dizendo: para alcançar a rede X, envie para o próximo salto Y.
+
+### Rota estática
+Configurada manualmente. Simples e previsível.
+
+### Rota dinâmica
+Aprendida via protocolo (ex.: OSPF, BGP) – mais comum em redes grandes.
 
 ---
 
-## 4. Rota padrão (default route)
-Quando um equipamento não tem rota específica para um destino, ele usa a **rota padrão**:
-- IPv4: **0.0.0.0/0**
-- IPv6: **::/0**
+## 3) Como funciona (passo a passo)
 
-Em redes corporativas, a rota padrão normalmente aponta para:
-- firewall/edge router
-- link com a operadora
+![Diagrama – rotas-gateway](/study/images/routing-gateway.svg)
 
----
+### Como o roteamento decide (visão simples)
+1. Verifica se o destino está na mesma rede (IP+máscara)
+2. Se estiver: envia direto
+3. Se não estiver: envia ao **gateway**
+4. O roteador consulta tabela de rotas e encaminha para o próximo salto
 
-## 5. Exemplos práticos (para fixar)
-### Exemplo A: usuário acessa um sistema em outra rede
-- Rede do usuário: 192.168.10.0/24
-- Servidor: 10.20.0.10/16
-
-Para funcionar, precisa:
-- gateway correto no PC
-- rota no roteador/firewall para 10.20.0.0/16
-- retorno (rota de volta) também correto
-
-### Exemplo B: problema de assimetria
-O tráfego “vai por um caminho e volta por outro”.
-Pode causar falha intermitente (especialmente com firewalls stateful).
+Por isso máscara e gateway corretos são essenciais.
 
 ---
 
-## 6. Troubleshooting (roteiro do suporte)
-1. Conferir IP/máscara/gateway: `ipconfig /all`
-2. Testar gateway: `ping <gateway>`
-3. Testar rota:
-   - `tracert <destino>` (Windows)
-   - `traceroute <destino>` (Linux/macOS)
-4. Se parar no gateway → problema após o gateway (rota/firewall)
-5. Se nem chega no gateway → problema local (Wi‑Fi/cabo/VLAN)
+## 4) Exemplos reais no Suporte (cenários)
 
-Windows:
+### Acessa internet, mas não acessa rede da empresa (VPN)
+**Sintoma:** Sites abrem, mas servidor interno não.
+
+**O que isso indica:** Rota para rede interna não existe ou VPN não empurrou rotas.
+
+**Como confirmar:**
+- Verificar status da VPN
+- tracert para IP interno
+- Ver rotas (se aplicável)
+
+**Como resolver:**
+- Reconectar VPN
+- Ajustar perfil da VPN para enviar rotas
+- Validar gateway e DNS interno
+
+### Tem IP e DNS ok, mas não alcança outra sub-rede
+**Sintoma:** A rede local funciona, mas outra rede interna não responde.
+
+**O que isso indica:** Falta de rota no roteador ou gateway errado.
+
+**Como confirmar:**
+- Ping gateway
+- tracert destino
+- Checar tabela de rotas no roteador (se possível)
+
+**Como resolver:**
+- Adicionar rota estática correta
+- Corrigir gateway entregue via DHCP
+- Ajustar VLAN/roteamento entre redes
+
+
+---
+
+## 5) Troubleshooting (checklist profissional)
+
+### Checklist de rotas/gateway
+1. O cliente tem gateway padrão?
+2. O gateway responde?
+3. O destino está na mesma sub-rede?
+4. Se não, o caminho (tracert) morre onde?
+5. Há firewall bloqueando?
+
+### Comandos úteis (Windows)
 ```bash
-route print
-tracert 10.20.0.10
+ipconfig /all
+ping <gateway>
+tracert <destino>
 ```
 
+## 6) Conexões com outros temas
+
+- Gateway vem do DHCP (ver **DHCP**)
+- Máscara define se vai direto ou via gateway (ver **Sub-rede**)
+- NAT/CGNAT afeta tráfego de saída (ver **NAT/CGNAT**)
+
 ---
 
-## 7. Pegadinhas
-- “Não abre site” nem sempre é rota — pode ser DNS.
-- Gateway correto não resolve se o firewall bloquear a porta.
-- VPN split tunnel pode criar “meio acesso” (alguns sistemas funcionam, outros não).
+## 7) Detalhe técnico (opcional)
+
+**Tracert/Traceroute** mostra o caminho (saltos) até o destino.
+- Se para no primeiro salto → problema no gateway local
+- Se sai do gateway mas não chega → problema de rota/ISP/firewall
+
+Em ambientes corporativos, rotas estáticas são comuns para redes específicas (VPN, filiais).
 
 ---
 
-## 8. Referências (PT‑BR)
-- Cisco Community BR – roteamento estático x dinâmico: https://community.cisco.com/t5/blogues-de-routing-switching/roteamento-est%C3%A1tico-vs-roteamento-din%C3%A2mico-qual-%C3%A9-o-melhor/ba-p/5051566
-- Teleco – roteamento (PT‑BR): https://www.teleco.com.br/tutoriais/tutorialrotas.asp
+## 8) O que mais cai em prova (pegadinhas)
 
-## 🎥 Vídeos (PT‑BR)
+- Sem gateway você não sai da sub-rede
+- Rota estática é manual; dinâmica depende de protocolo
+- Máscara errada pode fazer o PC ‘achar’ que o destino é local
 
-### Roteamento estático e dinâmico
+## ✅ Checklist final (domínio do tema)
 
+- [ ] Sei explicar o que é gateway padrão
+- [ ] Entendo diferença entre rota estática e dinâmica
+- [ ] Consigo usar tracert para diagnosticar o caminho
+- [ ] Sei reconhecer quando o destino está fora da sub-rede
+
+## 🎥 Vídeos (PT-BR)
+### Vídeo rápido
 ```youtube
 NMQCcXG8TAU
 ```
-
-Link: https://www.youtube.com/watch?v=NMQCcXG8TAU
-
-### Gateway e rota padrão
-
+### Aula mais completa
 ```youtube
 HhJSNEhiqEA
 ```
 
-Link: https://www.youtube.com/watch?v=HhJSNEhiqEA
+## 📚 Leituras e referências (PT-BR)
 
+- Cloudflare – O que é roteamento? (PT-BR): https://www.cloudflare.com/pt-br/learning/network-layer/what-is-routing/
+- Wikipedia PT – Roteamento: https://pt.wikipedia.org/wiki/Roteamento

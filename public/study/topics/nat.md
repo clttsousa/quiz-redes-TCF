@@ -1,4 +1,4 @@
-# NAT – Network Address Translation (Static, Dynamic, Masquerade/PAT)
+# NAT – Static, Dynamic, Masquerade/PAT e CGNAT (na prática)
 
 ## 🧠 Mapa mental (visão geral)
 
@@ -6,117 +6,147 @@
 
 > Use este mapa para entender o tema como um todo antes de entrar nos detalhes.
 
+## ✅ O que você vai aprender
 
-## 1. O que é NAT (em português simples)
-**NAT** é uma técnica usada em roteadores/firewalls para **traduzir** um endereço IP para outro.
-Na prática, é como “re-etiquetar” o remetente/destinatário para permitir que muitos dispositivos privados acessem a internet usando poucos IPs públicos.
-
-Por que isso é importante no suporte?
-- Quase toda rede doméstica/empresa usa NAT.
-- Muitos problemas de acesso externo (porta, servidor, câmera) envolvem NAT.
+- O que é NAT e por que ele existe
+- Diferença entre Static NAT, Dynamic NAT e Masquerade/PAT
+- O que é CGNAT e por que afeta portas e acesso remoto
+- Como diagnosticar problemas típicos (portas, jogos, câmeras, VPN)
 
 ---
 
-## 2. Por que o NAT existe?
-O IPv4 tem poucos endereços disponíveis. Para “caber” todo mundo na internet:
-- Redes internas usam **IP privado**
-- A borda usa **IP público**
-- NAT faz a tradução entre eles
+## 1) Introdução (do zero)
+
+**NAT** (Network Address Translation) é a técnica usada para permitir que muitos dispositivos com **IP privado** acessem a internet usando um ou poucos **IPs públicos**.
+
+No suporte, NAT aparece muito quando:
+- “jogo não abre portas”
+- “câmera não acessa de fora”
+- “VPN não conecta”
+- “cliente está em CGNAT”
+
+## 2) Conceitos fundamentais
+
+### IP privado x público
+Privado é usado dentro da rede; público é roteável na internet.
+
+### NAT (conceito)
+Tradução entre IP privado ↔ IP público na borda da rede.
+
+### PAT/Masquerade
+Variação do NAT que também traduz **portas**, permitindo muitos clientes compartilharem 1 IP público.
+
+### CGNAT
+NAT feito pelo provedor (Carrier Grade). O cliente não recebe IP público direto.
 
 ---
 
-## 3. Tipos de NAT (o que prova costuma cobrar)
-![NAT básico](/study/images/nat-basico.svg)
+## 3) Como funciona (passo a passo)
 
-### 3.1 Static NAT (1:1)
-Um IP privado sempre vira o mesmo IP público.
-- Uso: publicar servidor interno com IP público fixo (menos comum hoje).
+![Diagrama – nat](/study/images/nat-basico.svg)
 
-### 3.2 Dynamic NAT (pool)
-Vários IPs públicos disponíveis, atribuídos dinamicamente.
-- Uso: empresas com bloco pequeno de públicos.
+![Diagrama – nat](/study/images/nat-pat-flow.svg)
 
-### 3.3 Masquerade / PAT (muitos:1)
-Também chamado de **NAT Overload**.
-Vários IPs privados compartilham **um IP público**, diferenciando conexões por **porta**.
-- É o padrão em roteadores domésticos.
+### Fluxo típico (internet residencial)
+1. Dispositivo usa IP privado (ex.: 192.168.0.10)
+2. Roteador faz NAT/PAT para um IP público (ex.: 200.x.x.x)
+3. A internet responde para o IP público/porta
+4. O roteador “desfaz” a tradução e entrega ao dispositivo correto
 
-📌 Termo-chave: PAT = Port Address Translation.
+**Por que isso importa?**  
+Sem “entrada” configurada (port forwarding), conexões iniciadas de fora geralmente não chegam no dispositivo interno.
 
 ---
 
-## 4. NAT no dia a dia (exemplo real)
-Rede interna:
-- PC: 192.168.1.10
-- Roteador LAN: 192.168.1.1
-- IP público no roteador: 200.200.200.10
+## 4) Exemplos reais no Suporte (cenários)
 
-Quando o PC acessa um site:
-- Origem interna: 192.168.1.10:52344
-- NAT/PAT traduz para: 200.200.200.10:40001
-- O retorno vem para 200.200.200.10:40001, e o roteador “desfaz” o NAT e entrega ao PC.
+### Câmera/DVR não acessa de fora
+**Sintoma:** Acesso local ok, remoto não funciona.
+
+**O que isso indica:** Falta port forwarding ou cliente está em CGNAT.
+
+**Como confirmar:**
+- Verificar IP WAN do roteador (é público?)
+- Comparar com IP mostrado em sites 'meu ip'
+- Testar portas em ferramenta externa
+
+**Como resolver:**
+- Se IP público: configurar port forwarding/UPnP com cuidado
+- Se CGNAT: solicitar IP público ao provedor ou usar solução cloud/P2P
+
+### Jogo online com NAT ‘Strict’
+**Sintoma:** Matchmaking ruim, voz falha, não hospeda sala.
+
+**O que isso indica:** Portas bloqueadas/CGNAT/UPnP desligado.
+
+**Como confirmar:**
+- Checar se há CGNAT
+- Ver se UPnP está habilitado (quando apropriado)
+- Verificar firewall do roteador/PC
+
+**Como resolver:**
+- Configurar port forwarding (se IP público)
+- Habilitar UPnP com cautela
+- Se CGNAT: IP público ou VPN/solução do jogo
+
 
 ---
 
-## 5. NAT e publicação de serviços (port forwarding)
-Se você precisa acessar algo de fora (câmera, servidor, RDP), usa:
-- **Port Forwarding**: encaminha porta do IP público para IP privado
+## 5) Troubleshooting (checklist profissional)
 
-Exemplo:
-- 200.200.200.10:3389 → 192.168.1.50:3389
+### Checklist NAT/CGNAT
+1. Cliente tem **IP público na WAN** do roteador?
+2. IP público mudou (dinâmico)? (DDNS pode ajudar)
+3. Há **duplo NAT** (roteador atrás de roteador)?
+4. Portas necessárias estão liberadas/encaminhadas?
+5. Firewall bloqueando?
 
-⚠️ No suporte, atenção a:
-- IP do servidor precisa ser fixo (ou reserva DHCP)
-- firewall local e do roteador
-- CGNAT (pode impedir acesso externo)
+**Duplo NAT** é muito comum quando:
+- modem do provedor está em modo router + roteador próprio atrás.
 
----
+## 6) Conexões com outros temas
 
-## 6. Problemas comuns no suporte
-### “Internet funciona, mas não consigo acessar de fora”
-- Possível CGNAT
-- Port forwarding errado
-- IP interno mudou
-- Porta bloqueada pelo provedor/firewall
-
-### “Alguns serviços não funcionam (jogos, VoIP)”
-- NAT restritivo
-- UPnP desativado (depende do cenário)
-- Double NAT (dois roteadores fazendo NAT)
+- IP público x privado é base (ver **IP Público x Privado**)
+- Roteamento/gateway influencia tráfego de saída (ver **Rotas e Gateway**)
+- DNS pode mascarar problema de NAT (ex.: acesso por nome vs IP) (ver **DNS**)
 
 ---
 
-## 7. Troubleshooting (passo a passo)
-1. Confirmar IP WAN do roteador (é público mesmo?)
-2. Verificar se há **double NAT** (modem+roteador)
-3. Testar porta externamente
-4. Verificar firewall e regras
-5. Checar se o serviço está escutando na porta correta (no servidor interno)
+## 7) Detalhe técnico (opcional)
+
+**Modelo mental:**  
+- NAT é como “recepção do prédio”: todos lá dentro (IPs privados) saem para a rua (internet) usando um endereço externo do prédio (IP público).  
+- Com **PAT**, a recepção usa “ramais” (portas) para diferenciar quem pediu o quê.
+
+Em **CGNAT**, o “prédio” é do provedor: vários clientes diferentes compartilham IP público.
 
 ---
 
-## 8. Referências (PT‑BR)
-- Cloudflare – O que é NAT? (PT‑BR): https://www.cloudflare.com/pt-br/learning/network-layer/what-is-nat/
-- Guia prático sobre NAT e portas (PT‑BR): https://www.vivaolinux.com.br/dica/NAT-e-masquerade-no-Linux
+## 8) O que mais cai em prova (pegadinhas)
 
----
+- CGNAT não é ‘NAT do roteador’: é do provedor
+- PAT é NAT com tradução de portas (muito comum em residências)
+- Port forwarding só funciona se houver IP público (ou exceção no provedor)
 
+## ✅ Checklist final (domínio do tema)
 
-## 🎥 Vídeos (PT‑BR)
+- [ ] Sei explicar NAT de forma simples
+- [ ] Sei diferenciar NAT estático, dinâmico e PAT/masquerade
+- [ ] Entendo CGNAT e o impacto em portas/acesso remoto
+- [ ] Consigo orientar cliente sobre port forwarding quando aplicável
 
-### NAT/PAT – explicado
-
+## 🎥 Vídeos (PT-BR)
+### Vídeo rápido
 ```youtube
 7M_eGJEzCvc
 ```
-
-Link: https://www.youtube.com/watch?v=7M_eGJEzCvc
-
-### Port Forwarding – na prática
-
+### Aula mais completa
 ```youtube
 UyhHnZYiLdw
 ```
 
-Link: https://www.youtube.com/watch?v=UyhHnZYiLdw
+## 📚 Leituras e referências (PT-BR)
 
+- Cloudflare – O que é NAT? (PT-BR): https://www.cloudflare.com/pt-br/learning/network-layer/what-is-nat/
+- NIC.br – IPv4, IPv6 e escassez (PT-BR): https://www.nic.br/ipv6/
+- Wikipedia PT – CGNAT: https://pt.wikipedia.org/wiki/Carrier-grade_NAT

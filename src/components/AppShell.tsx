@@ -55,10 +55,10 @@ export function AppShell() {
             </div>
             <div className="leading-tight">
               <div className="flex items-center gap-2">
-                <span className="font-semibold tracking-tight">Quiz Redes</span>
-                <Badge>TCF</Badge>
+                <span className="font-semibold tracking-tight">Plataforma de estudos</span>
+                <Badge>TCF Telecom</Badge>
               </div>
-              <div className="text-xs text-muted-foreground">Fibra óptica • React + Vite</div>
+              <div className="text-xs text-muted-foreground">Plataforma para estudo interno relacionado a redes de computadores</div>
             </div>
           </Link>
 
@@ -98,7 +98,7 @@ export function AppShell() {
             <span className="grid h-8 w-[56px] place-items-center rounded-xl border bg-white px-2 shadow-sm dark:bg-card">
               <img src={tcfLogo} alt="TCF Telecom" className="h-5 w-auto" />
             </span>
-            <span>Feito para treinar redes • banco em JSON</span>
+            <span>Feito para treinar redes</span>
           </div>
           <span className="font-mono">/questions/bank.json</span>
         </div>

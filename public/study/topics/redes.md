@@ -1,4 +1,4 @@
-# Redes de Computadores – Fundamentos para Suporte
+# Redes de Computadores – Fundamentos (LAN/WAN/MAN, topologias e equipamentos)
 
 ## 🧠 Mapa mental (visão geral)
 
@@ -6,138 +6,164 @@
 
 > Use este mapa para entender o tema como um todo antes de entrar nos detalhes.
 
+## ✅ O que você vai aprender
 
-## 1. O que é uma rede (explicação bem direta)
-Uma **rede de computadores** é um conjunto de dispositivos (PCs, notebooks, celulares, impressoras, servidores, câmeras, IoT) conectados para **trocar dados** e **compartilhar recursos**.
-
-Pense assim:
-- **Sem rede**: cada computador é uma “ilha”.
-- **Com rede**: você consegue acessar arquivos, imprimir, usar sistemas internos e sair para a internet.
-
-No suporte, entender rede ajuda a responder perguntas como:
-- “Meu Wi‑Fi conecta, mas não abre nada.”
-- “Consigo acessar o sistema interno, mas não a internet.”
-- “A impressora sumiu para todo mundo.”
-- “Só em um setor da empresa está sem rede.”
+- O que é uma rede e por que ela existe
+- Diferença entre LAN, MAN e WAN (com exemplos do dia a dia)
+- Topologias clássicas (estrela, barramento, anel, mesh) e o que muda na prática
+- Equipamentos comuns (switch, roteador, modem, ONU) e como identificar em campo
 
 ---
 
-## 2. Componentes básicos de uma rede
-Uma rede normalmente tem:
-- **Dispositivos finais**: PC, celular, impressora (clientes).
-- **Meio de transmissão**: cabo (Ethernet), ar (Wi‑Fi), fibra.
-- **Equipamentos de rede**: switch, roteador, AP, modem/ONU.
-- **Serviços**: DHCP, DNS, autenticação, firewall, proxy.
-- **Endereçamento**: IP, máscara, gateway, DNS.
+## 1) Introdução (do zero)
+
+Uma **rede de computadores** é um conjunto de dispositivos (PCs, celulares, servidores, impressoras, câmeras) conectados para **trocar dados** e **compartilhar recursos** (internet, arquivos, sistemas, impressão).
+
+No suporte, “rede” aparece de forma prática assim:
+- “Conectei no Wi‑Fi, mas não navega”
+- “A intranet não abre, mas o Google abre”
+- “O PC pega IP, mas não enxerga o servidor”
+- “Caiu a internet de todo mundo”
+
+A ideia é sempre a mesma: entender **por onde os dados passam** e **qual peça está falhando**.
+
+## 2) Conceitos fundamentais
+
+### LAN, MAN, WAN
+- **LAN**: rede local (casa, escritório, andar). Normalmente mais rápida e com controle interno.
+- **MAN**: rede metropolitana (interliga várias LANs na mesma cidade/região).
+- **WAN**: rede de longa distância (interliga cidades/estados/países). A internet é a maior WAN.
+
+### Topologia
+Topologia é “o desenho” de como os nós se conectam:
+- **Estrela**: todos conectam num ponto central (switch/roteador). É a mais comum.
+- **Barramento**: todos compartilham o mesmo meio (antiga em coaxial).
+- **Anel**: cada nó passa adiante (historicamente em alguns padrões).
+- **Mesh**: vários caminhos possíveis (muito usado em redes sem fio/mesh).
+
+### Switch x Roteador
+- **Switch**: conecta dispositivos **na mesma rede** (mesmo segmento), “comuta” quadros.
+- **Roteador**: conecta **redes diferentes** (roteia pacotes) e geralmente é quem liga a LAN à internet.
+
+### Modem x ONU
+- **Modem**: traduz o sinal do provedor (cabo/DSL) para Ethernet.
+- **ONU/ONT**: faz papel semelhante em fibra (termina a fibra e entrega Ethernet).
 
 ---
 
-## 3. Tipos de rede (LAN, MAN, WAN) – com exemplos reais
-### LAN (Local Area Network)
-Rede local: escritório, casa, laboratório, andar/empresa.
-- Ex.: rede do escritório + Wi‑Fi corporativo.
+## 3) Como funciona (passo a passo)
 
-### MAN (Metropolitan Area Network)
-Rede em escala de cidade/metrópole.
-- Ex.: interligação de prédios/filiais na mesma cidade por operadora.
+![Diagrama – redes](/study/images/topologias.svg)
 
-### WAN (Wide Area Network)
-Rede em longa distância (país/mundo).
-- Ex.: a **internet** é uma WAN.
-- Ex.: filiais em estados diferentes conectadas por VPN/MPLS.
+### Como pensar a rede (modelo mental simples)
+1. **Dispositivo** → conecta via cabo ou Wi‑Fi
+2. **Switch/AP** → entrega conectividade dentro da LAN
+3. **Roteador/Gateway** → leva para outra rede (internet/intranet)
+4. **Serviços** → DHCP (IP), DNS (nome), NAT (saída), etc.
 
-📌 Dica de prova: LAN = curto alcance, WAN = grande alcance. MAN = intermediário (cidade).
+**Pergunta de ouro do suporte:**  
+✅ “O cliente pega IP? Qual IP? Qual gateway? Qual DNS?”  
+Isso define 80% do diagnóstico.
 
 ---
 
-## 4. Topologias (estrela, barramento, anel, malha)
-Topologia é o “desenho” de como os nós se conectam.
+## 4) Exemplos reais no Suporte (cenários)
 
-### Estrela (a mais comum hoje)
-Todos os dispositivos conectam a um ponto central (switch/AP).
-- Vantagem: se um cabo/PC falhar, o resto continua.
-- Desvantagem: se o switch central cair, afeta todos.
+### “Conecta no Wi‑Fi, mas sem internet”
+**Sintoma:** Usuário conectado, mas apps não navegam.
 
-### Barramento (antiga)
-Todos compartilham o mesmo “caminho”.
-- Hoje quase não se usa, mas cai em prova.
-- Problema: colisões e dependência de um meio comum.
+**O que isso indica:** Pode ser DNS, gateway, autenticação do provedor ou portal cativo.
 
-### Anel
-Nós conectados em círculo.
-- Se um ponto falha, pode derrubar o anel (depende da tecnologia).
+**Como confirmar:**
+- Verifique IP/gateway/DNS no dispositivo
+- Teste ping no gateway
+- Teste ping em um IP público (ex.: 1.1.1.1) e depois em um domínio
 
-### Malha (mesh)
-Vários caminhos possíveis entre nós.
-- Muito usado em redes **wireless mesh** e em backbone.
-- Vantagem: alta redundância.
-- Desvantagem: mais complexo.
+**Como resolver:**
+- Corrigir DNS/gateway via DHCP
+- Reiniciar roteador/ONT/modem
+- Verificar se há portal cativo/autenticação
+
+### “Computador com IP 169.254.x.x”
+**Sintoma:** Windows mostra IP automático 169.254 (APIPA).
+
+**O que isso indica:** DHCP não respondeu (ou rede desconectada).
+
+**Como confirmar:**
+- Checar cabo/sinal Wi‑Fi
+- ipconfig /all para ver DHCP habilitado
+- Testar outra porta/cabo
+
+**Como resolver:**
+- Verificar servidor DHCP/roteador
+- Ajustar VLAN/relay se houver
+- Reiniciar serviço DHCP no roteador
+
 
 ---
 
-## 5. Equipamentos comuns (e o que cada um faz de verdade)
-### Switch
-Conecta dispositivos na **mesma LAN** e encaminha tráfego com base no **MAC Address**.
-- Atua principalmente na Camada de **Acesso à Rede** (L2).
-- No suporte: problemas típicos envolvem porta desativada, VLAN errada, loop.
+## 5) Troubleshooting (checklist profissional)
 
-### Roteador
-Conecta **redes diferentes** (sub-redes/VLANs) e encaminha pacotes por **IP**.
-- Atua na camada **Internet** (L3).
-- No suporte: gateway errado, rota ausente, NAT, regras.
+### Checklist rápido (ordem recomendada)
+1. **Camada física**: cabo, link, LEDs, Wi‑Fi com sinal ok
+2. **IP**: endereço, máscara, gateway, DNS (ipconfig /all)
+3. **Conectividade**: ping gateway → ping IP público → ping domínio
+4. **Serviços**: DHCP, DNS, NAT, rota
+5. **Escopo**: é “um usuário” ou “todo mundo”?
 
-### Modem / ONU
-Faz a “ponte” entre sua rede e a rede da operadora.
-- **Modem**: comum em DSL/cabo.
-- **ONU**: comum em fibra (FTTH).
-- No suporte: link físico, autenticação, sinal óptico, PPPoE.
+### Comandos úteis (Windows)
+```bash
+ipconfig /all
+ping <gateway>
+ping 1.1.1.1
+nslookup google.com
+tracert 1.1.1.1
+```
 
-### Access Point (AP)
-Distribui Wi‑Fi e conecta o wireless ao cabeado.
-- No suporte: canal ruim, interferência, potência, roaming.
+## 6) Conexões com outros temas
 
----
-
-## 6. Erros comuns vistos no suporte (com leitura rápida)
-- **Sem IP** ou IP 169.254 (APIPA): normalmente DHCP.
-- **Sem internet mas com rede local**: gateway/DNS/NAT.
-- **Conecta no Wi‑Fi mas “sem acesso”**: DHCP/DNS/captive portal.
-- **Só um setor sem rede**: switch/VLAN/cabo.
-- **Só um site não abre**: DNS/filtro/proxy.
+- DHCP entrega IP/gateway/DNS (ver **DHCP**)
+- DNS influencia “abre por nome” (ver **DNS**)
+- Saída para internet depende de NAT (ver **NAT/CGNAT**)
+- Roteamento correto depende de gateway/rotas (ver **Rotas e Gateway**)
 
 ---
 
-## 7. Checklist (quando o usuário diz “sem rede”)
-1. O dispositivo tem IP válido? (`ipconfig /all`)
-2. O gateway responde? (`ping gateway`)
-3. Resolve nome? (`nslookup google.com`)
-4. Acessa IP externo? (`ping 8.8.8.8`)
-5. É problema no Wi‑Fi (sinal/canal) ou no cabeado (porta/cabo)?
+## 7) Detalhe técnico (opcional)
+
+**Dica de leitura de cenário:**  
+- Se “tudo na LAN funciona”, mas “não sai pra internet”: pense em **roteador/gateway/NAT/DNS**.  
+- Se “nem IP pega”: pense em **cabo, switch, VLAN, DHCP**.  
+- Se “um serviço específico falha”: pense em **DNS, rota, firewall, MTU**.
+
+**Termos-chave (veja no glossário):** broadcast, unicast, gateway, VLAN, APIPA.
 
 ---
 
-## 8. Referências (PT‑BR)
-- Cloudflare Learning – redes e internet (PT‑BR): https://www.cloudflare.com/pt-br/learning/
-- NIC.br – materiais educativos: https://www.nic.br
+## 8) O que mais cai em prova (pegadinhas)
 
----
+- Switch não ‘dá internet’ sozinho: ele só conecta dispositivos na mesma rede
+- ONU/ONT não é roteador (a menos que esteja em modo router)
+- Mesh ≠ repetidor simples: mesh cria múltiplos caminhos e gerencia melhor a malha
 
+## ✅ Checklist final (domínio do tema)
 
-## 🎥 Vídeos (PT‑BR)
+- [ ] Consigo explicar LAN, MAN e WAN com exemplos
+- [ ] Sei reconhecer topologia estrela e mesh e quando elas fazem sentido
+- [ ] Sei diferenciar switch, roteador, modem e ONU pelo papel na rede
+- [ ] Consigo olhar um problema e levantar hipóteses (IP? DNS? gateway?)
 
-### Redes de Computadores – fundamentos
-
+## 🎥 Vídeos (PT-BR)
+### Vídeo rápido
 ```youtube
 9UJ0vUV8llY
 ```
-
-Link: https://www.youtube.com/watch?v=9UJ0vUV8llY
-
-### Redes de Computadores – aula completa
-
+### Aula mais completa
 ```youtube
 VVy_AFWNEEA
 ```
 
-Link: https://www.youtube.com/watch?v=VVy_AFWNEEA
+## 📚 Leituras e referências (PT-BR)
 
+- Cloudflare – O que é rede de computadores? (PT-BR): https://www.cloudflare.com/pt-br/learning/network-layer/what-is-a-computer-network/
+- Cisco (conceitos básicos de rede): https://www.netacad.com/pt-br

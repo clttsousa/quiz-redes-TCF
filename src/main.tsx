@@ -7,6 +7,7 @@ import { BankProvider } from '@/bank/BankContext'
 import { QuizProvider } from '@/quiz/QuizContext'
 import { HomePage } from '@/pages/Home'
 import { QuizPage } from '@/pages/Quiz'
+import { QuizSetupPage } from '@/pages/QuizSetup'
 import { ResultsPage } from '@/pages/Results'
 import { StatsPage } from '@/pages/Stats'
 import { StudyPage } from '@/pages/Study'
@@ -20,6 +21,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
             <Route element={<AppShell />}>
               <Route path="/" element={<HomePage />} />
               <Route path="/quiz" element={<QuizPage />} />
+              <Route path="/quiz/setup" element={<QuizSetupPage />} />
               <Route path="/results" element={<ResultsPage />} />
               <Route path="/stats" element={<StatsPage />} />
               <Route path="/study" element={<StudyPage />} />

@@ -1,4 +1,4 @@
-# Modelo TCP/IP – Camadas, Funções e Comparação com OSI
+# Modelo TCP/IP – Camadas, funções e comparação com OSI
 
 ## 🧠 Mapa mental (visão geral)
 
@@ -6,111 +6,151 @@
 
 > Use este mapa para entender o tema como um todo antes de entrar nos detalhes.
 
+## ✅ O que você vai aprender
 
-## 1. Por que existe “modelo de camadas”?
-Em redes, muita coisa acontece ao mesmo tempo: aplicativos, criptografia, transporte, endereçamento, mídia física…
-Para organizar isso, usamos **modelos em camadas**. Eles ajudam a:
-- **entender** onde um problema está (aplicação? transporte? roteamento? cabo?)
-- **padronizar** tecnologias (cada camada tem responsabilidades)
-- **trocar componentes** sem quebrar tudo (ex.: trocar Wi‑Fi por cabo sem mudar o navegador)
-
-No suporte, pensar em camadas é como diagnosticar um carro:
-- **o motor liga** (camada física ok)
-- **a marcha engata** (enlace ok)
-- **o carro anda até o destino** (roteamento ok)
-- **o GPS encontra endereço** (DNS ok)
-- **o app funciona** (aplicação ok)
+- Para que serve um modelo em camadas (por que isso ajuda no suporte)
+- O que cada camada do TCP/IP faz, com exemplos
+- Como comparar TCP/IP com OSI sem decorar
+- Como usar camadas para diagnosticar problemas (camada física, IP, DNS, etc.)
 
 ---
 
-## 2. O modelo TCP/IP (4 camadas)
-![Camadas TCP/IP](/study/images/tcpip-camadas.svg)
+## 1) Introdução (do zero)
 
-### 2.1 Aplicação
-Onde estão os protocolos usados por programas:
-- HTTP/HTTPS, DNS, DHCP, SMTP, SSH, FTP, NTP…
-No suporte: erro no site, proxy, DNS, autenticação.
+O modelo **TCP/IP** é uma forma organizada de entender como dados saem do seu computador e chegam a outro.
+Ele divide o processo em **camadas**, para que cada parte tenha uma responsabilidade.
 
-### 2.2 Transporte
-Como os dados são entregues de ponta a ponta entre processos:
-- **TCP** (confiável, com controle de fluxo, handshake)
-- **UDP** (rápido, sem garantia)
-No suporte: portas bloqueadas, queda de sessão, latência/jitter.
+No suporte, pensar em camadas ajuda a evitar “chute”:
+- Se a **camada de acesso** falha → cabo/Wi‑Fi
+- Se a **camada de internet** falha → IP/rota/gateway
+- Se a **camada de transporte** falha → portas/serviços
+- Se a **camada de aplicação** falha → DNS/HTTP/app
 
-### 2.3 Internet
-Endereçamento e roteamento entre redes:
-- IP, ICMP, roteamento
-No suporte: gateway, rota, “não alcança outra rede”, traceroute.
+## 2) Conceitos fundamentais
 
-### 2.4 Acesso à Rede
-Como os dados vão para o meio físico:
-- Ethernet, Wi‑Fi, ARP, switches, cabos
-No suporte: porta do switch, cabo, interferência, VLAN.
+### Camada de Aplicação
+Onde vivem os protocolos usados pelos apps (HTTP/HTTPS, DNS, SMTP, DHCP, etc.). É o que o usuário ‘vê’.
 
----
+### Camada de Transporte
+Entrega dados de ponta a ponta (TCP/UDP). Aqui entram portas, confiabilidade, ordem, retransmissão.
 
-## 3. Comparação TCP/IP x OSI (o que você precisa saber)
-OSI tem 7 camadas (modelo teórico). TCP/IP é o modelo prático da internet.
+### Camada de Internet
+Endereçamento e roteamento (IP). Decide por onde os pacotes vão passar entre redes.
 
-Tabela (visão simplificada):
-- OSI 7/6/5 (Aplicação/Apresentação/Sessão) → TCP/IP **Aplicação**
-- OSI 4 (Transporte) → TCP/IP **Transporte**
-- OSI 3 (Rede) → TCP/IP **Internet**
-- OSI 2/1 (Enlace/Física) → TCP/IP **Acesso à Rede**
-
-📌 Pegadinha comum: “OSI é usado na internet?”  
-O que usamos na prática é o **TCP/IP**. O OSI serve como **referência didática**.
+### Camada de Acesso à Rede
+Como os bits passam no meio físico (Ethernet, Wi‑Fi). Envolve frames, MAC, sinal.
 
 ---
 
-## 4. O que acontece quando você abre um site (passo a passo)
-Vamos imaginar: você abre `https://intranet.empresa.com`
+## 3) Como funciona (passo a passo)
 
-1. **Aplicação**: o navegador prepara a requisição HTTP/HTTPS.
-2. **Aplicação**: DNS resolve o nome para um IP (se ainda não tiver em cache).
-3. **Transporte**: TCP (ou QUIC/UDP no caso de HTTP/3) abre conexão.
-4. **Internet**: IP escolhe o caminho até o servidor (roteamento).
-5. **Acesso à Rede**: Ethernet/Wi‑Fi envia quadros até o gateway/switch.
-6. Resposta volta pelo caminho inverso e o navegador renderiza.
+![Diagrama – tcpip](/study/images/tcpip-stack.svg)
 
-No suporte, você pode mapear o erro:
-- não resolve nome → DNS (Aplicação)
-- resolve mas não conecta → Transporte (porta/bloqueio)
-- não chega no IP → Internet (rota/gateway)
-- perde pacote na LAN → Acesso à Rede (cabo/Wi‑Fi)
+![Diagrama – tcpip](/study/images/tcpip-camadas.svg)
 
----
+### Exemplo: abrir um site (visão por camadas)
+1. **Aplicação**: navegador pede `https://site.com` (DNS pode entrar)
+2. **Transporte**: cria conexão TCP (ou QUIC/UDP) usando portas
+3. **Internet**: IP define destino e rota via gateway
+4. **Acesso**: Ethernet/Wi‑Fi envia os quadros pelo meio
 
-## 5. Diagnóstico por camadas (rápido e eficiente)
-- **Acesso à Rede**: link conectado? Wi‑Fi com sinal? porta do switch?
-- **Internet**: IP válido? gateway correto? ping no gateway?
-- **Transporte**: porta liberada? firewall bloqueando?
-- **Aplicação**: DNS? proxy? credenciais? certificado?
+**Por que isso importa?**  
+Porque você testa em etapas: DNS → IP → rota → porta → aplicação.
 
 ---
 
-## 6. Referências (PT‑BR)
-- Cloudflare Learning (HTTP, DNS, TCP/IP): https://www.cloudflare.com/pt-br/learning/
-- Microsoft Learn – conceitos de rede (PT‑BR): https://learn.microsoft.com/pt-br/windows-server/networking/
+## 4) Exemplos reais no Suporte (cenários)
+
+### “Wi‑Fi conectado, mas nada abre” (camadas)
+**Sintoma:** Sinal ok, conectado, mas sem navegação.
+
+**O que isso indica:** Pode falhar em IP/gateway/DNS (camadas Internet/Aplicação).
+
+**Como confirmar:**
+- Ver IP/gateway/DNS
+- Ping gateway
+- Ping 1.1.1.1
+- nslookup domínio
+
+**Como resolver:**
+- Corrigir DHCP/DNS
+- Verificar gateway/rota
+- Checar bloqueio de firewall/portal cativo
+
+### “Só um sistema interno não abre”
+**Sintoma:** Internet ok, mas intranet/app interno falha.
+
+**O que isso indica:** DNS interno, rota para rede interna, ou porta do serviço.
+
+**Como confirmar:**
+- Testar resolução (nslookup)
+- Testar ping/tracert para IP interno
+- Testar porta (se aplicável)
+
+**Como resolver:**
+- Ajustar DNS (servidor interno)
+- Ajustar rota/VPN
+- Liberar porta/serviço no firewall
+
 
 ---
 
+## 5) Troubleshooting (checklist profissional)
 
-## 🎥 Vídeos (PT‑BR)
+### Diagnóstico por camadas (roteiro)
+- **Acesso**: tem link/cabo/Wi‑Fi? IP pega?
+- **Internet**: gateway responde? rota sai?
+- **Transporte**: serviço/porta acessível?
+- **Aplicação**: DNS/HTTP/app ok?
 
-### Modelo TCP/IP – explicação
+Quanto mais você “desce” nas camadas, mais básico e certeiro fica o teste.
 
+## 6) Conexões com outros temas
+
+- Transporte: diferenças TCP vs UDP (ver **UDP**)
+- Internet: roteamento e gateway (ver **Rotas e Gateway**)
+- Aplicação: DNS (ver **DNS**)
+- Saída para internet: NAT/CGNAT (ver **NAT/CGNAT**)
+
+---
+
+## 7) Detalhe técnico (opcional)
+
+**Comparação com OSI (sem decorar):**
+- OSI tem 7 camadas; TCP/IP agrupa algumas.
+- Em prática de suporte: o importante é **mapear o sintoma** para “camada provável”.
+
+Exemplo rápido:
+- “Conectado mas sem IP” → Acesso/DHCP
+- “Tem IP mas não sai” → Internet (gateway/rota)
+- “Sai por IP mas não por nome” → Aplicação (DNS)
+
+---
+
+## 8) O que mais cai em prova (pegadinhas)
+
+- DNS é aplicação (não ‘camada de internet’)
+- IP é camada de internet (roteamento), não transporte
+- TCP/UDP estão em transporte; portas pertencem a transporte
+
+## ✅ Checklist final (domínio do tema)
+
+- [ ] Consigo explicar o que é camada e por que isso ajuda no diagnóstico
+- [ ] Sei o papel de Aplicação/Transporte/Internet/Acesso
+- [ ] Sei dar exemplo de protocolo em cada camada
+- [ ] Consigo enquadrar um problema comum em uma camada provável
+
+## 🎥 Vídeos (PT-BR)
+### Vídeo rápido
 ```youtube
 iWy6HD0E9hA
 ```
-
-Link: https://www.youtube.com/watch?v=iWy6HD0E9hA
-
-### OSI x TCP/IP – comparação
-
+### Aula mais completa
 ```youtube
 B3GneMzPYNE
 ```
 
-Link: https://www.youtube.com/watch?v=B3GneMzPYNE
+## 📚 Leituras e referências (PT-BR)
 
+- Cloudflare – O que é TCP/IP? (PT-BR): https://www.cloudflare.com/pt-br/learning/ddos/glossary/tcp-ip/
+- Khan Academy (conceitos de camadas – PT): https://pt.khanacademy.org/computing/computer-science/internet-intro
