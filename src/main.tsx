@@ -12,7 +12,9 @@ import { ResultsPage } from '@/pages/Results'
 import { StatsPage } from '@/pages/Stats'
 import { StudyPage } from '@/pages/Study'
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+const root = ReactDOM.createRoot(document.getElementById('root')!)
+
+root.render(
   <React.StrictMode>
     <BankProvider>
       <QuizProvider>
@@ -32,3 +34,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     </BankProvider>
   </React.StrictMode>
 )
+
+// Remove o splash do index.html (caso algum navegador mantenha o nó por caching/hidratação)
+setTimeout(() => {
+  const splash = document.getElementById('boot-splash')
+  if (splash) splash.remove()
+}, 0)

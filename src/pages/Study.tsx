@@ -7,11 +7,16 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { cn } from '@/lib/utils'
-import { BookOpen, PlayCircle } from 'lucide-react'
+import { BookOpen, PlayCircle, List, ListOrdered, Sparkles } from 'lucide-react'
 import { YouTubeEmbed } from '@/components/YouTubeEmbed'
+import { ImageLightbox } from '@/components/ImageLightbox'
 import { StudyLoader } from '@/components/StudyLoader'
 import { applyGlossary, GlossaryProvider } from '@/components/GlossaryText'
+import { useMediaQuery } from '@/lib/useMediaQuery'
 
 type ManifestTopic = {
   slug: string
@@ -60,15 +65,79 @@ function stripFrontmatter(md: string) {
   return md.slice(end + 4).trimStart()
 }
 
+function formatGenerated(generated?: string) {
+  if (!generated) return ''
+  const d = new Date(generated)
+  if (Number.isNaN(d.getTime())) return ''
+  // pt-BR curto para não quebrar no mobile
+  return new Intl.DateTimeFormat('pt-BR', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+  }).format(d)
+}
+
+function slugify(input: string) {
+  return input
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/\p{Diacritic}/gu, '')
+    .replace(/[^a-z0-9\s-]/g, '')
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+}
+
+function getText(node: unknown): string {
+  if (typeof node === 'string' || typeof node === 'number') return String(node)
+  if (Array.isArray(node)) return node.map(getText).join('')
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  if (node && typeof node === 'object' && 'props' in (node as any)) return getText((node as any).props?.children)
+  return ''
+}
+
+function extractToc(md: string) {
+  const lines = md.split(/\r?\n/)
+  let inCode = false
+  const items: { level: number; text: string; id: string }[] = []
+  for (const line of lines) {
+    if (line.trim().startsWith('```')) {
+      inCode = !inCode
+      continue
+    }
+    if (inCode) continue
+    const m = /^(#{2,3})\s+(.+?)\s*$/.exec(line)
+    if (!m) continue
+    const level = m[1].length
+    const text = m[2].replace(/#+\s*$/, '').trim()
+    if (!text) continue
+    items.push({ level, text, id: slugify(text) })
+  }
+  return items
+}
+
 export function StudyPage() {
   const [params] = useSearchParams()
   const initialTopic = params.get('topic') || ''
+
+  const isDesktop = useMediaQuery('(min-width: 768px)')
+
+  useEffect(() => {
+    // No mobile, começa em modo leitura para reduzir poluição visual.
+    setReadingMode(!isDesktop)
+  }, [isDesktop])
 
   const [manifest, setManifest] = useState<Manifest | null>(null)
   const [selectedSlug, setSelectedSlug] = useState<string>(initialTopic)
   const [markdown, setMarkdown] = useState<string>('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'ready' | 'error'>('idle')
   const [error, setError] = useState<string>('')
+  const [topicDialogOpen, setTopicDialogOpen] = useState(false)
+  const [tocOpen, setTocOpen] = useState(false)
+  const [readingMode, setReadingMode] = useState(false)
+  const [lightbox, setLightbox] = useState<{ open: boolean; src: string; alt?: string }>({ open: false, src: '' })
 
   useEffect(() => {
     let alive = true
@@ -128,6 +197,8 @@ export function StudyPage() {
     }
   }, [selected?.markdown])
 
+
+const toc = useMemo(() => extractToc(markdown), [markdown])
   const quizCats = useMemo(() => {
     if (!selected) return []
     return QUIZ_CATEGORIES_BY_TOPIC[selected.slug] ?? []
@@ -147,37 +218,150 @@ export function StudyPage() {
         </CardHeader>
         <CardContent>
           <div className="grid gap-5 md:grid-cols-[320px_1fr]">
-            {/* Sidebar */}
-            <div className="rounded-2xl border bg-background/30 p-3 shadow-sm backdrop-blur">
-              <div className="mb-2 flex items-center justify-between gap-2">
-                <div className="text-sm font-medium">Temas</div>
-                {manifest?.generated ? (
-                  <Badge variant="outline" className="font-mono">{manifest.generated}</Badge>
-                ) : null}
-              </div>
+            {/* Sidebar (desktop) */}
+            {isDesktop ? (
+              <div className="rounded-2xl border bg-background/30 p-3 shadow-sm backdrop-blur">
+                <div className="mb-2 flex items-center justify-between gap-2">
+                  <div className="text-sm font-medium">Temas</div>
+                  {manifest?.generated ? (
+                    <Badge variant="outline" className="max-w-[240px] truncate font-mono" title={manifest.generated}>Atualizado: {formatGenerated(manifest.generated) || '—'}</Badge>
+                  ) : null}
+                </div>
 
-              <div className="grid gap-1">
-                {manifest?.topics.map((t) => (
-                  <button
-                    key={t.slug}
-                    onClick={() => setSelectedSlug(t.slug)}
-                    className={cn(
-                      'w-full rounded-xl px-3 py-2 text-left text-sm transition-colors',
-                      t.slug === selected?.slug ? 'bg-muted text-foreground' : 'text-muted-foreground hover:bg-muted hover:text-foreground'
-                    )}
-                  >
-                    <div className="font-medium text-foreground/90">{t.title}</div>
-                    <div className="mt-0.5 text-xs text-muted-foreground line-clamp-2">
-                      {t.sections?.slice(0, 2).join(' • ')}
-                      {t.sections?.length > 2 ? ' • ...' : ''}
-                    </div>
-                  </button>
-                ))}
+                <div className="grid gap-1">
+                  {manifest?.topics.map((t) => (
+                    <button
+                      key={t.slug}
+                      onClick={() => { setSelectedSlug(t.slug); setTopicDialogOpen(false) }}
+                      className={cn(
+                        'w-full rounded-xl px-3 py-2 text-left text-sm transition-colors',
+                        t.slug === selected?.slug ? 'bg-muted text-foreground' : 'text-muted-foreground hover:bg-muted hover:text-foreground'
+                      )}
+                    >
+                      <div className="font-medium text-foreground/90">{t.title}</div>
+                      <div className="mt-0.5 text-xs text-muted-foreground line-clamp-2">
+                        {t.sections?.slice(0, 2).join(' • ')}
+                        {t.sections?.length > 2 ? ' • ...' : ''}
+                      </div>
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
+            ) : null}
 
             {/* Content */}
             <div className="grid gap-4">
+              {/* Mobile topic picker (não interfere no desktop) */}
+              {!isDesktop ? (
+                <div className="sticky top-20 z-10 grid gap-2 rounded-2xl border bg-background/60 p-3 shadow-sm backdrop-blur">
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="text-sm font-medium">Tema</div>
+							{manifest?.generated ? (
+								<Badge
+									variant="outline"
+									className="max-w-[56vw] truncate font-mono text-[10px]"
+									title={manifest.generated}
+								>
+									Atualizado: {formatGenerated(manifest.generated) || '—'}
+								</Badge>
+							) : null}
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <div className="flex-1">
+                      <Select value={selectedSlug} onValueChange={setSelectedSlug}>
+                        <SelectTrigger className="rounded-xl">
+                          <SelectValue placeholder="Escolha um tema" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {manifest?.topics.map((t) => (
+                            <SelectItem key={t.slug} value={t.slug}>
+                              {t.title}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    {/* Lista completa em modal (melhor que empurrar a aula pra baixo) */}
+                    <Dialog open={topicDialogOpen} onOpenChange={setTopicDialogOpen}>
+                      <DialogTrigger asChild>
+                        <Button variant="outline" size="icon" className="rounded-xl" aria-label="Ver lista de temas">
+                          <List className="h-5 w-5" />
+                        </Button>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-[92vw] max-h-[80vh] overflow-auto rounded-2xl">
+                        <DialogHeader>
+                          <DialogTitle>Temas</DialogTitle>
+                          <DialogDescription>Toque em um tema para abrir.</DialogDescription>
+                        </DialogHeader>
+                        <div className="grid gap-2">
+                          {manifest?.topics.map((t) => (
+                            <Button
+                              key={t.slug}
+                              variant={t.slug === selected?.slug ? 'default' : 'secondary'}
+                              className="justify-start rounded-xl"
+                              onClick={() => { setSelectedSlug(t.slug); setTopicDialogOpen(false) }}
+                            >
+                              {t.title}
+                            </Button>
+                          ))}
+                        </div>
+                      </DialogContent>
+                    </Dialog>
+                  </div>
+<div className="flex items-center gap-2">
+  <Button
+    variant="secondary"
+    className="flex-1 rounded-xl"
+    onClick={() => setTocOpen(true)}
+  >
+    <ListOrdered className="mr-2 h-4 w-4" />
+    Sumário
+  </Button>
+  <Button
+    variant={readingMode ? 'default' : 'secondary'}
+    className="flex-1 rounded-xl"
+    onClick={() => setReadingMode((v) => !v)}
+    title="Modo leitura reduz elementos abertos (diagramas/vídeos) no celular"
+  >
+    <Sparkles className="mr-2 h-4 w-4" />
+    {readingMode ? 'Modo leitura' : 'Modo completo'}
+  </Button>
+</div>
+
+<Dialog open={tocOpen} onOpenChange={setTocOpen}>
+  <DialogContent className="max-w-[92vw] max-h-[80vh] overflow-auto rounded-2xl">
+    <DialogHeader>
+      <DialogTitle>Sumário</DialogTitle>
+      <DialogDescription>Toque em uma seção para ir direto no conteúdo.</DialogDescription>
+    </DialogHeader>
+    <div className="grid gap-1">
+      {toc.length ? (
+        toc.map((it) => (
+          <button
+            key={it.id}
+            className={cn(
+              'rounded-xl px-3 py-2 text-left text-sm hover:bg-muted',
+              it.level === 3 ? 'pl-7 text-muted-foreground' : 'font-medium'
+            )}
+            onClick={() => {
+              setTocOpen(false)
+              const el = document.getElementById(it.id)
+              if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+            }}
+          >
+            {it.text}
+          </button>
+        ))
+      ) : (
+        <div className="text-sm text-muted-foreground">Sem seções detectadas.</div>
+      )}
+    </div>
+  </DialogContent>
+</Dialog>
+                </div>
+              ) : null}
               {selected ? (
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <div className="flex items-center gap-2">
@@ -212,42 +396,80 @@ export function StudyPage() {
                       <>
                     {/* Imagens/diagramas do tema */}
                     {selected?.images?.length ? (
-                      <div className="grid gap-3">
-                        <div className="text-xs font-medium text-muted-foreground">Diagramas</div>
-                        <div className="grid gap-3 sm:grid-cols-2">
-                          {selected.images.map((img) => (
-                            <div key={img} className="rounded-2xl border bg-card p-3">
-                              <img
-                                src={`/study/images/${img}`}
-                                alt={img}
-                                className="h-auto w-full"
-                                loading="lazy"
-                              />
-                            </div>
-                          ))}
+                      isDesktop ? (
+                        <div className="grid gap-3">
+                          <div className="text-xs font-medium text-muted-foreground">Diagramas</div>
+                          <div className="grid gap-3 sm:grid-cols-2">
+                            {selected.images.map((img) => (
+                              <div key={img} className="rounded-2xl border bg-card p-3">
+                                <img
+                                  src={`/study/images/${img}`}
+                                  alt={img}
+                                  className="h-auto w-full max-h-[60vh] object-contain cursor-zoom-in"
+                                  loading="lazy"
+                                  onClick={() => setLightbox({ open: true, src: `/study/images/${img}`, alt: img })}
+                                  role="button"
+                                />
+                              </div>
+                            ))}
+                          </div>
+                          <Separator />
                         </div>
-                        <Separator />
-                      </div>
+                      ) : (
+                        <Accordion type="single" collapsible defaultValue={readingMode ? undefined : 'diagrams'}>
+                          <AccordionItem value="diagrams" className="border-none">
+                            <AccordionTrigger className="rounded-xl border bg-muted/10 px-3 py-2 text-sm">
+                              Diagramas e mapas mentais
+                            </AccordionTrigger>
+                            <AccordionContent className="pt-3">
+                              <div className="grid gap-3">
+                                {selected.images.map((img) => (
+                                  <div key={img} className="rounded-2xl border bg-card p-3">
+                                    <img
+                                      src={`/study/images/${img}`}
+                                      alt={img}
+                                      className="h-auto w-full max-h-[60vh] object-contain cursor-zoom-in"
+                                      loading="lazy"
+                                    />
+                                  </div>
+                                ))}
+                              </div>
+                              <div className="pt-3">
+                                <Separator />
+                              </div>
+                            </AccordionContent>
+                          </AccordionItem>
+                        </Accordion>
+                      )
                     ) : null}
 
                     {/* Markdown */}
-                    <article className="grid gap-3">
+                    <article className="grid gap-3 break-words">
                       <GlossaryProvider>
                         <ReactMarkdown
                           remarkPlugins={[remarkGfm]}
                           components={{
-                          h1: ({ ...props }) => <h1 className="text-2xl font-semibold tracking-tight" {...props} />,
-                          h2: ({ ...props }) => <h2 className="mt-4 text-xl font-semibold tracking-tight" {...props} />,
-                          h3: ({ ...props }) => <h3 className="mt-3 text-lg font-semibold tracking-tight" {...props} />,
+                          h1: ({ children, ...props }) => {
+                            const id = slugify(getText(children))
+                            return <h1 id={id || undefined} className="text-xl md:text-2xl font-semibold tracking-tight scroll-mt-24" {...props}>{children}</h1>
+                          },
+                          h2: ({ children, ...props }) => {
+                            const id = slugify(getText(children))
+                            return <h2 id={id || undefined} className="mt-4 text-lg md:text-xl font-semibold tracking-tight scroll-mt-24" {...props}>{children}</h2>
+                          },
+                          h3: ({ children, ...props }) => {
+                            const id = slugify(getText(children))
+                            return <h3 id={id || undefined} className="mt-3 text-base md:text-lg font-semibold tracking-tight scroll-mt-24" {...props}>{children}</h3>
+                          },
                           p: ({ children, ...props }) => (
-                            <p className="leading-7 text-foreground/90" {...props}>
+                            <p className="leading-7 text-foreground/90 break-words" {...props}>
                               {applyGlossary(children)}
                             </p>
                           ),
                           ul: ({ ...props }) => <ul className="list-disc space-y-1 pl-6" {...props} />,
                           ol: ({ ...props }) => <ol className="list-decimal space-y-1 pl-6" {...props} />,
                           li: ({ children, ...props }) => (
-                            <li className="leading-7" {...props}>
+                            <li className="leading-7 break-words" {...props}>
                               {applyGlossary(children)}
                             </li>
                           ),
@@ -258,7 +480,21 @@ export function StudyPage() {
   const lang = (className || '').toLowerCase()
   if (!inline && lang.includes('language-youtube')) {
     const id = String(children).trim()
-    return <YouTubeEmbed id={id} />
+    if (isDesktop) return <YouTubeEmbed id={id} />
+
+    // No mobile, mantém o texto mais “limpo”: o vídeo fica recolhível.
+    return (
+      <Accordion type="single" collapsible defaultValue={readingMode ? undefined : `yt-${id}`}>
+        <AccordionItem value={`yt-${id}`} className="border-none">
+          <AccordionTrigger className="rounded-xl border bg-muted/10 px-3 py-2 text-sm">
+            Vídeo (toque para abrir)
+          </AccordionTrigger>
+          <AccordionContent className="pt-3">
+            <YouTubeEmbed id={id} />
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
+    )
   }
   return (
     <code
@@ -307,7 +543,14 @@ export function StudyPage() {
         </CardContent>
       </Card>
 
-      <div className="text-xs text-muted-foreground">
+      
+<ImageLightbox
+  open={lightbox.open}
+  src={lightbox.src}
+  alt={lightbox.alt}
+  onOpenChange={(open) => setLightbox((s) => ({ ...s, open }))}
+/>
+<div className="text-xs text-muted-foreground">
         Dica: você também pode abrir um tema direto com <span className="font-mono">/study?topic=dns</span>.
       </div>
     </div>

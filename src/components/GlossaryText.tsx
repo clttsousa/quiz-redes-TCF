@@ -1,7 +1,9 @@
 import React from 'react'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { GLOSSARY, GLOSSARY_TERMS } from '@/lib/glossary'
 import { cn } from '@/lib/utils'
+import { useMediaQuery } from '@/lib/useMediaQuery'
 
 function escapeRegExp(s: string) {
   return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
@@ -22,42 +24,62 @@ export function GlossaryTerm({ term }: { term: string }) {
   const entry = GLOSSARY[key]
   if (!entry) return <>{term}</>
 
+  // Em celulares não há "hover". Usamos Popover (toque/click) no mobile e Tooltip no desktop.
+  const isDesktop = useMediaQuery('(min-width: 768px)')
+
+  const TriggerButton = (
+    <button
+      type="button"
+      className={cn(
+        'inline-flex items-center rounded px-0.5',
+        'underline decoration-dotted underline-offset-4',
+        'hover:bg-muted/50 focus:outline-none focus:ring-2 focus:ring-primary/40'
+      )}
+      aria-label={`${entry.label}: ${entry.short}`}
+    >
+      {term}
+    </button>
+  )
+
+  const Content = (
+    <div className="grid gap-1">
+      <div className="text-xs font-medium">{entry.label}</div>
+      <div className="text-xs text-muted-foreground">{entry.short}</div>
+      {entry.long ? <div className="mt-1 text-xs">{entry.long}</div> : null}
+      {entry.links?.length ? (
+        <div className="mt-1 grid gap-1">
+          {entry.links.map((l) => (
+            <a
+              key={l.url}
+              href={l.url}
+              target="_blank"
+              rel="noreferrer"
+              className="text-xs text-primary underline-offset-4 hover:underline"
+            >
+              {l.title}
+            </a>
+          ))}
+        </div>
+      ) : null}
+    </div>
+  )
+
+  if (!isDesktop) {
+    return (
+      <Popover>
+        <PopoverTrigger asChild>{TriggerButton}</PopoverTrigger>
+        <PopoverContent className="max-w-xs">{Content}</PopoverContent>
+      </Popover>
+    )
+  }
+
   return (
     <Tooltip>
       <TooltipTrigger asChild>
-        <button
-          type="button"
-          className={cn(
-            'inline-flex items-center rounded px-0.5',
-            'underline decoration-dotted underline-offset-4',
-            'hover:bg-muted/50 focus:outline-none focus:ring-2 focus:ring-primary/40'
-          )}
-          aria-label={`${entry.label}: ${entry.short}`}
-        >
-          {term}
-        </button>
+        {TriggerButton}
       </TooltipTrigger>
       <TooltipContent className="max-w-xs">
-        <div className="grid gap-1">
-          <div className="text-xs font-medium">{entry.label}</div>
-          <div className="text-xs text-muted-foreground">{entry.short}</div>
-          {entry.long ? <div className="mt-1 text-xs">{entry.long}</div> : null}
-          {entry.links?.length ? (
-            <div className="mt-1 grid gap-1">
-              {entry.links.map((l) => (
-                <a
-                  key={l.url}
-                  href={l.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-xs text-primary underline-offset-4 hover:underline"
-                >
-                  {l.title}
-                </a>
-              ))}
-            </div>
-          ) : null}
-        </div>
+        {Content}
       </TooltipContent>
     </Tooltip>
   )

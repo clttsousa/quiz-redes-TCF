@@ -1,14 +1,16 @@
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Wifi, BarChart3, BookOpen } from 'lucide-react'
+import { Separator } from '@/components/ui/separator'
+import { Wifi, BarChart3, BookOpen, Menu } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import tcfLogo from '@/assets/tcf-logo.png'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useState } from 'react'
 import { TechBackground } from '@/components/TechBackground'
 import { TooltipProvider } from '@/components/ui/tooltip'
 import { useMediaQuery } from '@/lib/useMediaQuery'
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 
 const TechBackground3D = lazy(() => import('@/components/TechBackground3D').then((m) => ({ default: m.TechBackground3D })))
 
@@ -33,6 +35,7 @@ export function AppShell() {
   const location = useLocation()
   const isDesktop = useMediaQuery('(min-width: 768px)')
   const reducedMotion = useReducedMotion()
+  const [mobileNavOpen, setMobileNavOpen] = useState(false)
 
   return (
     <TooltipProvider delayDuration={250}>
@@ -55,10 +58,10 @@ export function AppShell() {
             </div>
             <div className="leading-tight">
               <div className="flex items-center gap-2">
-                <span className="font-semibold tracking-tight">Plataforma de estudos</span>
-                <Badge>TCF Telecom</Badge>
+                <span className="font-semibold tracking-tight">Quiz Redes</span>
+                <Badge>TCF</Badge>
               </div>
-              <div className="text-xs text-muted-foreground">Plataforma para estudo interno relacionado a redes de computadores</div>
+              <div className="text-xs text-muted-foreground">Fibra óptica • React + Vite</div>
             </div>
           </Link>
 
@@ -69,8 +72,49 @@ export function AppShell() {
           </nav>
 
           <div className="flex items-center gap-2">
+            {/* Mobile menu (não interfere no desktop) */}
+            <div className="md:hidden">
+              <Dialog open={mobileNavOpen} onOpenChange={setMobileNavOpen}>
+                <DialogTrigger asChild>
+                  <Button variant="outline" size="icon" aria-label="Abrir menu">
+                    <Menu className="h-5 w-5" />
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="max-w-[92vw] max-h-[80vh] overflow-auto rounded-2xl">
+                  <DialogHeader>
+                    <DialogTitle>Navegação</DialogTitle>
+                    <DialogDescription>Escolha para onde ir.</DialogDescription>
+                  </DialogHeader>
+
+                  <div className="grid gap-2">
+                    <Button asChild variant="secondary" className="justify-start">
+                      <Link to="/" onClick={() => setMobileNavOpen(false)}>
+                        <Wifi className="mr-2 h-4 w-4" /> Início
+                      </Link>
+                    </Button>
+                    <Button asChild variant="secondary" className="justify-start">
+                      <Link to="/study" onClick={() => setMobileNavOpen(false)}>
+                        <BookOpen className="mr-2 h-4 w-4" /> Estudos
+                      </Link>
+                    </Button>
+                    <Button asChild variant="secondary" className="justify-start">
+                      <Link to="/stats" onClick={() => setMobileNavOpen(false)}>
+                        <BarChart3 className="mr-2 h-4 w-4" /> Estatísticas
+                      </Link>
+                    </Button>
+                    <Separator />
+                    <Button asChild variant="outline" className="justify-start">
+                      <a href="/questions/bank.json" target="_blank" rel="noreferrer" onClick={() => setMobileNavOpen(false)}>
+                        Ver banco
+                      </a>
+                    </Button>
+                  </div>
+                </DialogContent>
+              </Dialog>
+            </div>
+
             <Button asChild variant="outline" className="hidden sm:inline-flex">
-              <a href="/questions/bank.json" target="_blank" rel="noreferrer">
+              <a href="/questions/bank.json" target="_blank" rel="noreferrer" onClick={() => setMobileNavOpen(false)}>
                 Ver banco
               </a>
             </Button>
@@ -98,7 +142,7 @@ export function AppShell() {
             <span className="grid h-8 w-[56px] place-items-center rounded-xl border bg-white px-2 shadow-sm dark:bg-card">
               <img src={tcfLogo} alt="TCF Telecom" className="h-5 w-auto" />
             </span>
-            <span>Feito para treinar redes</span>
+            <span>Feito para treinar redes • banco em JSON</span>
           </div>
           <span className="font-mono">/questions/bank.json</span>
         </div>
