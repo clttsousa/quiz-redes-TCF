@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="420" viewBox="0 0 980 420">
+<rect width="980" height="420" fill="white"/>
+<text x="490" y="36" font-family="Arial" font-size="24" text-anchor="middle">NAT/PAT (Masquerade) — exemplo</text>
+<g font-family="Arial">
+  <rect x="60" y="90" width="260" height="110" rx="12" fill="#f2f2f2" stroke="#333" stroke-width="2"/>
+  <text x="190" y="125" font-size="18" text-anchor="middle">LAN (privada)</text>
+  <text x="190" y="155" font-size="13" text-anchor="middle" fill="#444">192.168.1.10:51512</text>
+  <text x="190" y="175" font-size="13" text-anchor="middle" fill="#444">192.168.1.11:51513</text>
+
+  <rect x="380" y="90" width="220" height="110" rx="12" fill="#f2f2f2" stroke="#333" stroke-width="2"/>
+  <text x="490" y="125" font-size="18" text-anchor="middle">Roteador</text>
+  <text x="490" y="155" font-size="13" text-anchor="middle" fill="#444">IP público: 200.10.10.10</text>
+  <text x="490" y="175" font-size="13" text-anchor="middle" fill="#444">PAT: troca portas</text>
+
+  <rect x="690" y="90" width="230" height="110" rx="12" fill="#f2f2f2" stroke="#333" stroke-width="2"/>
+  <text x="805" y="125" font-size="18" text-anchor="middle">Internet</text>
+  <text x="805" y="155" font-size="13" text-anchor="middle" fill="#444">Servidor: 8.8.8.8:53</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#333"/>
+    </marker>
+  </defs>
+
+  <line x1="320" y1="135" x2="380" y2="135" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="600" y1="135" x2="690" y2="135" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <text x="350" y="250" font-size="14" text-anchor="middle">192.168.1.10:51512 → 200.10.10.10:40001</text>
+  <text x="350" y="275" font-size="14" text-anchor="middle">192.168.1.11:51513 → 200.10.10.10:40002</text>
+</g>
+</svg>

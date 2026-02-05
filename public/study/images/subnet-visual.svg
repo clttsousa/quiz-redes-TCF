@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="420" viewBox="0 0 980 420">
+<rect width="980" height="420" fill="white"/>
+<text x="490" y="36" font-family="Arial" font-size="24" text-anchor="middle">Sub-rede /24 dividida em 4 sub-redes /26</text>
+<g font-family="Arial">
+  <rect x="70" y="90" width="840" height="70" rx="12" fill="#f2f2f2" stroke="#333" stroke-width="2"/>
+  <text x="490" y="132" font-size="18" text-anchor="middle">192.168.10.0/24 (256 endereços)</text>
+
+  <rect x="70" y="190" width="200" height="90" rx="12" fill="#f2f2f2" stroke="#333" stroke-width="2"/>
+  <text x="170" y="225" font-size="14" text-anchor="middle">192.168.10.0/26</text>
+  <text x="170" y="248" font-size="12" text-anchor="middle" fill="#444">hosts: .1 – .62</text>
+
+  <rect x="290" y="190" width="200" height="90" rx="12" fill="#f2f2f2" stroke="#333" stroke-width="2"/>
+  <text x="390" y="225" font-size="14" text-anchor="middle">192.168.10.64/26</text>
+  <text x="390" y="248" font-size="12" text-anchor="middle" fill="#444">hosts: .65 – .126</text>
+
+  <rect x="510" y="190" width="200" height="90" rx="12" fill="#f2f2f2" stroke="#333" stroke-width="2"/>
+  <text x="610" y="225" font-size="14" text-anchor="middle">192.168.10.128/26</text>
+  <text x="610" y="248" font-size="12" text-anchor="middle" fill="#444">hosts: .129 – .190</text>
+
+  <rect x="730" y="190" width="200" height="90" rx="12" fill="#f2f2f2" stroke="#333" stroke-width="2"/>
+  <text x="830" y="225" font-size="14" text-anchor="middle">192.168.10.192/26</text>
+  <text x="830" y="248" font-size="12" text-anchor="middle" fill="#444">hosts: .193 – .254</text>
+
+  <text x="490" y="340" font-size="14" text-anchor="middle" fill="#444">Cada /26 tem 64 endereços (62 utilizáveis). Incremento: 64.</text>
+</g>
+</svg>

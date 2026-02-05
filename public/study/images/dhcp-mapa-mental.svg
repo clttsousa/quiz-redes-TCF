@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560">
+  <style>
+    .t{font-family:ui-sans-serif,system-ui;fill:#111827}
+    .box{fill:#f8fafc;stroke:#cbd5e1;stroke-width:2;rx:16}
+    .title{font-size:18;font-weight:700}
+    .h{font-size:14;font-weight:600}
+    .s{font-size:12;fill:#334155}
+    .line{stroke:#64748b;stroke-width:2}
+  </style>
+
+  <rect x="360" y="32" width="240" height="64" class="box"/>
+  <text x="480" y="60" text-anchor="middle" class="t title">DHCP</text>
+  <text x="480" y="82" text-anchor="middle" class="t s">Configuração automática de rede</text>
+
+  <!-- DORA -->
+  <rect x="60" y="150" width="260" height="120" class="box"/>
+  <text x="190" y="178" text-anchor="middle" class="t h">Fluxo (DORA)</text>
+  <text x="80" y="205" class="t s">• Discover (broadcast)</text>
+  <text x="80" y="228" class="t s">• Offer</text>
+  <text x="80" y="251" class="t s">• Request</text>
+  <text x="80" y="274" class="t s">• ACK</text>
+
+  <!-- Parâmetros -->
+  <rect x="640" y="150" width="260" height="120" class="box"/>
+  <text x="770" y="178" text-anchor="middle" class="t h">Parâmetros</text>
+  <text x="660" y="205" class="t s">• IP / máscara</text>
+  <text x="660" y="228" class="t s">• gateway padrão</text>
+  <text x="660" y="251" class="t s">• DNS</text>
+  <text x="660" y="274" class="t s">• lease / opções</text>
+
+  <!-- Operação -->
+  <rect x="60" y="330" width="260" height="140" class="box"/>
+  <text x="190" y="358" text-anchor="middle" class="t h">Operação</text>
+  <text x="80" y="385" class="t s">• Lease + renovação (T1/T2)</text>
+  <text x="80" y="408" class="t s">• Reserva por MAC</text>
+  <text x="80" y="431" class="t s">• Escopo / pool</text>
+  <text x="80" y="454" class="t s">• DHCP Relay entre redes</text>
+
+  <!-- Troubleshooting -->
+  <rect x="640" y="330" width="260" height="140" class="box"/>
+  <text x="770" y="358" text-anchor="middle" class="t h">Troubleshooting</text>
+  <text x="660" y="385" class="t s">• 169.254 (APIPA)</text>
+  <text x="660" y="408" class="t s">• pool cheio / conflito</text>
+  <text x="660" y="431" class="t s">• VLAN/relay</text>
+  <text x="660" y="454" class="t s">• comandos: ipconfig, dhclient</text>
+
+  <!-- links -->
+  <line x1="480" y1="96" x2="320" y2="200" class="line"/>
+  <line x1="480" y1="96" x2="640" y2="200" class="line"/>
+  <line x1="480" y1="96" x2="320" y2="400" class="line"/>
+  <line x1="480" y1="96" x2="640" y2="400" class="line"/>
+</svg>

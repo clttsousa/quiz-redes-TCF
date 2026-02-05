@@ -1,5 +1,5 @@
-import { useMemo, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useEffect, useMemo, useState } from 'react'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useBank } from '@/bank/BankContext'
 import { useQuiz } from '@/quiz/QuizContext'
 import { distinctCategories } from '@/lib/bank'
@@ -31,6 +31,7 @@ function clamp(n: number, min: number, max: number) {
 }
 
 export function HomePage() {
+  const [searchParams] = useSearchParams()
   const bankState = useBank()
   const { start } = useQuiz()
   const nav = useNavigate()
@@ -45,6 +46,18 @@ export function HomePage() {
     if (bankState.status !== 'ready') return []
     return distinctCategories(bankState.bank)
   }, [bankState])
+
+  // Permite deep-link do estudo para o quiz: /?cat=DNS
+  useEffect(() => {
+    const cat = searchParams.get('cat')
+    if (!cat) return
+    // Só aplica quando o banco já carregou, para validar a categoria.
+    if (bankState.status !== 'ready') return
+    const exists = distinctCategories(bankState.bank).includes(cat)
+    if (!exists) return
+    setMode('treino')
+    setPickedCats([cat])
+  }, [searchParams, bankState])
 
   const simCats = useMemo(() => simuladoCategories().sort((a, b) => a.localeCompare(b, 'pt-BR')), [])
 
@@ -87,7 +100,8 @@ export function HomePage() {
 
         <CardContent className="grid gap-6">
           <Tabs value={mode} onValueChange={(v) => setMode(v as Mode)}>
-            <TabsList className="grid w-full grid-cols-3">
+            {/* Mobile: stack tabs to avoid cramped labels; desktop keeps 3 cols */}
+            <TabsList className="grid w-full grid-cols-1 sm:grid-cols-3">
               <TabsTrigger value="prova" className="flex-1">
                 <ClipboardList className="mr-2 h-4 w-4" /> Prova
               </TabsTrigger>
@@ -258,7 +272,7 @@ export function HomePage() {
           <div className="text-xs text-muted-foreground">
             Dica: no modo Treino você vê a resposta e explicação na hora.
           </div>
-          <Button onClick={startQuiz} disabled={!canStart}>
+          <Button onClick={startQuiz} disabled={!canStart} className="w-full sm:w-auto">
             Começar
           </Button>
         </CardFooter>

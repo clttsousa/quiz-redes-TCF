@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520">
+<rect width="100%" height="100%" fill="#0b1220"/>
+
+        <g>
+          <rect x="300" y="232" width="300" height="56" rx="18" fill="#334155" opacity="0.95"/>
+          <text x="450" y="266" font-size="18" fill="#ffffff" text-anchor="middle" font-family="Inter,Arial">Rede Wireless</text>
+        </g>
+<line x1="450" y1="260" x2="545" y2="96" stroke="#94a3b8" stroke-width="4" opacity="0.8"/>
+
+        <g>
+          <rect x="395" y="68" width="300" height="56" rx="18" fill="#0f766e" opacity="0.95"/>
+          <text x="545" y="102" font-size="18" fill="#ffffff" text-anchor="middle" font-family="Inter,Arial">WPA2/WPA3</text>
+        </g>
+<line x1="450" y1="260" x2="637" y2="228" stroke="#94a3b8" stroke-width="4" opacity="0.8"/>
+
+        <g>
+          <rect x="487" y="200" width="300" height="56" rx="18" fill="#0f766e" opacity="0.95"/>
+          <text x="637" y="234" font-size="18" fill="#ffffff" text-anchor="middle" font-family="Inter,Arial">2.4 vs 5 GHz</text>
+        </g>
+<line x1="450" y1="260" x2="595" y2="382" stroke="#94a3b8" stroke-width="4" opacity="0.8"/>
+
+        <g>
+          <rect x="445" y="354" width="300" height="56" rx="18" fill="#0f766e" opacity="0.95"/>
+          <text x="595" y="388" font-size="18" fill="#ffffff" text-anchor="middle" font-family="Inter,Arial">Canais</text>
+        </g>
+<line x1="450" y1="260" x2="386" y2="438" stroke="#94a3b8" stroke-width="4" opacity="0.8"/>
+
+        <g>
+          <rect x="236" y="410" width="300" height="56" rx="18" fill="#0f766e" opacity="0.95"/>
+          <text x="386" y="444" font-size="18" fill="#ffffff" text-anchor="middle" font-family="Inter,Arial">Interferência</text>
+        </g>
+<line x1="450" y1="260" x2="263" y2="292" stroke="#94a3b8" stroke-width="4" opacity="0.8"/>
+
+        <g>
+          <rect x="113" y="264" width="300" height="56" rx="18" fill="#0f766e" opacity="0.95"/>
+          <text x="263" y="298" font-size="18" fill="#ffffff" text-anchor="middle" font-family="Inter,Arial">Instalação</text>
+        </g>
+</svg>

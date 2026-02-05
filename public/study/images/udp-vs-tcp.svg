@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="420">
+<rect width="100%" height="100%" fill="#0b1220"/>
+<text x="40" y="60" fill="#fff" font-size="28" font-family="Arial">TCP x UDP (comparação rápida)</text>
+<rect x="60" y="100" width="280" height="260" rx="16" fill="#1f2937"/>
+<rect x="380" y="100" width="280" height="260" rx="16" fill="#1f2937"/>
+<text x="200" y="140" fill="#fff" font-size="22" font-family="Arial" text-anchor="middle">TCP</text>
+<text x="520" y="140" fill="#fff" font-size="22" font-family="Arial" text-anchor="middle">UDP</text>
+<g font-family="Arial" font-size="16" fill="#e5e7eb">
+<text x="85" y="180">• Confiável (ACK/retransmissão)</text>
+<text x="85" y="210">• Controle de fluxo</text>
+<text x="85" y="240">• Conexão (handshake)</text>
+<text x="85" y="270">• Mais overhead</text>
+<text x="85" y="300">Ex.: Web, e-mail, arquivos</text>
+
+<text x="405" y="180">• Melhor esforço (sem garantia)</text>
+<text x="405" y="210">• Baixa latência</text>
+<text x="405" y="240">• Sem conexão</text>
+<text x="405" y="270">• Menos overhead</text>
+<text x="405" y="300">Ex.: DNS, VoIP, streaming</text>
+</g>
+<text x="60" y="395" fill="#9ca3af" font-family="Arial" font-size="14">Ponto-chave para suporte: TCP prioriza entrega correta; UDP prioriza rapidez/tempo real.</text>
+</svg>

@@ -1,12 +1,16 @@
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Wifi, BarChart3 } from 'lucide-react'
+import { Wifi, BarChart3, BookOpen } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import tcfLogo from '@/assets/tcf-logo.png'
-import { AnimatePresence, motion } from 'framer-motion'
-import { TechBackground3D } from '@/components/TechBackground3D'
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
+import { lazy, Suspense } from 'react'
+import { TechBackground } from '@/components/TechBackground'
 import { TooltipProvider } from '@/components/ui/tooltip'
+import { useMediaQuery } from '@/lib/useMediaQuery'
+
+const TechBackground3D = lazy(() => import('@/components/TechBackground3D').then((m) => ({ default: m.TechBackground3D })))
 
 function NavItem({ to, label, icon }: { to: string; label: string; icon: React.ReactNode }) {
   return (
@@ -27,11 +31,22 @@ function NavItem({ to, label, icon }: { to: string; label: string; icon: React.R
 
 export function AppShell() {
   const location = useLocation()
+  const isDesktop = useMediaQuery('(min-width: 768px)')
+  const reducedMotion = useReducedMotion()
+
   return (
     <TooltipProvider delayDuration={250}>
       <div className="min-h-full">
-      <TechBackground3D />
-      <header className="sticky top-0 z-40 border-b bg-background/50 backdrop-blur">
+        {/* Desktop keeps the 3D AAA background; mobile falls back to a lighter 2D tech bg */}
+        {isDesktop && !reducedMotion ? (
+          <Suspense fallback={null}>
+            <TechBackground3D />
+          </Suspense>
+        ) : (
+          <TechBackground />
+        )}
+
+        <header className="sticky top-0 z-40 border-b bg-background/50 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
           <Link to="/" className="flex items-center gap-3">
             {/* Logo com fundo neutro para garantir contraste (a logo é azul) */}
@@ -49,6 +64,7 @@ export function AppShell() {
 
           <nav className="hidden items-center gap-1 md:flex">
             <NavItem to="/" label="Início" icon={<Wifi className="h-4 w-4" />} />
+            <NavItem to="/study" label="Estudos" icon={<BookOpen className="h-4 w-4" />} />
             <NavItem to="/stats" label="Estatísticas" icon={<BarChart3 className="h-4 w-4" />} />
           </nav>
 
@@ -62,7 +78,7 @@ export function AppShell() {
         </div>
       </header>
 
-      <main className="mx-auto max-w-6xl px-4 py-8">
+      <main className="mx-auto max-w-6xl px-4 py-5 md:py-8">
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={location.pathname}
@@ -86,7 +102,7 @@ export function AppShell() {
           </div>
           <span className="font-mono">/questions/bank.json</span>
         </div>
-      </footer>
+        </footer>
       </div>
     </TooltipProvider>
   )

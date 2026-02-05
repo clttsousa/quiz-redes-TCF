@@ -9,6 +9,7 @@ import { HomePage } from '@/pages/Home'
 import { QuizPage } from '@/pages/Quiz'
 import { ResultsPage } from '@/pages/Results'
 import { StatsPage } from '@/pages/Stats'
+import { StudyPage } from '@/pages/Study'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -21,6 +22,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
               <Route path="/quiz" element={<QuizPage />} />
               <Route path="/results" element={<ResultsPage />} />
               <Route path="/stats" element={<StatsPage />} />
+              <Route path="/study" element={<StudyPage />} />
             </Route>
           </Routes>
         </BrowserRouter>

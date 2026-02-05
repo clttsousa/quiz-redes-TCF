@@ -236,7 +236,8 @@ export function QuizPage() {
                   >
                     <div
                       className={cn(
-                        'group flex items-start justify-between gap-3 rounded-2xl border bg-background/35 px-4 py-3 text-sm',
+                        // Mobile: bigger touch target; Desktop keeps original sizing.
+                        'group flex items-start justify-between gap-3 rounded-2xl border bg-background/35 px-4 py-4 md:py-3 text-sm',
                         'shadow-sm backdrop-blur transition-all',
                         'hover:bg-muted/25 hover:shadow-md',
                         chosen && 'border-primary/40 bg-primary/10',
@@ -247,7 +248,7 @@ export function QuizPage() {
                       <div className="flex gap-3">
                         <span
                           className={cn(
-                            'mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-lg text-xs font-semibold',
+                            'mt-0.5 inline-flex h-7 w-7 md:h-6 md:w-6 items-center justify-center rounded-lg text-xs font-semibold',
                             'bg-muted/40 text-muted-foreground transition group-hover:text-foreground',
                             chosen && 'bg-primary/15 text-primary',
                             ok && 'bg-emerald-500/15 text-emerald-300',

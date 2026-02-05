@@ -18,6 +18,7 @@ import {
   XCircle,
 } from 'lucide-react'
 import { KeywordHover } from '@/components/KeywordHover'
+import { useMediaQuery } from '@/lib/useMediaQuery'
 
 function letter(idx: number) {
   return String.fromCharCode(65 + idx)
@@ -29,28 +30,29 @@ const KEYWORDS = [
   'fibra', 'GPON', 'ONT', 'OLT', 'ONU',
 ]
 
+function escapeRegExp(s: string) {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+}
+
+// Highlight only whole terms (avoid matching substrings like "NAT" inside "alternativa").
+// We use unicode letter/number boundaries via lookarounds.
+const KEYWORDS_SORTED = [...KEYWORDS].sort((a, b) => b.length - a.length)
+const KEYWORD_RE = new RegExp(
+  `(?<![\\p{L}\\p{N}_])(${KEYWORDS_SORTED.map(escapeRegExp).join('|')})(?![\\p{L}\\p{N}_])`,
+  'giu'
+)
+
 function highlight(text: string): React.ReactNode {
-  // split preserving delimiters
   const parts: React.ReactNode[] = []
-  let remaining = text
-  while (remaining.length) {
-    const hit = KEYWORDS
-      .map((k) => ({ k, idx: remaining.toLowerCase().indexOf(k.toLowerCase()) }))
-      .filter((x) => x.idx >= 0)
-      .sort((a, b) => a.idx - b.idx)[0]
-    if (!hit) {
-      parts.push(remaining)
-      break
-    }
-    if (hit.idx > 0) parts.push(remaining.slice(0, hit.idx))
-    parts.push(
-      <KeywordHover
-        key={`${hit.k}-${parts.length}`}
-        term={remaining.slice(hit.idx, hit.idx + hit.k.length)}
-      />
-    )
-    remaining = remaining.slice(hit.idx + hit.k.length)
+  let last = 0
+  for (const m of text.matchAll(KEYWORD_RE)) {
+    const idx = m.index ?? 0
+    const term = m[0]
+    if (idx > last) parts.push(text.slice(last, idx))
+    parts.push(<KeywordHover key={`${term}-${idx}`} term={term} />)
+    last = idx + term.length
   }
+  if (last < text.length) parts.push(text.slice(last))
   return <>{parts}</>
 }
 
@@ -68,7 +70,9 @@ const containerVariants = {
 
 export function LessonPanel({ q, selected }: { q: RenderQuestion; selected?: number }) {
   const lesson = useMemo(() => buildLesson(q, selected), [q, selected])
-  const [open, setOpen] = useState(true)
+  const isDesktop = useMediaQuery('(min-width: 768px)')
+  // Mobile: start collapsed to reduce scroll; Desktop keeps previous behavior.
+  const [open, setOpen] = useState(isDesktop)
 
   const isAnswered = typeof selected === 'number'
   const isCorrect = isAnswered && selected === q.answer
@@ -148,7 +152,7 @@ export function LessonPanel({ q, selected }: { q: RenderQuestion; selected?: num
               variants={containerVariants}
               initial="hidden"
               animate="show"
-              className="mt-4 grid gap-4 text-sm"
+              className="mt-4 grid gap-4 text-[15px] md:text-sm"
             >
               {lesson.concept && lesson.concept.length > 0 && (
                 <motion.div variants={sectionVariants} className="rounded-2xl border bg-background/20 p-4">

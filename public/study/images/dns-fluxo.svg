@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="420" viewBox="0 0 980 420">
+<rect width="980" height="420" fill="white"/>
+<text x="490" y="36" font-family="Arial" font-size="24" text-anchor="middle">Fluxo básico de resolução DNS</text>
+<g font-family="Arial">
+  <rect x="40" y="90" width="220" height="80" rx="12" fill="#f2f2f2" stroke="#333" stroke-width="2"/>
+  <text x="150" y="130" font-size="18" text-anchor="middle">Cliente</text>
+  <text x="150" y="155" font-size="13" text-anchor="middle" fill="#444">PC / CPE / App</text>
+
+  <rect x="320" y="90" width="260" height="80" rx="12" fill="#f2f2f2" stroke="#333" stroke-width="2"/>
+  <text x="450" y="130" font-size="18" text-anchor="middle">Resolver recursivo</text>
+  <text x="450" y="155" font-size="13" text-anchor="middle" fill="#444">ISP / empresa / público</text>
+
+  <rect x="640" y="70" width="300" height="80" rx="12" fill="#f2f2f2" stroke="#333" stroke-width="2"/>
+  <text x="790" y="110" font-size="18" text-anchor="middle">Autoritativos</text>
+  <text x="790" y="135" font-size="13" text-anchor="middle" fill="#444">Root → TLD → Zona</text>
+
+  <rect x="640" y="200" width="300" height="80" rx="12" fill="#f2f2f2" stroke="#333" stroke-width="2"/>
+  <text x="790" y="240" font-size="18" text-anchor="middle">Cache</text>
+  <text x="790" y="265" font-size="13" text-anchor="middle" fill="#444">TTL reduz consultas</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#333"/>
+    </marker>
+  </defs>
+
+  <line x1="260" y1="130" x2="320" y2="130" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="290" y="118" font-size="12" text-anchor="middle" fill="#444">consulta</text>
+
+  <line x1="580" y1="120" x2="640" y2="110" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="610" y="96" font-size="12" text-anchor="middle" fill="#444">iterações</text>
+
+  <line x1="580" y1="140" x2="640" y2="240" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="610" y="210" font-size="12" text-anchor="middle" fill="#444">salva resposta</text>
+
+  <line x1="320" y1="150" x2="260" y2="150" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="290" y="170" font-size="12" text-anchor="middle" fill="#444">resposta</text>
+</g>
+</svg>

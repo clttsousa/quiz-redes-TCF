@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="440" viewBox="0 0 900 440">
+<rect x="0" y="0" width="900" height="440" fill="white"/>
+<text x="450.0" y="35" font-family="Arial" font-size="24" text-anchor="middle">Modelo TCP/IP (camadas)</text>
+<rect x="50.0" y="70" width="800" height="70" rx="12" ry="12" fill="#f2f2f2" stroke="#333" stroke-width="2"/>
+<text x="450.0" y="98" font-family="Arial" font-size="20" text-anchor="middle">Aplicação</text>
+<text x="450.0" y="122" font-family="Arial" font-size="14" text-anchor="middle" fill="#444">HTTP/HTTPS, DNS, DHCP, SMTP, SSH...</text>
+<rect x="50.0" y="155" width="800" height="70" rx="12" ry="12" fill="#f2f2f2" stroke="#333" stroke-width="2"/>
+<text x="450.0" y="183" font-family="Arial" font-size="20" text-anchor="middle">Transporte</text>
+<text x="450.0" y="207" font-family="Arial" font-size="14" text-anchor="middle" fill="#444">TCP e UDP (portas, confiabilidade)</text>
+<rect x="50.0" y="240" width="800" height="70" rx="12" ry="12" fill="#f2f2f2" stroke="#333" stroke-width="2"/>
+<text x="450.0" y="268" font-family="Arial" font-size="20" text-anchor="middle">Internet</text>
+<text x="450.0" y="292" font-family="Arial" font-size="14" text-anchor="middle" fill="#444">IP, ICMP, roteamento</text>
+<rect x="50.0" y="325" width="800" height="70" rx="12" ry="12" fill="#f2f2f2" stroke="#333" stroke-width="2"/>
+<text x="450.0" y="353" font-family="Arial" font-size="20" text-anchor="middle">Acesso à Rede</text>
+<text x="450.0" y="377" font-family="Arial" font-size="14" text-anchor="middle" fill="#444">Ethernet, Wi‑Fi, ARP, meios físicos</text>
+</svg>

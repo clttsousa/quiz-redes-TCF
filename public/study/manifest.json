@@ -1,0 +1,159 @@
+{
+  "generated": "2026-02-05T17:03:01.388261Z",
+  "topics": [
+    {
+      "slug": "redes",
+      "title": "Redes de Computadores",
+      "sections": [
+        "Conceitos de rede",
+        "LAN, MAN, WAN",
+        "Topologias",
+        "Equipamentos (switch, roteador, modem, ONU)",
+        "Exemplos de suporte"
+      ],
+      "markdown": "topics/redes.md",
+      "images": [
+        "redes-mindmap.svg",
+        "topologias.svg"
+      ]
+    },
+    {
+      "slug": "tcpip",
+      "title": "Modelo TCP/IP",
+      "sections": [
+        "Camadas do TCP/IP",
+        "Comparação com OSI",
+        "Exemplo prático (acessar site)",
+        "O que cai em prova"
+      ],
+      "markdown": "topics/tcpip.md",
+      "images": [
+        "tcpip-mindmap.svg",
+        "tcpip-stack.svg"
+      ]
+    },
+    {
+      "slug": "udp",
+      "title": "Protocolo UDP",
+      "sections": [
+        "UDP x TCP",
+        "Quando usar UDP",
+        "Cenários de suporte",
+        "Pegadinhas"
+      ],
+      "markdown": "topics/udp.md",
+      "images": [
+        "udp-mindmap.svg",
+        "udp-vs-tcp.svg"
+      ]
+    },
+    {
+      "slug": "nat",
+      "title": "NAT – Network Address Translation",
+      "sections": [
+        "O que é NAT",
+        "Tipos (Static/Dynamic/PAT)",
+        "Port forwarding e NAT duplo",
+        "Troubleshooting"
+      ],
+      "markdown": "topics/nat.md",
+      "images": [
+        "nat-mindmap.svg",
+        "nat-pat-flow.svg"
+      ]
+    },
+    {
+      "slug": "dhcp",
+      "title": "DHCP – Dynamic Host Configuration Protocol",
+      "sections": [
+        "Conceitos",
+        "Processo DORA",
+        "Renovação (T1/T2)",
+        "Relay",
+        "Troubleshooting",
+        "Pegadinhas"
+      ],
+      "markdown": "topics/dhcp.md",
+      "images": [
+        "dhcp-mindmap.svg",
+        "dhcp-dora.svg"
+      ]
+    },
+    {
+      "slug": "ip-publico-privado",
+      "title": "IP Público x IP Privado (e CGNAT)",
+      "sections": [
+        "IP público x privado",
+        "Faixas privadas",
+        "CGNAT",
+        "Como identificar",
+        "O que fazer"
+      ],
+      "markdown": "topics/ip-publico-privado.md",
+      "images": [
+        "ip-publico-privado-mindmap.svg",
+        "nat-pat-flow.svg"
+      ]
+    },
+    {
+      "slug": "dns",
+      "title": "DNS – Domain Name System",
+      "sections": [
+        "Resolução passo a passo",
+        "Recursivo x Autoritativo",
+        "Registros",
+        "Troubleshooting"
+      ],
+      "markdown": "topics/dns.md",
+      "images": [
+        "dns-mindmap.svg",
+        "dns-flow.svg"
+      ]
+    },
+    {
+      "slug": "subnet",
+      "title": "Máscara de Sub-rede",
+      "sections": [
+        "CIDR",
+        "Cálculo de hosts",
+        "Bloco",
+        "Erros comuns"
+      ],
+      "markdown": "topics/subnet.md",
+      "images": [
+        "subnet-mindmap.svg",
+        "subnet-map.svg"
+      ]
+    },
+    {
+      "slug": "wireless",
+      "title": "Rede Wireless",
+      "sections": [
+        "WPA2/WPA3",
+        "Interferência e bandas",
+        "Boas práticas",
+        "Troubleshooting"
+      ],
+      "markdown": "topics/wireless.md",
+      "images": [
+        "wireless-mindmap.svg",
+        "wireless-bestpractices.svg"
+      ]
+    },
+    {
+      "slug": "rotas-gateway",
+      "title": "Criação de Rotas e Gateways",
+      "sections": [
+        "Gateway padrão",
+        "Rotas estáticas x dinâmicas",
+        "Rota padrão",
+        "Troubleshooting"
+      ],
+      "markdown": "topics/rotas-gateway.md",
+      "images": [
+        "rotas-gateway-mindmap.svg",
+        "routing-gateway.svg"
+      ]
+    }
+  ]
+}
