@@ -64,7 +64,6 @@ export function HomePage() {
               <CardTitle className="text-2xl">Treinamento – Redes para Suporte Interno</CardTitle>
               <CardDescription>Estude por apostilas completas e pratique com questões.</CardDescription>
             </div>
-            <Badge variant="secondary">Avaliação: 07/02/2026</Badge>
           </div>
         </CardHeader>
         <CardContent className="space-y-4">

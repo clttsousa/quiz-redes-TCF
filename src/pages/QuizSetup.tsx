@@ -82,7 +82,7 @@ export function QuizSetupPage() {
 
   return (
     <div className="grid gap-6">
-      <Card className="transition will-change-transform hover:-translate-y-0.5 hover:shadow-lg">
+      <Card className="transition will-change-transform md:hover:-translate-y-0.5 md:hover:shadow-lg">
         <CardHeader>
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div>
@@ -100,16 +100,18 @@ export function QuizSetupPage() {
 
         <CardContent className="grid gap-6">
           <Tabs value={mode} onValueChange={(v) => setMode(v as Mode)}>
-            {/* Mobile: stack tabs to avoid cramped labels; desktop keeps 3 cols */}
-            <TabsList className="grid w-full grid-cols-1 sm:grid-cols-3">
+            {/* Mobile: horizontal scroll to avoid cramped labels; desktop keeps 3 cols */}
+            <TabsList className="flex w-full gap-2 overflow-x-auto rounded-xl p-1 sm:grid sm:grid-cols-3 sm:overflow-visible">
               <TabsTrigger value="prova" className="flex-1">
                 <ClipboardList className="mr-2 h-4 w-4" /> Prova
               </TabsTrigger>
-              <TabsTrigger value="treino" className="flex-1">
+              <TabsTrigger value="treino" className="flex-1 shrink-0 whitespace-nowrap">
                 <GraduationCap className="mr-2 h-4 w-4" /> Treino
               </TabsTrigger>
-              <TabsTrigger value="simulado" className="flex-1">
-                <Shuffle className="mr-2 h-4 w-4" /> Simulado (Redes base)
+              <TabsTrigger value="simulado" className="flex-1 shrink-0 whitespace-nowrap">
+                <Shuffle className="mr-2 h-4 w-4" />
+                <span>Simulado</span>
+                <span className="hidden sm:inline">&nbsp;(Redes base)</span>
               </TabsTrigger>
             </TabsList>
 
@@ -133,7 +135,7 @@ export function QuizSetupPage() {
                       <SelectTrigger>
                         <SelectValue placeholder="Selecione" />
                       </SelectTrigger>
-                      <SelectContent>
+                      <SelectContent className="max-h-[50vh] overflow-auto">
                         {(['very_easy', 'easy', 'medium', 'hard', 'mix'] as const).map((d) => (
                           <SelectItem key={d} value={d}>
                             {DIFF_LABEL[d]}
@@ -161,7 +163,7 @@ export function QuizSetupPage() {
                       <SelectTrigger>
                         <SelectValue placeholder="Selecione" />
                       </SelectTrigger>
-                      <SelectContent>
+                      <SelectContent className="max-h-[50vh] overflow-auto">
                         {[10, 25, 40, 50, 75, 100, 150, 200].map((n) => (
                           <SelectItem key={n} value={String(n)}>
                             {n}
@@ -207,7 +209,7 @@ export function QuizSetupPage() {
                           Selecionar • <span className="ml-2 text-muted-foreground">{selectedCountLabel}</span>
                         </Button>
                       </DialogTrigger>
-                      <DialogContent>
+                      <DialogContent className="max-w-[92vw] sm:max-w-lg max-h-[85vh] overflow-hidden rounded-2xl">
                         <DialogHeader>
                           <DialogTitle>Selecionar categorias</DialogTitle>
                           <DialogDescription>
@@ -215,36 +217,38 @@ export function QuizSetupPage() {
                           </DialogDescription>
                         </DialogHeader>
 
-                        <div className="mt-2 max-h-[60vh] overflow-auto rounded-xl border p-3">
-                          <div className="grid gap-2">
-                            {effectiveCats.map((c) => {
-                              const checked = pickedCats.includes(c)
-                              return (
-                                <label key={c} className="flex cursor-pointer items-center gap-3 rounded-lg px-2 py-1 hover:bg-muted">
-                                  <Checkbox
-                                    checked={checked}
-                                    onCheckedChange={(v) => {
-                                      setPickedCats((prev) => {
-                                        const on = Boolean(v)
-                                        if (on) return Array.from(new Set([...prev, c]))
-                                        return prev.filter((x) => x !== c)
-                                      })
-                                    }}
-                                  />
-                                  <span className="text-sm">{c}</span>
-                                </label>
-                              )
-                            })}
+                        <div className="mt-2 flex max-h-[65vh] flex-col gap-3">
+                          <div className="min-h-0 flex-1 overflow-auto rounded-xl border p-3">
+                            <div className="grid gap-2">
+                              {effectiveCats.map((c) => {
+                                const checked = pickedCats.includes(c)
+                                return (
+                                  <label key={c} className="flex cursor-pointer items-center gap-3 rounded-lg px-2 py-2 hover:bg-muted">
+                                    <Checkbox
+                                      checked={checked}
+                                      onCheckedChange={(v) => {
+                                        setPickedCats((prev) => {
+                                          const on = Boolean(v)
+                                          if (on) return Array.from(new Set([...prev, c]))
+                                          return prev.filter((x) => x !== c)
+                                        })
+                                      }}
+                                    />
+                                    <span className="text-sm">{c}</span>
+                                  </label>
+                                )
+                              })}
+                            </div>
                           </div>
-                        </div>
 
-                        <div className="flex items-center justify-between">
-                          <Button variant="ghost" onClick={() => setPickedCats([])}>
-                            Limpar
-                          </Button>
-                          <DialogClose asChild>
-                            <Button>Fechar</Button>
-                          </DialogClose>
+                          <div className="sticky bottom-0 flex items-center justify-between border-t bg-background/80 pt-3 backdrop-blur">
+                            <Button variant="ghost" onClick={() => setPickedCats([])}>
+                              Limpar
+                            </Button>
+                            <DialogClose asChild>
+                              <Button>Fechar</Button>
+                            </DialogClose>
+                          </div>
                         </div>
                       </DialogContent>
                     </Dialog>

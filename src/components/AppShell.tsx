@@ -50,18 +50,17 @@ export function AppShell() {
         )}
 
         <header className="sticky top-0 z-40 border-b bg-background/50 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-2 sm:py-3">
           <Link to="/" className="flex items-center gap-3">
             {/* Logo com fundo neutro para garantir contraste (a logo é azul) */}
-            <div className="grid h-11 w-[88px] place-items-center rounded-2xl border bg-white px-2 shadow-sm dark:bg-card">
-              <img src={tcfLogo} alt="TCF Telecom" className="h-8 w-auto" />
+            <div className="grid h-9 w-[76px] place-items-center rounded-2xl border bg-white px-2 shadow-sm dark:bg-card sm:h-11 sm:w-[88px]">
+              <img src={tcfLogo} alt="TCF Telecom" className="h-7 w-auto sm:h-8" />
             </div>
             <div className="leading-tight">
               <div className="flex items-center gap-2">
-                <span className="font-semibold tracking-tight">Quiz Redes</span>
+                <span className="text-sm font-semibold tracking-tight sm:text-base">Quiz Redes</span>
                 <Badge>TCF</Badge>
               </div>
-              <div className="text-xs text-muted-foreground">Fibra óptica • React + Vite</div>
             </div>
           </Link>
 
@@ -142,9 +141,8 @@ export function AppShell() {
             <span className="grid h-8 w-[56px] place-items-center rounded-xl border bg-white px-2 shadow-sm dark:bg-card">
               <img src={tcfLogo} alt="TCF Telecom" className="h-5 w-auto" />
             </span>
-            <span>Feito para treinar redes • banco em JSON</span>
+            <span>Feito para treinar redes</span>
           </div>
-          <span className="font-mono">/questions/bank.json</span>
         </div>
         </footer>
       </div>
